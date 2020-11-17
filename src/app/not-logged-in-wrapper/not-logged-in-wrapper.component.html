@@ -1,0 +1,41 @@
+<header class="padding-top-15 padding-top-xs-25">
+    <div class="container">
+        <div class="row fs-0">
+            <div class="col-xs-6 inline-block">
+                <figure itemscope="" itemtype="http://schema.org/ImageObject">
+                    <a [routerLink]="['/'+translate.currentLang+'/login']" itemprop="url">
+                        <img src="{{dentistLogo}}" alt="Dentaprime logo" class="dentist-logo-img {{dentistLogoClass}}"/>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-xs-6 text-right inline-block">
+                <div class="lang-switcher inline-block">
+                    <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="platform-text-color fix-selects-for-ios">
+                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
+                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'en')">DE</option>
+                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'de')">EN</option>
+                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'de')" selected>DE</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="camping-currently-offline"></div>
+</header>
+<main class="container">
+    <router-outlet></router-outlet>
+</main>
+<footer class="text-center padding-top-100 padding-top-xs-40 padding-bottom-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="https://dentacoin.com" target="_blank" class="inline-block in-app-browser-link">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject">
+                        <img src="assets/images/dentacoin-logo.png" alt="Dentacoin logo" itemprop="contentUrl"/>
+                        <figcaption class="fs-14 padding-top-5">{{'powered-by-dcn' | translate}}</figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

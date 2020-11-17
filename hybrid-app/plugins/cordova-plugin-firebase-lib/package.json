@@ -1,0 +1,83 @@
+{
+  "_from": "cordova-plugin-firebase-lib@3.3.0",
+  "_id": "cordova-plugin-firebase-lib@3.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-qYBviiaG72CqZ0YY1wAiN/jtbE4zyaJvJ8toZGFxDKx/tx/iQDruHKbRngy9y3p6HuWY20snn+tupV7i7qGI8A==",
+  "_location": "/cordova-plugin-firebase-lib",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-firebase-lib@3.3.0",
+    "name": "cordova-plugin-firebase-lib",
+    "escapedName": "cordova-plugin-firebase-lib",
+    "rawSpec": "3.3.0",
+    "saveSpec": null,
+    "fetchSpec": "3.3.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-firebase-lib/-/cordova-plugin-firebase-lib-3.3.0.tgz",
+  "_shasum": "9b51d3b3b22f990b79f88a80bf3264df068f0383",
+  "_spec": "cordova-plugin-firebase-lib@3.3.0",
+  "_where": "E:\\Programs\\wamp64\\www\\dentacoin\\dentaprime-hub-app\\hybrid-app",
+  "author": {
+    "name": "Wiz Panda Techno Solutions",
+    "url": "https://www.wizpanda.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/wizpanda/cordova-plugin-firebase-lib/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-firebase-lib",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "dependencies": {
+    "xcode": "^2.0.0"
+  },
+  "deprecated": false,
+  "description": "Cordova plugin for Google Firebase",
+  "homepage": "https://github.com/wizpanda/cordova-plugin-firebase-lib#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser",
+    "firebase",
+    "push",
+    "notifications",
+    "phone auth"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-firebase-lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizpanda/cordova-plugin-firebase-lib.git"
+  },
+  "scripts": {
+    "postversion": "git push && git push --tags && npm publish --verbose",
+    "preversion": "git add CHANGELOG.md",
+    "test": "npm run test:ios && npm run test:android && npm run test:browser",
+    "test:android": "npm run test:cordova@7.1.0:android@7.1.0 && npm run test:cordova@8.0.0:android@7.1.0 && npm run test:cordova@9.0.0:android@8.0.0",
+    "test:browser": "npm run test:cordova@6.5.0:browser@5.0.3 && npm run test:cordova@7.1.0:browser@5.0.3 && npm run test:cordova@8.0.0:browser@5.0.3",
+    "test:cordova@6.5.0:android@6.4.0": "bash ./test/test-default.sh 6.5.0 android 6.4.0 && bash ./test/test-with-3-plugins.sh 6.5.0 android 6.4.0 cordova-plugin-request-location-accuracy cordova-android-play-services-gradle-release cordova-android-firebase-gradle-release",
+    "test:cordova@6.5.0:browser@5.0.3": "bash ./test/test-default.sh 6.5.0 browser 5.0.3",
+    "test:cordova@6.5.0:ios@4.5.4": "bash ./test/test-default.sh 6.5.0 ios 4.5.4",
+    "test:cordova@7.1.0:android@7.1.0": "bash ./test/test-default.sh 7.1.0 android 7.1.0 && bash ./test/test-with-3-plugins.sh 7.1.0 android 7.1.0 cordova-plugin-request-location-accuracy cordova-android-play-services-gradle-release cordova-android-firebase-gradle-release",
+    "test:cordova@7.1.0:browser@5.0.3": "bash ./test/test-default.sh 7.1.0 browser 5.0.3",
+    "test:cordova@7.1.0:ios@4.5.4": "bash ./test/test-default.sh 7.1.0 ios 4.5.4",
+    "test:cordova@8.0.0:android@7.1.0": "bash ./test/test-default.sh 8.0.0 android 7.1.0 && bash ./test/test-with-3-plugins.sh 8.0.0 android 7.1.0 cordova-plugin-request-location-accuracy cordova-android-play-services-gradle-release cordova-android-firebase-gradle-release",
+    "test:cordova@8.0.0:browser@5.0.3": "bash ./test/test-default.sh 8.0.0 browser 5.0.3",
+    "test:cordova@8.0.0:ios@4.5.4": "bash ./test/test-default.sh 8.0.0 ios 4.5.4",
+    "test:ios": "npm run test:cordova@6.5.0:ios@4.5.4 && npm run test:cordova@7.1.0:ios@4.5.4 && npm run test:cordova@8.0.0:ios@4.5.4",
+    "version": "node ./bump-version.js && git add -A plugin.xml"
+  },
+  "version": "3.3.0"
+}

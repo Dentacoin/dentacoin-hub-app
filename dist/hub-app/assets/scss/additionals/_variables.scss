@@ -1,0 +1,38 @@
+$screen-md: 1200px;
+$screen-sm: 992px;
+$screen-xs: 768px;
+
+$main_color: #333333; 
+$light_blue: #00b7e2;
+$light_gray: #ddd;
+$solid_gray: #888888;
+$warning_red: #ff0046;
+$dp_red: #8b2f46;
+
+.color-white {
+    color: white;
+}
+
+.color-black {
+    color: black;
+}
+
+.color-light-blue {
+    color: $light_blue;
+}
+
+.color-warning-red {
+    color: $warning_red;
+}
+
+.color-light-gray {
+    color: $light_gray;
+}
+
+.color-solid-gray {
+    color: $solid_gray;
+}
+
+.color-main {
+    color: $main_color;
+}

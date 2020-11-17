@@ -1,0 +1,201 @@
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .logged-user-right-nav {
+        > .hidden-box-parent {
+            color: black;
+            font-size: 0;
+            display: inline-block;
+            padding: 15px 0;
+            position: relative;
+            cursor: pointer;
+            .color-white-on-hub {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            figure.header-avatar {
+                width: 40px;
+                margin-left: 10px;
+                overflow: hidden;
+                @include rounded(50%);
+            }
+            @include breakpoint($xs) {
+                padding: 5px 0;
+            }
+        }
+        .up-arrow {
+            font-size: 0;
+            width: 20px;
+            height: 20px;
+            color: white;
+            position: absolute;
+            top: calc(100% - 15px);
+            z-index: 5000000000;
+            right: 30px;
+            display: none;
+            @include rotate(45deg);
+            @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.5));
+            &.background-white {
+                background-color: white;
+            }
+            &.show-this {
+                display: block;
+            }
+            @include breakpoint($sm-down) {
+                top: calc(100% - 5px);
+            }
+        }
+        .application {
+            figure {
+                img {
+                    @include rounded(15px);
+                    @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.2));
+                }
+            }
+        }
+        /*.hidden-box {
+            display: none;
+            visibility: hidden;
+            position: absolute;
+            min-width: 270px;
+            max-width: 450px;
+            top: calc(100% - 5px);
+            right: -30px;
+            background-color: white;
+            overflow: hidden;
+            z-index: 5000000001;
+            @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.5));
+            @include rounded(15px);
+            .hidden-box-hub {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                padding: 30px 50px 15px;
+                text-align: left;
+                border-bottom: 1px solid gray;
+                .close-btn {
+                    display: none;
+                    text-align: right;
+                    padding-bottom: 15px;
+                    a {
+                        font-size: 20px;
+                        color: white;
+                        span {
+                            background: white;
+                            color: black;
+                            width: 30px;
+                            height: 30px;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 30px;
+                            @include rounded(50%);
+                        }
+                    }
+                }
+                @include breakpoint($xs) {
+                    .close-btn {
+                        display: block;
+                    }
+                }
+            }
+            .hidden-box-footer {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                background: white;
+                .hub-page-menu {
+                    padding-bottom: 15px;
+                    li {
+                        display: block;
+                        a {
+                            font-size: 18px;
+                            text-align: center;
+                            display: block;
+                            padding: 5px 0;
+                            border-bottom: 1px solid red;
+                            span {
+                                color: red;
+                            }
+                        }
+                        &:last-child {
+                            a {
+                                border-bottom: none;
+                            }
+                        }
+                    }
+                }
+                .white-dark-blue-btn {
+                    padding: 7px 10px;
+                }
+                .logout {
+                    font-size: 16px;
+                    color: black;
+                    i {
+                        font-size: 24px;
+                        vertical-align: middle;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            &.show-this {
+                display: block;
+                visibility: visible;
+            }
+            @include breakpoint($sm-down) {
+                right: -60px;
+                top: calc(100% + 5px);
+            }
+        }
+        &.with-hub {
+            .hidden-box {
+                width: 450px;
+            }
+            .up-arrow {
+                color: #669ccc;
+            }
+        }
+        @include breakpoint($xs) {
+            .hidden-box {
+                width: 270px;
+            }
+            &.with-hub {
+                position: static;
+                > .hidden-box-parent {
+                    position: static;
+                    .up-arrow {
+                        display: none;
+                    }
+                    .hidden-box {
+                        min-width: 0;
+                        max-width: none;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        height: 100vh;
+                        background-color: rgba(0, 0, 0, 0.6);
+                        overflow: auto;
+                        .hidden-box-hub {
+                            padding: 10px 15px 15px;
+                        }
+                    }
+                }
+            }
+        }*/
+        .logged-nav {
+            font-size: 28px;
+            padding-left: 15px;
+            border-left: 1px solid black;
+        }
+    }
+    @include breakpoint($xs) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .currently-offline {
+        text-align: center;
+        background: red;
+        color: white;
+        padding: 5px;
+        font-size: 16px;
+    }
+}

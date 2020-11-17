@@ -1,0 +1,102 @@
+.my-wallet-container {
+    form#withdraw {
+        .withdraw-input-parent {
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                /* display: none; <- Crashes Chrome on hover */
+                -webkit-appearance: none;
+                margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+            }
+
+            input[type=number] {
+                -moz-appearance: textfield; /* Firefox */
+            }
+        }
+        .amount {
+            width: calc(100% - 140px);
+            height: 50px;
+            display: none;
+            @include breakpoint($xs) {
+                width: calc(100% - 100px);
+            }
+        }
+        .disabled-amount {
+            width: calc(100% - 140px);
+            color: black;
+            height: 50px;
+            cursor: pointer;
+            background-image: url('../images/minipencilicon.png');
+            background-position: center right 10px;
+            background-repeat: no-repeat;
+            background-size: 25px;
+            @include breakpoint($xs) {
+                width: calc(100% - 100px);
+            }
+        }
+        .withdraw-button {
+            width: 140px;
+            height: 50px;
+            @include breakpoint($xs) {
+                width: 100px;
+                padding: 10px 0;
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+    }
+    .current-converted-price {
+        .symbol {
+            position: relative;
+            padding-right: 20px;
+            color: #333333;
+            padding-left: 5px;
+            span {
+                text-transform: uppercase;
+            }
+            &:after {
+                content: '';
+                right: 0;
+                border-style: solid;
+                border-width: 14px 6px 0 6px;
+                border-color: #616161 transparent transparent transparent;
+                top: 13px;
+                position: absolute;
+            }
+            .dropdown-hidden-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                z-index: 10;
+                right: 0;
+                background-color: white;
+                @include box-shadow(0px 0px 7px 3px rgba(234, 234, 234, 0.9));
+                li {
+                    button {
+                        background-color: white;
+                        border: 0;
+                        padding: 0 10px;
+                        font-size: 22px;
+                        text-transform: uppercase;
+                        @include simple_transition(.3s);
+                        &:hover {
+                            color: $dp_red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    button.civic-custom-btn {
+        max-width: 240px;
+        border: 0;
+        @include box-shadow(0px 0px 10px 1px rgba(0, 0, 0, 0.2));
+    }
+    .missing-dcn-address {
+        .custom-input {
+            max-width: 450px;
+        }
+    }
+    .transaction-history-table {
+        width: 100%;
+    }
+}

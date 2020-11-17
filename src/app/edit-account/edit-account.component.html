@@ -1,0 +1,88 @@
+<section class="edit-account-container account-page padding-top-30 padding-bottom-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 fs-0 padding-left-0 padding-right-0 padding-left-sm-15 padding-right-sm-15 padding-left-xs-15 padding-right-xs-15">
+                <app-account-sidebar></app-account-sidebar>
+                <div class="my-profile-page-content inline-block-top">
+                    <div class="profile-page-title padding-bottom-50">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Edit account icon" src="assets/images/edit-account-icon.svg"/>
+                        </figure>
+                        <h2 class="fs-24 lato-bold inline-block">{{'edit-account' | translate}}</h2>
+                    </div>
+                    <div class="success-handle margin-bottom-20" *ngIf="editAccountSuccess">{{'account-saved-successfully' | translate}}</div>
+                    <div class="error-handle margin-bottom-20" *ngIf="editAccountFailed">{{'account-saving-failed' | translate}}</div>
+                    <div class="error-handle margin-bottom-20" *ngIf="editPasswordFailed">{{'password-change-failed' | translate}}</div>
+                    <div class="error-handle margin-bottom-20" *ngIf="passwordsNotMatching">{{'passwords-not-match' | translate}}</div>
+                    <form [formGroup]="this.patientsEditAccountForm" (ngSubmit)="this.onPatientsEditAccountFormSubmit()" id="user-update-profile">
+                        <div class="form-row padding-bottom-15 fs-0" *ngIf="(showTitles == true)">
+                            <label class="inline-block fs-16" for="title">{{'title-label' | translate}}</label>
+                            <select id="title" class="custom-input fix-selects-for-ios" formControlName="title">
+                                <ng-container *ngFor="let item of titlesList | keyvalue">
+                                    <option value="{{item.key}}">{{item.value}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.title.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.title.errors.required">{{'title-validation' | translate}}</div>
+                        </div>
+                        <div class="form-row padding-bottom-15 fs-0">
+                            <label class="inline-block fs-16" for="first-name">{{'fname-label' | translate}}</label>
+                            <input class="inline-block fs-16 custom-input required" formControlName="firstName" maxlength="100" type="text" id="first-name"/>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.firstName.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.firstName.errors.required">{{'fname-required' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.firstName.hasError('maxlength')">{{'fname-max-length' | translate}}</div>
+                        </div>
+                        <div class="form-row padding-bottom-15 fs-0">
+                            <label class="inline-block fs-16" for="last-name">{{'lname-label' | translate}}</label>
+                            <input class="inline-block fs-16 custom-input required" formControlName="lastName" maxlength="100" type="text" id="last-name"/>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.lastName.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.lastName.errors.required">{{'lname-required' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.lastName.hasError('maxlength')">{{'lname-max-length' | translate}}</div>
+                        </div>
+                        <div class="form-row padding-bottom-15 fs-0">
+                            <label class="inline-block fs-16" for="password">{{'password-label' | translate}}</label>
+                            <input class="inline-block fs-16 custom-input required" formControlName="password" maxlength="20" type="password" id="password"/>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.password.errors">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.password.hasError('minlength')">>{{'password-min-length-validation' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.password.hasError('maxlength')">>{{'password-max-length-validation' | translate}}</div>
+                        </div>
+                        <div class="form-row padding-bottom-15 fs-0">
+                            <label class="inline-block fs-16" for="repeat-password">{{'repeat-password-label' | translate}}</label>
+                            <input class="inline-block fs-16 custom-input required" formControlName="repeatPassword" maxlength="20" type="password" id="repeat-password"/>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.repeatPassword.errors">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.repeatPassword.hasError('minlength')">{{'password-min-length-validation' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.repeatPassword.hasError('maxlength')">{{'password-max-length-validation' | translate}}</div>
+                        </div>
+                        <div class="form-row padding-bottom-15 fs-0">
+                            <label class="inline-block fs-16" for="phone">{{'phone-label' | translate}}</label>
+                            <input class="inline-block fs-16 custom-input required" formControlName="phone" maxlength="20" type="text" id="phone"/>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.phone.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.phone.errors.required">{{'phone-required' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.phone.hasError('maxlength')">{{'phone-max-length-validation' | translate}}</div>
+                        </div>
+                        <div class="form-row padding-bottom-15 fs-0" *ngIf="(showCountries == true)">
+                            <label class="inline-block fs-16" for="country">{{'country-label' | translate}}</label>
+                            <select id="country" class="custom-input fix-selects-for-ios" formControlName="country">
+                                <ng-container *ngFor="let item of countriesList | keyvalue">
+                                    <option value="{{item.key}}">{{item.value.name}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div *ngIf="patientsEditAccountFormSubmitted && this.patients_edit_account_form_data.country.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.patients_edit_account_form_data.country.errors.required">{{'country-required' | translate}}</div>
+                        </div>
+                        <div class="padding-top-30 text-center">
+                            <button class="module platform-custom-button platform-background-color platform-border-color hover">{{'update-profile-btn' | translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

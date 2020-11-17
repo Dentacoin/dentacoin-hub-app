@@ -1,0 +1,51 @@
+<div class="admin-content">
+    <div class="wrapper">
+        <div class="main-header">
+            <figure class="logo">
+                <img src="https://www.dentaprime.com/wp-content/themes/dentaprime2019/style/images/logo-swiss-dentaprime.svg" alt="Logo"/>
+            </figure>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle fs-18" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="text-right top-right-menu">
+                    <ul class="parent-menu">
+                        <li>
+                            <a href="javascript:void(0);">Admin</a>
+                            <ul class="submenu">
+                                <li><a href="javascript:void(0)" class="cursor-pointer" (click)="this.authenticationServiceService.logout('dentist')">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li>
+                        <a [routerLink]="['applications']"><i class="fa fa-list-ul" aria-hidden="true"></i> Applications</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['push-notifications']"><i class="fa fa-star" aria-hidden="true"></i> Push nofitications</a>
+                    </li>
+                    <li>
+                        <a (click)="this.redirectsService.redirectToAdmin()"><i class="fa fa-list-ul" aria-hidden="true"></i> User friendly admin</a>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

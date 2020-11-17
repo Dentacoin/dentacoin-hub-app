@@ -1,0 +1,51 @@
+<div class="my-profile-menu inline-block-top">
+    <div class="wrapper">
+        <div class="avatar-and-name padding-bottom-15 fs-0">
+            <div class="welcome-name inline-block fs-16 lato-bold">Welcome, {{patientData.first_name}} {{patientData.last_name}}</div>
+        </div>
+        <nav class="profile-menu module">
+            <ul itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+                <li>
+                    <a (click)="this.redirectsService.redirectToLoggedHome()" itemprop="url">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Home icon" src="assets/images/home.svg"/>
+                        </figure>
+                        <span itemprop="name">{{'home-btn' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="this.redirectsService.redirectToMyWallet()" itemprop="url" [ngClass]="(this.router.url.indexOf('my-wallet') !== -1) ? 'active important platform-border-color' : ''">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Wallet icon" src="assets/images/wallet-icon.svg"/>
+                        </figure>
+                        <span itemprop="name">{{'my-wallet-btn' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="this.redirectsService.redirectToEditAccount()" itemprop="url" [ngClass]="(this.router.url.indexOf('edit-account') !== -1) ? 'active important platform-border-color' : ''">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Edit account icon" src="assets/images/edit-account-icon.svg"/>
+                        </figure>
+                        <span itemprop="name">{{'edit-account-btn' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="this.redirectsService.redirectToManagePrivacy()" itemprop="url" [ngClass]="(this.router.url.indexOf('manage-privacy') !== -1) ? 'active important platform-border-color' : ''">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Privacy icon" src="assets/images/privacy-icon.svg"/>
+                        </figure>
+                        <span itemprop="name">{{'manage-privacy-btn' | translate}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="this.authenticationServiceService.logout('patient')" itemprop="url">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Logout icon" src="assets/images/logout-icon.svg"/>
+                        </figure>
+                        <span itemprop="name">{{'log-out-btn' | translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

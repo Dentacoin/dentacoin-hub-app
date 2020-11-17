@@ -1,0 +1,18 @@
+{
+  "edit-page": "Edit page",
+  "default-apps-title": "ADD EXISTING APPS",
+  "adding-custom-app-title" : "ADD NEW APP",
+  "patients-login-title" : "WE CARE ABOUT OUR PATIENTS FOR LIFE.",
+  "patients-login-paragraph" : "Login to get free access to Dentaprime's patient loyalty applications!",
+  "request-account-title" : "REQUEST ACCOUNT",
+  "request-account-subtitle" : "You can access Dentaprime HubApp only if you have already booked an appointment with Dentaprime.",
+  "request-account-thank-you" : "THANK YOU. Our team will check the records and contact you.",
+  "forgotten-password-title" : "FORGOTTEN PASSWORD",
+  "forgotten-password-subtitle" : "Please enter your email and we'll send you a recovery link.",
+  "forgotten-password-response-success" : "Please check your email and follow the instructions.",
+  "forgotten-password-response-error" : "Your forgotten password request failed. Please try again and make sure all the fields are not empty.",
+  "forgotten-password-btn" : "RESET PASSWORD",
+  "change-password-title" : "CHANGE PASSWORD",
+  "change-password-response-error" : "Your change password request failed. Please try again and make sure all the fields are not empty.",
+  "change-password-btn" : "CHANGE PASSWORD"
+}

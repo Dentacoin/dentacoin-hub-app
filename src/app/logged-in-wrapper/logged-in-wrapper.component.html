@@ -1,0 +1,144 @@
+<div class="logged-mobile-profile-menu">
+    <nav class="profile-menu module">
+        <a href="javascript:void(0)" class="close-logged-mobile-profile-menu"><i class="fa fa-times" aria-hidden="true"></i></a>
+        <ul itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+            <!--<li>
+                <a (click)="this.redirectsService.redirectToLoggedHome()" itemprop="url">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                        <img alt="Home icon" src="assets/images/home.svg"/>
+                    </figure>
+                    <span itemprop="name">{{'home-btn' | translate}}</span>
+                </a>
+            </li>-->
+            <li>
+                <a href="{{myAccountLink}}" itemprop="url" class="in-app-browser-link">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                        <img alt="Wallet icon" src="assets/images/wallet-icon.svg"/>
+                    </figure>
+                    <span itemprop="name">{{'my-wallet-btn' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{myAccountLink}}&route=edit-account" itemprop="url" class="in-app-browser-link">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                        <img alt="Edit account icon" src="assets/images/edit-account-icon.svg"/>
+                    </figure>
+                    <span itemprop="name">{{'edit-account-btn' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{myAccountLink}}&route=manage-privacy" itemprop="url" class="in-app-browser-link">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                        <img alt="Privacy icon" src="assets/images/privacy-icon.svg"/>
+                    </figure>
+                    <span itemprop="name">{{'manage-privacy-btn' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a (click)="this.authenticationServiceService.logout('patient')" itemprop="url">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                        <img alt="Logout icon" src="assets/images/logout-icon.svg"/>
+                    </figure>
+                    <span itemprop="name">{{'log-out-btn' | translate}}</span>
+                </a>
+            </li>
+            <li class="lang-switcher">
+                <div class="border-top">
+                    <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="fix-selects-for-ios">
+                        <option value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
+                        <option value="de" *ngIf="(translate.currentLang == 'en')">DE</option>
+                        <option value="en" *ngIf="(translate.currentLang == 'de')">EN</option>
+                        <option value="de" *ngIf="(translate.currentLang == 'de')" selected>DE</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+<header>
+    <div class="container">
+        <div class="row fs-0">
+            <figure itemscope="" itemtype="http://schema.org/Organization" class="col-xs-5 inline-block padding-left-xs-10 padding-right-xs-10">
+                <a itemprop="url" routerLink="/">
+                    <img src="{{dentistData.logo}}" itemprop="logo" class="dentist-logo-img" alt="Dentaprime logo"/>
+                </a>
+            </figure>
+            <div class="col-xs-7 logged-user-right-nav inline-block text-right padding-left-xs-10 padding-right-xs-10">
+                <!--<div class="hidden-box-parent">
+                    <div class="" [ngClass]="(this.isAccountPage() === false) ? 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 color-white-on-hub platform-text-color' : 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 color-white-on-hub'">
+                        <span class="user-name">{{patientData.first_name}} {{patientData.last_name}}</span>
+                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>
+                    </div>
+                    <span [ngClass]="(showApplications === true) ? 'up-arrow platform-background' : 'up-arrow background-white'"></span>
+                    <div class="hidden-box">
+                        <div class="hidden-box-hub container-fluid platform-background" *ngIf="(showApplications === true)">
+                            <div class="row close-btn">
+                                <div class="col-xs-12"><a href="javascript:void(0)">Close <span><i class="fa fa-times fs-24" aria-hidden="true"></i></span></a></div>
+                            </div>
+                            <div class="row">
+                                <ng-container *ngFor="let application of applications; index as i;">
+                                    <a class="col-md-3 col-xs-4 application inline-block-top" target="_blank" href="{{application.url}}" *ngIf="(translate.currentLang == 'en' && (application.name_en != '' || application.description_en != ''))">
+                                        <figure class="text-center" itemtype="http://schema.org/ImageObject">
+                                            <img src="{{application.media}}" itemprop="contentUrl" alt=""/>
+                                            <figcaption class="color-white fs-14 fs-xs-20 padding-bottom-15 platform-text-color">{{application.name_en}}</figcaption>
+                                        </figure>
+                                    </a>
+                                    <a class="col-md-3 col-xs-4 application inline-block-top" target="_blank" href="{{application.url}}" *ngIf="(translate.currentLang == 'de' && (application.name_de != '' || application.description_de != ''))">
+                                        <figure class="text-center" itemtype="http://schema.org/ImageObject">
+                                            <img src="{{application.media}}" itemprop="contentUrl" alt=""/>
+                                            <figcaption class="color-white fs-14 fs-xs-20 padding-bottom-15 platform-text-color">{{application.name_de}}</figcaption>
+                                        </figure>
+                                    </a>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="container-fluid text-center hidden-box-footer">
+                            <div class="row">
+                                <div class="col-xs-6 padding-left-10 padding-right-10 inline-block">
+                                    <a (click)="this.authenticationServiceService.logout('patient')" class="logout"><i class="fa fa-power-off" aria-hidden="true"></i> Log out</a>
+                                </div>
+                                <div class="col-xs-6 padding-left-10 padding-right-10 inline-block">
+                                    <a [routerLink]="['my-wallet']" class="fs-16 module platform-custom-button platform-background-color platform-border-color hover padding-left-10 padding-right-10">My Account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <div [ngClass]="(this.isAccountPage() === true) ? 'account-page lang-switcher inline-block' : 'lang-switcher inline-block'">
+                    <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" [ngClass]="(this.isAccountPage() === false) ? 'platform-text-color' : ''">
+                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
+                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'en')">DE</option>
+                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'de')">EN</option>
+                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'de')" selected>DE</option>
+                    </select>
+                </div>-->
+                <div [ngClass]="(this.isAccountPage() === false) ? 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 padding-top-10 padding-bottom-10 platform-text-color' : 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 padding-top-10 padding-bottom-10'">
+                    <span class="user-name">{{patientData.first_name}} {{patientData.last_name}}</span>
+                    <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>
+                </div>
+                <div class="logged-nav inline-block">
+                    <a href="javascript:void(0);"><i class="fa fa-bars" [ngClass]="(this.isAccountPage() === false) ? 'color-white-on-hub platform-text-color' : 'color-white-on-hub'" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="camping-currently-offline"></div>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer class="text-center padding-top-40 padding-bottom-10 padding-top-xs-30 padding-top-sm-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="https://dentacoin.com" target="_blank" class="inline-block in-app-browser-link">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject">
+                        <img src="assets/images/dentacoin-logo.png" alt="Dentacoin logo" itemprop="contentUrl"/>
+                        <figcaption class="fs-14 padding-top-5">{{'powered-by-dcn' | translate}}</figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

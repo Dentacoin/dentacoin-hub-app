@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-firebase-lib": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-app-launcher": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.dentaprime.hub"
+    }
+  }
+}

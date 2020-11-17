@@ -1,0 +1,39 @@
+<div class="row padding-top-50 padding-top-xs-30 patient-register-by-invite" [attr.data-cookies-error]="'cookies-error' | translate" [attr.data-years-and-privacy-error]="'years-and-privacy-error' | translate">
+    <div class="col-xs-12 text-center">
+        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 margin-0-auto">
+            <img alt="Hub icon" class="width-100" src="assets/images/hub-icon-white.png"/>
+        </figure>
+        <h1 class="fs-20 lato-light padding-top-15 padding-bottom-30">{{'patients-register-title' | translate}}</h1>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <div class="max-width-400 margin-0-auto">
+            <div class="error-handle margin-bottom-20 custom-error hide"></div>
+            <div class="error-handle margin-bottom-20 hide" id="patient-login-failed">{{'general-error' | translate}}</div>
+            <div class="error-handle margin-bottom-20 hide" id="patient-login-failed-missing-email">{{'patient-login-failed-missing-email' | translate}}</div>
+            <div class="error-handle margin-bottom-20 hide" id="patient-login-failed-not-a-patient-of-any-dentist">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>
+            <div class="padding-top-20 text-center">
+                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" class="facebook-custom-btn social-login-btn calibri-regular fs-20 fs-xs-18 max-width-400">Log in with Facebook</a>
+            </div>
+            <div class="padding-top-10 text-center">
+                <a href="javascript:void(0)" onclick="alert('Coming soon!');" [attr.custom-stopper]="'true'" class="civic-custom-btn social-login-btn calibri-regular fs-20 fs-xs-18">Log in with Civic</a>
+            </div>
+            <div class="padding-top-20 margin-0-auto">
+                <div class="custom-checkbox-style module">
+                    <input type="checkbox" class="custom-checkbox-input" id="agree-over-eighteen"/>
+                    <label class="fs-15 custom-checkbox-label" for="agree-over-eighteen">{{'i-confirm' | translate}}</label>
+                </div>
+            </div>
+            <div class="patient-register-checkboxes padding-top-5 margin-0-auto">
+                <div class="custom-checkbox-style module">
+                    <input type="checkbox" class="custom-checkbox-input" id="privacy-policy-registration-patient"/>
+                    <label class="fs-15 custom-checkbox-label" for="privacy-policy-registration-patient">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>
+                </div>
+            </div>
+            <div class="links-below-registration margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color">
+                <a [routerLink]="['/'+translate.currentLang+'/login']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color">{{'login-here' | translate}}</a>
+                |
+                <a [routerLink]="['/'+translate.currentLang+'/request-account']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color">{{'request-account-btn' | translate}}</a>
+            </div>
+        </div>
+    </div>
+</div>

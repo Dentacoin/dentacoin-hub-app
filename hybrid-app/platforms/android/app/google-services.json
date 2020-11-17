@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "79492264647",
+    "firebase_url": "https://dentaprime-hub-app.firebaseio.com",
+    "project_id": "dentaprime-hub-app",
+    "storage_bucket": "dentaprime-hub-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79492264647:android:049efce66b24100cb304e2",
+        "android_client_info": {
+          "package_name": "com.dentaprime.hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79492264647-oj4msugsqsb3i9538cv03n1raq90hv4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2bNiTTrr-VqQY0a-ZL3zyCUgTyfJoHOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79492264647-oj4msugsqsb3i9538cv03n1raq90hv4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,118 @@
+<section class="my-wallet-container account-page padding-top-30 padding-bottom-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 fs-0 padding-left-0 padding-right-0 padding-left-sm-15 padding-right-sm-15 padding-left-xs-15 padding-right-xs-15">
+                <app-account-sidebar></app-account-sidebar>
+                <div class="my-profile-page-content inline-block-top">
+                    <div class="profile-page-title padding-bottom-50">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Wallet icon" src="assets/images/wallet-icon.svg"/>
+                        </figure>
+                        <h2 class="fs-24 lato-bold inline-block">{{'my-wallet' | translate}}</h2>
+                    </div>
+                    <h3 class="line-crossed-title margin-bottom-25 fs-20 lato-bold black-color"><span>{{'dcn-balance' | translate}}</span></h3>
+                    <div class="fs-38 lato-bold black-color"><span class="current-dcn-amount">{{dcnAmount}}</span> DCN</div>
+                    <div class="fs-28 lato-bold current-converted-price">
+                        = <div class="amount inline-block-top">{{usdAmount}}</div>
+                        <div class="symbol inline-block-top" role="button" aria-pressed="false">
+                            <span> USD</span>
+                            <ul class="dropdown-hidden-menu">
+                                <li><button [attr.data-multiple-with]="usdVal">USD</button></li>
+                                <li><button [attr.data-multiple-with]="eurVal">EUR</button></li>
+                                <li><button [attr.data-multiple-with]="gbpVal">GBP</button></li>
+                                <li><button [attr.data-multiple-with]="rubVal">RUB</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="line-crossed-title margin-bottom-20 fs-20 margin-top-50 lato-bold black-color"><span>{{'withdraw-dcn' | translate}}</span></h3>
+                    <form [formGroup]="this.withdrawForm" (ngSubmit)="this.onWithdrawSubmit()" id="withdraw">
+                        <h4 class="fs-16 lato-bold padding-bottom-15"><span class="platform-color-important">•</span> {{'dcn-address' | translate}}</h4>
+                        <div class="parent-to-display-error padding-bottom-25">
+                            <div class="copy-link module">
+                                <!--<input type="text" class="custom-input address required" formControlName="address" maxlength="42" placeholder="Your Wallet Address" id="link-to-be-copied"/>
+                                <a href="javascript:void(0)" class="lato-bold fs-20 copy-btn platform-custom-button-no-hover module padding-left-5 padding-right-5" data-toggle="tooltip" title="" data-clipboard-target="#link-to-be-copied" data-original-title="Copied."><figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block fs-0"><img alt="Copy icon" src="assets/images/copy-icon.svg" class="width-100 max-width-20"/></figure> COPY</a>-->
+                                <div class="dropdown-content next-to-copy-btn" id="search-result-parent">
+                                    <input autocomplete="off" readonly type="text" class="custom-input input-field address required search-input" formControlName="address" maxlength="42" placeholder="{{'select-address' | translate}}" id="link-to-be-copied"/>
+                                    <div class="search-result module">
+                                        <div class="search-body">
+                                            <ul class="addresses-list" id="addresses-list">
+                                                <ng-container *ngIf="addresses.length">
+                                                    <ng-container  *ngFor="let address of addresses; index as i;">
+                                                        <li class="platform-color removeable-element fs-0" [attr.data-id]="address.id">
+                                                            <a href="javascript:void(0);" class="platform-background-on-hover inline-block" [attr.data-value]="address.dcn_address">
+                                                                <ng-container *ngIf="address.dcn_address_label != ''">
+                                                                    {{address.dcn_address_label}} ({{address.dcn_address}})
+                                                                </ng-container>
+                                                                <ng-container *ngIf="address.dcn_address_label == ''">
+                                                                    {{address.dcn_address}}
+                                                                </ng-container>
+                                                            </a>
+                                                            <button type="button" class="remove-address-book-element inline-block">×</button>
+                                                        </li>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ul>
+                                        </div>
+                                        <div class="search-footer">
+                                            <a href="javascript:void(0)" class="platform-color add-to-address-book lato-bold">{{'add-to-book' | translate}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="lato-bold fs-20 copy-btn platform-custom-button-no-hover module padding-left-5 padding-right-5 padding-top-0 padding-bottom-0" data-toggle="tooltip" title="" data-clipboard-target="#link-to-be-copied" data-original-title="Copied."><figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block fs-0"><img alt="Copy icon" src="assets/images/copy-icon.svg" class="width-100 max-width-20"/></figure> {{'copy-btn' | translate}}</a>
+                            </div>
+                        </div>
+                        <div *ngIf="withdrawFormSubmitted && this.withdraw_form_data.address.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.withdraw_form_data.address.errors.required">{{'address-required' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.withdraw_form_data.address.hasError('minlength') || this.withdraw_form_data.address.hasError('maxlength')">{{'address-validation' | translate}}</div>
+                        </div>
+                        <div class="width-50 padding-bottom-20">
+                            <hr/>
+                        </div>
+                        <h4 class="fs-16 lato-bold padding-bottom-15"><span class="platform-color-important">•</span> {{'withdraw-rewards' | translate}}</h4>
+                        <div class="padding-bottom-25 fs-0 withdraw-input-parent parent-to-display-error">
+                            <input type="number" formControlName="amount" class="custom-input inline-block amount required" max="{{dcnAmount}}"/>
+                            <div class="disabled-amount custom-input inline-block">{{dcnAmount}} DCN</div>
+                            <input type="submit" value="WITHDRAW" class="platform-custom-button inline-block withdraw-button module"/>
+                        </div>
+                        <div class="error-handle margin-bottom-20" *ngIf="withdrawFailed" [innerHTML]="errorMessage"></div>
+                        <div class="success-handle margin-bottom-20" *ngIf="withdrawSucceed" [innerHTML]="successMessage"></div>
+                        <div *ngIf="withdrawFormSubmitted && this.withdraw_form_data.amount.errors" class="margin-bottom-20">
+                            <div class="error-handle" *ngIf="this.withdraw_form_data.amount.errors.required">{{'amount-required' | translate}}</div>
+                            <div class="error-handle" *ngIf="this.withdraw_form_data.amount.hasError('min')">{{'amount-min-validation' | translate}}</div>
+                        </div>
+                    </form>
+                    <div class="transaction-history" *ngIf="showWithdrawHistory">
+                        <h3 class="line-crossed-title margin-bottom-40 fs-20 margin-top-50 lato-bold black-color"><span>{{'withdraw-history' | translate}}</span></h3>
+                        <div class="scrollable-table module">
+                            <div class="table-wrapper">
+                                <table class="withdraw-table">
+                                    <thead>
+                                    <tr>
+                                        <th>{{'withdraw-history-date-label' | translate}}</th>
+                                        <th>{{'withdraw-history-amount-label' | translate}}</th>
+                                        <th>{{'withdraw-history-address-label' | translate}}</th>
+                                        <th>{{'withdraw-history-status-label' | translate}}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let withdraw of withdrawHistory; index as i;">
+                                            <tr>
+                                                <td>{{withdraw.created_at}}</td>
+                                                <td>{{withdraw.amount}} DCN</td>
+                                                <td>{{withdraw.address}}</td>
+                                                <td>{{withdraw.status}}</td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="mobile-slide text-center">
+                                <img src="assets/images/slide.gif" alt="Slide gif" class="max-width-120"/>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+<section class="manage-privacy-container account-page padding-top-30 padding-bottom-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 fs-0 padding-left-0 padding-right-0 padding-left-sm-15 padding-right-sm-15 padding-left-xs-15 padding-right-xs-15">
+                <app-account-sidebar></app-account-sidebar>
+                <div class="my-profile-page-content inline-block-top">
+                    <div class="profile-page-title">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Privacy icon" src="assets/images/privacy-icon.svg"/>
+                        </figure>
+                        <h2 class="fs-24 lato-bold inline-block">{{'manage-privacy' | translate}}</h2>
+                    </div>
+                    <div class="delete-local-storage fs-0"></div>
+                    <div class="delete padding-bottom-50 padding-top-60 padding-top-xs-30 padding-bottom-xs-30 fs-0">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Cancel icon" src="assets/images/cancel.svg"/>
+                        </figure>
+                        <div class="text inline-block">
+                            <h3 class="fs-20 padding-bottom-20 lato-bold dark-color">{{'delete-profile-heading' | translate}}</h3>
+                            <div class="fs-18 dark-color">{{'delete-profile-text' | translate}}</div>
+                        </div>
+                        <div class="btn-container inline-block padding-top-30 text-center-xs">
+                            <a (click)="deleteAccountMethod()" class="module platform-custom-button platform-background-color platform-border-color hover">{{'delete-profile-btn' | translate}}</a>
+                        </div>
+                        <div class="error-handle margin-bottom-20" *ngIf="accountDeletionFailed">{{'request-account-deletion-failed' | translate}}</div>
+                    </div>
+                    <div class="download padding-top-60 padding-bottom-50 padding-top-xs-30 padding-bottom-xs-30 fs-0">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block">
+                            <img alt="Download icon" src="assets/images/download.svg"/>
+                        </figure>
+                        <div class="text inline-block">
+                            <h3 class="fs-20 padding-bottom-20 lato-bold dark-color">{{'download-data-heading' | translate}}</h3>
+                            <div class="fs-18 dark-color">{{'download-data-text' | translate}}</div>
+                        </div>
+                        <div class="btn-container inline-block padding-top-30">
+                            <a (click)="downloadGDPRDataMethod()" class="module platform-custom-button platform-background-color platform-border-color hover">{{'download-data-btn' | translate}}</a>
+                        </div>
+                        <div class="error-handle margin-bottom-20" *ngIf="downloadingGDPRDataFailed">{{'request-account-data-download-failed' | translate}}</div>
+                        <div class="camp-successful-data-download"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,315 @@
+.admin-content {
+    input[type='text'], input[type='number'] {
+        padding: 5px;
+        width: 100%;
+    }
+    .form-container {
+        margin-top: 200px;
+        .wrapper {
+            background-color: white;
+            padding: 25px;
+            form {
+                .form-row {
+                    padding-bottom: 10px;
+                    input[type='text'], input[type='password'] {
+                        border: 1px solid #d2d6de;
+                        color: #333;
+                        padding: 6px 12px;
+                        width: 100%;
+                    }
+                    &.submit {
+                        padding-bottom: 0;
+                        padding-top: 10px;
+                        input[type='submit'] {
+                            color: white;
+                            background-color: #21bef4;
+                            padding: 8px 20px;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-header {
+        background-color: white;
+        figure.logo {
+            width: 230px;
+            padding: 0;
+            img {
+                width: 120px;
+            }
+        }
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #dee2e6;
+            &:before, &:after {
+                display: none;
+            }
+            .sidebar-toggle {
+                &:hover {
+                    color: #343a40;
+                }
+            }
+            .top-right-menu {
+                .parent-menu {
+                    display: inline-block;
+                    > li {
+                        position: relative;
+                        > a {
+                            padding: 15px;
+                            display: inline-block;
+                            height: 100%;
+                        }
+                        .submenu {
+                            display: none;
+                            position: absolute;
+                            width: 100%;
+                            text-align: center;
+                            background-color: #fff;
+                            border: 1px solid #dee2e6;
+                            li {
+                                a {
+                                    display: block;
+                                    padding-top: 7px;
+                                    padding-bottom: 7px;
+                                }
+                            }
+                        }
+                        &:hover {
+                            .submenu {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .user-menu {
+        .dropdown-menu {
+            width: auto !important;
+            min-width: 0 !important;
+        }
+    }
+    .content-wrapper {
+        padding: 10px;
+        min-height: calc(100vh - 50px);
+        background: #f4f6f9;
+        section.content {
+            padding: 20px;
+            h1 {
+                text-align: center;
+                font-weight: bold;
+                margin: 0;
+                font-size: 26px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+    .main-sidebar {
+        background-color: #343a40;
+        .sidebar-menu {
+            li {
+                a {
+                    color: #c2c7d0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.bootbox {
+    .modal-body {
+        padding: 35px 15px 20px;
+    }
+    &.add-edit-app-popup {
+        .bootbox-close-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 50px;
+            padding: 0;
+            background-color: white;
+            color: $basic_color;
+            -webkit-transform: translate(50%, -50%);
+            -ms-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+            @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.2));
+            @include rounded(50%);
+        }
+        .modal-dialog {
+            width: 90%;
+            max-width: 1050px;
+            margin: 30px auto;
+            .modal-content {
+                @include rounded(25px);
+                .modal-body {
+                    padding: 0;
+                    .language-switcher {
+                        font-size: 0;
+                        button {
+                            font-size: 20px;
+                            text-align: center;
+                            border: 0;
+                            background: transparent;
+                            color: $main_color;
+                            padding: 15px 5px;
+                            width: 50%;
+                            &.active {
+                                background-color: #cecece;
+                            }
+                            &:first-child {
+                                @include rounded(25px 0 0 0);
+                            }
+                            &:last-child {
+                                @include rounded(0 25px 0 0);
+                            }
+                        }
+                    }
+                    .list-with-default-apps {
+                        font-size: 0;
+                        background: #5b5b5b; /* Old browsers */
+                        background: -moz-linear-gradient(top,  #5b5b5b 0%, #999999 100%); /* FF3.6-15 */
+                        background: -webkit-linear-gradient(top,  #5b5b5b 0%,#999999 100%); /* Chrome10-25,Safari5.1-6 */
+                        background: linear-gradient(to bottom,  #5b5b5b 0%,#999999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5b', endColorstr='#999999',GradientType=0 ); /* IE6-9 */
+                        ul {
+                            white-space: nowrap;
+                            overflow: auto;
+                            padding-top: 10px;
+                            padding-bottom: 35px;
+                            li {
+                                display: inline-block;
+                                vertical-align: middle;
+                                padding: 0 15px;
+                                position: relative;
+                                .remove-existing-deleted-app {
+                                    position: absolute;
+                                    display: none;
+                                    width: 25px;
+                                    height: 25px;
+                                    line-height: 25px;
+                                    background-color: white;
+                                    color: $basic_color;
+                                    border: 0;
+                                    text-align: center;
+                                    top: -5px;
+                                    z-index: 10;
+                                    right: 15px;
+                                    font-size: 14px;
+                                    @include rounded(50%);
+                                    @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.2));
+                                }
+                                &:hover {
+                                    .remove-existing-deleted-app {
+                                        display: block;
+                                    }
+                                }
+                                button {
+                                    border: 0;
+                                    background-color: transparent;
+                                    width: 140px;
+                                    padding: 5px;
+                                    position: relative;
+                                    @include rounded(20px);
+                                    .check-icon {
+                                        display: none;
+                                    }
+                                    &.checked {
+                                        border: 1px dashed white;
+                                        .check-icon {
+                                            display: block;
+                                            color: white;
+                                            background-color: #00f272;
+                                            position: absolute;
+                                            bottom: 10px;
+                                            right: 10px;
+                                            width: 45px;
+                                            height: 45px;
+                                            line-height: 45px;
+                                            font-size: 22px;
+                                            text-align: center;
+                                            @include rounded(50%);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .upload-application-icon {
+                        button {
+                            border: 0;
+                            padding: 0;
+                            margin: 0;
+                            background: transparent;
+                            label {
+                                background-size: contain;
+                                background-color: #dedede;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                cursor: pointer;
+                                width: 150px;
+                                height: 150px;
+                                display: block;
+                                border: 2px dashed $basic_color;
+                                position: relative;
+                                @include rounded(20px);
+                                svg {
+                                    width: 60px;
+                                    @include vertical-horizontal-align(absolute);
+                                }
+                            }
+                        }
+                        .file-text {
+                            font-size: 14px;
+                            width: 150px;
+                            color: #909090;
+                            margin-left: calc(100% - 150px);
+                            text-align: left;
+                            padding-top: 10px;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        @include breakpoint($xs) {
+            padding-left: 0 !important;
+            .bootbox-close-button {
+                display: none;
+            }
+            .modal-dialog {
+                width: 100%;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                .modal-content {
+                    @include rounded(0);
+                    .modal-body {
+                        .lang-switcher {
+                            button {
+                                &:first-child {
+                                    @include rounded(0);
+                                }
+                                &:last-child {
+                                    @include rounded(0);
+                                }
+                            }
+                        }
+                        .upload-application-icon {
+                            text-align: center !important;
+                            .file-text {
+                                margin: 0 auto;
+                                padding-bottom: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+// Globals
+@import "additionals/fonts";
+@import "additionals/mixins";
+@import "additionals/animations";
+@import "additionals/responsive";
+@import "additionals/variables";
+@import "additionals/modules";
+
+// Front end
+@import "global/global";
+@import "layout/header";
+@import "layout/footer";
+@import "pages/manage-privacy";
+@import "pages/edit-account";
+@import "pages/my-wallet";
+@import "pages/homepage";
+@import "pages/patient-register-by-invite";
+@import "pages/request-account";
+
+// Admin
+@import "admin/global/global";
+@import "admin/pages/basic-admin-panel";

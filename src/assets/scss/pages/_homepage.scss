@@ -1,0 +1,9 @@
+.homepage-container {
+    .single-app {
+        figure {
+            overflow: hidden;
+            @include rounded(25px);
+            @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.2));
+        }
+    }
+}
