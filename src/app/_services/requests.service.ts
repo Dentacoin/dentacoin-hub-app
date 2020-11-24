@@ -30,6 +30,14 @@ export class RequestsService {
         });
     }
 
+    public dentistSendRequestAccountMail(body): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/dentist-send-request-account-mail', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded'
+            })
+        });
+    }
+
     public withdraw(body: string): Observable<{}> {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/withdraw', body, {
             headers: new HttpHeaders({

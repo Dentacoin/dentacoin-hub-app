@@ -8,7 +8,7 @@
                 <div>
                     <div class="custom-google-label-style module" data-input-colorful-border="true">
                         <label for="dentist-login-email" class="platform-color">Email address:</label>
-                        <input maxlength="100" type="text" id="dentist-login-email" value="miroslav.nedelchev@dentacoin1.com" formControlName="email" class="full-rounded form-field platform-border-color"/>
+                        <input maxlength="100" type="text" id="dentist-login-email" formControlName="email" class="full-rounded form-field platform-border-color"/>
                     </div>
                     <div *ngIf="dentistsFormSubmitted && dentists_form_data.email.errors">
                         <div class="error-handle" *ngIf="dentists_form_data.email.errors.required">Email is required.</div>
@@ -18,7 +18,7 @@
                 <div class="padding-top-10">
                     <div class="custom-google-label-style module" data-input-colorful-border="true">
                         <label for="dentist-login-password" class="platform-color">Password:</label>
-                        <input type="password" maxlength="50" id="dentist-login-password" value="uniquepass" formControlName="password" class="full-rounded form-field platform-border-color"/>
+                        <input type="password" maxlength="50" id="dentist-login-password" formControlName="password" class="full-rounded form-field platform-border-color"/>
                     </div>
                     <div *ngIf="dentistsFormSubmitted && dentists_form_data.password.errors">
                         <div class="error-handle" *ngIf="dentists_form_data.password.errors.required">Password is required.</div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="padding-top-20 padding-bottom-10 text-center fs-16 calibri-light">
                     <div>{{'having-trouble-login' | translate}}</div>
-                    <a [routerLink]="['/'+translate.currentLang+'/forgotten-password']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5">{{'forgotten-password-redirect' | translate}}</a>
+                    <a href="https://account.dentacoin.com/forgotten-password" target="_blank" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 lato-bold platform-color">{{'forgotten-password-redirect' | translate}}</a>
                 </div>
                 <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.generalError">{{'general-error' | translate}}</div>
                 <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.notAPartner">{{'not-a-partner-error' | translate}}</div>

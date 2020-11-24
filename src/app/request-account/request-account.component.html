@@ -1,4 +1,4 @@
-<div class="row padding-top-50">
+<div class="row padding-top-50 patient-request-account">
     <div class="col-xs-12 text-center">
         <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 margin-0-auto">
             <img alt="Hub icon" class="width-100" src="assets/images/hub-icon-white.png"/>
@@ -49,6 +49,13 @@
                     <div class="error-handle" *ngIf="request_form_data.phone.errors.required">{{'phone-required' | translate}}</div>
                     <div class="error-handle" *ngIf="request_form_data.phone.hasError('maxlength')">{{'phone-max-length-validation' | translate}}</div>
                 </div>
+            </div>
+            <div class="patient-register-checkboxes padding-top-15 margin-0-auto">
+                <div class="custom-checkbox-style module">
+                    <input type="checkbox" class="custom-checkbox-input" id="privacy-policy-registration-patient" formControlName="privacyPolicy"/>
+                    <label class="fs-15 custom-checkbox-label" for="privacy-policy-registration-patient">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>
+                </div>
+                <div class="error-handle" *ngIf="isPatientPrivacyAccepted.invalid">{{'privacy-policy-agree' | translate}}</div>
             </div>
             <div class="padding-top-30 text-center">
                 <button class="module lato-bold platform-custom-button platform-background-color platform-border-color hover">{{'request-account-button' | translate}}</button>

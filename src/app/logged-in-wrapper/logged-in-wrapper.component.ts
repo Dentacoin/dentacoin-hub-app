@@ -23,7 +23,7 @@ export class LoggedInWrapperComponent implements OnInit {
     public showApplications: boolean = false;*/
     public dcnAmount: number = 0;
     public usdAmount: number = 0;
-    public updateDcnAndUsdBalanceTimer: number;
+    public updateDcnAndUsdBalanceTimer: any;
     public myAccountLink: string;
 
     constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public requestsService: RequestsService, public languageService: LanguageService, public translate: TranslateService, public router: Router) {

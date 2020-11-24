@@ -1,0 +1,68 @@
+<div class="row padding-top-50 dentist-request-account">
+    <div class="col-xs-12 text-center">
+        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 margin-0-auto">
+            <img alt="Hub icon" class="width-100" src="assets/images/hub-icon-white.png"/>
+        </figure>
+        <h1 class="fs-36 lato-bold padding-top-10">{{'dentist-request-account-title' | translate}}</h1>
+        <h2 class="fs-20 lato-light padding-bottom-30">{{'dentist-request-account-subtitle' | translate}}</h2>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <form [formGroup]="dentistRequestAccountForm" (ngSubmit)="onAccountRequestFormSubmit()">
+            <div class="success-handle margin-bottom-20" *ngIf="sendRequestSucceed">{{'request-account-thank-you' | translate}}</div>
+            <div class="error-handle margin-bottom-20" *ngIf="sendRequestFailed">{{'request-account-saving-failed' | translate}}</div>
+            <div class="padding-top-10">
+                <div class="custom-google-label-style module" data-input-colorful-border="true">
+                    <label for="request-account-name" class="platform-color">{{'fullName-label' | translate}}</label>
+                    <input type="text" maxlength="100" id="request-account-name" formControlName="fullName" class="full-rounded form-field platform-border-color"/>
+                </div>
+                <div *ngIf="dentistRequestAccountFormSubmitted && dentist_request_form_data.fullName.errors">
+                    <div class="error-handle" *ngIf="dentist_request_form_data.fullName.errors.required">{{'fullName-required' | translate}}</div>
+                    <div class="error-handle" *ngIf="dentist_request_form_data.fullName.hasError('maxlength')">{{'fullName-max-length' | translate}}</div>
+                </div>
+            </div>
+            <div class="padding-top-10">
+                <div class="custom-google-label-style module" data-input-colorful-border="true">
+                    <label for="request-account-email" class="platform-color">{{'email-label' | translate}}</label>
+                    <input maxlength="100" type="text" id="request-account-email" formControlName="email" class="full-rounded form-field platform-border-color"/>
+                </div>
+                <div *ngIf="dentistRequestAccountFormSubmitted && dentist_request_form_data.email.errors">
+                    <div class="error-handle" *ngIf="dentist_request_form_data.email.errors.required">{{'email-required' | translate}}</div>
+                    <div class="error-handle" *ngIf="dentist_request_form_data.email.errors.email">{{'valid-email' | translate}}</div>
+                </div>
+            </div>
+            <div class="padding-top-10">
+                <div class="custom-google-label-style module" data-input-colorful-border="true">
+                    <label for="request-account-practice" class="platform-color">{{'practice-label' | translate}}</label>
+                    <input type="text" maxlength="100" id="request-account-practice" formControlName="practice" class="full-rounded form-field platform-border-color"/>
+                </div>
+                <div *ngIf="dentistRequestAccountFormSubmitted && dentist_request_form_data.practice.errors">
+                    <div class="error-handle" *ngIf="dentist_request_form_data.practice.errors.required">{{'practice-required' | translate}}</div>
+                    <div class="error-handle" *ngIf="dentist_request_form_data.practice.hasError('maxlength')">{{'practice-max-length' | translate}}</div>
+                </div>
+            </div>
+            <div class="padding-top-10">
+                <div class="custom-google-label-style module" data-input-colorful-border="true">
+                    <label for="request-account-website" class="platform-color">{{'website-label' | translate}}</label>
+                    <input type="text" maxlength="500" id="request-account-website" formControlName="website" class="full-rounded form-field platform-border-color"/>
+                </div>
+                <div *ngIf="dentistRequestAccountFormSubmitted && dentist_request_form_data.website.errors">
+                    <div class="error-handle" *ngIf="dentist_request_form_data.website.errors.required">{{'website-required' | translate}}</div>
+                    <div class="error-handle" *ngIf="dentist_request_form_data.website.hasError('maxlength')">{{'website-max-length' | translate}}</div>
+                </div>
+            </div>
+            <div class="patient-register-checkboxes padding-top-15 margin-0-auto">
+                <div class="custom-checkbox-style module">
+                    <input type="checkbox" class="custom-checkbox-input" id="privacy-policy-registration-patient" formControlName="privacyPolicy"/>
+                    <label class="fs-15 custom-checkbox-label" for="privacy-policy-registration-patient">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>
+                </div>
+                <div class="error-handle" *ngIf="isDentistPrivacyAccepted.invalid">{{'privacy-policy-agree' | translate}}</div>
+            </div>
+            <div class="padding-top-30 text-center">
+                <button class="module lato-bold platform-custom-button platform-background-color platform-border-color hover">{{'request-account-button' | translate}}</button>
+            </div>
+            <div class="links-below-form margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color">
+                <a [routerLink]="['/'+translate.currentLang]" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color">{{'go-back' | translate}}</a>
+            </div>
+        </form>
+    </div>
+</div>

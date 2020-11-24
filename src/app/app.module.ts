@@ -15,7 +15,7 @@ import { AccountSidebarComponent } from './partials/account-sidebar/account-side
         AccountSidebarComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
         ReactiveFormsModule,
         HttpClientModule,

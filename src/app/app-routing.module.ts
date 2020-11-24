@@ -21,6 +21,7 @@ import { ForgottenPasswordComponent } from './forgotten-password/forgotten-passw
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { NotLoggedInWrapperComponent } from './not-logged-in-wrapper/not-logged-in-wrapper.component';
 import { PatientRegisterByInviteComponent } from './patient-register-by-invite/patient-register-by-invite.component';
+import { DentistRequestAccountComponent } from './dentist-request-account/dentist-request-account.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: '/' + environment.default_language},
@@ -32,6 +33,7 @@ const routes: Routes = [
             {path: 'manage-privacy', component: ManagePrivacyComponent},
         ]},
         {path: '', component: NotLoggedInWrapperComponent, children: [
+            {path: 'dentist-request-account', component: DentistRequestAccountComponent},
             {path: 'request-account', component: RequestAccountComponent},
             {path: 'login', component: PatientLoginPageComponent},
             {path: 'patient-register-by-invite/:invite', component: PatientRegisterByInviteComponent},
@@ -75,4 +77,4 @@ const routes: Routes = [
 
 export class AppRoutingModule {}
 
-export const routingComponents = [FrontEndLanguageComponent, PatientLoginPageComponent, ApplicationsComponent, BasicAdminPanelComponent, AdminComponent, AdvancedAdminPanelComponent, PushNotificationsComponent, AdminLoginComponent, VerifyAccountComponent, HomeComponent, MyWalletComponent, EditAccountComponent, ManagePrivacyComponent, LoggedInWrapperComponent, RequestAccountComponent, ForgottenPasswordComponent, ChangePasswordComponent, NotLoggedInWrapperComponent, PatientRegisterByInviteComponent];
+export const routingComponents = [FrontEndLanguageComponent, PatientLoginPageComponent, ApplicationsComponent, BasicAdminPanelComponent, AdminComponent, AdvancedAdminPanelComponent, PushNotificationsComponent, AdminLoginComponent, VerifyAccountComponent, HomeComponent, MyWalletComponent, EditAccountComponent, ManagePrivacyComponent, LoggedInWrapperComponent, RequestAccountComponent, ForgottenPasswordComponent, ChangePasswordComponent, NotLoggedInWrapperComponent, PatientRegisterByInviteComponent, DentistRequestAccountComponent];

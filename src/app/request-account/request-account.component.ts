@@ -43,11 +43,13 @@ export class RequestAccountComponent implements OnInit {
                 phone: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(20)
                 ])),
-                /*captcha: new FormControl('', Validators.compose([
-                    Validators.required
-                ]))*/
+                privacyPolicy: new FormControl('', Validators.requiredTrue)
             });
         }
+    }
+
+    get isPatientPrivacyAccepted() {
+        return this.requestAccountForm.get('privacyPolicy');
     }
 
     // convenience getter for easy access to form fields

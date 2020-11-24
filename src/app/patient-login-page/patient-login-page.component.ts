@@ -8,6 +8,7 @@ import {LanguageService} from '../_services/language.service';
 import { environment } from '../../environments/environment';
 import {RequestsService} from '../_services/requests.service';
 import {AdditionalService} from '../_services/additional.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-patient-login-page',
