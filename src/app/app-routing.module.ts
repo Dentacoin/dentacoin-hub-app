@@ -28,9 +28,9 @@ const routes: Routes = [
     {path: ':lang', component: FrontEndLanguageComponent, children: [
         {path: '', component: LoggedInWrapperComponent, children: [
             {path: '', component: HomeComponent},
-            {path: 'my-wallet', component: MyWalletComponent},
+            /*{path: 'my-wallet', component: MyWalletComponent},
             {path: 'edit-account', component: EditAccountComponent},
-            {path: 'manage-privacy', component: ManagePrivacyComponent},
+            {path: 'manage-privacy', component: ManagePrivacyComponent},*/
         ]},
         {path: '', component: NotLoggedInWrapperComponent, children: [
             {path: 'dentist-request-account', component: DentistRequestAccountComponent},
