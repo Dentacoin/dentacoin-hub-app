@@ -34,7 +34,7 @@ export class AuthenticationServiceService {
                 if (response.success) {
                     if (response.data.is_partner == true) {
                         console.log('partner');
-                        localStorage.setItem('currentDentist', JSON.stringify({
+                        window.localStorage.setItem('currentDentist', JSON.stringify({
                             id: response.data.id,
                             token: response.token
                         }));
@@ -55,7 +55,7 @@ export class AuthenticationServiceService {
     }
 
     logout(redirect: string) {
-        localStorage.clear();
+        window.localStorage.clear();
         this.isPatientLoggedSubject.next(false);
         this.isDentistLoggedSubject.next(false);
 
@@ -67,11 +67,11 @@ export class AuthenticationServiceService {
     }
 
     hasDentistStorageSession(): boolean {
-        return !!localStorage.getItem('currentDentist');
+        return !!window.localStorage.getItem('currentDentist');
     }
 
     hasPatientStorageSession(): boolean {
-        return !!localStorage.getItem('currentPatient');
+        return !!window.localStorage.getItem('currentPatient');
     }
 
     isDentistLoggedIn() : Observable<boolean> {

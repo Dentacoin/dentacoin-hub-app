@@ -36,9 +36,9 @@ export class LoggedInWrapperComponent implements OnInit {
             this.redirectsService.redirectToPatientLogin('login');
         } else {
             console.log('WASD2');
-            this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_token);
+            this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
 
-            this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
+            this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
                 console.log('logged in wrapper getDentistData');
                 this.dentistData.logo = response.data.logo;
                 /*if(this.router.url.length > 3) {

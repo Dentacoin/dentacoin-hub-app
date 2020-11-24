@@ -35,7 +35,7 @@ export class PatientLoginPageComponent implements OnInit {
 
                             console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
                             
-                            localStorage.setItem('currentPatient', JSON.stringify({
+                            window.localStorage.setItem('currentPatient', JSON.stringify({
                                 token: e.detail.response_data.token,
                                 id: e.detail.response_data.data.id,
                                 patient_of: e.detail.response_data.data.patient_of,
@@ -44,7 +44,7 @@ export class PatientLoginPageComponent implements OnInit {
                                 encrypted_type: coredbResponse.encrypted_type
                             }));
 
-                            localStorage.setItem('dentist', String(e.detail.response_data.data.patient_of));
+                            window.localStorage.setItem('dentist', String(e.detail.response_data.data.patient_of));
 
                             console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
                             this.authenticationServiceService.isPatientLoggedSubject.next(true);

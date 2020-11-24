@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
             this.redirectsService.redirectToPatientLogin('login');
         } else {
             console.log('===== 2 =====');
-            this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
+            this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
                 console.log('getDentistData');
                 this.hubTitleEn = response.data.hub_title_en;
                 this.hubTitleDe = response.data.hub_title_de;

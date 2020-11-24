@@ -2678,7 +2678,7 @@ class AuthenticationServiceService {
                 if (response.success) {
                     if (response.data.is_partner == true) {
                         console.log('partner');
-                        localStorage.setItem('currentDentist', JSON.stringify({
+                        window.localStorage.setItem('currentDentist', JSON.stringify({
                             id: response.data.id,
                             token: response.token
                         }));
@@ -2700,7 +2700,7 @@ class AuthenticationServiceService {
         });
     }
     logout(redirect) {
-        localStorage.clear();
+        window.localStorage.clear();
         this.isPatientLoggedSubject.next(false);
         this.isDentistLoggedSubject.next(false);
         if (redirect === 'dentist') {
@@ -2711,10 +2711,10 @@ class AuthenticationServiceService {
         }
     }
     hasDentistStorageSession() {
-        return !!localStorage.getItem('currentDentist');
+        return !!window.localStorage.getItem('currentDentist');
     }
     hasPatientStorageSession() {
-        return !!localStorage.getItem('currentPatient');
+        return !!window.localStorage.getItem('currentPatient');
     }
     isDentistLoggedIn() {
         return this.isDentistLoggedSubject.asObservable();
@@ -4575,7 +4575,7 @@ class HomeComponent {
         }
         else {
             console.log('===== 2 =====');
-            this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe((response) => {
+            this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response) => {
                 console.log('getDentistData');
                 this.hubTitleEn = response.data.hub_title_en;
                 this.hubTitleDe = response.data.hub_title_de;
@@ -4703,8 +4703,8 @@ class LoggedInWrapperComponent {
         }
         else {
             console.log('WASD2');
-            this.myAccountLink = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_token);
-            this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe((response) => {
+            this.myAccountLink = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
+            this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response) => {
                 console.log('logged in wrapper getDentistData');
                 this.dentistData.logo = response.data.logo;
                 /*if(this.router.url.length > 3) {
@@ -5082,8 +5082,8 @@ class NotLoggedInWrapperComponent {
     }
     ngOnInit() {
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            if (localStorage.getItem('currentDentist') != null) {
-                this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe((response) => {
+            if (window.localStorage.getItem('currentDentist') != null) {
+                this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response) => {
                     if (response.success) {
                         this.dentistLogo = response.data.logo;
                     }
@@ -5205,7 +5205,7 @@ class PatientLoginPageComponent {
                     this.requestsService.coreDbLogin(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('token', e.detail.response_data.token).set('id', e.detail.response_data.data.id).toString()).subscribe({
                         next: (coredbResponse) => {
                             console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            localStorage.setItem('currentPatient', JSON.stringify({
+                            window.localStorage.setItem('currentPatient', JSON.stringify({
                                 token: e.detail.response_data.token,
                                 id: e.detail.response_data.data.id,
                                 patient_of: e.detail.response_data.data.patient_of,
@@ -5213,7 +5213,7 @@ class PatientLoginPageComponent {
                                 encrypted_token: coredbResponse.encrypted_token,
                                 encrypted_type: coredbResponse.encrypted_type
                             }));
-                            localStorage.setItem('dentist', String(e.detail.response_data.data.patient_of));
+                            window.localStorage.setItem('dentist', String(e.detail.response_data.data.patient_of));
                             console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
                             this.authenticationServiceService.isPatientLoggedSubject.next(true);
                             console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
@@ -5688,8 +5688,7 @@ const environment = {
     hybrid: false,
     default_language: 'en',
     coreDbApiDomain: 'https://dev-api.dentacoin.com',
-    accountDomain: 'https://dev-account.dentacoin.com',
-    PORT: 4300
+    accountDomain: 'https://dev-account.dentacoin.com'
 };
 
 
@@ -5710,8 +5709,7 @@ const environment = {
     hybrid: false,
     default_language: 'en',
     coreDbApiDomain: 'https://dev-api.dentacoin.com',
-    accountDomain: 'https://dev-account.dentacoin.com',
-    PORT: 4300
+    accountDomain: 'https://dev-account.dentacoin.com'
 };
 
 
