@@ -1204,6 +1204,52 @@ var projectData = {
 
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').click(function() {
+                        var thisBtn = $(this);
+                        if ($('.form-register-fields .error-handle').length) {
+                            $('.form-register-fields .error-handle').remove();
+                        }
+
+                        if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
+
+                            projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
+                            return false;
+                        }
+
+                        if (window.localStorage.getItem('user_civic_email') == null) {
+                            // display email field to let user save his civic email into the mobile app
+                            $('.form-login-fields').hide();
+                            $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent dentacoin-login-gateway-fs-16" style="color: white;">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-gateway-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style calibri-regular dentacoin-login-gateway-fs-20 dentacoin-login-gateway-fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins dentacoin-login-gateway-fs-16" style="color: white;">← Go back</a></div></div>');
+
+                            var civicMobileProceeded = false;
+                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
+                                //clear prev errors
+                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
+                                    $('.mobile-proceeding-to-civic .error-handle').remove();
+                                }
+
+                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
+                                    if (!civicMobileProceeded) {
+                                        civicMobileProceeded = true;
+
+                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
+                                        console.log('proceedWithMobileAppAuth 1');
+                                    }
+                                } else {
+                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
+                                }
+                            });
+
+                            $('.go-back-to-logins').click(function() {
+                                $('.mobile-proceeding-to-civic').remove();
+                                $('.form-register-fields, .form-login-fields').show();
+                            });
+                        } else {
+                            // civic email already saved in mobile app
+                            console.log('proceedWithMobileAppAuth 2');
+                        }
+                    });
                 }
 
                 if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
@@ -1236,28 +1282,21 @@ var projectData = {
 
                     $('.civic-custom-btn').click(function() {
                         var thisBtn = $(this);
-                        if (thisBtn.hasClass('type-register')) {
-                            if ($('.form-register-fields .error-handle').length) {
-                                $('.form-register-fields .error-handle').remove();
-                            }
+                        if ($('.form-register-fields .error-handle').length) {
+                            $('.form-register-fields .error-handle').remove();
+                        }
 
-                            if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
+                        if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
 
-                                projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
-                                return false;
-                            }
+                            projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
+                            return false;
                         }
 
                         if (window.localStorage.getItem('user_civic_email') == null) {
                             // display email field to let user save his civic email into the mobile app
-                            if (thisBtn.hasClass('type-login')) {
-                                $('.form-login-fields').hide();
-                                $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent dentacoin-login-gateway-fs-16" style="color: white;">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-gateway-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style calibri-regular dentacoin-login-gateway-fs-20 dentacoin-login-gateway-fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins dentacoin-login-gateway-fs-16" style="color: white;">← Go back</a></div></div>');
 
-                            } else if (thisBtn.hasClass('type-register')) {
-                                $('.form-register-fields').hide();
-                                $('.register-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent dentacoin-login-gateway-fs-16" style="color: white;">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-gateway-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style calibri-regular dentacoin-login-gateway-fs-20 dentacoin-login-gateway-fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins dentacoin-login-gateway-fs-16" style="color: white;">← Go back</a></div></div>');
-                            }
+                            $('.form-register-fields').hide();
+                            $('.register-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent dentacoin-login-gateway-fs-16" style="color: white;">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-gateway-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style calibri-regular dentacoin-login-gateway-fs-20 dentacoin-login-gateway-fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins dentacoin-login-gateway-fs-16" style="color: white;">← Go back</a></div></div>');
 
                             var civicMobileProceeded = false;
                             $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
@@ -1266,7 +1305,7 @@ var projectData = {
                                     $('.mobile-proceeding-to-civic .error-handle').remove();
                                 }
 
-                                if ($('#mobile-logging-civic-email').val().trim() != '' && dcnGateway.utils.validateEmail($('#mobile-logging-civic-email').val().trim())) {
+                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
                                     if (!civicMobileProceeded) {
                                         civicMobileProceeded = true;
 
