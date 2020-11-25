@@ -25,18 +25,22 @@ export class LoggedInWrapperComponent implements OnInit {
     public usdAmount: number = 0;
     public updateDcnAndUsdBalanceTimer: any;
     public myAccountLink: string;
+    hybrid = environment.hybrid;
 
     constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public requestsService: RequestsService, public languageService: LanguageService, public translate: TranslateService, public router: Router) {
     }
 
     ngOnInit() {
-        console.log('WASD');
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            console.log('WASD1');
             this.redirectsService.redirectToPatientLogin('login');
         } else {
-            console.log('WASD2');
-            this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
+            if (this.hybrid === true) {
+                console.log(1, this.hybrid);
+                this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
+            } else {
+                console.log(2, this.hybrid);
+                this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
+            }
 
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
                 console.log('logged in wrapper getDentistData');
