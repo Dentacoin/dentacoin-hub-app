@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 import {RequestsService} from '../_services/requests.service';
 import {AdditionalService} from '../_services/additional.service';
 import { Meta, Title } from '@angular/platform-browser';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-patient-login-page',
@@ -25,6 +26,11 @@ export class PatientLoginPageComponent implements OnInit {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
+            $(document).on('patientProceedWithCreatingSession', (e: any) => {
+                console.log(e, 'patientProceedWithCreatingSession');
+            });
+
+
             document.addEventListener('patientAuthSuccessResponse', (e: any) => {
                 console.log(e, 'patientAuthSuccessResponse');
 

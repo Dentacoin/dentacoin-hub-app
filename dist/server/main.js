@@ -5177,6 +5177,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/@angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -5198,6 +5201,9 @@ class PatientLoginPageComponent {
             this.redirectsService.redirectToLoggedHome();
         }
         else {
+            jquery__WEBPACK_IMPORTED_MODULE_3__(document).on('patientProceedWithCreatingSession', (e) => {
+                console.log(e, 'patientProceedWithCreatingSession');
+            });
             document.addEventListener('patientAuthSuccessResponse', (e) => {
                 console.log(e, 'patientAuthSuccessResponse');
                 console.log(e.detail.response_data.data.patient_of, 'e.detail.response_data.data.patient_of');
