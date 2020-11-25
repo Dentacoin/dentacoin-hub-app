@@ -5,8 +5,8 @@
         </figure>
         <h1 class="fs-20 lato-light padding-top-15 padding-bottom-30">{{'patients-register-title' | translate}}</h1>
     </div>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-        <div class="max-width-400 margin-0-auto">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 register-parent">
+        <div class="max-width-400 margin-0-auto form-register-fields">
             <div class="error-handle margin-bottom-20 custom-error hide"></div>
             <div class="error-handle margin-bottom-20 hide" id="patient-login-failed">{{'general-error' | translate}}</div>
             <div class="error-handle margin-bottom-20 hide" id="patient-login-failed-missing-email">{{'patient-login-failed-missing-email' | translate}}</div>
@@ -15,7 +15,7 @@
                 <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" class="facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 max-width-400">Log in with Facebook</a>
             </div>
             <div class="padding-top-10 text-center">
-                <a href="javascript:void(0)" onclick="alert('Coming soon!');" [attr.custom-stopper]="'true'" class="civic-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18">Log in with Civic</a>
+                <a href="javascript:void(0)" [attr.custom-stopper]="'true'" class="civic-custom-btn social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18">Log in with Civic</a>
             </div>
             <div class="padding-top-20 margin-0-auto">
                 <div class="custom-checkbox-style module">
