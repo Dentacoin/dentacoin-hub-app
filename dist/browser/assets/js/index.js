@@ -1206,7 +1206,6 @@ var projectData = {
                     $('.social-login-btn').addClass('mobile-app');
 
                     $('.civic-custom-btn').click(function() {
-                        var thisBtn = $(this);
                         if ($('.form-register-fields .error-handle').length) {
                             $('.form-register-fields .error-handle').remove();
                         }
@@ -1250,6 +1249,11 @@ var projectData = {
                             console.log('proceedWithMobileAppAuth 2');
                         }
                     });
+                } else {
+                    if (!hasOwnProperty.call(loadedLibs, 'civic')) {
+                        loadedLibs.civic = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
+                    }
                 }
 
                 if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
@@ -1281,7 +1285,6 @@ var projectData = {
                     $('.social-login-btn').addClass('mobile-app');
 
                     $('.civic-custom-btn').click(function() {
-                        var thisBtn = $(this);
                         if ($('.form-register-fields .error-handle').length) {
                             $('.form-register-fields .error-handle').remove();
                         }
