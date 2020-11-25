@@ -61,19 +61,22 @@ export class PatientLoginPageComponent implements OnInit {
                 }
             });
 
-            document.addEventListener('registeredAccountMissingEmail', (e) => {
+            document.addEventListener('registeredAccountMissingEmail', (e: any) => {
+                // COVER THIS !!!!!!!!!!!!!
                 document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
             });
 
-            document.addEventListener('patientAuthErrorResponse', (e) => {
+            document.addEventListener('patientAuthErrorResponse', (e: any) => {
+                console.log(e, 'e');
+                document.getElementById('custom-error').classList.remove('hide');
+                document.getElementById('custom-error').innerHTML = e.detail.response_data.errors.generic;
+            });
+
+            document.addEventListener('noCoreDBApiConnection', (e: any) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
             });
 
-            document.addEventListener('noCoreDBApiConnection', (e) => {
-                document.getElementById('patient-login-failed').classList.remove('hide');
-            });
-
-            document.addEventListener('noExternalLoginProviderConnection', (e) => {
+            document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
             });
         }
