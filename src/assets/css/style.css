@@ -5001,16 +5001,18 @@ header {
 .my-wallet-container .transaction-history-table {
   width: 100%; }
 
-.homepage-container .single-app figure {
-  overflow: hidden;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
-  -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
+.homepage-container {
+  min-height: 500px; }
+  .homepage-container .single-app figure {
+    overflow: hidden;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
 
 .links-below-registration {
   border-top: 1.5px solid #dddddd; }

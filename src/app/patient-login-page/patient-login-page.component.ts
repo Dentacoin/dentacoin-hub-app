@@ -61,6 +61,18 @@ export class PatientLoginPageComponent implements OnInit {
                 }
             });
 
+            document.addEventListener('receivedFacebookToken', (e: any) => {
+                this.additionalService.showLoader();
+            });
+
+            document.addEventListener('civicRead', (e: any) => {
+                this.additionalService.showLoader();
+            });
+
+            document.addEventListener('hideGatewayLoader', (e: any) => {
+                this.additionalService.hideLoader();
+            });
+
             document.addEventListener('registeredAccountMissingEmail', (e: any) => {
                 // COVER THIS !!!!!!!!!!!!!
                 document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
