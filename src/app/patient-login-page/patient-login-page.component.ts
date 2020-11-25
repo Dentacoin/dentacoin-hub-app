@@ -26,11 +26,6 @@ export class PatientLoginPageComponent implements OnInit {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
-            $(document).on('patientProceedWithCreatingSession', (e: any) => {
-                console.log(e, 'patientProceedWithCreatingSession');
-            });
-
-
             document.addEventListener('patientAuthSuccessResponse', (e: any) => {
                 console.log(e, 'patientAuthSuccessResponse');
 

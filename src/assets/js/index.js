@@ -1202,10 +1202,6 @@ var projectData = {
             patientLoginPage: async function() {
                 console.log('patientLoginPage');
 
-                if (is_hybrid) {
-                    $('.social-login-btn').addClass('mobile-app');
-                }
-
                 if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
                     loadedLibs.facebook = true;
                     await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
@@ -1231,9 +1227,6 @@ var projectData = {
             },
             patientRegisterPage: async function() {
                 console.log('patientRegisterPage');
-                if (is_hybrid) {
-                    $('.social-login-btn').addClass('mobile-app');
-                }
 
                 if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
                     loadedLibs.facebook = true;
