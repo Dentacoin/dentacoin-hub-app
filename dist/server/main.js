@@ -5239,8 +5239,15 @@ class PatientLoginPageComponent {
             });
             document.addEventListener('patientAuthErrorResponse', (e) => {
                 console.log(e, 'e');
+                let errorsHtml = '';
+                if (e.detail.response_data.errors) {
+                    for (let key in e.detail.response_data.errors) {
+                        errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                    }
+                }
                 document.getElementById('custom-error').classList.remove('hide');
-                document.getElementById('custom-error').innerHTML = e.detail.response_data.errors.generic;
+                document.getElementById('custom-error').innerHTML = errorsHtml;
+                this.additionalService.hideLoader();
             });
             document.addEventListener('noCoreDBApiConnection', (e) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
