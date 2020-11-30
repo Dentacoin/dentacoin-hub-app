@@ -62,6 +62,9 @@
   font-weight: normal;
   font-style: normal;
   font-display: block; }
+.lato-regular {
+  font-family: "Lato-Regular"; }
+
 .lato-light {
   font-family: "Lato-Light"; }
 
@@ -488,6 +491,43 @@
     .module.search-result .search-footer a {
       display: block;
       padding: 10px 15px; }
+.module.custom-checkbox-style {
+  font-size: 0;
+  position: relative; }
+  .module.custom-checkbox-style input[type="checkbox"] {
+    display: none !important; }
+  .module.custom-checkbox-style .custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #bdc3c7;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: white;
+    color: #0fb0e5;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    border-radius: 20%;
+    font-weight: bold; }
+  .module.custom-checkbox-style label {
+    cursor: pointer; }
+  .module.custom-checkbox-style .custom-checkbox-label {
+    font-size: 16px;
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 0; }
+    .module.custom-checkbox-style .custom-checkbox-label a {
+      text-decoration: underline; }
+  .module.custom-checkbox-style.white-colorful-style .custom-checkbox {
+    border: 1px solid #00b7e2;
+    color: white;
+    background-color: #00b7e2; }
 
 .fix-selects-for-ios {
   background-image: url(../images/select-arrow.svg) !important;
@@ -4612,7 +4652,7 @@ img {
   -ms-border-radius: 4px;
   border-radius: 4px; }
 
-.social-login-btn.civic-custom-btn {
+.social-login-btn.civic-custom-btn, .social-login-btn.civic-style {
   background-image: url(../images/civic.svg);
   border: 1px solid #3bb03f; }
 
@@ -4623,6 +4663,15 @@ img {
   @media screen and (min-width: 992px) {
     .social-login-btn.facebook-custom-btn:hover {
       color: white; } }
+
+#iframe-civic-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  border: 0; }
 
 header {
   padding-top: 10px;
@@ -4964,15 +5013,27 @@ header {
 .my-wallet-container .transaction-history-table {
   width: 100%; }
 
-.homepage-container .single-app figure {
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
-  -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
+.homepage-container {
+  min-height: 500px; }
+  .homepage-container .single-app figure {
+    overflow: hidden;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
+  @media screen and (max-width: 767px) {
+    .homepage-container {
+      min-height: 350px; } }
+
+.links-below-registration {
+  border-top: 1.5px solid #dddddd; }
+
+.links-below-form {
+  border-top: 1.5px solid #dddddd; }
 
 .admin-content input[type='text'], .admin-content input[type='number'] {
   padding: 5px;
@@ -5547,6 +5608,7 @@ header {
     -ms-transition: 0.3s;
     transition: 0.3s; }
     .basic-admin-panel .single-app .app-wrapper figure {
+      overflow: hidden;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
       -ms-border-radius: 25px;

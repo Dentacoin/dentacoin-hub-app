@@ -30,6 +30,13 @@
     },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.dentaprime.hub"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "hubapp",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "com.dentacoin.hub"
     }
   },
   "dependent_plugins": {

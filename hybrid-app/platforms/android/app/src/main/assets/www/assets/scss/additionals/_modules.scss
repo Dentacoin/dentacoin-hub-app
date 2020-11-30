@@ -223,6 +223,52 @@
             }
         }
     }
+    &.custom-checkbox-style {
+        font-size: 0;
+        position: relative;
+        input[type="checkbox"] {
+            display: none !important;
+        }
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #bdc3c7;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: white;
+            color: $basic_color;
+            font-size: 16px;
+            text-align: center;
+            line-height: 20px;
+            -webkit-border-radius: 20%;
+            -moz-border-radius: 20%;
+            -ms-border-radius: 20%;
+            border-radius: 20%;
+            font-weight: bold;
+        }
+        label {
+            cursor: pointer;
+        }
+        .custom-checkbox-label {
+            font-size: 16px;
+            padding-left: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+            font-weight: normal;
+            margin: 0;
+            a {
+                text-decoration: underline;
+            }
+        }
+        &.white-colorful-style {
+            .custom-checkbox {
+                border: 1px solid $light_blue;
+                color: white;
+                background-color: $light_blue;
+            }
+        }
+    }
 }
 
 .fix-selects-for-ios {

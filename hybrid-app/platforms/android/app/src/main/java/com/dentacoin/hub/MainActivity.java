@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.dentaprime.hub;
+package com.dentacoin.hub;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

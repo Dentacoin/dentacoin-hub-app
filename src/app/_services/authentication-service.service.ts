@@ -32,8 +32,10 @@ export class AuthenticationServiceService {
             next: (response: any) => {
                 console.log(response, 'dentistLogin');
                 if (response.success) {
-                    if (response.data.is_partner == true) {
+                    if (response.data.is_partner === true) {
                         console.log('partner');
+
+                        window.scrollTo(0, 0);
                         window.localStorage.setItem('currentDentist', JSON.stringify({
                             id: response.data.id,
                             token: response.token

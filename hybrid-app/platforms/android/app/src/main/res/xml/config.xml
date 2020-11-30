@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dentaprime.hub" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
+<widget id="com.dentacoin.hub" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
@@ -25,6 +25,9 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <feature name="LaunchMyApp">
+        <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
+    </feature>
     <allow-navigation href="http://localhost/*" />
     <allow-navigation href="https://localhost/*" />
     <allow-navigation href="ionic://*" />
@@ -45,12 +48,12 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="*" />
     <access origin="*" />
+    <allow-navigation href="https://dentacoin.com/*" />
     <allow-intent href="market:*" />
-    <icon density="hdpi" height="48" src="/app-resources/images/hub-app-android-icon-48x48.png" width="48" />
-    <icon density="xhdpi" height="72" src="/app-resources/images/hub-app-android-icon-72x72.png" width="72" />
-    <icon density="xxhdpi" height="144" src="/app-resources/images/hub-app-android-icon-144x144.png" width="144" />
+    <icon density="hdpi" height="48" src="/app-resources/images/dentacoin-hub-app-icon-48px.jpg" width="48" />
+    <icon density="xhdpi" height="72" src="/app-resources/images/dentacoin-hub-app-icon-72px.jpg" width="72" />
+    <icon density="xxhdpi" height="144" src="/app-resources/images/dentacoin-hub-app-icon-144px.jpg" width="144" />
     <resource-file src="google-services.json" target="app/google-services.json" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="webView" value="com.ionicframework.cordova.webview.IonicWebViewEngine" />

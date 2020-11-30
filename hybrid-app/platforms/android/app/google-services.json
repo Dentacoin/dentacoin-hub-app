@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "79492264647",
-    "firebase_url": "https://dentaprime-hub-app.firebaseio.com",
-    "project_id": "dentaprime-hub-app",
-    "storage_bucket": "dentaprime-hub-app.appspot.com"
+    "project_number": "258618060181",
+    "firebase_url": "https://dentacoin-hub-app.firebaseio.com",
+    "project_id": "dentacoin-hub-app",
+    "storage_bucket": "dentacoin-hub-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:79492264647:android:049efce66b24100cb304e2",
+        "mobilesdk_app_id": "1:258618060181:android:0069d3f2862ec657c91a9c",
         "android_client_info": {
-          "package_name": "com.dentaprime.hub"
+          "package_name": "com.dentacoin.hub"
         }
       },
       "oauth_client": [
         {
-          "client_id": "79492264647-oj4msugsqsb3i9538cv03n1raq90hv4n.apps.googleusercontent.com",
+          "client_id": "258618060181-rs4ggbmu63nhv8008j9nocnl2s636125.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA2bNiTTrr-VqQY0a-ZL3zyCUgTyfJoHOw"
+          "current_key": "AIzaSyCRJ8n7TLZiRcfZDqPBQGQdsuclHXnlZRs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "79492264647-oj4msugsqsb3i9538cv03n1raq90hv4n.apps.googleusercontent.com",
+              "client_id": "258618060181-rs4ggbmu63nhv8008j9nocnl2s636125.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

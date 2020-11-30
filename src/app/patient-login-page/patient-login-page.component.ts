@@ -27,38 +27,23 @@ export class PatientLoginPageComponent implements OnInit {
         } else {
             document.addEventListener('patientAuthSuccessResponse', (e: any) => {
                 console.log(e, 'patientAuthSuccessResponse');
+                this.onPatientsLogin(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
+            });
 
-                console.log(e.detail.response_data.data.patient_of, 'e.detail.response_data.data.patient_of');
-                if (e.detail.response_data.data.patient_of !== null && e.detail.response_data.data.patient_of !== undefined) {
-                    this.requestsService.coreDbLogin(new HttpParams().set('token', e.detail.response_data.token).set('id', e.detail.response_data.data.id).toString()).subscribe({
-                        next: (coredbResponse: any) => {
+            document.addEventListener('receiveCoredbTokenFromCivicAuth', (e: any) => {
+                console.log(e.detail.response_data, 'receiveCoredbTokenFromCivicAuth');
+                console.log(e, 'receiveCoredbTokenFromCivicAuth');
 
-                            console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            
-                            window.localStorage.setItem('currentPatient', JSON.stringify({
-                                token: e.detail.response_data.token,
-                                id: e.detail.response_data.data.id,
-                                patient_of: e.detail.response_data.data.patient_of,
-                                encrypted_id: coredbResponse.encrypted_id,
-                                encrypted_token: coredbResponse.encrypted_token,
-                                encrypted_type: coredbResponse.encrypted_type
-                            }));
-
-                            window.localStorage.setItem('dentist', String(e.detail.response_data.data.patient_of));
-
-                            console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            this.authenticationServiceService.isPatientLoggedSubject.next(true);
-                            console.log(this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            this.redirectsService.redirectToLoggedHome();
-                            this.additionalService.hideLoader();
-                        },
-                        error: error => {
-                            document.getElementById('patient-login-failed').classList.remove('hide');
+                this.requestsService.getUserData(e.detail.response_data).subscribe({
+                    next: (response: any) => {
+                        if (response.success) {
+                            this.onPatientsLogin(e.detail.response_data, response.data.id, response.data.patient_of);
+                        } else {
+                            this.authenticationServiceService.logout('patient')
                         }
-                    });
-                } else {
-                    document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
-                }
+                    },
+                    error: error => this.authenticationServiceService.logout('patient')
+                });
             });
 
             document.addEventListener('receivedFacebookToken', (e: any) => {
@@ -91,6 +76,37 @@ export class PatientLoginPageComponent implements OnInit {
             document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
             });
+        }
+    }
+
+    onPatientsLogin(_token: any, _id: any, _patient_of: any) {
+        console.log(_token, _id, _patient_of, 'onPatientsLogin');
+        if (_patient_of !== null && _patient_of !== undefined) {
+            this.requestsService.coreDbLogin(new HttpParams().set('token', _token).set('id', _id).toString()).subscribe({
+                next: (coredbResponse: any) => {
+                    window.scrollTo(0, 0);
+
+                    window.localStorage.setItem('currentPatient', JSON.stringify({
+                        token: _token,
+                        id: _id,
+                        patient_of: _patient_of,
+                        encrypted_id: coredbResponse.encrypted_id,
+                        encrypted_token: coredbResponse.encrypted_token,
+                        encrypted_type: coredbResponse.encrypted_type
+                    }));
+
+                    window.localStorage.setItem('dentist', String(_patient_of));
+
+                    this.authenticationServiceService.isPatientLoggedSubject.next(true);
+                    this.redirectsService.redirectToLoggedHome();
+                    this.additionalService.hideLoader();
+                },
+                error: error => {
+                    document.getElementById('patient-login-failed').classList.remove('hide');
+                }
+            });
+        } else {
+            document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
         }
     }
 }

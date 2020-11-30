@@ -12,7 +12,8 @@ import {environment} from '../../environments/environment';
   templateUrl: './patient-register-by-invite.component.html'
 })
 export class PatientRegisterByInviteComponent implements OnInit {
-    coreDbApiDomain = environment.coreDbApiDomain;
+    public coreDbApiDomain = environment.coreDbApiDomain;
+    public inviteId: string;
 
   constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public activatedRoute: ActivatedRoute, public translate: TranslateService) { }
 
@@ -22,7 +23,7 @@ export class PatientRegisterByInviteComponent implements OnInit {
           this.redirectsService.redirectToLoggedHome();
       } else {
           this.activatedRoute.params.subscribe( (params: Params) => {
-              console.log(params, 'params');
+              this.inviteId = params.invite;
           });
       }
   }

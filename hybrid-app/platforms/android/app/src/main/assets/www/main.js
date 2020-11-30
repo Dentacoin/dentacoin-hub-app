@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container padding-top-200\">\n    <div class=\"row\">\n        <div class=\"col-xs-12\">\n            <h1 class=\"fs-30 calibri-bold text-center title-label padding-top-40 padding-bottom-30\">Dentaprime Hub admin panel</h1>\n        </div>\n        <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n            <form [formGroup]=\"dentistsLoginForm\" (ngSubmit)=\"onDentistsFormSubmit()\">\n                <div>\n                    <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                        <label for=\"dentist-login-email\" class=\"platform-color\">Email address:</label>\n                        <input maxlength=\"100\" type=\"text\" id=\"dentist-login-email\" value=\"miroslav.nedelchev@dentacoin1.com\" formControlName=\"email\" class=\"full-rounded form-field platform-border-color\"/>\n                    </div>\n                    <div *ngIf=\"dentistsFormSubmitted && dentists_form_data.email.errors\">\n                        <div class=\"error-handle\" *ngIf=\"dentists_form_data.email.errors.required\">Email is required.</div>\n                        <div class=\"error-handle\" *ngIf=\"dentists_form_data.email.errors.email\">Please enter valid email.</div>\n                    </div>\n                </div>\n                <div class=\"padding-top-10\">\n                    <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                        <label for=\"dentist-login-password\" class=\"platform-color\">Password:</label>\n                        <input type=\"password\" maxlength=\"50\" id=\"dentist-login-password\" value=\"uniquepass\" formControlName=\"password\" class=\"full-rounded form-field platform-border-color\"/>\n                    </div>\n                    <div *ngIf=\"dentistsFormSubmitted && dentists_form_data.password.errors\">\n                        <div class=\"error-handle\" *ngIf=\"dentists_form_data.password.errors.required\">Password is required.</div>\n                    </div>\n                </div>\n                <div class=\"padding-top-30 padding-bottom-10 text-center\">\n                    <button class=\"module platform-custom-button platform-background-color platform-border-color hover\">LOGIN</button>\n                </div>\n                <div class=\"padding-top-20 padding-bottom-10 text-center fs-16 calibri-light\">\n                    <div>{{'having-trouble-login' | translate}}</div>\n                    <a [routerLink]=\"['/'+translate.currentLang+'/forgotten-password']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5\">{{'forgotten-password-redirect' | translate}}</a>\n                </div>\n                <div class=\"error-handle margin-bottom-20\" *ngIf=\"authenticationServiceService.generalError\">{{'general-error' | translate}}</div>\n                <div class=\"error-handle margin-bottom-20\" *ngIf=\"authenticationServiceService.notAPartner\">{{'not-a-partner-error' | translate}}</div>\n                <div class=\"error-handle margin-bottom-20\" *ngIf=\"authenticationServiceService.dentistAuthFailed\">{{'dentist-auth-failed' | translate}}</div>\n            </form>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"container padding-top-200\">\n    <div class=\"row\">\n        <div class=\"col-xs-12\">\n            <h1 class=\"fs-30 calibri-bold text-center title-label padding-top-40 padding-bottom-30\">Dentaprime Hub admin panel</h1>\n        </div>\n        <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n            <form [formGroup]=\"dentistsLoginForm\" (ngSubmit)=\"onDentistsFormSubmit()\">\n                <div>\n                    <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                        <label for=\"dentist-login-email\" class=\"platform-color\">Email address:</label>\n                        <input maxlength=\"100\" type=\"text\" id=\"dentist-login-email\" formControlName=\"email\" class=\"full-rounded form-field platform-border-color\"/>\n                    </div>\n                    <div *ngIf=\"dentistsFormSubmitted && dentists_form_data.email.errors\">\n                        <div class=\"error-handle\" *ngIf=\"dentists_form_data.email.errors.required\">Email is required.</div>\n                        <div class=\"error-handle\" *ngIf=\"dentists_form_data.email.errors.email\">Please enter valid email.</div>\n                    </div>\n                </div>\n                <div class=\"padding-top-10\">\n                    <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                        <label for=\"dentist-login-password\" class=\"platform-color\">Password:</label>\n                        <input type=\"password\" maxlength=\"50\" id=\"dentist-login-password\" formControlName=\"password\" class=\"full-rounded form-field platform-border-color\"/>\n                    </div>\n                    <div *ngIf=\"dentistsFormSubmitted && dentists_form_data.password.errors\">\n                        <div class=\"error-handle\" *ngIf=\"dentists_form_data.password.errors.required\">Password is required.</div>\n                    </div>\n                </div>\n                <div class=\"padding-top-30 padding-bottom-10 text-center\">\n                    <button class=\"module platform-custom-button platform-background-color platform-border-color hover\">LOGIN</button>\n                </div>\n                <div class=\"padding-top-20 padding-bottom-10 text-center fs-16 calibri-light\">\n                    <div>{{'having-trouble-login' | translate}}</div>\n                    <a href=\"https://account.dentacoin.com/forgotten-password\" target=\"_blank\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 lato-bold platform-color\">{{'forgotten-password-redirect' | translate}}</a>\n                </div>\n                <div class=\"error-handle margin-bottom-20\" *ngIf=\"authenticationServiceService.generalError\">{{'general-error' | translate}}</div>\n                <div class=\"error-handle margin-bottom-20\" *ngIf=\"authenticationServiceService.notAPartner\">{{'not-a-partner-error' | translate}}</div>\n                <div class=\"error-handle margin-bottom-20\" *ngIf=\"authenticationServiceService.dentistAuthFailed\">{{'dentist-auth-failed' | translate}}</div>\n            </form>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"container basic-admin-panel padding-top-20 paddin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\" [attr.data-lang]=\"translate.currentLang\" [attr.hybrid]=\"hybrid ? 'true' : null\">\r\n    <router-outlet></router-outlet>\r\n</div>"
+module.exports = "<div class=\"main-content\" [attr.data-lang]=\"translate.currentLang\" [attr.hybrid]=\"hybrid ? 'true' : null\" [attr.data-dentacoinDomain]=\"dentacoinDomain\">\r\n    <router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -108,6 +108,17 @@ module.exports = "<div class=\"main-content\" [attr.data-lang]=\"translate.curre
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row padding-top-60\">\n    <div class=\"col-xs-12 text-center\">\n        <h1 class=\"fs-40 padding-bottom-50 padding-top-30\">{{'change-password-title' | translate}}</h1>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n        <form [formGroup]=\"changePasswordForm\" (ngSubmit)=\"onchangePasswordFormSubmit()\">\n            <div class=\"error-handle margin-bottom-20\" *ngIf=\"failedChangePassword\">{{'change-password-response-error' | translate}}</div>\n            <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                <label for=\"change-password\" class=\"platform-color\">{{'password-label' | translate}}</label>\n                <input type=\"password\" maxlength=\"50\" id=\"change-password\" formControlName=\"password\" class=\"full-rounded form-field platform-border-color\"/>\n            </div>\n            <div *ngIf=\"changePasswordFormSubmitted && change_password_form_data.password.errors\">\n                <div class=\"error-handle\" *ngIf=\"change_password_form_data.password.errors.required\">{{'password-required-validation' | translate}}</div>\n                <div class=\"error-handle\" *ngIf=\"change_password_form_data.password.hasError('minlength')\">{{'password-min-length-validation' | translate}}</div>\n                <div class=\"error-handle\" *ngIf=\"change_password_form_data.password.hasError('maxlength')\">{{'password-max-length-validation' | translate}}</div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"change-password-repeat\" class=\"platform-color\">{{'repeat-password-label' | translate}}</label>\n                    <input type=\"password\" maxlength=\"50\" id=\"change-password-repeat\" formControlName=\"repeat_password\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"changePasswordFormSubmitted && change_password_form_data.repeat_password.errors\">\n                    <div class=\"error-handle\" *ngIf=\"change_password_form_data.repeat_password.errors.required\">{{'repeat-password-required-validation' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"change_password_form_data.repeat_password.hasError('minlength')\">{{'password-min-length-validation' | translate}}.</div>\n                    <div class=\"error-handle\" *ngIf=\"change_password_form_data.repeat_password.hasError('maxlength')\">{{'password-max-length-validation' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-30 padding-bottom-10 text-center\">\n                <button class=\"module platform-custom-button platform-background-color platform-border-color hover\">{{'change-password-btn' | translate}}</button>\n            </div>\n            <div *ngIf=\"changePasswordFormSubmitted && differentPasswords\">\n                <div class=\"error-handle\" *ngIf=\"differentPasswords\">{{'passwords-not-match' | translate}}</div>\n            </div>\n        </form>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/dentist-request-account/dentist-request-account.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/dentist-request-account/dentist-request-account.component.html ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row padding-top-50 dentist-request-account\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-36 lato-bold padding-top-10\">{{'dentist-request-account-title' | translate}}</h1>\n        <h2 class=\"fs-20 lato-light padding-bottom-30\">{{'dentist-request-account-subtitle' | translate}}</h2>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n        <form [formGroup]=\"dentistRequestAccountForm\" (ngSubmit)=\"onAccountRequestFormSubmit()\">\n            <div class=\"success-handle margin-bottom-20\" *ngIf=\"sendRequestSucceed\">{{'request-account-thank-you' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20\" *ngIf=\"sendRequestFailed\">{{'request-account-saving-failed' | translate}}</div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-name\" class=\"platform-color\">{{'fullName-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"100\" id=\"request-account-name\" formControlName=\"fullName\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"dentistRequestAccountFormSubmitted && dentist_request_form_data.fullName.errors\">\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.fullName.errors.required\">{{'fullName-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.fullName.hasError('maxlength')\">{{'fullName-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-email\" class=\"platform-color\">{{'email-label' | translate}}</label>\n                    <input maxlength=\"100\" type=\"text\" id=\"request-account-email\" formControlName=\"email\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"dentistRequestAccountFormSubmitted && dentist_request_form_data.email.errors\">\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.email.errors.required\">{{'email-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.email.errors.email\">{{'valid-email' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-practice\" class=\"platform-color\">{{'practice-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"100\" id=\"request-account-practice\" formControlName=\"practice\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"dentistRequestAccountFormSubmitted && dentist_request_form_data.practice.errors\">\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.practice.errors.required\">{{'practice-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.practice.hasError('maxlength')\">{{'practice-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-website\" class=\"platform-color\">{{'website-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"500\" id=\"request-account-website\" formControlName=\"website\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"dentistRequestAccountFormSubmitted && dentist_request_form_data.website.errors\">\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.website.errors.required\">{{'website-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"dentist_request_form_data.website.hasError('maxlength')\">{{'website-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"patient-register-checkboxes padding-top-15 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"privacy-policy-registration-patient\" formControlName=\"privacyPolicy\"/>\n                    <label class=\"fs-15 custom-checkbox-label\" for=\"privacy-policy-registration-patient\">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>\n                </div>\n                <div class=\"error-handle\" *ngIf=\"isDentistPrivacyAccepted.invalid\">{{'privacy-policy-agree' | translate}}</div>\n            </div>\n            <div class=\"padding-top-30 text-center\">\n                <button class=\"module lato-bold platform-custom-button platform-background-color platform-border-color hover\">{{'request-account-button' | translate}}</button>\n            </div>\n            <div class=\"links-below-form margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color\">\n                <a [routerLink]=\"['/'+translate.currentLang]\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'go-back' | translate}}</a>\n            </div>\n        </form>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -151,7 +162,7 @@ module.exports = "<div class=\"container homepage-container\">\r\n    <div class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logged-mobile-profile-menu\">\r\n    <nav class=\"profile-menu module\">\r\n        <a href=\"javascript:void(0)\" class=\"close-logged-mobile-profile-menu\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i></a>\r\n        <ul itemscope=\"\" itemtype=\"http://schema.org/SiteNavigationElement\">\r\n            <!--<li>\r\n                <a (click)=\"this.redirectsService.redirectToLoggedHome()\" itemprop=\"url\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Home icon\" src=\"assets/images/home.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'home-btn' | translate}}</span>\r\n                </a>\r\n            </li>-->\r\n            <li>\r\n                <a href=\"{{myAccountLink}}\" itemprop=\"url\" class=\"in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Wallet icon\" src=\"assets/images/wallet-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'my-wallet-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"{{myAccountLink}}&route=edit-account\" itemprop=\"url\" class=\"in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Edit account icon\" src=\"assets/images/edit-account-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'edit-account-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"{{myAccountLink}}&route=manage-privacy\" itemprop=\"url\" class=\"in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Privacy icon\" src=\"assets/images/privacy-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'manage-privacy-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.authenticationServiceService.logout('patient')\" itemprop=\"url\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Logout icon\" src=\"assets/images/logout-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'log-out-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li class=\"lang-switcher\">\r\n                <div class=\"border-top\">\r\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" class=\"fix-selects-for-ios\">\r\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\r\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\r\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\r\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\r\n                    </select>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n</div>\r\n<header>\r\n    <div class=\"container\">\r\n        <div class=\"row fs-0\">\r\n            <figure itemscope=\"\" itemtype=\"http://schema.org/Organization\" class=\"col-xs-5 inline-block padding-left-xs-10 padding-right-xs-10\">\r\n                <a itemprop=\"url\" routerLink=\"/\">\r\n                    <img src=\"{{dentistData.logo}}\" itemprop=\"logo\" class=\"dentist-logo-img\" alt=\"Dentaprime logo\"/>\r\n                </a>\r\n            </figure>\r\n            <div class=\"col-xs-7 logged-user-right-nav inline-block text-right padding-left-xs-10 padding-right-xs-10\">\r\n                <!--<div class=\"hidden-box-parent\">\r\n                    <div class=\"\" [ngClass]=\"(this.isAccountPage() === false) ? 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 color-white-on-hub platform-text-color' : 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 color-white-on-hub'\">\r\n                        <span class=\"user-name\">{{patientData.first_name}} {{patientData.last_name}}</span>\r\n                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\r\n                    </div>\r\n                    <span [ngClass]=\"(showApplications === true) ? 'up-arrow platform-background' : 'up-arrow background-white'\"></span>\r\n                    <div class=\"hidden-box\">\r\n                        <div class=\"hidden-box-hub container-fluid platform-background\" *ngIf=\"(showApplications === true)\">\r\n                            <div class=\"row close-btn\">\r\n                                <div class=\"col-xs-12\"><a href=\"javascript:void(0)\">Close <span><i class=\"fa fa-times fs-24\" aria-hidden=\"true\"></i></span></a></div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <ng-container *ngFor=\"let application of applications; index as i;\">\r\n                                    <a class=\"col-md-3 col-xs-4 application inline-block-top\" target=\"_blank\" href=\"{{application.url}}\" *ngIf=\"(translate.currentLang == 'en' && (application.name_en != '' || application.description_en != ''))\">\r\n                                        <figure class=\"text-center\" itemtype=\"http://schema.org/ImageObject\">\r\n                                            <img src=\"{{application.media}}\" itemprop=\"contentUrl\" alt=\"\"/>\r\n                                            <figcaption class=\"color-white fs-14 fs-xs-20 padding-bottom-15 platform-text-color\">{{application.name_en}}</figcaption>\r\n                                        </figure>\r\n                                    </a>\r\n                                    <a class=\"col-md-3 col-xs-4 application inline-block-top\" target=\"_blank\" href=\"{{application.url}}\" *ngIf=\"(translate.currentLang == 'de' && (application.name_de != '' || application.description_de != ''))\">\r\n                                        <figure class=\"text-center\" itemtype=\"http://schema.org/ImageObject\">\r\n                                            <img src=\"{{application.media}}\" itemprop=\"contentUrl\" alt=\"\"/>\r\n                                            <figcaption class=\"color-white fs-14 fs-xs-20 padding-bottom-15 platform-text-color\">{{application.name_de}}</figcaption>\r\n                                        </figure>\r\n                                    </a>\r\n                                </ng-container>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"container-fluid text-center hidden-box-footer\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-xs-6 padding-left-10 padding-right-10 inline-block\">\r\n                                    <a (click)=\"this.authenticationServiceService.logout('patient')\" class=\"logout\"><i class=\"fa fa-power-off\" aria-hidden=\"true\"></i> Log out</a>\r\n                                </div>\r\n                                <div class=\"col-xs-6 padding-left-10 padding-right-10 inline-block\">\r\n                                    <a [routerLink]=\"['my-wallet']\" class=\"fs-16 module platform-custom-button platform-background-color platform-border-color hover padding-left-10 padding-right-10\">My Account</a>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <a href=\"javascript:void(0)\" class=\"hamburger\"><i class=\"fa fa-bars\" aria-hidden=\"true\"></i></a>\r\n                <div [ngClass]=\"(this.isAccountPage() === true) ? 'account-page lang-switcher inline-block' : 'lang-switcher inline-block'\">\r\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" [ngClass]=\"(this.isAccountPage() === false) ? 'platform-text-color' : ''\">\r\n                        <option class=\"color-main\" value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\r\n                        <option class=\"color-main\" value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\r\n                        <option class=\"color-main\" value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\r\n                        <option class=\"color-main\" value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\r\n                    </select>\r\n                </div>-->\r\n                <div [ngClass]=\"(this.isAccountPage() === false) ? 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 padding-top-10 padding-bottom-10 platform-text-color' : 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 padding-top-10 padding-bottom-10'\">\r\n                    <span class=\"user-name\">{{patientData.first_name}} {{patientData.last_name}}</span>\r\n                    <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\r\n                </div>\r\n                <div class=\"logged-nav inline-block\">\r\n                    <a href=\"javascript:void(0);\"><i class=\"fa fa-bars\" [ngClass]=\"(this.isAccountPage() === false) ? 'color-white-on-hub platform-text-color' : 'color-white-on-hub'\" aria-hidden=\"true\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"camping-currently-offline\"></div>\r\n</header>\r\n<main>\r\n    <router-outlet></router-outlet>\r\n</main>\r\n<footer class=\"text-center padding-top-40 padding-bottom-10 padding-top-xs-30 padding-top-sm-20\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12\">\r\n                <a href=\"https://dentacoin.com\" target=\"_blank\" class=\"inline-block in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\">\r\n                        <img src=\"assets/images/dentacoin-logo.png\" alt=\"Dentacoin logo\" itemprop=\"contentUrl\"/>\r\n                        <figcaption class=\"fs-14 padding-top-5\">{{'powered-by-dcn' | translate}}</figcaption>\r\n                    </figure>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</footer>\r\n"
+module.exports = "<div class=\"logged-mobile-profile-menu\">\r\n    <nav class=\"profile-menu module\">\r\n        <a href=\"javascript:void(0)\" class=\"close-logged-mobile-profile-menu\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i></a>\r\n        <ul itemscope=\"\" itemtype=\"http://schema.org/SiteNavigationElement\">\r\n            <!--<li>\r\n                <a (click)=\"this.redirectsService.redirectToLoggedHome()\" itemprop=\"url\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Home icon\" src=\"assets/images/home.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'home-btn' | translate}}</span>\r\n                </a>\r\n            </li>-->\r\n            <li>\r\n                <a href=\"{{myAccountLink}}\" target=\"_blank\" itemprop=\"url\" class=\"in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Wallet icon\" src=\"assets/images/wallet-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'my-wallet-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"{{myAccountLink}}&route=edit-account\" target=\"_blank\" itemprop=\"url\" class=\"in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Edit account icon\" src=\"assets/images/edit-account-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'edit-account-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a href=\"{{myAccountLink}}&route=manage-privacy\" target=\"_blank\" itemprop=\"url\" class=\"in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Privacy icon\" src=\"assets/images/privacy-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'manage-privacy-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.authenticationServiceService.logout('patient')\" itemprop=\"url\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block\">\r\n                        <img alt=\"Logout icon\" src=\"assets/images/logout-icon.svg\"/>\r\n                    </figure>\r\n                    <span itemprop=\"name\">{{'log-out-btn' | translate}}</span>\r\n                </a>\r\n            </li>\r\n            <li class=\"lang-switcher\">\r\n                <div class=\"border-top\">\r\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" class=\"fix-selects-for-ios\">\r\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\r\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\r\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\r\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\r\n                    </select>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n</div>\r\n<header>\r\n    <div class=\"container\">\r\n        <div class=\"row fs-0\">\r\n            <figure itemscope=\"\" itemtype=\"http://schema.org/Organization\" class=\"col-xs-5 inline-block padding-left-xs-10 padding-right-xs-10\">\r\n                <a itemprop=\"url\" routerLink=\"/\">\r\n                    <img src=\"{{dentistData.logo}}\" itemprop=\"logo\" class=\"dentist-logo-img\" alt=\"Dentaprime logo\"/>\r\n                </a>\r\n            </figure>\r\n            <div class=\"col-xs-7 logged-user-right-nav inline-block text-right padding-left-xs-10 padding-right-xs-10\">\r\n                <!--<div class=\"hidden-box-parent\">\r\n                    <div class=\"\" [ngClass]=\"(this.isAccountPage() === false) ? 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 color-white-on-hub platform-text-color' : 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 color-white-on-hub'\">\r\n                        <span class=\"user-name\">{{patientData.first_name}} {{patientData.last_name}}</span>\r\n                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\r\n                    </div>\r\n                    <span [ngClass]=\"(showApplications === true) ? 'up-arrow platform-background' : 'up-arrow background-white'\"></span>\r\n                    <div class=\"hidden-box\">\r\n                        <div class=\"hidden-box-hub container-fluid platform-background\" *ngIf=\"(showApplications === true)\">\r\n                            <div class=\"row close-btn\">\r\n                                <div class=\"col-xs-12\"><a href=\"javascript:void(0)\">Close <span><i class=\"fa fa-times fs-24\" aria-hidden=\"true\"></i></span></a></div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <ng-container *ngFor=\"let application of applications; index as i;\">\r\n                                    <a class=\"col-md-3 col-xs-4 application inline-block-top\" target=\"_blank\" href=\"{{application.url}}\" *ngIf=\"(translate.currentLang == 'en' && (application.name_en != '' || application.description_en != ''))\">\r\n                                        <figure class=\"text-center\" itemtype=\"http://schema.org/ImageObject\">\r\n                                            <img src=\"{{application.media}}\" itemprop=\"contentUrl\" alt=\"\"/>\r\n                                            <figcaption class=\"color-white fs-14 fs-xs-20 padding-bottom-15 platform-text-color\">{{application.name_en}}</figcaption>\r\n                                        </figure>\r\n                                    </a>\r\n                                    <a class=\"col-md-3 col-xs-4 application inline-block-top\" target=\"_blank\" href=\"{{application.url}}\" *ngIf=\"(translate.currentLang == 'de' && (application.name_de != '' || application.description_de != ''))\">\r\n                                        <figure class=\"text-center\" itemtype=\"http://schema.org/ImageObject\">\r\n                                            <img src=\"{{application.media}}\" itemprop=\"contentUrl\" alt=\"\"/>\r\n                                            <figcaption class=\"color-white fs-14 fs-xs-20 padding-bottom-15 platform-text-color\">{{application.name_de}}</figcaption>\r\n                                        </figure>\r\n                                    </a>\r\n                                </ng-container>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"container-fluid text-center hidden-box-footer\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-xs-6 padding-left-10 padding-right-10 inline-block\">\r\n                                    <a (click)=\"this.authenticationServiceService.logout('patient')\" class=\"logout\"><i class=\"fa fa-power-off\" aria-hidden=\"true\"></i> Log out</a>\r\n                                </div>\r\n                                <div class=\"col-xs-6 padding-left-10 padding-right-10 inline-block\">\r\n                                    <a [routerLink]=\"['my-wallet']\" class=\"fs-16 module platform-custom-button platform-background-color platform-border-color hover padding-left-10 padding-right-10\">My Account</a>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <a href=\"javascript:void(0)\" class=\"hamburger\"><i class=\"fa fa-bars\" aria-hidden=\"true\"></i></a>\r\n                <div [ngClass]=\"(this.isAccountPage() === true) ? 'account-page lang-switcher inline-block' : 'lang-switcher inline-block'\">\r\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" [ngClass]=\"(this.isAccountPage() === false) ? 'platform-text-color' : ''\">\r\n                        <option class=\"color-main\" value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\r\n                        <option class=\"color-main\" value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\r\n                        <option class=\"color-main\" value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\r\n                        <option class=\"color-main\" value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\r\n                    </select>\r\n                </div>-->\r\n                <div [ngClass]=\"(this.isAccountPage() === false) ? 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 padding-top-10 padding-bottom-10 platform-text-color' : 'inline-block fs-14 fs-xs-13 padding-right-10 padding-right-xs-5 padding-top-10 padding-bottom-10'\">\r\n                    <span class=\"user-name\">{{patientData.first_name}} {{patientData.last_name}}</span>\r\n                    <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\r\n                </div>\r\n                <div class=\"logged-nav inline-block\">\r\n                    <a href=\"javascript:void(0);\"><i class=\"fa fa-bars\" [ngClass]=\"(this.isAccountPage() === false) ? 'color-white-on-hub platform-text-color' : 'color-white-on-hub'\" aria-hidden=\"true\"></i></a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"camping-currently-offline\"></div>\r\n</header>\r\n<main>\r\n    <router-outlet></router-outlet>\r\n</main>\r\n<footer class=\"text-center padding-top-40 padding-bottom-10 padding-top-xs-30 padding-top-sm-20\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12\">\r\n                <a href=\"https://dentacoin.com\" target=\"_blank\" class=\"inline-block in-app-browser-link\">\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\">\r\n                        <img src=\"assets/images/dentacoin-logo.png\" alt=\"Dentacoin logo\" itemprop=\"contentUrl\"/>\r\n                        <figcaption class=\"fs-14 padding-top-5\">{{'powered-by-dcn' | translate}}</figcaption>\r\n                    </figure>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -206,7 +217,18 @@ module.exports = "<div class=\"my-profile-menu inline-block-top\">\n    <div cla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row padding-top-70 padding-top-sm-50 padding-top-xs-30\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-20 lato-light padding-top-15 padding-bottom-30\">{{'patients-login-title' | translate}}</h1>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n        <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed\">{{'general-error' | translate}}</div>\n        <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-missing-email\">{{'patient-login-failed-missing-email' | translate}}</div>\n        <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-not-a-patient-of-any-dentist\">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>\n        <div class=\"padding-top-20 text-center\">\n            <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/login'\" class=\"facebook-custom-btn social-login-btn calibri-regular fs-20 fs-xs-18 max-width-400\">Log in with Facebook</a>\n        </div>\n        <div class=\"padding-top-10 text-center\">\n            <a href=\"javascript:void(0)\" onclick=\"alert('Coming soon!');\" class=\"civic-custom-btn social-login-btn calibri-regular fs-20 fs-xs-18 max-width-400\">Log in with Civic</a>\n        </div>\n        <div class=\"padding-top-40 padding-bottom-10 text-center fs-16\">\n            <div>{{'no-account-yet' | translate}}</div>\n            <a [routerLink]=\"['/'+translate.currentLang+'/request-account']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'request-account-btn' | translate}}</a>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row padding-top-50 padding-top-xs-30 patient-login\" [attr.data-cookies-error]=\"'cookies-error' | translate\" [attr.data-years-and-privacy-error]=\"'years-and-privacy-error' | translate\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-20 lato-light padding-top-15 padding-bottom-30\">{{'patients-login-title' | translate}}</h1>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 login-parent\">\n        <div class=\"max-width-400 margin-0-auto form-login-fields\">\n            <div class=\"error-handle margin-bottom-20 custom-error hide\" id=\"custom-error\"></div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed\">{{'general-error' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-missing-email\">{{'patient-login-failed-missing-email' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-not-a-patient-of-any-dentist\">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>\n            <div class=\"padding-top-20 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/login'\" class=\"facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 \">Log in with Facebook</a>\n            </div>\n            <div class=\"padding-top-10 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/login'\" class=\"civic-custom-btn social-login-btn type-login vanilla-js-event calibri-regular fs-20 fs-xs-18\">Log in with Civic</a>\n            </div>\n            <div class=\"padding-top-40 padding-bottom-10 text-center fs-16\">\n                <div>{{'no-account-yet' | translate}}</div>\n                <a [routerLink]=\"['/'+translate.currentLang+'/request-account']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'request-account-btn' | translate}}</a>\n                |\n                <a [routerLink]=\"['/'+translate.currentLang+'/dentist-request-account']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'dentist-request-account-btn' | translate}}</a>\n            </div>\n        </div>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/patient-register-by-invite/patient-register-by-invite.component.html":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/patient-register-by-invite/patient-register-by-invite.component.html ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row padding-top-50 padding-top-xs-30 patient-register-by-invite\" [attr.data-cookies-error]=\"'cookies-error' | translate\" [attr.data-years-and-privacy-error]=\"'years-and-privacy-error' | translate\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-20 lato-light padding-top-15 padding-bottom-30\">{{'patients-register-title' | translate}}</h1>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 register-parent\">\n        <div class=\"max-width-400 margin-0-auto form-register-fields\">\n            <div class=\"error-handle margin-bottom-20 custom-error hide\"></div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed\">{{'general-error' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-missing-email\">{{'patient-login-failed-missing-email' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-not-a-patient-of-any-dentist\">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>\n            <div class=\"padding-top-20 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviteId\" class=\"facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 max-width-400\">Log in with Facebook</a>\n            </div>\n            <div class=\"padding-top-10 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviteId\" class=\"civic-custom-btn social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18\">Log in with Civic</a>\n            </div>\n            <div class=\"padding-top-20 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"agree-over-eighteen\"/>\n                    <label class=\"fs-15 custom-checkbox-label\" for=\"agree-over-eighteen\">{{'i-confirm' | translate}}</label>\n                </div>\n            </div>\n            <div class=\"patient-register-checkboxes padding-top-5 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"privacy-policy-registration-patient\"/>\n                    <label class=\"fs-15 custom-checkbox-label\" for=\"privacy-policy-registration-patient\">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>\n                </div>\n            </div>\n            <div class=\"links-below-registration margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color\">\n                <a [routerLink]=\"['/'+translate.currentLang+'/login']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'login-here' | translate}}</a>\n                |\n                <a [routerLink]=\"['/'+translate.currentLang+'/request-account']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'request-account-btn' | translate}}</a>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -217,7 +239,7 @@ module.exports = "<div class=\"row padding-top-70 padding-top-sm-50 padding-top-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row padding-top-60\">\n    <div class=\"col-xs-12 text-center\">\n        <h1 class=\"fs-40 fs-xs-26\">{{'request-account-title' | translate}}</h1>\n        <p class=\"fs-22 fs-xs-16 lato-light padding-bottom-35\">{{'request-account-subtitle' | translate}}</p>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n        <form [formGroup]=\"requestAccountForm\" (ngSubmit)=\"onAccountRequestFormSubmit()\">\n            <div class=\"success-handle margin-bottom-20\" *ngIf=\"sendRequestSucceed\">{{'request-account-thank-you' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20\" *ngIf=\"sendRequestFailed\">{{'request-account-saving-failed' | translate}}</div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-firstName\" class=\"platform-color\">{{'fname-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"100\" id=\"request-account-firstName\" formControlName=\"firstName\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.firstName.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.firstName.errors.required\">{{'fname-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.firstName.hasError('maxlength')\">{{'fname-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-lastName\" class=\"platform-color\">{{'lname-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"100\" id=\"request-account-lastName\" formControlName=\"lastName\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.lastName.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.lastName.errors.required\">{{'lname-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.lastName.hasError('maxlength')\">{{'lname-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-email\" class=\"platform-color\">{{'email-label' | translate}}</label>\n                    <input maxlength=\"100\" type=\"text\" id=\"request-account-email\" formControlName=\"email\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.email.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.email.errors.required\">{{'email-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.email.errors.email\">{{'valid-email' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-phone\" class=\"platform-color\">{{'phone-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"20\" id=\"request-account-phone\" formControlName=\"phone\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.phone.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.phone.errors.required\">{{'phone-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.phone.hasError('maxlength')\">{{'phone-max-length-validation' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-30 text-center\">\n                <button class=\"module platform-custom-button platform-background-color platform-border-color hover\">{{'request-account-button' | translate}}</button>\n            </div>\n        </form>\n    </div>\n</div>"
+module.exports = "<div class=\"row padding-top-50 patient-request-account\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-36 lato-bold padding-top-10\">{{'request-account-title' | translate}}</h1>\n        <h2 class=\"fs-20 lato-light padding-bottom-30\">{{'request-account-subtitle' | translate}}</h2>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4\">\n        <form [formGroup]=\"requestAccountForm\" (ngSubmit)=\"onAccountRequestFormSubmit()\">\n            <div class=\"success-handle margin-bottom-20\" *ngIf=\"sendRequestSucceed\">{{'request-account-thank-you' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20\" *ngIf=\"sendRequestFailed\">{{'request-account-saving-failed' | translate}}</div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-firstName\" class=\"platform-color\">{{'fname-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"100\" id=\"request-account-firstName\" formControlName=\"firstName\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.firstName.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.firstName.errors.required\">{{'fname-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.firstName.hasError('maxlength')\">{{'fname-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-lastName\" class=\"platform-color\">{{'lname-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"100\" id=\"request-account-lastName\" formControlName=\"lastName\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.lastName.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.lastName.errors.required\">{{'lname-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.lastName.hasError('maxlength')\">{{'lname-max-length' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-email\" class=\"platform-color\">{{'email-label' | translate}}</label>\n                    <input maxlength=\"100\" type=\"text\" id=\"request-account-email\" formControlName=\"email\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.email.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.email.errors.required\">{{'email-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.email.errors.email\">{{'valid-email' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"padding-top-10\">\n                <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                    <label for=\"request-account-phone\" class=\"platform-color\">{{'phone-label' | translate}}</label>\n                    <input type=\"text\" maxlength=\"20\" id=\"request-account-phone\" formControlName=\"phone\" class=\"full-rounded form-field platform-border-color\"/>\n                </div>\n                <div *ngIf=\"requestAccountFormSubmitted && request_form_data.phone.errors\">\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.phone.errors.required\">{{'phone-required' | translate}}</div>\n                    <div class=\"error-handle\" *ngIf=\"request_form_data.phone.hasError('maxlength')\">{{'phone-max-length-validation' | translate}}</div>\n                </div>\n            </div>\n            <div class=\"patient-register-checkboxes padding-top-15 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"privacy-policy-registration-patient\" formControlName=\"privacyPolicy\"/>\n                    <label class=\"fs-15 custom-checkbox-label\" for=\"privacy-policy-registration-patient\">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>\n                </div>\n                <div class=\"error-handle\" *ngIf=\"isPatientPrivacyAccepted.invalid\">{{'privacy-policy-agree' | translate}}</div>\n            </div>\n            <div class=\"padding-top-30 text-center\">\n                <button class=\"module lato-bold platform-custom-button platform-background-color platform-border-color hover\">{{'request-account-button' | translate}}</button>\n            </div>\n            <div class=\"links-below-form margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color\">\n                <a [routerLink]=\"['/'+translate.currentLang+'/login']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color\">{{'login-here' | translate}}</a>\n            </div>\n        </form>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -327,9 +349,10 @@ var AuthenticationServiceService = /** @class */ (function () {
             next: function (response) {
                 console.log(response, 'dentistLogin');
                 if (response.success) {
-                    if (response.data.is_partner == true) {
+                    if (response.data.is_partner === true) {
                         console.log('partner');
-                        localStorage.setItem('currentDentist', JSON.stringify({
+                        window.scrollTo(0, 0);
+                        window.localStorage.setItem('currentDentist', JSON.stringify({
                             id: response.data.id,
                             token: response.token
                         }));
@@ -351,7 +374,7 @@ var AuthenticationServiceService = /** @class */ (function () {
         });
     };
     AuthenticationServiceService.prototype.logout = function (redirect) {
-        localStorage.clear();
+        window.localStorage.clear();
         this.isPatientLoggedSubject.next(false);
         this.isDentistLoggedSubject.next(false);
         if (redirect === 'dentist') {
@@ -362,10 +385,10 @@ var AuthenticationServiceService = /** @class */ (function () {
         }
     };
     AuthenticationServiceService.prototype.hasDentistStorageSession = function () {
-        return !!localStorage.getItem('currentDentist');
+        return !!window.localStorage.getItem('currentDentist');
     };
     AuthenticationServiceService.prototype.hasPatientStorageSession = function () {
-        return !!localStorage.getItem('currentPatient');
+        return !!window.localStorage.getItem('currentPatient');
     };
     AuthenticationServiceService.prototype.isDentistLoggedIn = function () {
         return this.isDentistLoggedSubject.asObservable();
@@ -464,17 +487,19 @@ var RedirectsService = /** @class */ (function () {
         this.ngZone = ngZone;
     }
     RedirectsService.prototype.redirectToAdminLogin = function () {
-        this.router.navigateByUrl(this.translate.currentLang + '/admin-login');
+        var _this = this;
+        this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/admin-login'); }).then();
     };
     RedirectsService.prototype.redirectToAdmin = function () {
-        this.router.navigateByUrl(this.translate.currentLang + '/admin');
+        var _this = this;
+        this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/admin'); }).then();
     };
     RedirectsService.prototype.redirectToAdvancedAdmin = function () {
-        this.router.navigateByUrl(this.translate.currentLang + '/admin/advanced');
+        var _this = this;
+        this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/admin/advanced'); }).then();
     };
     RedirectsService.prototype.redirectToLoggedHome = function () {
         var _this = this;
-        console.log('redirectToLoggedHome');
         this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang); }).then();
     };
     RedirectsService.prototype.redirectToPatientLogin = function (type) {
@@ -546,6 +571,13 @@ var RequestsService = /** @class */ (function () {
     };
     RequestsService.prototype.sendRequestAccountMail = function (body) {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/send-request-account-mail', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/x-www-form-urlencoded'
+            })
+        });
+    };
+    RequestsService.prototype.dentistSendRequestAccountMail = function (body) {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/dentist-send-request-account-mail', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/x-www-form-urlencoded'
             })
@@ -667,6 +699,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/authentication-service.service */ "./src/app/_services/authentication-service.service.ts");
 /* harmony import */ var _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/redirects.service */ "./src/app/_services/redirects.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+
 
 
 
@@ -674,11 +708,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AdminLoginComponent = /** @class */ (function () {
-    function AdminLoginComponent(router, formBuilder, authenticationServiceService, redirectsService) {
+    function AdminLoginComponent(router, formBuilder, authenticationServiceService, redirectsService, translate) {
         this.router = router;
         this.formBuilder = formBuilder;
         this.authenticationServiceService = authenticationServiceService;
         this.redirectsService = redirectsService;
+        this.translate = translate;
         this.dentistsFormSubmitted = false;
         this.isDentistLoggedIn = authenticationServiceService.isDentistLoggedSubject;
     }
@@ -719,7 +754,8 @@ var AdminLoginComponent = /** @class */ (function () {
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
         { type: _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationServiceService"] },
-        { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__["RedirectsService"] }
+        { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__["RedirectsService"] },
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"] }
     ]; };
     AdminLoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -958,6 +994,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./forgotten-password/forgotten-password.component */ "./src/app/forgotten-password/forgotten-password.component.ts");
 /* harmony import */ var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./change-password/change-password.component */ "./src/app/change-password/change-password.component.ts");
 /* harmony import */ var _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./not-logged-in-wrapper/not-logged-in-wrapper.component */ "./src/app/not-logged-in-wrapper/not-logged-in-wrapper.component.ts");
+/* harmony import */ var _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./patient-register-by-invite/patient-register-by-invite.component */ "./src/app/patient-register-by-invite/patient-register-by-invite.component.ts");
+/* harmony import */ var _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dentist-request-account/dentist-request-account.component */ "./src/app/dentist-request-account/dentist-request-account.component.ts");
+
+
 
 
 
@@ -985,18 +1025,12 @@ var routes = [
     { path: ':lang', component: _front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_11__["FrontEndLanguageComponent"], children: [
             { path: '', component: _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__["LoggedInWrapperComponent"], children: [
                     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"] },
-                    { path: 'my-wallet', component: _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_14__["MyWalletComponent"] },
-                    { path: 'edit-account', component: _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_15__["EditAccountComponent"] },
-                    { path: 'manage-privacy', component: _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_16__["ManagePrivacyComponent"] },
                 ] },
             { path: '', component: _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__["NotLoggedInWrapperComponent"], children: [
-                    { path: 'forgotten-password', component: _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_19__["ForgottenPasswordComponent"] },
+                    { path: 'dentist-request-account', component: _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__["DentistRequestAccountComponent"] },
                     { path: 'request-account', component: _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__["RequestAccountComponent"] },
-                    { path: 'change-password/:token', component: _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_20__["ChangePasswordComponent"] },
-                    { path: 'verify-account', children: [
-                            { path: ':token', component: _verify_account_verify_account_component__WEBPACK_IMPORTED_MODULE_12__["VerifyAccountComponent"] }
-                        ] },
-                    { path: 'login', component: _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"] }
+                    { path: 'login', component: _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"] },
+                    { path: 'patient-register-by-invite/:invite', component: _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__["PatientRegisterByInviteComponent"] },
                 ] },
             { path: 'admin-login', component: _admin_login_admin_login_component__WEBPACK_IMPORTED_MODULE_10__["AdminLoginComponent"] },
             { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"],
@@ -1036,7 +1070,7 @@ var AppRoutingModule = /** @class */ (function () {
     return AppRoutingModule;
 }());
 
-var routingComponents = [_front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_11__["FrontEndLanguageComponent"], _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"], _admin_advanced_admin_panel_applications_applications_component__WEBPACK_IMPORTED_MODULE_6__["ApplicationsComponent"], _admin_basic_admin_panel_basic_admin_panel_component__WEBPACK_IMPORTED_MODULE_7__["BasicAdminPanelComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"], _admin_advanced_admin_panel_advanced_admin_panel_component__WEBPACK_IMPORTED_MODULE_8__["AdvancedAdminPanelComponent"], _admin_advanced_admin_panel_push_notifications_push_notifications_component__WEBPACK_IMPORTED_MODULE_9__["PushNotificationsComponent"], _admin_login_admin_login_component__WEBPACK_IMPORTED_MODULE_10__["AdminLoginComponent"], _verify_account_verify_account_component__WEBPACK_IMPORTED_MODULE_12__["VerifyAccountComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"], _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_14__["MyWalletComponent"], _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_15__["EditAccountComponent"], _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_16__["ManagePrivacyComponent"], _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__["LoggedInWrapperComponent"], _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__["RequestAccountComponent"], _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_19__["ForgottenPasswordComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_20__["ChangePasswordComponent"], _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__["NotLoggedInWrapperComponent"]];
+var routingComponents = [_front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_11__["FrontEndLanguageComponent"], _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"], _admin_advanced_admin_panel_applications_applications_component__WEBPACK_IMPORTED_MODULE_6__["ApplicationsComponent"], _admin_basic_admin_panel_basic_admin_panel_component__WEBPACK_IMPORTED_MODULE_7__["BasicAdminPanelComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"], _admin_advanced_admin_panel_advanced_admin_panel_component__WEBPACK_IMPORTED_MODULE_8__["AdvancedAdminPanelComponent"], _admin_advanced_admin_panel_push_notifications_push_notifications_component__WEBPACK_IMPORTED_MODULE_9__["PushNotificationsComponent"], _admin_login_admin_login_component__WEBPACK_IMPORTED_MODULE_10__["AdminLoginComponent"], _verify_account_verify_account_component__WEBPACK_IMPORTED_MODULE_12__["VerifyAccountComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"], _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_14__["MyWalletComponent"], _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_15__["EditAccountComponent"], _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_16__["ManagePrivacyComponent"], _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__["LoggedInWrapperComponent"], _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__["RequestAccountComponent"], _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_19__["ForgottenPasswordComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_20__["ChangePasswordComponent"], _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__["NotLoggedInWrapperComponent"], _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__["PatientRegisterByInviteComponent"], _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__["DentistRequestAccountComponent"]];
 
 
 /***/ }),
@@ -1063,6 +1097,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(translate) {
         this.translate = translate;
         this.hybrid = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].hybrid;
+        this.dentacoinDomain = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].dentacoinDomain;
     }
     AppComponent.prototype.ngOnInit = function () {
     };
@@ -1124,7 +1159,7 @@ var AppModule = /** @class */ (function () {
                 _partials_account_sidebar_account_sidebar_component__WEBPACK_IMPORTED_MODULE_9__["AccountSidebarComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"].withServerTransition({ appId: 'serverApp' }),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
@@ -1272,6 +1307,150 @@ var ChangePasswordComponent = /** @class */ (function () {
         })
     ], ChangePasswordComponent);
     return ChangePasswordComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dentist-request-account/dentist-request-account.component.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/dentist-request-account/dentist-request-account.component.ts ***!
+  \******************************************************************************/
+/*! exports provided: DentistRequestAccountComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DentistRequestAccountComponent", function() { return DentistRequestAccountComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/authentication-service.service */ "./src/app/_services/authentication-service.service.ts");
+/* harmony import */ var _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/redirects.service */ "./src/app/_services/redirects.service.ts");
+/* harmony import */ var _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../node_modules/@angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_requests_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../_services/requests.service */ "./src/app/_services/requests.service.ts");
+/* harmony import */ var _services_additional_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../_services/additional.service */ "./src/app/_services/additional.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _services_language_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../_services/language.service */ "./src/app/_services/language.service.ts");
+
+
+
+
+
+
+
+
+
+
+
+var DentistRequestAccountComponent = /** @class */ (function () {
+    function DentistRequestAccountComponent(router, formBuilder, authenticationServiceService, redirectsService, http, requestsService, additionalService, translate, languageService) {
+        this.router = router;
+        this.formBuilder = formBuilder;
+        this.authenticationServiceService = authenticationServiceService;
+        this.redirectsService = redirectsService;
+        this.http = http;
+        this.requestsService = requestsService;
+        this.additionalService = additionalService;
+        this.translate = translate;
+        this.languageService = languageService;
+        this.dentistRequestAccountFormSubmitted = false;
+        this.sendRequestSucceed = false;
+        this.sendRequestFailed = false;
+    }
+    DentistRequestAccountComponent.prototype.ngOnInit = function () {
+        if (this.authenticationServiceService.hasPatientStorageSession()) {
+            // redirect to home if logged in
+            this.redirectsService.redirectToLoggedHome();
+        }
+        else {
+            this.dentistRequestAccountForm = this.formBuilder.group({
+                fullName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(100)
+                ])),
+                email: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email
+                ])),
+                practice: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(200)
+                ])),
+                website: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(500)
+                ])),
+                privacyPolicy: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].requiredTrue)
+            });
+        }
+    };
+    Object.defineProperty(DentistRequestAccountComponent.prototype, "isDentistPrivacyAccepted", {
+        get: function () {
+            return this.dentistRequestAccountForm.get('privacyPolicy');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DentistRequestAccountComponent.prototype, "dentist_request_form_data", {
+        // convenience getter for easy access to form fields
+        get: function () { return this.dentistRequestAccountForm.controls; },
+        enumerable: true,
+        configurable: true
+    });
+    // on request form account submit
+    DentistRequestAccountComponent.prototype.onAccountRequestFormSubmit = function () {
+        var _this = this;
+        this.additionalService.showLoader();
+        this.dentistRequestAccountFormSubmitted = true;
+        // stop here if form is invalid
+        if (this.dentistRequestAccountForm.invalid) {
+            this.additionalService.hideLoader();
+            return;
+        }
+        var paramsMap = new Map();
+        paramsMap.set('fullName', this.dentist_request_form_data.fullName.value);
+        paramsMap.set('email', this.dentist_request_form_data.email.value);
+        paramsMap.set('practice', this.dentist_request_form_data.practice.value);
+        paramsMap.set('website', this.dentist_request_form_data.website.value);
+        var params = new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpParams"]();
+        paramsMap.forEach(function (value, key) {
+            params = params.set(key, value);
+        });
+        this.requestsService.dentistSendRequestAccountMail(params.toString()).subscribe(function (response) {
+            if (response.success) {
+                _this.dentistRequestAccountForm.reset();
+                Object.keys(_this.dentistRequestAccountForm.controls).forEach(function (key) {
+                    _this.dentistRequestAccountForm.get(key).setErrors(null);
+                });
+                _this.sendRequestSucceed = true;
+                _this.sendRequestFailed = false;
+                _this.additionalService.hideLoader();
+            }
+            else {
+                _this.sendRequestFailed = true;
+                _this.sendRequestSucceed = false;
+                _this.additionalService.hideLoader();
+            }
+        });
+    };
+    DentistRequestAccountComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+        { type: _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationServiceService"] },
+        { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__["RedirectsService"] },
+        { type: _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"] },
+        { type: _services_requests_service__WEBPACK_IMPORTED_MODULE_7__["RequestsService"] },
+        { type: _services_additional_service__WEBPACK_IMPORTED_MODULE_8__["AdditionalService"] },
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] },
+        { type: _services_language_service__WEBPACK_IMPORTED_MODULE_10__["LanguageService"] }
+    ]; };
+    DentistRequestAccountComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-dentist-request-account',
+            template: __webpack_require__(/*! raw-loader!./dentist-request-account.component.html */ "./node_modules/raw-loader/index.js!./src/app/dentist-request-account/dentist-request-account.component.html")
+        })
+    ], DentistRequestAccountComponent);
+    return DentistRequestAccountComponent;
 }());
 
 
@@ -1722,7 +1901,7 @@ var HomeComponent = /** @class */ (function () {
         }
         else {
             console.log('===== 2 =====');
-            this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
+            this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
                 console.log('getDentistData');
                 _this.hubTitleEn = response.data.hub_title_en;
                 _this.hubTitleDe = response.data.hub_title_de;
@@ -1800,18 +1979,23 @@ var LoggedInWrapperComponent = /** @class */ (function () {
         public showApplications: boolean = false;*/
         this.dcnAmount = 0;
         this.usdAmount = 0;
+        this.hybrid = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].hybrid;
     }
     LoggedInWrapperComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('WASD');
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            console.log('WASD1');
             this.redirectsService.redirectToPatientLogin('login');
         }
         else {
-            console.log('WASD2');
-            this.myAccountLink = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(localStorage.getItem('currentPatient')).encrypted_token);
-            this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
+            if (this.hybrid === true) {
+                console.log(1, this.hybrid);
+                this.myAccountLink = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
+            }
+            else {
+                console.log(2, this.hybrid);
+                this.myAccountLink = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
+            }
+            this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
                 console.log('logged in wrapper getDentistData');
                 _this.dentistData.logo = response.data.logo;
                 /*if(this.router.url.length > 3) {
@@ -2212,8 +2396,8 @@ var NotLoggedInWrapperComponent = /** @class */ (function () {
     NotLoggedInWrapperComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            if (localStorage.getItem('currentDentist') != null) {
-                this.requestsService.getDentistData(JSON.parse(localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
+            if (window.localStorage.getItem('currentDentist') != null) {
+                this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
                     if (response.success) {
                         _this.dentistLogo = response.data.logo;
                     }
@@ -2364,40 +2548,40 @@ var PatientLoginPageComponent = /** @class */ (function () {
         else {
             document.addEventListener('patientAuthSuccessResponse', function (e) {
                 console.log(e, 'patientAuthSuccessResponse');
-                console.log(e.detail.response_data.data.patient_of, 'e.detail.response_data.data.patient_of');
-                if (e.detail.response_data.data.patient_of !== null && e.detail.response_data.data.patient_of !== undefined) {
-                    _this.requestsService.coreDbLogin(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set('token', e.detail.response_data.token).set('id', e.detail.response_data.data.id).toString()).subscribe({
-                        next: function (coredbResponse) {
-                            console.log(_this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            localStorage.setItem('currentPatient', JSON.stringify({
-                                token: e.detail.response_data.token,
-                                id: e.detail.response_data.data.id,
-                                patient_of: e.detail.response_data.data.patient_of,
-                                encrypted_id: coredbResponse.encrypted_id,
-                                encrypted_token: coredbResponse.encrypted_token,
-                                encrypted_type: coredbResponse.encrypted_type
-                            }));
-                            localStorage.setItem('dentist', String(e.detail.response_data.data.patient_of));
-                            console.log(_this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            _this.authenticationServiceService.isPatientLoggedSubject.next(true);
-                            console.log(_this.authenticationServiceService.hasPatientStorageSession(), 'this.authenticationServiceService.isPatientLoggedSubject');
-                            _this.redirectsService.redirectToLoggedHome();
-                            _this.additionalService.hideLoader();
-                        },
-                        error: function (error) {
-                            document.getElementById('patient-login-failed').classList.remove('hide');
+                _this.onPatientsLogin(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
+            });
+            document.addEventListener('receiveCoredbTokenFromCivicAuth', function (e) {
+                console.log(e.detail.response_data, 'receiveCoredbTokenFromCivicAuth');
+                console.log(e, 'receiveCoredbTokenFromCivicAuth');
+                _this.requestsService.getUserData(e.detail.response_data).subscribe({
+                    next: function (response) {
+                        if (response.success) {
+                            _this.onPatientsLogin(e.detail.response_data, response.data.id, response.data.patient_of);
                         }
-                    });
-                }
-                else {
-                    document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
-                }
+                        else {
+                            _this.authenticationServiceService.logout('patient');
+                        }
+                    },
+                    error: function (error) { return _this.authenticationServiceService.logout('patient'); }
+                });
+            });
+            document.addEventListener('receivedFacebookToken', function (e) {
+                _this.additionalService.showLoader();
+            });
+            document.addEventListener('civicRead', function (e) {
+                _this.additionalService.showLoader();
+            });
+            document.addEventListener('hideGatewayLoader', function (e) {
+                _this.additionalService.hideLoader();
             });
             document.addEventListener('registeredAccountMissingEmail', function (e) {
+                // COVER THIS !!!!!!!!!!!!!
                 document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
             });
             document.addEventListener('patientAuthErrorResponse', function (e) {
-                document.getElementById('patient-login-failed').classList.remove('hide');
+                console.log(e, 'e');
+                document.getElementById('custom-error').classList.remove('hide');
+                document.getElementById('custom-error').innerHTML = e.detail.response_data.errors.generic;
             });
             document.addEventListener('noCoreDBApiConnection', function (e) {
                 document.getElementById('patient-login-failed').classList.remove('hide');
@@ -2405,6 +2589,35 @@ var PatientLoginPageComponent = /** @class */ (function () {
             document.addEventListener('noExternalLoginProviderConnection', function (e) {
                 document.getElementById('patient-login-failed').classList.remove('hide');
             });
+        }
+    };
+    PatientLoginPageComponent.prototype.onPatientsLogin = function (_token, _id, _patient_of) {
+        var _this = this;
+        console.log(_token, _id, _patient_of, 'onPatientsLogin');
+        if (_patient_of !== null && _patient_of !== undefined) {
+            this.requestsService.coreDbLogin(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set('token', _token).set('id', _id).toString()).subscribe({
+                next: function (coredbResponse) {
+                    window.scrollTo(0, 0);
+                    window.localStorage.setItem('currentPatient', JSON.stringify({
+                        token: _token,
+                        id: _id,
+                        patient_of: _patient_of,
+                        encrypted_id: coredbResponse.encrypted_id,
+                        encrypted_token: coredbResponse.encrypted_token,
+                        encrypted_type: coredbResponse.encrypted_type
+                    }));
+                    window.localStorage.setItem('dentist', String(_patient_of));
+                    _this.authenticationServiceService.isPatientLoggedSubject.next(true);
+                    _this.redirectsService.redirectToLoggedHome();
+                    _this.additionalService.hideLoader();
+                },
+                error: function (error) {
+                    document.getElementById('patient-login-failed').classList.remove('hide');
+                }
+            });
+        }
+        else {
+            document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
         }
     };
     PatientLoginPageComponent.ctorParameters = function () { return [
@@ -2424,6 +2637,69 @@ var PatientLoginPageComponent = /** @class */ (function () {
         })
     ], PatientLoginPageComponent);
     return PatientLoginPageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/patient-register-by-invite/patient-register-by-invite.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/patient-register-by-invite/patient-register-by-invite.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: PatientRegisterByInviteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientRegisterByInviteComponent", function() { return PatientRegisterByInviteComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/authentication-service.service */ "./src/app/_services/authentication-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_redirects_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/redirects.service */ "./src/app/_services/redirects.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+
+
+
+var PatientRegisterByInviteComponent = /** @class */ (function () {
+    function PatientRegisterByInviteComponent(authenticationServiceService, redirectsService, activatedRoute, translate) {
+        this.authenticationServiceService = authenticationServiceService;
+        this.redirectsService = redirectsService;
+        this.activatedRoute = activatedRoute;
+        this.translate = translate;
+        this.coreDbApiDomain = _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].coreDbApiDomain;
+    }
+    PatientRegisterByInviteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.authenticationServiceService.hasPatientStorageSession()) {
+            // redirect to home if logged in
+            this.redirectsService.redirectToLoggedHome();
+        }
+        else {
+            this.activatedRoute.params.subscribe(function (params) {
+                _this.inviteId = params.invite;
+            });
+        }
+    };
+    PatientRegisterByInviteComponent.ctorParameters = function () { return [
+        { type: _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationServiceService"] },
+        { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_4__["RedirectsService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"] }
+    ]; };
+    PatientRegisterByInviteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-patient-register-by-invite',
+            template: __webpack_require__(/*! raw-loader!./patient-register-by-invite.component.html */ "./node_modules/raw-loader/index.js!./src/app/patient-register-by-invite/patient-register-by-invite.component.html")
+        })
+    ], PatientRegisterByInviteComponent);
+    return PatientRegisterByInviteComponent;
 }());
 
 
@@ -2497,9 +2773,17 @@ var RequestAccountComponent = /** @class */ (function () {
                 phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)
                 ])),
+                privacyPolicy: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].requiredTrue)
             });
         }
     };
+    Object.defineProperty(RequestAccountComponent.prototype, "isPatientPrivacyAccepted", {
+        get: function () {
+            return this.requestAccountForm.get('privacyPolicy');
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(RequestAccountComponent.prototype, "request_form_data", {
         // convenience getter for easy access to form fields
         get: function () { return this.requestAccountForm.controls; },
@@ -2704,6 +2988,7 @@ var environment = {
     production: true,
     hybrid: false,
     default_language: 'en',
+    dentacoinDomain: 'https://dev.dentacoin.com',
     coreDbApiDomain: 'https://dev-api.dentacoin.com',
     accountDomain: 'https://dev-account.dentacoin.com'
 };
@@ -2725,6 +3010,7 @@ var environment = {
     production: false,
     hybrid: true,
     default_language: 'en',
+    dentacoinDomain: 'https://dev.dentacoin.com',
     coreDbApiDomain: 'https://dev-api.dentacoin.com',
     accountDomain: 'https://dev-account.dentacoin.com'
 };
@@ -2752,8 +3038,10 @@ __webpack_require__.r(__webpack_exports__);
 if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
 }
-Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
-    .catch(function (err) { return console.error(err); });
+document.addEventListener('DOMContentLoaded', function () {
+    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
+        .catch(function (err) { return console.error(err); });
+});
 
 
 /***/ }),

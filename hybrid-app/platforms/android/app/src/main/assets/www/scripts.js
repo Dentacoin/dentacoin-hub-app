@@ -19071,252 +19071,13 @@ function _init(){"use strict";$.AdminLTE.layout={activate:function(){var a=this;
 !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):t.iro=e()}(this,function(){"use strict";var c=function(){},i={},h=[],u=[];function p(t,e){var o,n,r,i,s=arguments,a=u;for(i=arguments.length;2<i--;)h.push(s[i]);for(e&&null!=e.children&&(h.length||h.push(e.children),delete e.children);h.length;)if((n=h.pop())&&void 0!==n.pop)for(i=n.length;i--;)h.push(n[i]);else"boolean"==typeof n&&(n=null),(r="function"!=typeof t)&&(null==n?n="":"number"==typeof n?n=String(n):"string"!=typeof n&&(r=!1)),r&&o?a[a.length-1]+=n:a===u?a=[n]:a.push(n),o=r;var l=new c;return l.nodeName=t,l.children=a,l.attributes=null==e?void 0:e,l.key=null==e?void 0:e.key,l}function M(t,e){for(var o in e)t[o]=e[o];return t}function l(t,e){null!=t&&("function"==typeof t?t(e):t.current=e)}var e="function"==typeof Promise?Promise.resolve().then.bind(Promise.resolve()):setTimeout,f=/acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i,o=[];function s(t){!t._dirty&&(t._dirty=!0)&&1==o.push(t)&&e(n)}function n(){for(var t;t=o.pop();)t._dirty&&I(t)}function S(t,e){return t.normalizedNodeName===e||t.nodeName.toLowerCase()===e.toLowerCase()}function E(t){var e=M({},t.attributes);e.children=t.children;var o=t.nodeName.defaultProps;if(void 0!==o)for(var n in o)void 0===e[n]&&(e[n]=o[n]);return e}function N(t){var e=t.parentNode;e&&e.removeChild(t)}function v(t,e,o,n,r){if("className"===e&&(e="class"),"key"===e);else if("ref"===e)l(o,null),l(n,t);else if("class"!==e||r)if("style"===e){if(n&&"string"!=typeof n&&"string"!=typeof o||(t.style.cssText=n||""),n&&"object"==typeof n){if("string"!=typeof o)for(var i in o)i in n||(t.style[i]="");for(var i in n)t.style[i]="number"==typeof n[i]&&!1===f.test(i)?n[i]+"px":n[i]}}else if("dangerouslySetInnerHTML"===e)n&&(t.innerHTML=n.__html||"");else if("o"==e[0]&&"n"==e[1]){var s=e!==(e=e.replace(/Capture$/,""));e=e.toLowerCase().substring(2),n?o||t.addEventListener(e,d,s):t.removeEventListener(e,d,s),(t._listeners||(t._listeners={}))[e]=n}else if("list"!==e&&"type"!==e&&!r&&e in t){try{t[e]=null==n?"":n}catch(t){}null!=n&&!1!==n||"spellcheck"==e||t.removeAttribute(e)}else{var a=r&&e!==(e=e.replace(/^xlink:?/,""));null==n||!1===n?a?t.removeAttributeNS("http://www.w3.org/1999/xlink",e.toLowerCase()):t.removeAttribute(e):"function"!=typeof n&&(a?t.setAttributeNS("http://www.w3.org/1999/xlink",e.toLowerCase(),n):t.setAttribute(e,n))}else t.className=n||""}function d(t){return this._listeners[t.type](t)}var T=[],H=0,g=!1,_=!1;function P(){for(var t;t=T.shift();)t.componentDidMount&&t.componentDidMount()}function A(t,e,o,n,r,i){H++||(g=null!=r&&void 0!==r.ownerSVGElement,_=null!=t&&!("__preactattr_"in t));var s=U(t,e,o,n,i);return r&&s.parentNode!==r&&r.appendChild(s),--H||(_=!1,i||P()),s}function U(t,e,o,n,r){var i=t,s=g;if(null!=e&&"boolean"!=typeof e||(e=""),"string"==typeof e||"number"==typeof e)return t&&void 0!==t.splitText&&t.parentNode&&(!t._component||r)?t.nodeValue!=e&&(t.nodeValue=e):(i=document.createTextNode(e),t&&(t.parentNode&&t.parentNode.replaceChild(i,t),O(t,!0))),i.__preactattr_=!0,i;var a,l,c=e.nodeName;if("function"==typeof c)return function(t,e,o,n){var r=t&&t._component,i=r,s=t,a=r&&t._componentConstructor===e.nodeName,l=a,c=E(e);for(;r&&!l&&(r=r._parentComponent);)l=r.constructor===e.nodeName;r&&l&&(!n||r._component)?(j(r,c,3,o,n),t=r.base):(i&&!a&&(L(i),t=s=null),r=R(e.nodeName,c,o),t&&!r.nextBase&&(r.nextBase=t,s=null),j(r,c,1,o,n),t=r.base,s&&t!==s&&(s._component=null,O(s,!1)));return t}(t,e,o,n);if(g="svg"===c||"foreignObject"!==c&&g,c=String(c),(!t||!S(t,c))&&(a=c,(l=g?document.createElementNS("http://www.w3.org/2000/svg",a):document.createElement(a)).normalizedNodeName=a,i=l,t)){for(;t.firstChild;)i.appendChild(t.firstChild);t.parentNode&&t.parentNode.replaceChild(i,t),O(t,!0)}var h=i.firstChild,u=i.__preactattr_,p=e.children;if(null==u){u=i.__preactattr_={};for(var f=i.attributes,d=f.length;d--;)u[f[d].name]=f[d].value}return!_&&p&&1===p.length&&"string"==typeof p[0]&&null!=h&&void 0!==h.splitText&&null==h.nextSibling?h.nodeValue!=p[0]&&(h.nodeValue=p[0]):(p&&p.length||null!=h)&&function(t,e,o,n,r){var i,s,a,l,c,h=t.childNodes,u=[],p={},f=0,d=0,v=h.length,g=0,_=e?e.length:0;if(0!==v)for(var m=0;m<v;m++){var y=h[m],b=y.__preactattr_,w=_&&b?y._component?y._component.__key:b.key:null;null!=w?(f++,p[w]=y):(b||(void 0!==y.splitText?!r||y.nodeValue.trim():r))&&(u[g++]=y)}if(0!==_)for(var m=0;m<_;m++){l=e[m],c=null;var w=l.key;if(null!=w)f&&void 0!==p[w]&&(c=p[w],p[w]=void 0,f--);else if(d<g)for(i=d;i<g;i++)if(void 0!==u[i]&&(x=s=u[i],C=r,"string"==typeof(k=l)||"number"==typeof k?void 0!==x.splitText:"string"==typeof k.nodeName?!x._componentConstructor&&S(x,k.nodeName):C||x._componentConstructor===k.nodeName)){c=s,u[i]=void 0,i===g-1&&g--,i===d&&d++;break}c=U(c,l,o,n),a=h[m],c&&c!==t&&c!==a&&(null==a?t.appendChild(c):c===a.nextSibling?N(a):t.insertBefore(c,a))}var x,k,C;if(f)for(var m in p)void 0!==p[m]&&O(p[m],!1);for(;d<=g;)void 0!==(c=u[g--])&&O(c,!1)}(i,p,o,n,_||null!=u.dangerouslySetInnerHTML),function(t,e,o){var n;for(n in o)e&&null!=e[n]||null==o[n]||v(t,n,o[n],o[n]=void 0,g);for(n in e)"children"===n||"innerHTML"===n||n in o&&e[n]===("value"===n||"checked"===n?t[n]:o[n])||v(t,n,o[n],o[n]=e[n],g)}(i,e.attributes,u),g=s,i}function O(t,e){var o=t._component;o?L(o):(null!=t.__preactattr_&&l(t.__preactattr_.ref,null),!1!==e&&null!=t.__preactattr_||N(t),r(t))}function r(t){for(t=t.lastChild;t;){var e=t.previousSibling;O(t,!0),t=e}}var a=[];function R(t,e,o){var n,r=a.length;for(t.prototype&&t.prototype.render?(n=new t(e,o),y.call(n,e,o)):((n=new y(e,o)).constructor=t,n.render=m);r--;)if(a[r].constructor===t)return n.nextBase=a[r].nextBase,a.splice(r,1),n;return n}function m(t,e,o){return this.constructor(t,o)}function j(t,e,o,n,r){t._disable||(t._disable=!0,t.__ref=e.ref,t.__key=e.key,delete e.ref,delete e.key,void 0===t.constructor.getDerivedStateFromProps&&(!t.base||r?t.componentWillMount&&t.componentWillMount():t.componentWillReceiveProps&&t.componentWillReceiveProps(e,n)),n&&n!==t.context&&(t.prevContext||(t.prevContext=t.context),t.context=n),t.prevProps||(t.prevProps=t.props),t.props=e,t._disable=!1,0!==o&&(1!==o&&!1===i.syncComponentUpdates&&t.base?s(t):I(t,1,r)),l(t.__ref,t))}function I(t,e,o,n){if(!t._disable){var r,i,s,a=t.props,l=t.state,c=t.context,h=t.prevProps||a,u=t.prevState||l,p=t.prevContext||c,f=t.base,d=t.nextBase,v=f||d,g=t._component,_=!1,m=p;if(t.constructor.getDerivedStateFromProps&&(l=M(M({},l),t.constructor.getDerivedStateFromProps(a,l)),t.state=l),f&&(t.props=h,t.state=u,t.context=p,2!==e&&t.shouldComponentUpdate&&!1===t.shouldComponentUpdate(a,l,c)?_=!0:t.componentWillUpdate&&t.componentWillUpdate(a,l,c),t.props=a,t.state=l,t.context=c),t.prevProps=t.prevState=t.prevContext=t.nextBase=null,t._dirty=!1,!_){r=t.render(a,l,c),t.getChildContext&&(c=M(M({},c),t.getChildContext())),f&&t.getSnapshotBeforeUpdate&&(m=t.getSnapshotBeforeUpdate(h,u));var y,b,w=r&&r.nodeName;if("function"==typeof w){var x=E(r);(i=g)&&i.constructor===w&&x.key==i.__key?j(i,x,1,c,!1):(y=i,t._component=i=R(w,x,c),i.nextBase=i.nextBase||d,i._parentComponent=t,j(i,x,0,c,!1),I(i,1,o,!0)),b=i.base}else s=v,(y=g)&&(s=t._component=null),(v||1===e)&&(s&&(s._component=null),b=A(s,r,c,o||!f,v&&v.parentNode,!0));if(v&&b!==v&&i!==g){var k=v.parentNode;k&&b!==k&&(k.replaceChild(b,v),y||(v._component=null,O(v,!1)))}if(y&&L(y),(t.base=b)&&!n){for(var C=t,S=t;S=S._parentComponent;)(C=S).base=b;b._component=C,b._componentConstructor=C.constructor}}for(!f||o?T.push(t):_||t.componentDidUpdate&&t.componentDidUpdate(h,u,m);t._renderCallbacks.length;)t._renderCallbacks.pop().call(t);H||n||P()}}function L(t){var e=t.base;t._disable=!0,t.componentWillUnmount&&t.componentWillUnmount(),t.base=null;var o=t._component;o?L(o):e&&(null!=e.__preactattr_&&l(e.__preactattr_.ref,null),N(t.nextBase=e),a.push(t),r(e)),l(t.__ref,null)}function y(t,e){this._dirty=!0,this.context=e,this.props=t,this.state=this.state||{},this._renderCallbacks=[]}function b(t,e,o,n){void 0===n&&(n={});for(var r=0;r<e.length;r++)t.addEventListener(e[r],o,n)}function w(t,e,o,n){void 0===n&&(n={});for(var r=0;r<e.length;r++)t.removeEventListener(e[r],o,n)}M(y.prototype,{setState:function(t,e){this.prevState||(this.prevState=this.state),this.state=M(M({},this.state),"function"==typeof t?t(this.state,this.props):t),e&&this._renderCallbacks.push(e),s(this)},forceUpdate:function(t){t&&this._renderCallbacks.push(t),I(this,2)},render:function(){}});var x="mousedown",k="mousemove",C="mouseup",B="touchstart",D="touchmove",W="touchend",t=function(e){function t(t){e.call(this,t),this.uid=(Math.random()+1).toString(36).substring(5)}return e&&(t.__proto__=e),((t.prototype=Object.create(e&&e.prototype)).constructor=t).prototype.componentDidMount=function(){b(this.base,[x,B],this,{passive:!1})},t.prototype.componentWillUnmount=function(){w(this.base,[x,B],this)},t.prototype.handleEvent=function(t){t.preventDefault();var e=t.touches?t.changedTouches[0]:t,o=e.clientX,n=e.clientY,r=this.base.getBoundingClientRect();switch(t.type){case x:case B:b(document,[k,D,C,W],this,{passive:!1}),this.handleInput(o,n,r,"START");break;case k:case D:this.handleInput(o,n,r,"MOVE");break;case C:case W:this.handleInput(o,n,r,"END"),w(document,[k,D,C,W],this,{passive:!1})}},t}(y),V=document.getElementsByTagName("base");function F(t){var e=window.location,o=window.navigator.userAgent,n=/^((?!chrome|android).)*safari/i.test(o),r=/iPhone|iPod|iPad/i.test(o);return(n||r)&&0<V.length?e.protocol+"//"+e.host+e.pathname+e.search+t:t}function $(t,e,o,n,r){var i=r-n<=180?0:1;return n*=Math.PI/180,r*=Math.PI/180,"M "+(t+o*Math.cos(r))+" "+(e+o*Math.sin(r))+" A "+o+" "+o+" 0 "+i+" 0 "+(t+o*Math.cos(n))+" "+(e+o*Math.sin(n))}function G(t){var e=t.r,o=t.url;return p("svg",{class:"iro__handle",x:t.x,y:t.y,style:{overflow:"visible"}},o&&p("use",Object.assign({},{xlinkHref:F(o)},t.origin)),!o&&p("circle",{class:"iro__handle__inner",r:e,fill:"none","stroke-width":2,stroke:"#000"}),!o&&p("circle",{class:"iro__handle__outer",r:e-2,fill:"none","stroke-width":2,stroke:"#fff"}))}G.defaultProps={x:0,y:0,r:8,url:null,origin:{x:0,y:0}};var z=Array.apply(null,{length:360}).map(function(t,e){return e}),q=function(t){function e(){t.apply(this,arguments)}return t&&(e.__proto__=t),((e.prototype=Object.create(t&&t.prototype)).constructor=e).prototype._transformAngle=function(t,e){var o=this.props.wheelAngle;return((t="clockwise"===this.props.wheelDirection?-360+t-(e?-o:o):o-t)%360+360)%360},e.prototype.render=function(t){var e=this,o=t.width,n=t.borderWidth,r=t.handleRadius,i=t.color.hsv,s=o/2-n,a=this._transformAngle(i.h,!0)*(Math.PI/180),l=i.s/100*(s-t.padding-r-n),c=s+n,h=s+n;return p("svg",{class:"iro__wheel",width:o,height:o,style:{overflow:"visible",display:"block"}},p("defs",null,p("radialGradient",{id:this.uid},p("stop",{offset:"0%","stop-color":"#fff"}),p("stop",{offset:"100%","stop-color":"#fff","stop-opacity":"0"}))),p("g",{class:"iro__wheel__hue","stroke-width":s,fill:"none"},z.map(function(t){return p("path",{key:t,d:$(c,h,s/2,t,t+1.5),stroke:"hsl("+e._transformAngle(t)+", 100%, 50%)"})})),p("circle",{class:"iro__wheel__saturation",cx:c,cy:h,r:s,fill:"url("+F("#"+this.uid)+")"}),t.wheelLightness&&p("circle",{class:"iro__wheel__lightness",cx:c,cy:h,r:s,fill:"#000",opacity:1-i.v/100}),p("circle",{class:"iro__wheel__border",cx:c,cy:h,r:s,fill:"none",stroke:t.borderColor,"stroke-width":n}),p(G,{r:r,url:t.handleSvg,origin:t.handleOrigin,x:c+l*Math.cos(a),y:h+l*Math.sin(a)}))},e.prototype.handleInput=function(t,e,o,n){var r=o.left,i=o.top,s=this.props,a=s.width/2,l=a-s.padding-s.handleRadius-s.borderWidth;t=a-(t-r),e=a-(e-i);var c=Math.atan2(e,t),h=this._transformAngle(Math.round(c*(180/Math.PI))+180),u=Math.min(Math.sqrt(t*t+e*e),l);s.onInput(n,{h:h,s:Math.round(100/l*u)})},e}(t);function X(t,e){var o=-1<t.indexOf("%"),n=parseFloat(t);return o?e/100*n:n}function Y(t){return parseInt(t,16)}function J(t){return t.toString(16).padStart(2,"0")}var K="(?:[-\\+]?\\d*\\.\\d+%?)|(?:[-\\+]?\\d+%?)",Q="[\\s|\\(]+("+K+")[,|\\s]+("+K+")[,|\\s]+("+K+")\\s*\\)?",Z="[\\s|\\(]+("+K+")[,|\\s]+("+K+")[,|\\s]+("+K+")[,|\\s]+("+K+")\\s*\\)?",tt=new RegExp("rgb"+Q),et=new RegExp("rgba"+Z),ot=new RegExp("hsl"+Q),nt=new RegExp("hsla"+Z),rt="^(?:#?|0x?)",it="([0-9a-fA-F]{1})",st="([0-9a-fA-F]{2})",at=new RegExp(""+rt+it+it+it+"$"),lt=new RegExp(""+rt+it+it+it+it+"$"),ct=new RegExp(""+rt+st+st+st+"$"),ht=new RegExp(""+rt+st+st+st+st+"$"),ut=function(t){this._onChange=!1,this._value={h:0,s:0,v:0,a:1},t&&this.set(t)},pt={hsv:{configurable:!0},rgb:{configurable:!0},hsl:{configurable:!0},rgbString:{configurable:!0},hexString:{configurable:!0},hslString:{configurable:!0}};ut.prototype.set=function(t){var e="string"==typeof t,o="object"==typeof t;if(e&&/^(?:#?|0x?)[0-9a-fA-F]{3,8}$/.test(t))this.hexString=t;else if(e&&/^rgba?/.test(t))this.rgbString=t;else if(e&&/^hsla?/.test(t))this.hslString=t;else if(o&&t instanceof ut)this.hsv=t.hsv;else if(o&&"r"in t&&"g"in t&&"b"in t)this.rgb=t;else if(o&&"h"in t&&"s"in t&&"v"in t)this.hsv=t;else{if(!(o&&"h"in t&&"s"in t&&"l"in t))throw new Error("invalid color value");this.hsl=t}},ut.prototype.setChannel=function(t,e,o){var n;this[t]=Object.assign({},this[t],((n={})[e]=o,n))},ut.prototype.clone=function(){return new ut(this)},ut.hsvToRgb=function(t){var e=t.h/60,o=t.s/100,n=t.v/100,r=Math.floor(e),i=e-r,s=n*(1-o),a=n*(1-i*o),l=n*(1-(1-i)*o),c=r%6;return{r:255*[n,a,s,s,l,n][c],g:255*[l,n,n,a,s,s][c],b:255*[s,s,l,n,n,a][c]}},ut.rgbToHsv=function(t){var e,o=t.r/255,n=t.g/255,r=t.b/255,i=Math.max(o,n,r),s=Math.min(o,n,r),a=i-s,l=i,c=0===i?0:a/i;switch(i){case s:e=0;break;case o:e=(n-r)/a+(n<r?6:0);break;case n:e=(r-o)/a+2;break;case r:e=(o-n)/a+4}return{h:60*e,s:100*c,v:100*l}},ut.hsvToHsl=function(t){var e=t.s/100,o=t.v/100,n=(2-e)*o,r=n<=1?n:2-n,i=r<1e-9?0:e*o/r;return{h:t.h,s:100*i,l:50*n}},ut.hslToHsv=function(t){var e=2*t.l,o=t.s*(e<=100?e:200-e)/100,n=e+o<1e-9?0:2*o/(e+o);return{h:t.h,s:100*n,v:(e+o)/2}},pt.hsv.get=function(){var t=this._value;return{h:t.h,s:t.s,v:t.v}},pt.hsv.set=function(t){var e=this._value;if(t=Object.assign({},e,t),this._onChange){var o={};for(var n in e)o[n]=t[n]!=e[n];this._value=t,(o.h||o.s||o.v||o.a)&&this._onChange(this,o)}else this._value=t},pt.rgb.get=function(){var t=ut.hsvToRgb(this._value),e=t.r,o=t.g,n=t.b;return{r:Math.round(e),g:Math.round(o),b:Math.round(n)}},pt.rgb.set=function(t){this.hsv=Object.assign({},ut.rgbToHsv(t),{a:void 0===t.a?1:t.a})},pt.hsl.get=function(){var t=ut.hsvToHsl(this._value),e=t.h,o=t.s,n=t.l;return{h:Math.round(e),s:Math.round(o),l:Math.round(n)}},pt.hsl.set=function(t){this.hsv=Object.assign({},ut.hslToHsv(t),{a:void 0===t.a?1:t.a})},pt.rgbString.get=function(){var t=this.rgb;return"rgb("+t.r+", "+t.g+", "+t.b+")"},pt.rgbString.set=function(t){var e,o,n,r,i=1;if((e=tt.exec(t))?(o=X(e[1],255),n=X(e[2],255),r=X(e[3],255)):(e=et.exec(t))&&(o=X(e[1],255),n=X(e[2],255),r=X(e[3],255),i=X(e[4],1)),!e)throw new Error("invalid rgb string");this.rgb={r:o,g:n,b:r,a:i}},pt.hexString.get=function(){var t=this.rgb;return"#"+J(t.r)+J(t.g)+J(t.b)},pt.hexString.set=function(t){var e,o,n,r,i=255;if((e=at.exec(t))?(o=17*Y(e[1]),n=17*Y(e[2]),r=17*Y(e[3])):(e=lt.exec(t))?(o=17*Y(e[1]),n=17*Y(e[2]),r=17*Y(e[3]),i=17*Y(e[4])):(e=ct.exec(t))?(o=Y(e[1]),n=Y(e[2]),r=Y(e[3])):(e=ht.exec(t))&&(o=Y(e[1]),n=Y(e[2]),r=Y(e[3]),i=Y(e[4])),!e)throw new Error("invalid hex string");this.rgb={r:o,g:n,b:r,a:i/255}},pt.hslString.get=function(){var t=this.hsl;return"hsl("+t.h+", "+t.s+"%, "+t.l+"%)"},pt.hslString.set=function(t){var e,o,n,r,i=1;if((e=ot.exec(t))?(o=X(e[1],360),n=X(e[2],100),r=X(e[3],100)):(e=nt.exec(t))&&(o=X(e[1],360),n=X(e[2],100),r=X(e[3],100),i=X(e[4],1)),!e)throw new Error("invalid hsl string");this.hsl={h:o,s:n,l:r,a:i}},Object.defineProperties(ut.prototype,pt);var ft=function(t){function e(){t.apply(this,arguments)}return t&&(e.__proto__=t),((e.prototype=Object.create(t&&t.prototype)).constructor=e).prototype.renderGradient=function(t){var e=t.color.hsv,o=[];switch(t.sliderType){case"hue":o=[{offset:"0",color:"#f00"},{offset:"16.666",color:"#ff0"},{offset:"33.333",color:"#0f0"},{offset:"50",color:"#0ff"},{offset:"66.666",color:"#00f"},{offset:"83.333",color:"#f0f"},{offset:"100",color:"#f00"}];break;case"saturation":var n=ut.hsvToHsl({h:e.h,s:0,v:e.v}),r=ut.hsvToHsl({h:e.h,s:100,v:e.v});o=[{offset:"0",color:"hsl("+n.h+", "+n.s+"%, "+n.l+"%)"},{offset:"100",color:"hsl("+r.h+", "+r.s+"%, "+r.l+"%)"}];break;case"value":default:var i=ut.hsvToHsl({h:e.h,s:e.s,v:100});o=[{offset:"0",color:"#000"},{offset:"100",color:"hsl("+i.h+", "+i.s+"%, "+i.l+"%)"}]}return p("linearGradient",{id:this.uid},o.map(function(t){return p("stop",{offset:t.offset+"%","stop-color":t.color})}))},e.prototype.render=function(t){var e=t.width,o=t.sliderHeight,n=t.borderWidth,r=t.handleRadius;o=o||2*t.padding+2*r+2*n,this.width=e;var i,s=(this.height=o)/2,a=e-2*s,l=t.color.hsv;switch(t.sliderType){case"hue":i=l.h/=3.6;break;case"saturation":i=l.s;break;case"value":default:i=l.v}return p("svg",{class:"iro__slider",width:e,height:o,style:{marginTop:t.sliderMargin,overflow:"visible",display:"block"}},p("defs",null,this.renderGradient(t)),p("rect",{class:"iro__slider__value",rx:s,ry:s,x:n/2,y:n/2,width:e-n,height:o-n,"stroke-width":n,stroke:t.borderColor,fill:"url("+F("#"+this.uid)+")"}),p(G,{r:r,url:t.handleSvg,origin:t.handleOrigin,x:s+i/100*a,y:o/2}))},e.prototype.getValueFromPoint=function(t,e,o){var n=o.left,r=this.width-this.height;t-=n+this.height/2;var i=Math.max(Math.min(t,r),0);return Math.round(100/r*i)},e.prototype.handleInput=function(t,e,o,n){var r,i,s=this.getValueFromPoint(t,e,o);switch(this.props.sliderType){case"hue":i="h",s*=3.6;break;case"saturation":i="s";break;case"value":default:i="v"}this.props.onInput(n,((r={})[i]=s,r))},e}(t);var dt=function(e){function i(t){e.call(this,t),this.emitHook("init:before"),this._events={},this._deferredEvents={},this._colorUpdateActive=!1,this._colorUpdateSrc=null,this.id=t.id,this.color=new ut(t.color),this.deferredEmit("color:init",this.color,{h:!1,s:!1,v:!1,a:!1}),this.color._onChange=this.updateColor.bind(this),this.state=Object.assign({},t,{color:this.color,ref:void 0}),this.emitHook("init:state"),t.layout?this.layout=t.layout:this.layout=[{component:q,options:{}},{component:ft,options:{}}],this.emitHook("init:after")}return e&&(i.__proto__=e),((i.prototype=Object.create(e&&e.prototype)).constructor=i).prototype.on=function(t,e){var o=this,n=this._events;(Array.isArray(t)?t:[t]).forEach(function(t){o.emitHook("event:on",t,e),(n[t]||(n[t]=[])).push(e),o._deferredEvents[t]&&(o._deferredEvents[t].forEach(function(t){e.apply(null,t)}),o._deferredEvents[t]=[])})},i.prototype.off=function(t,o){var n=this;(Array.isArray(t)?t:[t]).forEach(function(t){var e=n._events[t];n.emitHook("event:off",t,o),e&&e.splice(e.indexOf(o),1)})},i.prototype.emit=function(t){for(var e,o=[],n=arguments.length-1;0<n--;)o[n]=arguments[n+1];(e=this).emitHook.apply(e,[t].concat(o));for(var r=this._events[t]||[],i=0;i<r.length;i++)r[i].apply(this,o)},i.prototype.deferredEmit=function(t){for(var e,o=[],n=arguments.length-1;0<n--;)o[n]=arguments[n+1];var r=this._deferredEvents;(e=this).emit.apply(e,[t].concat(o)),(r[t]||(r[t]=[])).push(o)},i.prototype.resize=function(t){this.setState({width:t})},i.prototype.reset=function(){this.color.set(this.props.color)},i.addHook=function(t,e){var o=i.pluginHooks;(o[t]||(o[t]=[])).push(e)},i.prototype.emitHook=function(t){for(var e=[],o=arguments.length-1;0<o--;)e[o]=arguments[o+1];for(var n=i.pluginHooks[t]||[],r=0;r<n.length;r++)n[r].apply(this,e)},i.prototype.onMount=function(t){this.el=t,this.deferredEmit("mount",this)},i.prototype.updateColor=function(t,e){this.emitHook("color:beforeUpdate",t,e),this.setState({color:t}),this.emitHook("color:afterUpdate",t,e),this._colorUpdateActive||(this._colorUpdateActive=!0,"input"==this._colorUpdateSrc&&this.emit("input:change",t,e),this.emit("color:change",t,e),this._colorUpdateActive=!1)},i.prototype.handleInput=function(t,e){"START"===t&&this.emit("input:start",this.color),"MOVE"===t&&this.emit("input:move",this.color),this._colorUpdateSrc="input",this.color.hsv=e,"END"===t&&this.emit("input:end",this.color),this._colorUpdateSrc=null},i.prototype.render=function(t,n){var r=this;return p("div",{class:"iro__colorPicker",id:t.id,style:{display:n.display,width:n.width}},this.layout.map(function(t){var e=t.component,o=t.options;return p(e,Object.assign({},n,o,{onInput:function(t,e){return r.handleInput(t,e)},parent:r}))}))},i}(y);dt.pluginHooks={},dt.defaultProps={width:300,height:300,handleRadius:8,handleSvg:null,handleOrigin:{x:0,y:0},color:"#fff",borderColor:"#fff",borderWidth:0,display:"block",id:null,wheelLightness:!0,wheelAngle:0,wheelDirection:"anticlockwise",sliderHeight:null,sliderMargin:12,padding:6,layout:null};var vt,gt,_t,mt,yt=((gt=function(e,t){var o,n,r,i=null,s=document.createElement("div");return o=p(vt,Object.assign({},{ref:function(t){return i=t}},t)),A(n,o,{},!1,s,!1),r=function(){var t=e instanceof Element?e:document.querySelector(e);t.appendChild(i.base),i.onMount(t)},"loading"!==document.readyState?r():b(document,["DOMContentLoaded"],r),i}).prototype=(vt=dt).prototype,Object.assign(gt,vt),gt.__component=vt,gt);return mt=[],(_t={Color:ut,ColorPicker:yt,ui:{h:p,Component:t,Handle:G,Slider:ft,Wheel:q},util:{resolveUrl:F,createArcPath:$,parseUnit:X,parseHexInt:Y,intToHex:J},version:"4.5.3"}).use=function(t,e){void 0===e&&(e={}),-1<mt.indexOf(t)||(t(_t,e),mt.push(t))},_t.installedPlugins=mt,_t});
 //# sourceMappingURL=iro.min.js.map
 
-;var basic = {
-    cookies: {
-        set: function(name, value) {
-            if(name == undefined){
-                name = "cookieLaw";
-            }
-            if(value == undefined){
-                value = 1;
-            }
-            var d = new Date();
-            d.setTime(d.getTime() + (10*12*60*60*1000));
-            var expires = "expires="+d.toUTCString();
-            document.cookie = name + "=" + value + "; " + expires + ";path=/";
-            if(name == "cookieLaw"){
-                $(".cookies_popup").slideUp();
-            }
-        },
-        erase: function(name) {
-            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        },
-        get: function(name) {
-            if(name == undefined){
-                var name = "cookieLaw";
-            }
-            name = name + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0; i<ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1);
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return "";
-        }
-    },
-    fixPlaceholders: function() {
-        $("input[data-placeholder]").each(function(){
-            if($(this).data("placeholders-fixed") == undefined){
-                $(this).data("placeholders-fixed", true);
-
-                basic.setInputsPlaceholder($(this));
-
-                $focus_function = "if($(this).val()=='" + $(this).data("placeholder") + "'){ $(this).val(''); }";
-                if ($(this).attr("onkeydown") != undefined) {
-                    $focus_function = $(this).attr("onkeydown") + "; " + $focus_function;
-                }
-                $(this).attr("onkeydown", $focus_function);
-
-                $blur_function = "if($(this).val()==''){ $(this).val('" + $(this).data("placeholder") + "'); }";
-                if ($(this).attr("onblur") != undefined) {
-                    $blur_function = $(this).attr("onblur") + "; " + $blur_function;
-                }
-                $(this).attr("onblur", $blur_function);
-            }
-        });
-    },
-    clearPlaceholders: function(extra_filter) {
-        if(extra_filter == undefined){
-            extra_filter = "";
-        }
-        $("input[data-placeholder]" + extra_filter).each(function(){
-            if($(this).val() == $(this).data("placeholder")){
-                $(this).val('');
-            }
-        })
-    },
-    setPlaceholders: function(){
-        $("input[data-placeholder]").each(function(){
-            basic.setInputsPlaceholder($(this));
-        });
-    },
-    setInputsPlaceholder: function(input){
-        if($(input).val()==""){
-            $(input).val($(input).data("placeholder"));
-        }
-    },
-    fixBodyModal: function() {
-        if($(".modal-dialog").length>0 && !$("body").hasClass('modal-open')){
-            $("body").addClass('modal-open');
-        }
-    },
-    fixZIndexBackdrop: function() {
-        if(jQuery('.bootbox').length > 1) {
-            var last_z = jQuery('.bootbox').eq(jQuery('.bootbox').length - 2).css("z-index");
-            jQuery('.bootbox').last().css({'z-index': last_z+2}).next('.modal-backdrop').css({'z-index': last_z+1});
-        }
-    },
-    showAlert: function(message, class_name, vertical_center) {
-        basic.realShowDialog(message, "alert", class_name, null, null, vertical_center);
-    },
-    showConfirm: function(message, class_name, params, vertical_center) {
-        basic.realShowDialog(message, "confirm", class_name, params, null, vertical_center);
-    },
-    showDialog: function(message, class_name, type, vertical_center) {
-        if(type === undefined){
-            type = null;
-        }
-        basic.realShowDialog(message, "dialog", class_name, null, type, vertical_center);
-    },
-    realShowDialog: function(message, dialog_type, class_name, params, type, vertical_center) {
-        if(class_name === undefined){
-            class_name = "";
-        }
-        if(type === undefined){
-            type = null;
-        }
-        if(vertical_center === undefined){
-            vertical_center = null;
-        }
-
-        var atrs = {
-            "message": message,
-            "animate": false,
-            "show": false,
-            "className": class_name
-        };
-
-        if(dialog_type == "confirm" && params!=undefined && params.buttons == undefined){
-            atrs.buttons = {
-                confirm: {
-                    label: 'Yes',
-                    className: 'btn-success'
-                },
-                cancel: {
-                    label: 'No',
-                    className: 'btn-danger'
-                }
-            }
-        }
-        if(params != undefined){
-            for (var key in params) {
-                atrs[key] = params[key];
-            }
-        }
-
-        var dialog = eval("bootbox." + dialog_type)(atrs);
-        dialog.on('hidden.bs.modal', function(){
-            basic.fixBodyModal();
-            if(type != null)    {
-                $('.single-application figure[data-slug="'+type+'"]').parent().focus();
-            }
-        });
-        dialog.on('shown.bs.modal', function(){
-            if(vertical_center != null) {
-                basic.verticalAlignModal();
-            }
-            basic.fixZIndexBackdrop();
-        });
-        dialog.modal('show');
-    },
-    verticalAlignModal: function(message) {
-        $("body .modal-dialog").each(function(){
-            $(this).css("margin-top", Math.max(20, ($(window).height() - $(this).height()) / 2));
-        })
-    },
-    closeDialog: function (){
-        bootbox.hideAll();
-    },
-    validateEmail: function(email)   {
-        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-    },
-    isInViewport: function(el) {
-        var elementTop = $(el).offset().top;
-        var elementBottom = elementTop + $(el).outerHeight();
-        var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        return elementBottom > viewportTop && elementTop < viewportBottom;
-    },
-    isMobile: function() {
-        var isMobile = false; //initiate as false
-// device detection
-        if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
-            || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4)))  {
-            isMobile = true;
-        }
-        return isMobile;
-    },
-    getMobileOperatingSystem: function () {
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-        // Windows Phone must come first because its UA also contains "Android"
-        if (/windows phone/i.test(userAgent)) {
-            return "Windows Phone";
-        }
-
-        if (/android/i.test(userAgent)) {
-            return "Android";
-        }
-
-        // iOS detection from: http://stackoverflow.com/a/9039885/177710
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            return "iOS";
-        }
-
-        return "unknown";
-    },
-    addCsrfTokenToAllAjax: function ()    {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    },
-    stopMaliciousInspect: function()  {
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        document.onkeydown = function(e) {
-            if(event.keyCode == 123) {
-                return false;
-            }
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-                return false;
-            }
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-                return false;
-            }
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-                return false;
-            }
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-                return false;
-            }
-        }
-    },
-    isJsonString: function(str) {
-        try {
-            JSON.parse(str);
-        } catch (e) {
-            return false;
-        }
-        return true;
-    },
-    bytesToMegabytes: function(bytes) {
-        // converting bytes to megabytes
-        return bytes / Math.pow(1024, 2);
-    },
-    property_exists: function(object, key) {
-        return object ? hasOwnProperty.call(object, key) : false;
-    }
-};
-;console.log("( ͡° ͜ʖ ͡°) I see you.");
+;console.log("( ͡° ͜ʖ ͡°) I see you. 1");
 
 var default_error_message = 'Something went wrong. Please try again later or write a message to admin@dentacoin.com with description of the problem.';
 var allowed_imgs_extensions = ['png', 'jpg', 'jpeg'/*, 'gif', 'svg'*/];
 var is_hybrid;
+var loadedLibs = {};
+var civic_iframe_removedEventLoaded = false;
 
 $(document).ready(function() {
 
@@ -19570,7 +19331,7 @@ var projectData = {
                 $('.pick-dentist-color').click(function() {
                     var this_btn = $(this);
                     if (this_btn.attr('data-opened') == 'false') {
-                        projectData.requests.get_dentist_data(function(get_dentist_data_response) {
+                        projectData.requests.getDentistData(function(getDentistData_response) {
                             $('body').addClass('overflow-hidden');
                             if ($(window).width() < 1000) {
                                 $('.dentist-logo').hide();
@@ -19578,7 +19339,7 @@ var projectData = {
                             }
                             $('body').removeClass('overflow-hidden');
 
-                            if (get_dentist_data_response.success) {
+                            if (getDentistData_response.success) {
                                 var hex_code_checked = '';
                                 var hex_code_active = '';
                                 var background_hex_code = '';
@@ -19589,19 +19350,19 @@ var projectData = {
                                 var upload_image_checked = '';
                                 var upload_image_active = '';
                                 var upload_image_option_html = '<button type="button" class="inline-block"><label for="background-image" class="platform-border-color important"><svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 90 69.2" style="enable-background:new 0 0 90 69.2;" xml:space="preserve"><style type="text/css">.st0{fill:#8E3146;}</style><metadata><sfw><slices></slices><slicesourcebounds bottomleftorigin="true" height="69.2" width="90" x="5" y="40.4"></slicesourcebounds></sfw></metadata><path class="st0 svg-platform-fill-important" d="M7.6,69.2h74.9c4.2,0,7.6-3.4,7.6-7.6V18.8c0-4.2-3.4-7.6-7.6-7.6H71.3c-3.9,0-7.3-2.7-8.1-6.5 c-0.6-2.7-3-4.7-5.8-4.7H32.6c-2.8,0-5.2,1.9-5.8,4.7c-0.8,3.8-4.2,6.5-8.1,6.5H7.6c-4.2,0-7.6,3.4-7.6,7.6c0,0,0,0,0,0v42.9 C0,65.8,3.4,69.2,7.6,69.2C7.6,69.2,7.6,69.2,7.6,69.2z M78.4,16.9c2.6,0,4.8,2.1,4.8,4.8c0,2.6-2.1,4.8-4.8,4.8 c-2.6,0-4.8-2.1-4.8-4.8c0,0,0,0,0,0C73.6,19.1,75.7,16.9,78.4,16.9C78.4,16.9,78.4,16.9,78.4,16.9z M45,15.5 c12.5,0,22.7,10.2,22.7,22.7S57.5,60.9,45,60.9S22.3,50.8,22.3,38.2c0,0,0,0,0,0C22.3,25.7,32.5,15.5,45,15.5L45,15.5z M27.3,38.2 c0-9.8,7.9-17.7,17.7-17.7s17.7,7.9,17.7,17.7S54.8,55.9,45,55.9h0C35.2,55.9,27.3,48,27.3,38.2z"></path></svg></label></button>';
-                                if (get_dentist_data_response.data.hub_background_type == undefined || get_dentist_data_response.data.hub_background_type == 'hex-code') {
+                                if (getDentistData_response.data.hub_background_type == undefined || getDentistData_response.data.hub_background_type == 'hex-code') {
                                     hex_code_checked = ' checked ';
                                     hex_code_active = ' active ';
-                                    background_hex_code = get_dentist_data_response.data.hub_background;
-                                } else if (get_dentist_data_response.data.hub_background_type == 'preset-background') {
+                                    background_hex_code = getDentistData_response.data.hub_background;
+                                } else if (getDentistData_response.data.hub_background_type == 'preset-background') {
                                     preset_background_checked = ' checked ';
                                     preset_background_active = ' active ';
 
-                                } else if (get_dentist_data_response.data.hub_background_type == 'upload-image') {
+                                } else if (getDentistData_response.data.hub_background_type == 'upload-image') {
                                     upload_image_checked = ' checked ';
                                     upload_image_active = ' active ';
 
-                                    upload_image_option_html = '<button type="button" class="inline-block"><label for="background-image" class="platform-border-color important" style="background-image: url('+get_dentist_data_response.data.hub_background+');"></label></button>';
+                                    upload_image_option_html = '<button type="button" class="inline-block"><label for="background-image" class="platform-border-color important" style="background-image: url('+getDentistData_response.data.hub_background+');"></label></button>';
                                 }
 
                                 $('.enableBlur').addClass('active');
@@ -19614,7 +19375,7 @@ var projectData = {
                                         resetToDefault = false;
 
                                         projectData.general_logic.showLoader();
-                                        projectData.requests.edit_dentist_colors({
+                                        projectData.requests.editDentistColors({
                                             token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
                                             id: JSON.parse(window.localStorage.getItem('currentDentist')).id,
                                             base_color: '#8b2f46',
@@ -19646,9 +19407,9 @@ var projectData = {
                                     }
                                 });
 
-                                if (get_dentist_data_response.data.hub_background_type == 'preset-background') {
+                                if (getDentistData_response.data.hub_background_type == 'preset-background') {
                                     for(var i = 0, len = $('button.preset').length; i < len; i+=1) {
-                                        if ($('button.preset').eq(i).find('img').attr('src') == get_dentist_data_response.data.hub_background) {
+                                        if ($('button.preset').eq(i).find('img').attr('src') == getDentistData_response.data.hub_background) {
                                             $('button.preset').eq(i).addClass('checked');
                                         }
                                     }
@@ -19734,7 +19495,7 @@ var projectData = {
                                                 } else {
                                                     projectData.general_logic.showLoader();
                                                     setTimeout(function() {
-                                                        projectData.requests.edit_dentist_colors(post_data, function(response) {
+                                                        projectData.requests.editDentistColors(post_data, function(response) {
                                                             if (response.success) {
                                                                 $('body').addClass('overflow-hidden');
                                                                 if ($(window).width() < 1000) {
@@ -19774,7 +19535,7 @@ var projectData = {
                                 // colorPicker.resize(newWidth);
                                 var textColorWheel = iro.ColorPicker('.custom-dropdown-with-color-pickers #text-color-picker', {
                                     width: colorPickersWidthAndHeight,
-                                    color: get_dentist_data_response.data.text_color,
+                                    color: getDentistData_response.data.text_color,
                                     height: colorPickersWidthAndHeight
                                 });
                                 textColorWheel.on('input:change', function(color){
@@ -19796,7 +19557,7 @@ var projectData = {
                                 // colorPicker.resize(newWidth);
                                 var baseColorWheel = iro.ColorPicker('.custom-dropdown-with-color-pickers #base-color-picker', {
                                     width: colorPickersWidthAndHeight,
-                                    color: get_dentist_data_response.data.hub_color,
+                                    color: getDentistData_response.data.hub_color,
                                     height: colorPickersWidthAndHeight
                                 });
                                 baseColorWheel.on('input:change', function(color){
@@ -19821,8 +19582,8 @@ var projectData = {
                                     height: colorPickersWidthAndHeight
                                 };
 
-                                if (get_dentist_data_response.data.hub_background_type == 'hex-code') {
-                                    background_color_picker_options.color = get_dentist_data_response.data.hub_background;
+                                if (getDentistData_response.data.hub_background_type == 'hex-code') {
+                                    background_color_picker_options.color = getDentistData_response.data.hub_background;
                                 }
 
                                 var backgroundColorWheel = iro.ColorPicker('.custom-dropdown-with-color-pickers #background-color-picker', background_color_picker_options);
@@ -19953,7 +19714,7 @@ var projectData = {
                                 }
 
                                 setTimeout(function () {
-                                    projectData.requests.edit_dentist_application(this_app_id, post_data, function (response) {
+                                    projectData.requests.editDentistApplication(this_app_id, post_data, function (response) {
                                         projectData.general_logic.hideLoader();
                                         if (response.success) {
                                             this_app.attr('data-name-en', response.data.name_en);
@@ -19984,7 +19745,7 @@ var projectData = {
                     });
                 }
 
-                projectData.requests.get_dentist_data(function(response) {
+                projectData.requests.getDentistData(function(response) {
                     if (response.success) {
                         projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentDentist')).id);
                         buildDentistData(response, true);
@@ -20011,8 +19772,8 @@ var projectData = {
                         // adding app
                         $('.add-app').unbind().on('click', function() {
                             var this_btn = $(this);
-                            projectData.requests.get_default_apps_which_dentist_dont_have_yet(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(default_apps_response) {
-                                projectData.requests.get_deleted_apps_for_dentist(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(deleted_apps_response) {
+                            projectData.requests.getDefaultApplications(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(default_apps_response) {
+                                projectData.requests.getDeletedAppsForDentist(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(deleted_apps_response) {
                                     basic.closeDialog();
                                     var add_app_popup_html = '<div class="language-switcher"><button class="inline-block en-version active" data-app-name-en="" data-app-description-en=""><img src="assets/images/en-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> English Version</button><button class="inline-block de-version" data-app-name-de="" data-app-description-de=""><img src="assets/images/de-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> German Version</button></div>';
 
@@ -20073,7 +19834,7 @@ var projectData = {
                                             confirm_obj.callback = function (result) {
                                                 if (result) {
                                                     // remove deleted app
-                                                    projectData.requests.delete_dentist_application(function(response) {
+                                                    projectData.requests.deleteDentistApplication(function(response) {
                                                         if (response.success) {
                                                             this_btn_parent_app.remove();
                                                             basic.showAlert('Selected application has been deleted successfully.', '', true);
@@ -20148,17 +19909,17 @@ var projectData = {
                                         }
 
                                         if (apps_to_be_added.length) {
-                                            projectData.requests.add_dentist_applications(function(response) {
+                                            projectData.requests.addDentistApplication(function(response) {
                                                 if (response.success) {
-                                                    projectData.requests.get_dentist_data(function(get_dentist_data_response) {
-                                                        if (get_dentist_data_response.success) {
+                                                    projectData.requests.getDentistData(function(getDentistData_response) {
+                                                        if (getDentistData_response.success) {
                                                             $('.apps-list .single-app.sortable-app').remove();
 
                                                             if ($('.basic-admin-panel').hasClass('edit-mode')) {
-                                                                buildDentistData(get_dentist_data_response, undefined, true);
+                                                                buildDentistData(getDentistData_response, undefined, true);
                                                                 bindEditDeleteAppEvents();
                                                             } else {
-                                                                buildDentistData(get_dentist_data_response);
+                                                                buildDentistData(getDentistData_response);
                                                             }
                                                             basic.closeDialog();
                                                         } else {
@@ -20231,16 +19992,16 @@ var projectData = {
                                     post_data.deleted_applications = deleted_apps_list;
 
                                     setTimeout(function() {
-                                        projectData.requests.edit_dentist_data(post_data, function(response) {
+                                        projectData.requests.editDentistData(post_data, function(response) {
                                             if (response.success) {
-                                                projectData.requests.get_dentist_data(function(get_dentist_data_response) {
-                                                    if (get_dentist_data_response.success) {
+                                                projectData.requests.getDentistData(function(getDentistData_response) {
+                                                    if (getDentistData_response.success) {
                                                         $('.basic-admin-panel').removeClass('edit-mode');
                                                         $('.apps-list').sortable('destroy');
                                                         $('.single-app .app-wrapper .actions-on-edit').remove();
                                                         $('.apps-list .single-app.hide').remove();
                                                         $('.apps-list .single-app.sortable-app').remove();
-                                                        buildDentistData(get_dentist_data_response, true);
+                                                        buildDentistData(getDentistData_response, true);
 
                                                         basic.showAlert('Changes have been saved successfully!', '', true);
                                                     } else {
@@ -20517,10 +20278,233 @@ var projectData = {
 
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').click(function() {
+                        if (window.localStorage.getItem('user_civic_email') == null) {
+                            // display email field to let user save his civic email into the mobile app
+                            $('.form-login-fields').hide();
+                            $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
+
+                            var civicMobileProceeded = false;
+                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
+                                //clear prev errors
+                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
+                                    $('.mobile-proceeding-to-civic .error-handle').remove();
+                                }
+
+                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
+                                    if (!civicMobileProceeded) {
+                                        civicMobileProceeded = true;
+
+                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
+
+                                        if (!$('#iframe-civic-popup').length) {
+                                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                                        }
+                                    }
+                                } else {
+                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
+                                }
+                            });
+
+                            $('.go-back-to-logins').click(function() {
+                                $('.mobile-proceeding-to-civic').remove();
+                                $('.form-register-fields, .form-login-fields').show();
+                            });
+                        } else {
+                            if (!$('#iframe-civic-popup').length) {
+                                $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                            }
+                        }
+                    });
+
+                    if (!civic_iframe_removedEventLoaded) {
+                        civic_iframe_removedEventLoaded = true;
+
+                        window.addEventListener('message', function(event) {
+                            if (event.data.event_id === 'civic_iframe_removed' && $('#iframe-civic-popup').length) {
+                                if ($('.mobile-proceeding-to-civic').length) {
+                                    $('.mobile-proceeding-to-civic').remove();
+                                }
+                                if ($('.form-register-fields').length) {
+                                    $('.form-register-fields').show();
+                                }
+                                if ($('.form-login-fields').length) {
+                                    $('.form-login-fields').show();
+                                }
+
+                                projectData.general_logic.proceedWithMobileAppAuth();
+                                $('#iframe-civic-popup').remove();
+                            }
+                        });
+                    }
+                } else {
+                    if (!hasOwnProperty.call(loadedLibs, 'civic')) {
+                        loadedLibs.civic = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
+                    }
                 }
 
-                await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
+                if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
+                    loadedLibs.facebook = true;
+                    await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
+                }
 
+                $(document).off('facebookCustomBtnClicked');
+                $(document).on('facebookCustomBtnClicked', function (event) {
+                    console.log('facebookCustomBtnClicked');
+                    $('.patient-login .custom-error').addClass('hide');
+                });
+
+                $(document).off('cannotLoginBecauseOfMissingCookies');
+                $(document).on('cannotLoginBecauseOfMissingCookies', function (event) {
+                    console.log('cannotLoginBecauseOfMissingCookies');
+                    $('.patient-login .custom-error').html($('.patient-login').attr('data-cookies-error')).removeClass('hide');
+                });
+
+                $('body').removeClass('platform-background');
+
+                if (window.localStorage.getItem('currentPatient') != null) {
+                    projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
+                }
+            },
+            patientRegisterPage: async function() {
+                console.log('patientRegisterPage');
+                if (is_hybrid) {
+                    $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').click(function() {
+                        var thisBtn = $(this);
+                        if ($('.form-register-fields .error-handle').length) {
+                            $('.form-register-fields .error-handle').remove();
+                        }
+
+                        if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
+
+                            projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
+                            return false;
+                        }
+
+                        if (window.localStorage.getItem('user_civic_email') == null) {
+                            // display email field to let user save his civic email into the mobile app
+
+                            $('.form-register-fields').hide();
+                            $('.register-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
+
+                            var civicMobileProceeded = false;
+                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
+                                //clear prev errors
+                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
+                                    $('.mobile-proceeding-to-civic .error-handle').remove();
+                                }
+
+                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
+                                    if (!civicMobileProceeded) {
+                                        civicMobileProceeded = true;
+
+                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
+                                        if (!$('#iframe-civic-popup').length) {
+                                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                                        }
+                                    }
+                                } else {
+                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
+                                }
+                            });
+
+                            $('.go-back-to-logins').click(function() {
+                                $('.mobile-proceeding-to-civic').remove();
+                                $('.form-register-fields, .form-login-fields').show();
+                            });
+                        } else {
+                            // civic email already saved in mobile app
+                            if (!$('#iframe-civic-popup').length) {
+                                $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                            }
+                        }
+                    });
+
+                    if (!civic_iframe_removedEventLoaded) {
+                        civic_iframe_removedEventLoaded = true;
+
+                        window.addEventListener('message', function(event) {
+                            if (event.data.event_id === 'civic_iframe_removed' && $('#iframe-civic-popup').length) {
+                                if ($('.mobile-proceeding-to-civic').length) {
+                                    $('.mobile-proceeding-to-civic').remove();
+                                }
+                                if ($('.form-register-fields').length) {
+                                    $('.form-register-fields').show();
+                                }
+                                if ($('.form-login-fields').length) {
+                                    $('.form-login-fields').show();
+                                }
+
+                                projectData.general_logic.proceedWithMobileAppAuth();
+                                $('#iframe-civic-popup').remove();
+                            }
+                        });
+                    }
+                } else {
+                    if (!hasOwnProperty.call(loadedLibs, 'civic')) {
+                        loadedLibs.civic = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
+                    }
+                }
+
+                if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
+                    loadedLibs.facebook = true;
+                    await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
+                }
+
+                basic.initCustomCheckboxes('.patient-register-by-invite');
+
+                var ageStopper = true;
+                var privacyPolicyStopper = true;
+                $('.patient-register-by-invite #agree-over-eighteen').on('change', function() {
+                    if ($(this).is(':checked')) {
+                        ageStopper = false;
+                    } else {
+                        ageStopper = true;
+                    }
+
+                    removeSocialLoginStopper();
+                });
+
+                $('.patient-register-by-invite #privacy-policy-registration-patient').on('change', function() {
+                    if ($(this).is(':checked')) {
+                        privacyPolicyStopper = false;
+                    } else {
+                        privacyPolicyStopper = true;
+                    }
+
+                    removeSocialLoginStopper();
+                });
+
+                function removeSocialLoginStopper() {
+                    if (ageStopper || privacyPolicyStopper) {
+                        $('.social-login-btn').attr('custom-stopper', true);
+                    } else {
+                        $('.social-login-btn').attr('custom-stopper', false);
+                    }
+                }
+
+                $(document).off('facebookCustomBtnClicked');
+                $(document).on('facebookCustomBtnClicked', function (event) {
+                    console.log('facebookCustomBtnClicked');
+                    $('.patient-register-by-invite .custom-error').addClass('hide');
+                });
+
+                $(document).off('cannotLoginBecauseOfMissingCookies');
+                $(document).on('cannotLoginBecauseOfMissingCookies', function (event) {
+                    console.log('cannotLoginBecauseOfMissingCookies');
+                    $('.patient-register-by-invite .custom-error').html($('.patient-register-by-invite').attr('data-cookies-error')).removeClass('hide');
+                });
+
+                $(document).off('customCivicFbStopperTriggered');
+                $(document).on('customCivicFbStopperTriggered', function (event) {
+                    console.log('customCivicFbStopperTriggered');
+                    $('.patient-register-by-invite .custom-error').html($('.patient-register-by-invite').attr('data-years-and-privacy-error')).removeClass('hide');
+                });
                 $('body').removeClass('platform-background');
 
                 if (window.localStorage.getItem('currentPatient') != null) {
@@ -20530,6 +20514,17 @@ var projectData = {
             requestAccount: function() {
                 $('body').removeClass('platform-background');
 
+                basic.initCustomCheckboxes('.patient-request-account');
+
+                if (window.localStorage.getItem('currentPatient') != null) {
+                    projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
+                }
+            },
+            dentistRequestAccount: function() {
+                $('body').removeClass('platform-background');
+
+                basic.initCustomCheckboxes('.dentist-request-account');
+
                 if (window.localStorage.getItem('currentPatient') != null) {
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
@@ -20538,16 +20533,16 @@ var projectData = {
     },
     general_logic: {
         updatePlatformColors: function(id) {
-            projectData.requests.get_dentist_data(function(get_dentist_data_response) {
-                if (get_dentist_data_response.success) {
+            projectData.requests.getDentistData(function(getDentistData_response) {
+                if (getDentistData_response.success) {
                     $('.platform-colors').remove();
-                    var platform_text_color = get_dentist_data_response.data.text_color;
-                    var platform_base_color = get_dentist_data_response.data.hub_color;
+                    var platform_text_color = getDentistData_response.data.text_color;
+                    var platform_base_color = getDentistData_response.data.hub_color;
                     var platform_color_and_background = '<style class="platform-colors">/*Text color*/.platform-text-color{color:'+platform_text_color+';}/*Base color*/ .module.platform-color,.module.custom-google-label-style label.active-label.platform-color,.platform-color{color:'+platform_base_color+';}.platform-color-important{color:'+platform_base_color+' !important;}.bootbox .bootbox-close-button{color:'+platform_base_color+' !important;}.btn-primary{background-color:'+platform_base_color+' !important;border-color: '+platform_base_color+' !important;}.module.hover.platform-color:hover{background-color:'+platform_base_color+';}.module.platform-background-color,.platform-background-color{background-color:'+platform_base_color+';}.module.hover.platform-background-color:hover{color:'+platform_base_color+';}.module.platform-border-color,.platform-border-color,.module.custom-google-label-style input.colorful-border.platform-border-color{border-color: '+platform_base_color+';}.edit-mode .platform-border-color-important, .important.platform-border-color{border-color: '+platform_base_color+' !important;}.svg-platform-fill{fill: '+platform_base_color+';}.svg-platform-fill-important{fill: '+platform_base_color+' !important;}.platform-background-on-hover:hover {background-color:'+platform_base_color+';}/*Background color/ image*/';
-                    if (get_dentist_data_response.data.hub_background_type == 'hex-code') {
-                        platform_color_and_background += '.platform-background{background-color:'+get_dentist_data_response.data.hub_background+';}</style>';
-                    } else if (get_dentist_data_response.data.hub_background_type == 'preset-background' || get_dentist_data_response.data.hub_background_type == 'upload-image') {
-                        platform_color_and_background += '.platform-background{background-image:url('+get_dentist_data_response.data.hub_background+');background-position:center center;background-repeat:no-repeat;background-size:cover;}</style>';
+                    if (getDentistData_response.data.hub_background_type == 'hex-code') {
+                        platform_color_and_background += '.platform-background{background-color:'+getDentistData_response.data.hub_background+';}</style>';
+                    } else if (getDentistData_response.data.hub_background_type == 'preset-background' || getDentistData_response.data.hub_background_type == 'upload-image') {
+                        platform_color_and_background += '.platform-background{background-image:url('+getDentistData_response.data.hub_background+');background-position:center center;background-repeat:no-repeat;background-size:cover;}</style>';
                     }
 
                     platform_color_and_background += '</style>';
@@ -20569,16 +20564,12 @@ var projectData = {
         cookie: async function() {
             if (basic.cookies.get('performance_cookies') == '' && basic.cookies.get('performance_cookies') == '' && basic.cookies.get('performance_cookies') == '' && basic.cookies.get('performance_cookies') == '' && !$('body').hasClass('dentacoin-map-iframe')) {
                 if (!hasOwnProperty.call(loadedLibs, 'dentacoinPackageJs')) {
-                    console.log('dentacoinPackageJs loaded');
                     loadedLibs.dentacoinPackageJs = true;
-                    $('head').append('<link rel="preload" as="style" onload="this.rel=\'stylesheet\'" type="text/css" href="/assets/libs/dentacoin-package/css/style-cookie.css?v='+new Date().getTime()+'"/>');
-                    await $.getScript('/assets/libs/dentacoin-package/js/init.js?v='+new Date().getTime(), function() {});
+                    $('head').append('<link rel="stylesheet" type="text/css" href="https://dentacoin.com/assets/libs/dentacoin-package/css/style-cookie.css?v='+new Date().getTime()+'"/>');
+                    await $.getScript('https://dentacoin.com/assets/libs/dentacoin-package/js/init.js?v='+new Date().getTime(), function() {});
 
                     if (typeof(dcnCookie) != 'undefined') {
-                        dcnCookie.init({
-                            'google_app_id': 'UA-97167262-1',
-                            'fb_app_id': '2366034370318681'
-                        });
+                        dcnCookie.init({});
                     }
                 }
             }
@@ -20663,6 +20654,8 @@ var projectData = {
                             }
                         }
                     });
+                } else {
+                    projectData.general_logic.cookie();
                 }
             }
         },
@@ -20695,10 +20688,30 @@ var projectData = {
                     }
                 }
             }
+        },
+        proceedWithMobileAppAuth: function() {
+            projectData.requests.saveCivicEmailTryingToLoginFromMobileApp({
+                email: window.localStorage.getItem('user_civic_email'),
+                type: 'dentacoin'
+            }, function(response) {
+                console.log(response, 'proceedWithMobileAppAuth');
+                /*if (response.success) {
+                    $('.mobile-proceeding-to-civic').remove();
+                    $('.form-login-fields').show();
+
+                    if (thisBtn.hasClass('type-login')) {
+                        window.open('https://dentacoin.com/?dcn-gateway-type=patient-login&open-civic-login=true', '_system');
+                    } else if (thisBtn.hasClass('type-register')) {
+                        window.open('https://dentacoin.com/?dcn-gateway-type=patient-register&open-civic-register=true', '_system');
+                    }
+                } else {
+                    basic.showAlert('Something went wrong with the external login provider, please try again later or contact <a href="mailto:admin@dentacoin.com">admin@dentacoin.com</a>.', '', true);
+                }*/
+            });
         }
     },
     requests: {
-        get_default_apps_which_dentist_dont_have_yet: function (id, callback) {
+        getDefaultApplications: function (id, callback) {
             $.ajax({
                 type: 'GET',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/get-default-applications-which-dentist-dont-have-yet/'+id,
@@ -20708,7 +20721,7 @@ var projectData = {
                 }
             });
         },
-        get_deleted_apps_for_dentist: function (id, callback) {
+        getDeletedAppsForDentist: function (id, callback) {
             $.ajax({
                 type: 'GET',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/get-deleted-applications-for-dentist/'+id,
@@ -20718,7 +20731,7 @@ var projectData = {
                 }
             });
         },
-        get_dentist_data: function (callback, id) {
+        getDentistData: function (callback, id) {
             $.ajax({
                 type: 'GET',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/get-dentist-data/' + id,
@@ -20728,7 +20741,7 @@ var projectData = {
                 }
             });
         },
-        edit_dentist_data: function (post_data, callback) {
+        editDentistData: function (post_data, callback) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/edit-dentist-data',
@@ -20739,7 +20752,7 @@ var projectData = {
                 }
             });
         },
-        edit_dentist_colors: function (post_data, callback) {
+        editDentistColors: function (post_data, callback) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/edit-dentist-colors',
@@ -20750,7 +20763,7 @@ var projectData = {
                 }
             });
         },
-        add_dentist_applications: function (callback, apps_to_be_added) {
+        addDentistApplication: function (callback, apps_to_be_added) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/add-dentist-applications',
@@ -20765,7 +20778,7 @@ var projectData = {
                 }
             });
         },
-        edit_dentist_application: function(id, post_data, callback) {
+        editDentistApplication: function(id, post_data, callback) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/edit-dentist-application/'+id,
@@ -20776,7 +20789,7 @@ var projectData = {
                 }
             });
         },
-        delete_dentist_application: function (callback, id) {
+        deleteDentistApplication: function (callback, id) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/delete-dentist-application/'+id,
@@ -20790,7 +20803,7 @@ var projectData = {
                 }
             });
         },
-        add_mobile_device_id: function (callback, id) {
+        addMobileDeviceId: function (callback, id) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/patient/add-mobile-device-id',
@@ -20805,6 +20818,38 @@ var projectData = {
                     callback(response);
                 }
             });
+        },
+        saveCivicEmailTryingToLoginFromMobileApp: async function(data, callback) {
+            $.ajax({
+                type: 'POST',
+                url: 'https://dentacoin.com/dentacoin-login-gateway/save-civic-email',
+                dataType: 'json',
+                data: data,
+                success: function(response) {
+                    callback(response);
+                },
+                error: function() {
+                    console.error('Request to dentacoin.com currently not working.');
+                }
+            });
+
+            /*if (fireAjax) {
+                fireAjax = false;
+
+                var ajaxCall = await $.ajax({
+                    type: 'GET',
+                    url: 'https://dentacoin.com/info/platforms',
+                    dataType: 'json'
+                });
+
+                fireAjax = true;
+                return ajaxCall;
+            }*/
+        }
+    },
+    utils: {
+        customErrorHandle: function(el, string) {
+            el.append('<div class="error-handle">'+string+'</div>');
         }
     }
 };
@@ -20893,7 +20938,7 @@ function router() {
                     window.FirebasePlugin.hasPermission(function(hasPermission) {
                         if(basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
                             // if permission is given save the firebase mobile device id
-                            projectData.requests.add_mobile_device_id(function() {
+                            projectData.requests.addMobileDeviceId(function() {
                                 console.log('Mobile device id saved.');
                             }, window.localStorage.getItem('mobile_device_id'))
                         }
@@ -20906,14 +20951,22 @@ function router() {
                 current_route = 'patient-login-page';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.patientLoginPage();
+            } else if ($('app-patient-register-by-invite').length && current_route != 'patient-register-by-invite') {
+                current_route = 'patient-register-by-invite';
+                projectData.general_logic.setIsHybrid();
+                projectData.pages.patient.patientRegisterPage();
             } else if ($('app-request-account').length && current_route != 'request-account') {
                 current_route = 'request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.requestAccount();
+            } else if ($('app-dentist-request-account').length && current_route != 'dentist-request-account') {
+                current_route = 'dentist-request-account';
+                projectData.general_logic.setIsHybrid();
+                projectData.pages.patient.dentistRequestAccount();
             }
         }
 
-        projectData.general_logic.updateExternalURLsForiOSDevice();
+        // projectData.general_logic.updateExternalURLsForiOSDevice();
     });
 }
 router();
@@ -20999,6 +21052,22 @@ function addEditAppPopupLanguageSwitch() {
             }
         }
     });
+}
+
+function handleOpenURL(url) {
+    console.log(url, 'url');
+    var token = new URL(url).searchParams.get('token');
+    console.log(token, 'token');
+
+    const event = new CustomEvent('receiveCoredbTokenFromCivicAuth', {
+        detail: {
+            platform_type: 'civic',
+            response_data: token,
+            time: new Date()
+        }
+    });
+
+    document.dispatchEvent(event);
 }
 ;
 //# sourceMappingURL=scripts.js.map

@@ -860,7 +860,7 @@ img {
     @include rounded(4px);
 }
 
-.social-login-btn.civic-custom-btn {
+.social-login-btn.civic-custom-btn, .social-login-btn.civic-style{
     background-image: url(../images/civic.svg);
     border: 1px solid #3bb03f;
 }
@@ -874,4 +874,14 @@ img {
             color: white;
         }
     }
+}
+
+#iframe-civic-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    border: 0;
 }

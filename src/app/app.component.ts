@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 
 export class AppComponent implements OnInit {
     hybrid = environment.hybrid;
+    dentacoinDomain = environment.dentacoinDomain;
 
     constructor(public translate: TranslateService) {
 

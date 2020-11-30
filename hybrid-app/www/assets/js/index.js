@@ -1,8 +1,10 @@
-console.log("( ͡° ͜ʖ ͡°) I see you.");
+console.log("( ͡° ͜ʖ ͡°) I see you. 1");
 
 var default_error_message = 'Something went wrong. Please try again later or write a message to admin@dentacoin.com with description of the problem.';
 var allowed_imgs_extensions = ['png', 'jpg', 'jpeg'/*, 'gif', 'svg'*/];
 var is_hybrid;
+var loadedLibs = {};
+var civic_iframe_removedEventLoaded = false;
 
 $(document).ready(function() {
 
@@ -256,7 +258,7 @@ var projectData = {
                 $('.pick-dentist-color').click(function() {
                     var this_btn = $(this);
                     if (this_btn.attr('data-opened') == 'false') {
-                        projectData.requests.get_dentist_data(function(get_dentist_data_response) {
+                        projectData.requests.getDentistData(function(getDentistData_response) {
                             $('body').addClass('overflow-hidden');
                             if ($(window).width() < 1000) {
                                 $('.dentist-logo').hide();
@@ -264,7 +266,7 @@ var projectData = {
                             }
                             $('body').removeClass('overflow-hidden');
 
-                            if (get_dentist_data_response.success) {
+                            if (getDentistData_response.success) {
                                 var hex_code_checked = '';
                                 var hex_code_active = '';
                                 var background_hex_code = '';
@@ -275,19 +277,19 @@ var projectData = {
                                 var upload_image_checked = '';
                                 var upload_image_active = '';
                                 var upload_image_option_html = '<button type="button" class="inline-block"><label for="background-image" class="platform-border-color important"><svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 90 69.2" style="enable-background:new 0 0 90 69.2;" xml:space="preserve"><style type="text/css">.st0{fill:#8E3146;}</style><metadata><sfw><slices></slices><slicesourcebounds bottomleftorigin="true" height="69.2" width="90" x="5" y="40.4"></slicesourcebounds></sfw></metadata><path class="st0 svg-platform-fill-important" d="M7.6,69.2h74.9c4.2,0,7.6-3.4,7.6-7.6V18.8c0-4.2-3.4-7.6-7.6-7.6H71.3c-3.9,0-7.3-2.7-8.1-6.5 c-0.6-2.7-3-4.7-5.8-4.7H32.6c-2.8,0-5.2,1.9-5.8,4.7c-0.8,3.8-4.2,6.5-8.1,6.5H7.6c-4.2,0-7.6,3.4-7.6,7.6c0,0,0,0,0,0v42.9 C0,65.8,3.4,69.2,7.6,69.2C7.6,69.2,7.6,69.2,7.6,69.2z M78.4,16.9c2.6,0,4.8,2.1,4.8,4.8c0,2.6-2.1,4.8-4.8,4.8 c-2.6,0-4.8-2.1-4.8-4.8c0,0,0,0,0,0C73.6,19.1,75.7,16.9,78.4,16.9C78.4,16.9,78.4,16.9,78.4,16.9z M45,15.5 c12.5,0,22.7,10.2,22.7,22.7S57.5,60.9,45,60.9S22.3,50.8,22.3,38.2c0,0,0,0,0,0C22.3,25.7,32.5,15.5,45,15.5L45,15.5z M27.3,38.2 c0-9.8,7.9-17.7,17.7-17.7s17.7,7.9,17.7,17.7S54.8,55.9,45,55.9h0C35.2,55.9,27.3,48,27.3,38.2z"></path></svg></label></button>';
-                                if (get_dentist_data_response.data.hub_background_type == undefined || get_dentist_data_response.data.hub_background_type == 'hex-code') {
+                                if (getDentistData_response.data.hub_background_type == undefined || getDentistData_response.data.hub_background_type == 'hex-code') {
                                     hex_code_checked = ' checked ';
                                     hex_code_active = ' active ';
-                                    background_hex_code = get_dentist_data_response.data.hub_background;
-                                } else if (get_dentist_data_response.data.hub_background_type == 'preset-background') {
+                                    background_hex_code = getDentistData_response.data.hub_background;
+                                } else if (getDentistData_response.data.hub_background_type == 'preset-background') {
                                     preset_background_checked = ' checked ';
                                     preset_background_active = ' active ';
 
-                                } else if (get_dentist_data_response.data.hub_background_type == 'upload-image') {
+                                } else if (getDentistData_response.data.hub_background_type == 'upload-image') {
                                     upload_image_checked = ' checked ';
                                     upload_image_active = ' active ';
 
-                                    upload_image_option_html = '<button type="button" class="inline-block"><label for="background-image" class="platform-border-color important" style="background-image: url('+get_dentist_data_response.data.hub_background+');"></label></button>';
+                                    upload_image_option_html = '<button type="button" class="inline-block"><label for="background-image" class="platform-border-color important" style="background-image: url('+getDentistData_response.data.hub_background+');"></label></button>';
                                 }
 
                                 $('.enableBlur').addClass('active');
@@ -300,7 +302,7 @@ var projectData = {
                                         resetToDefault = false;
 
                                         projectData.general_logic.showLoader();
-                                        projectData.requests.edit_dentist_colors({
+                                        projectData.requests.editDentistColors({
                                             token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
                                             id: JSON.parse(window.localStorage.getItem('currentDentist')).id,
                                             base_color: '#8b2f46',
@@ -332,9 +334,9 @@ var projectData = {
                                     }
                                 });
 
-                                if (get_dentist_data_response.data.hub_background_type == 'preset-background') {
+                                if (getDentistData_response.data.hub_background_type == 'preset-background') {
                                     for(var i = 0, len = $('button.preset').length; i < len; i+=1) {
-                                        if ($('button.preset').eq(i).find('img').attr('src') == get_dentist_data_response.data.hub_background) {
+                                        if ($('button.preset').eq(i).find('img').attr('src') == getDentistData_response.data.hub_background) {
                                             $('button.preset').eq(i).addClass('checked');
                                         }
                                     }
@@ -420,7 +422,7 @@ var projectData = {
                                                 } else {
                                                     projectData.general_logic.showLoader();
                                                     setTimeout(function() {
-                                                        projectData.requests.edit_dentist_colors(post_data, function(response) {
+                                                        projectData.requests.editDentistColors(post_data, function(response) {
                                                             if (response.success) {
                                                                 $('body').addClass('overflow-hidden');
                                                                 if ($(window).width() < 1000) {
@@ -460,7 +462,7 @@ var projectData = {
                                 // colorPicker.resize(newWidth);
                                 var textColorWheel = iro.ColorPicker('.custom-dropdown-with-color-pickers #text-color-picker', {
                                     width: colorPickersWidthAndHeight,
-                                    color: get_dentist_data_response.data.text_color,
+                                    color: getDentistData_response.data.text_color,
                                     height: colorPickersWidthAndHeight
                                 });
                                 textColorWheel.on('input:change', function(color){
@@ -482,7 +484,7 @@ var projectData = {
                                 // colorPicker.resize(newWidth);
                                 var baseColorWheel = iro.ColorPicker('.custom-dropdown-with-color-pickers #base-color-picker', {
                                     width: colorPickersWidthAndHeight,
-                                    color: get_dentist_data_response.data.hub_color,
+                                    color: getDentistData_response.data.hub_color,
                                     height: colorPickersWidthAndHeight
                                 });
                                 baseColorWheel.on('input:change', function(color){
@@ -507,8 +509,8 @@ var projectData = {
                                     height: colorPickersWidthAndHeight
                                 };
 
-                                if (get_dentist_data_response.data.hub_background_type == 'hex-code') {
-                                    background_color_picker_options.color = get_dentist_data_response.data.hub_background;
+                                if (getDentistData_response.data.hub_background_type == 'hex-code') {
+                                    background_color_picker_options.color = getDentistData_response.data.hub_background;
                                 }
 
                                 var backgroundColorWheel = iro.ColorPicker('.custom-dropdown-with-color-pickers #background-color-picker', background_color_picker_options);
@@ -639,7 +641,7 @@ var projectData = {
                                 }
 
                                 setTimeout(function () {
-                                    projectData.requests.edit_dentist_application(this_app_id, post_data, function (response) {
+                                    projectData.requests.editDentistApplication(this_app_id, post_data, function (response) {
                                         projectData.general_logic.hideLoader();
                                         if (response.success) {
                                             this_app.attr('data-name-en', response.data.name_en);
@@ -670,7 +672,7 @@ var projectData = {
                     });
                 }
 
-                projectData.requests.get_dentist_data(function(response) {
+                projectData.requests.getDentistData(function(response) {
                     if (response.success) {
                         projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentDentist')).id);
                         buildDentistData(response, true);
@@ -697,8 +699,8 @@ var projectData = {
                         // adding app
                         $('.add-app').unbind().on('click', function() {
                             var this_btn = $(this);
-                            projectData.requests.get_default_apps_which_dentist_dont_have_yet(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(default_apps_response) {
-                                projectData.requests.get_deleted_apps_for_dentist(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(deleted_apps_response) {
+                            projectData.requests.getDefaultApplications(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(default_apps_response) {
+                                projectData.requests.getDeletedAppsForDentist(JSON.parse(window.localStorage.getItem('currentDentist')).id, function(deleted_apps_response) {
                                     basic.closeDialog();
                                     var add_app_popup_html = '<div class="language-switcher"><button class="inline-block en-version active" data-app-name-en="" data-app-description-en=""><img src="assets/images/en-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> English Version</button><button class="inline-block de-version" data-app-name-de="" data-app-description-de=""><img src="assets/images/de-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> German Version</button></div>';
 
@@ -759,7 +761,7 @@ var projectData = {
                                             confirm_obj.callback = function (result) {
                                                 if (result) {
                                                     // remove deleted app
-                                                    projectData.requests.delete_dentist_application(function(response) {
+                                                    projectData.requests.deleteDentistApplication(function(response) {
                                                         if (response.success) {
                                                             this_btn_parent_app.remove();
                                                             basic.showAlert('Selected application has been deleted successfully.', '', true);
@@ -834,17 +836,17 @@ var projectData = {
                                         }
 
                                         if (apps_to_be_added.length) {
-                                            projectData.requests.add_dentist_applications(function(response) {
+                                            projectData.requests.addDentistApplication(function(response) {
                                                 if (response.success) {
-                                                    projectData.requests.get_dentist_data(function(get_dentist_data_response) {
-                                                        if (get_dentist_data_response.success) {
+                                                    projectData.requests.getDentistData(function(getDentistData_response) {
+                                                        if (getDentistData_response.success) {
                                                             $('.apps-list .single-app.sortable-app').remove();
 
                                                             if ($('.basic-admin-panel').hasClass('edit-mode')) {
-                                                                buildDentistData(get_dentist_data_response, undefined, true);
+                                                                buildDentistData(getDentistData_response, undefined, true);
                                                                 bindEditDeleteAppEvents();
                                                             } else {
-                                                                buildDentistData(get_dentist_data_response);
+                                                                buildDentistData(getDentistData_response);
                                                             }
                                                             basic.closeDialog();
                                                         } else {
@@ -917,16 +919,16 @@ var projectData = {
                                     post_data.deleted_applications = deleted_apps_list;
 
                                     setTimeout(function() {
-                                        projectData.requests.edit_dentist_data(post_data, function(response) {
+                                        projectData.requests.editDentistData(post_data, function(response) {
                                             if (response.success) {
-                                                projectData.requests.get_dentist_data(function(get_dentist_data_response) {
-                                                    if (get_dentist_data_response.success) {
+                                                projectData.requests.getDentistData(function(getDentistData_response) {
+                                                    if (getDentistData_response.success) {
                                                         $('.basic-admin-panel').removeClass('edit-mode');
                                                         $('.apps-list').sortable('destroy');
                                                         $('.single-app .app-wrapper .actions-on-edit').remove();
                                                         $('.apps-list .single-app.hide').remove();
                                                         $('.apps-list .single-app.sortable-app').remove();
-                                                        buildDentistData(get_dentist_data_response, true);
+                                                        buildDentistData(getDentistData_response, true);
 
                                                         basic.showAlert('Changes have been saved successfully!', '', true);
                                                     } else {
@@ -1203,10 +1205,233 @@ var projectData = {
 
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').click(function() {
+                        if (window.localStorage.getItem('user_civic_email') == null) {
+                            // display email field to let user save his civic email into the mobile app
+                            $('.form-login-fields').hide();
+                            $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
+
+                            var civicMobileProceeded = false;
+                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
+                                //clear prev errors
+                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
+                                    $('.mobile-proceeding-to-civic .error-handle').remove();
+                                }
+
+                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
+                                    if (!civicMobileProceeded) {
+                                        civicMobileProceeded = true;
+
+                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
+
+                                        if (!$('#iframe-civic-popup').length) {
+                                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                                        }
+                                    }
+                                } else {
+                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
+                                }
+                            });
+
+                            $('.go-back-to-logins').click(function() {
+                                $('.mobile-proceeding-to-civic').remove();
+                                $('.form-register-fields, .form-login-fields').show();
+                            });
+                        } else {
+                            if (!$('#iframe-civic-popup').length) {
+                                $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                            }
+                        }
+                    });
+
+                    if (!civic_iframe_removedEventLoaded) {
+                        civic_iframe_removedEventLoaded = true;
+
+                        window.addEventListener('message', function(event) {
+                            if (event.data.event_id === 'civic_iframe_removed' && $('#iframe-civic-popup').length) {
+                                if ($('.mobile-proceeding-to-civic').length) {
+                                    $('.mobile-proceeding-to-civic').remove();
+                                }
+                                if ($('.form-register-fields').length) {
+                                    $('.form-register-fields').show();
+                                }
+                                if ($('.form-login-fields').length) {
+                                    $('.form-login-fields').show();
+                                }
+
+                                projectData.general_logic.proceedWithMobileAppAuth();
+                                $('#iframe-civic-popup').remove();
+                            }
+                        });
+                    }
+                } else {
+                    if (!hasOwnProperty.call(loadedLibs, 'civic')) {
+                        loadedLibs.civic = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
+                    }
                 }
 
-                await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
+                if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
+                    loadedLibs.facebook = true;
+                    await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
+                }
 
+                $(document).off('facebookCustomBtnClicked');
+                $(document).on('facebookCustomBtnClicked', function (event) {
+                    console.log('facebookCustomBtnClicked');
+                    $('.patient-login .custom-error').addClass('hide');
+                });
+
+                $(document).off('cannotLoginBecauseOfMissingCookies');
+                $(document).on('cannotLoginBecauseOfMissingCookies', function (event) {
+                    console.log('cannotLoginBecauseOfMissingCookies');
+                    $('.patient-login .custom-error').html($('.patient-login').attr('data-cookies-error')).removeClass('hide');
+                });
+
+                $('body').removeClass('platform-background');
+
+                if (window.localStorage.getItem('currentPatient') != null) {
+                    projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
+                }
+            },
+            patientRegisterPage: async function() {
+                console.log('patientRegisterPage');
+                if (is_hybrid) {
+                    $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').click(function() {
+                        var thisBtn = $(this);
+                        if ($('.form-register-fields .error-handle').length) {
+                            $('.form-register-fields .error-handle').remove();
+                        }
+
+                        if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
+
+                            projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
+                            return false;
+                        }
+
+                        if (window.localStorage.getItem('user_civic_email') == null) {
+                            // display email field to let user save his civic email into the mobile app
+
+                            $('.form-register-fields').hide();
+                            $('.register-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
+
+                            var civicMobileProceeded = false;
+                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
+                                //clear prev errors
+                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
+                                    $('.mobile-proceeding-to-civic .error-handle').remove();
+                                }
+
+                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
+                                    if (!civicMobileProceeded) {
+                                        civicMobileProceeded = true;
+
+                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
+                                        if (!$('#iframe-civic-popup').length) {
+                                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                                        }
+                                    }
+                                } else {
+                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
+                                }
+                            });
+
+                            $('.go-back-to-logins').click(function() {
+                                $('.mobile-proceeding-to-civic').remove();
+                                $('.form-register-fields, .form-login-fields').show();
+                            });
+                        } else {
+                            // civic email already saved in mobile app
+                            if (!$('#iframe-civic-popup').length) {
+                                $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                            }
+                        }
+                    });
+
+                    if (!civic_iframe_removedEventLoaded) {
+                        civic_iframe_removedEventLoaded = true;
+
+                        window.addEventListener('message', function(event) {
+                            if (event.data.event_id === 'civic_iframe_removed' && $('#iframe-civic-popup').length) {
+                                if ($('.mobile-proceeding-to-civic').length) {
+                                    $('.mobile-proceeding-to-civic').remove();
+                                }
+                                if ($('.form-register-fields').length) {
+                                    $('.form-register-fields').show();
+                                }
+                                if ($('.form-login-fields').length) {
+                                    $('.form-login-fields').show();
+                                }
+
+                                projectData.general_logic.proceedWithMobileAppAuth();
+                                $('#iframe-civic-popup').remove();
+                            }
+                        });
+                    }
+                } else {
+                    if (!hasOwnProperty.call(loadedLibs, 'civic')) {
+                        loadedLibs.civic = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
+                    }
+                }
+
+                if (!hasOwnProperty.call(loadedLibs, 'facebook')) {
+                    loadedLibs.facebook = true;
+                    await $.getScript('https://dentacoin.com/assets/libs/facebook-login/facebook-combined-login.js?v='+new Date().getTime(), function() {});
+                }
+
+                basic.initCustomCheckboxes('.patient-register-by-invite');
+
+                var ageStopper = true;
+                var privacyPolicyStopper = true;
+                $('.patient-register-by-invite #agree-over-eighteen').on('change', function() {
+                    if ($(this).is(':checked')) {
+                        ageStopper = false;
+                    } else {
+                        ageStopper = true;
+                    }
+
+                    removeSocialLoginStopper();
+                });
+
+                $('.patient-register-by-invite #privacy-policy-registration-patient').on('change', function() {
+                    if ($(this).is(':checked')) {
+                        privacyPolicyStopper = false;
+                    } else {
+                        privacyPolicyStopper = true;
+                    }
+
+                    removeSocialLoginStopper();
+                });
+
+                function removeSocialLoginStopper() {
+                    if (ageStopper || privacyPolicyStopper) {
+                        $('.social-login-btn').attr('custom-stopper', true);
+                    } else {
+                        $('.social-login-btn').attr('custom-stopper', false);
+                    }
+                }
+
+                $(document).off('facebookCustomBtnClicked');
+                $(document).on('facebookCustomBtnClicked', function (event) {
+                    console.log('facebookCustomBtnClicked');
+                    $('.patient-register-by-invite .custom-error').addClass('hide');
+                });
+
+                $(document).off('cannotLoginBecauseOfMissingCookies');
+                $(document).on('cannotLoginBecauseOfMissingCookies', function (event) {
+                    console.log('cannotLoginBecauseOfMissingCookies');
+                    $('.patient-register-by-invite .custom-error').html($('.patient-register-by-invite').attr('data-cookies-error')).removeClass('hide');
+                });
+
+                $(document).off('customCivicFbStopperTriggered');
+                $(document).on('customCivicFbStopperTriggered', function (event) {
+                    console.log('customCivicFbStopperTriggered');
+                    $('.patient-register-by-invite .custom-error').html($('.patient-register-by-invite').attr('data-years-and-privacy-error')).removeClass('hide');
+                });
                 $('body').removeClass('platform-background');
 
                 if (window.localStorage.getItem('currentPatient') != null) {
@@ -1216,6 +1441,17 @@ var projectData = {
             requestAccount: function() {
                 $('body').removeClass('platform-background');
 
+                basic.initCustomCheckboxes('.patient-request-account');
+
+                if (window.localStorage.getItem('currentPatient') != null) {
+                    projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
+                }
+            },
+            dentistRequestAccount: function() {
+                $('body').removeClass('platform-background');
+
+                basic.initCustomCheckboxes('.dentist-request-account');
+
                 if (window.localStorage.getItem('currentPatient') != null) {
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
@@ -1224,16 +1460,16 @@ var projectData = {
     },
     general_logic: {
         updatePlatformColors: function(id) {
-            projectData.requests.get_dentist_data(function(get_dentist_data_response) {
-                if (get_dentist_data_response.success) {
+            projectData.requests.getDentistData(function(getDentistData_response) {
+                if (getDentistData_response.success) {
                     $('.platform-colors').remove();
-                    var platform_text_color = get_dentist_data_response.data.text_color;
-                    var platform_base_color = get_dentist_data_response.data.hub_color;
+                    var platform_text_color = getDentistData_response.data.text_color;
+                    var platform_base_color = getDentistData_response.data.hub_color;
                     var platform_color_and_background = '<style class="platform-colors">/*Text color*/.platform-text-color{color:'+platform_text_color+';}/*Base color*/ .module.platform-color,.module.custom-google-label-style label.active-label.platform-color,.platform-color{color:'+platform_base_color+';}.platform-color-important{color:'+platform_base_color+' !important;}.bootbox .bootbox-close-button{color:'+platform_base_color+' !important;}.btn-primary{background-color:'+platform_base_color+' !important;border-color: '+platform_base_color+' !important;}.module.hover.platform-color:hover{background-color:'+platform_base_color+';}.module.platform-background-color,.platform-background-color{background-color:'+platform_base_color+';}.module.hover.platform-background-color:hover{color:'+platform_base_color+';}.module.platform-border-color,.platform-border-color,.module.custom-google-label-style input.colorful-border.platform-border-color{border-color: '+platform_base_color+';}.edit-mode .platform-border-color-important, .important.platform-border-color{border-color: '+platform_base_color+' !important;}.svg-platform-fill{fill: '+platform_base_color+';}.svg-platform-fill-important{fill: '+platform_base_color+' !important;}.platform-background-on-hover:hover {background-color:'+platform_base_color+';}/*Background color/ image*/';
-                    if (get_dentist_data_response.data.hub_background_type == 'hex-code') {
-                        platform_color_and_background += '.platform-background{background-color:'+get_dentist_data_response.data.hub_background+';}</style>';
-                    } else if (get_dentist_data_response.data.hub_background_type == 'preset-background' || get_dentist_data_response.data.hub_background_type == 'upload-image') {
-                        platform_color_and_background += '.platform-background{background-image:url('+get_dentist_data_response.data.hub_background+');background-position:center center;background-repeat:no-repeat;background-size:cover;}</style>';
+                    if (getDentistData_response.data.hub_background_type == 'hex-code') {
+                        platform_color_and_background += '.platform-background{background-color:'+getDentistData_response.data.hub_background+';}</style>';
+                    } else if (getDentistData_response.data.hub_background_type == 'preset-background' || getDentistData_response.data.hub_background_type == 'upload-image') {
+                        platform_color_and_background += '.platform-background{background-image:url('+getDentistData_response.data.hub_background+');background-position:center center;background-repeat:no-repeat;background-size:cover;}</style>';
                     }
 
                     platform_color_and_background += '</style>';
@@ -1255,16 +1491,12 @@ var projectData = {
         cookie: async function() {
             if (basic.cookies.get('performance_cookies') == '' && basic.cookies.get('performance_cookies') == '' && basic.cookies.get('performance_cookies') == '' && basic.cookies.get('performance_cookies') == '' && !$('body').hasClass('dentacoin-map-iframe')) {
                 if (!hasOwnProperty.call(loadedLibs, 'dentacoinPackageJs')) {
-                    console.log('dentacoinPackageJs loaded');
                     loadedLibs.dentacoinPackageJs = true;
-                    $('head').append('<link rel="preload" as="style" onload="this.rel=\'stylesheet\'" type="text/css" href="/assets/libs/dentacoin-package/css/style-cookie.css?v='+new Date().getTime()+'"/>');
-                    await $.getScript('/assets/libs/dentacoin-package/js/init.js?v='+new Date().getTime(), function() {});
+                    $('head').append('<link rel="stylesheet" type="text/css" href="https://dentacoin.com/assets/libs/dentacoin-package/css/style-cookie.css?v='+new Date().getTime()+'"/>');
+                    await $.getScript('https://dentacoin.com/assets/libs/dentacoin-package/js/init.js?v='+new Date().getTime(), function() {});
 
                     if (typeof(dcnCookie) != 'undefined') {
-                        dcnCookie.init({
-                            'google_app_id': 'UA-97167262-1',
-                            'fb_app_id': '2366034370318681'
-                        });
+                        dcnCookie.init({});
                     }
                 }
             }
@@ -1349,6 +1581,8 @@ var projectData = {
                             }
                         }
                     });
+                } else {
+                    projectData.general_logic.cookie();
                 }
             }
         },
@@ -1381,10 +1615,30 @@ var projectData = {
                     }
                 }
             }
+        },
+        proceedWithMobileAppAuth: function() {
+            projectData.requests.saveCivicEmailTryingToLoginFromMobileApp({
+                email: window.localStorage.getItem('user_civic_email'),
+                type: 'dentacoin'
+            }, function(response) {
+                console.log(response, 'proceedWithMobileAppAuth');
+                /*if (response.success) {
+                    $('.mobile-proceeding-to-civic').remove();
+                    $('.form-login-fields').show();
+
+                    if (thisBtn.hasClass('type-login')) {
+                        window.open('https://dentacoin.com/?dcn-gateway-type=patient-login&open-civic-login=true', '_system');
+                    } else if (thisBtn.hasClass('type-register')) {
+                        window.open('https://dentacoin.com/?dcn-gateway-type=patient-register&open-civic-register=true', '_system');
+                    }
+                } else {
+                    basic.showAlert('Something went wrong with the external login provider, please try again later or contact <a href="mailto:admin@dentacoin.com">admin@dentacoin.com</a>.', '', true);
+                }*/
+            });
         }
     },
     requests: {
-        get_default_apps_which_dentist_dont_have_yet: function (id, callback) {
+        getDefaultApplications: function (id, callback) {
             $.ajax({
                 type: 'GET',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/get-default-applications-which-dentist-dont-have-yet/'+id,
@@ -1394,7 +1648,7 @@ var projectData = {
                 }
             });
         },
-        get_deleted_apps_for_dentist: function (id, callback) {
+        getDeletedAppsForDentist: function (id, callback) {
             $.ajax({
                 type: 'GET',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/get-deleted-applications-for-dentist/'+id,
@@ -1404,7 +1658,7 @@ var projectData = {
                 }
             });
         },
-        get_dentist_data: function (callback, id) {
+        getDentistData: function (callback, id) {
             $.ajax({
                 type: 'GET',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/get-dentist-data/' + id,
@@ -1414,7 +1668,7 @@ var projectData = {
                 }
             });
         },
-        edit_dentist_data: function (post_data, callback) {
+        editDentistData: function (post_data, callback) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/edit-dentist-data',
@@ -1425,7 +1679,7 @@ var projectData = {
                 }
             });
         },
-        edit_dentist_colors: function (post_data, callback) {
+        editDentistColors: function (post_data, callback) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/edit-dentist-colors',
@@ -1436,7 +1690,7 @@ var projectData = {
                 }
             });
         },
-        add_dentist_applications: function (callback, apps_to_be_added) {
+        addDentistApplication: function (callback, apps_to_be_added) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/add-dentist-applications',
@@ -1451,7 +1705,7 @@ var projectData = {
                 }
             });
         },
-        edit_dentist_application: function(id, post_data, callback) {
+        editDentistApplication: function(id, post_data, callback) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/edit-dentist-application/'+id,
@@ -1462,7 +1716,7 @@ var projectData = {
                 }
             });
         },
-        delete_dentist_application: function (callback, id) {
+        deleteDentistApplication: function (callback, id) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/dentist/delete-dentist-application/'+id,
@@ -1476,7 +1730,7 @@ var projectData = {
                 }
             });
         },
-        add_mobile_device_id: function (callback, id) {
+        addMobileDeviceId: function (callback, id) {
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/patient/add-mobile-device-id',
@@ -1491,6 +1745,38 @@ var projectData = {
                     callback(response);
                 }
             });
+        },
+        saveCivicEmailTryingToLoginFromMobileApp: async function(data, callback) {
+            $.ajax({
+                type: 'POST',
+                url: 'https://dentacoin.com/dentacoin-login-gateway/save-civic-email',
+                dataType: 'json',
+                data: data,
+                success: function(response) {
+                    callback(response);
+                },
+                error: function() {
+                    console.error('Request to dentacoin.com currently not working.');
+                }
+            });
+
+            /*if (fireAjax) {
+                fireAjax = false;
+
+                var ajaxCall = await $.ajax({
+                    type: 'GET',
+                    url: 'https://dentacoin.com/info/platforms',
+                    dataType: 'json'
+                });
+
+                fireAjax = true;
+                return ajaxCall;
+            }*/
+        }
+    },
+    utils: {
+        customErrorHandle: function(el, string) {
+            el.append('<div class="error-handle">'+string+'</div>');
         }
     }
 };
@@ -1579,7 +1865,7 @@ function router() {
                     window.FirebasePlugin.hasPermission(function(hasPermission) {
                         if(basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
                             // if permission is given save the firebase mobile device id
-                            projectData.requests.add_mobile_device_id(function() {
+                            projectData.requests.addMobileDeviceId(function() {
                                 console.log('Mobile device id saved.');
                             }, window.localStorage.getItem('mobile_device_id'))
                         }
@@ -1592,14 +1878,22 @@ function router() {
                 current_route = 'patient-login-page';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.patientLoginPage();
+            } else if ($('app-patient-register-by-invite').length && current_route != 'patient-register-by-invite') {
+                current_route = 'patient-register-by-invite';
+                projectData.general_logic.setIsHybrid();
+                projectData.pages.patient.patientRegisterPage();
             } else if ($('app-request-account').length && current_route != 'request-account') {
                 current_route = 'request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.requestAccount();
+            } else if ($('app-dentist-request-account').length && current_route != 'dentist-request-account') {
+                current_route = 'dentist-request-account';
+                projectData.general_logic.setIsHybrid();
+                projectData.pages.patient.dentistRequestAccount();
             }
         }
 
-        projectData.general_logic.updateExternalURLsForiOSDevice();
+        // projectData.general_logic.updateExternalURLsForiOSDevice();
     });
 }
 router();
@@ -1685,4 +1979,20 @@ function addEditAppPopupLanguageSwitch() {
             }
         }
     });
+}
+
+function handleOpenURL(url) {
+    console.log(url, 'url');
+    var token = new URL(url).searchParams.get('token');
+    console.log(token, 'token');
+
+    const event = new CustomEvent('receiveCoredbTokenFromCivicAuth', {
+        detail: {
+            platform_type: 'civic',
+            response_data: token,
+            time: new Date()
+        }
+    });
+
+    document.dispatchEvent(event);
 }

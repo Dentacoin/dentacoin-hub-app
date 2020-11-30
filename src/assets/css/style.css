@@ -62,6 +62,9 @@
   font-weight: normal;
   font-style: normal;
   font-display: block; }
+.lato-regular {
+  font-family: "Lato-Regular"; }
+
 .lato-light {
   font-family: "Lato-Light"; }
 
@@ -4649,7 +4652,7 @@ img {
   -ms-border-radius: 4px;
   border-radius: 4px; }
 
-.social-login-btn.civic-custom-btn {
+.social-login-btn.civic-custom-btn, .social-login-btn.civic-style {
   background-image: url(../images/civic.svg);
   border: 1px solid #3bb03f; }
 
@@ -4660,6 +4663,15 @@ img {
   @media screen and (min-width: 992px) {
     .social-login-btn.facebook-custom-btn:hover {
       color: white; } }
+
+#iframe-civic-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  border: 0; }
 
 header {
   padding-top: 10px;
@@ -5013,6 +5025,9 @@ header {
     -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
+  @media screen and (max-width: 767px) {
+    .homepage-container {
+      min-height: 350px; } }
 
 .links-below-registration {
   border-top: 1.5px solid #dddddd; }
