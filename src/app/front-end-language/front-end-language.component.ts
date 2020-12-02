@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {Router} from '@angular/router';
@@ -12,7 +12,7 @@ import {RedirectsService} from '../_services/redirects.service';
 export class FrontEndLanguageComponent implements OnInit {
     channelArray: Array<string> = ['de', 'en'];
 
-    constructor(public activatedRoute: ActivatedRoute, public translate: TranslateService, public router: Router, public redirectsService: RedirectsService) {
+    constructor(public activatedRoute: ActivatedRoute, public translate: TranslateService, public router: Router, public redirectsService: RedirectsService, private ngZone: NgZone) {
     }
 
     ngOnInit() {
@@ -23,10 +23,10 @@ export class FrontEndLanguageComponent implements OnInit {
             } else if (params['lang'] === 'admin') {
                 this.translate.use(environment.default_language);
                 this.redirectsService.redirectToAdmin();
-            } else {
+            }  else {
                 this.translate.use(environment.default_language);
                 if (params.hasOwnProperty('lang')) {
-                    this.router.navigateByUrl(this.router.url.replace('/' + params['lang'], '/' + environment.default_language) + '/' + params['lang']);
+                    this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/' + params['lang'])).then();
                 } else {
                     this.router.navigateByUrl(environment.default_language);
                 }

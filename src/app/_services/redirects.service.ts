@@ -25,12 +25,16 @@ export class RedirectsService {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang)).then();
     }
 
-    redirectToRequestAccount() {
+    redirectToDentistRequestAccount() {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/dentist-request-account')).then();
     }
 
+    redirectToPatientRequestAccount() {
+        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/request-account')).then();
+    }
+
     redirectToPatientLogin(type: string) {
-        console.log('redirectToPatientLogin');
+        console.log(type, 'redirectToPatientLogin');
         if (type === 'account-verification') {
             this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyVerifiedAccount: true}});
         } else if (type === 'change-password') {

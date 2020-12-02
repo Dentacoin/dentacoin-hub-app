@@ -32,18 +32,16 @@ export class LoggedInWrapperComponent implements OnInit {
 
     ngOnInit() {
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
+            console.log('redirectToPatientLogin 1');
             this.redirectsService.redirectToPatientLogin('login');
         } else {
             if (this.hybrid === true) {
-                console.log(1, this.hybrid);
                 this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
             } else {
-                console.log(2, this.hybrid);
                 this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
             }
 
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
-                console.log('logged in wrapper getDentistData');
                 this.dentistData.logo = response.data.logo;
                 /*if(this.router.url.length > 3) {
                     this.showApplications = true;

@@ -13,9 +13,7 @@ export class NotLoggedInWrapperComponent implements OnInit {
     dentistLogo = '';
     dentistLogoClass = '';
 
-    constructor(public authenticationServiceService: AuthenticationServiceService, public requestsService: RequestsService, public translate: TranslateService, public languageService: LanguageService) {
-
-    }
+    constructor(public authenticationServiceService: AuthenticationServiceService, public requestsService: RequestsService, public translate: TranslateService, public languageService: LanguageService) {}
 
     ngOnInit() {
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
