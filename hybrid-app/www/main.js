@@ -2580,20 +2580,38 @@ var PatientLoginPageComponent = /** @class */ (function () {
             });
             document.addEventListener('patientAuthErrorResponse', function (e) {
                 console.log(e, 'e');
+                var errorsHtml = '';
+                if (e.detail.response_data.not_registered) {
+                    if (_this.translate.currentLang === 'de') {
+                        errorsHtml = 'Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können.';
+                    }
+                    else if (_this.translate.currentLang === 'en') {
+                        errorsHtml = 'Account not found. You need to be invited by your dentist in order to use Dentacoin HubApp.';
+                    }
+                }
+                else {
+                    if (e.detail.response_data.errors) {
+                        for (var key in e.detail.response_data.errors) {
+                            errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                        }
+                    }
+                }
                 document.getElementById('custom-error').classList.remove('hide');
-                document.getElementById('custom-error').innerHTML = e.detail.response_data.errors.generic;
+                document.getElementById('custom-error').innerHTML = errorsHtml;
+                _this.additionalService.hideLoader();
             });
             document.addEventListener('noCoreDBApiConnection', function (e) {
                 document.getElementById('patient-login-failed').classList.remove('hide');
+                _this.additionalService.hideLoader();
             });
             document.addEventListener('noExternalLoginProviderConnection', function (e) {
                 document.getElementById('patient-login-failed').classList.remove('hide');
+                _this.additionalService.hideLoader();
             });
         }
     };
     PatientLoginPageComponent.prototype.onPatientsLogin = function (_token, _id, _patient_of) {
         var _this = this;
-        console.log(_token, _id, _patient_of, 'onPatientsLogin');
         if (_patient_of !== null && _patient_of !== undefined) {
             this.requestsService.coreDbLogin(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]().set('token', _token).set('id', _id).toString()).subscribe({
                 next: function (coredbResponse) {
@@ -2613,11 +2631,13 @@ var PatientLoginPageComponent = /** @class */ (function () {
                 },
                 error: function (error) {
                     document.getElementById('patient-login-failed').classList.remove('hide');
+                    _this.additionalService.hideLoader();
                 }
             });
         }
         else {
             document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
+            this.additionalService.hideLoader();
         }
     };
     PatientLoginPageComponent.ctorParameters = function () { return [

@@ -78,7 +78,7 @@ document.addEventListener('deviceready', function() {
 
     window.FirebasePlugin.hasPermission(function(hasPermission) {
         console.log(hasPermission, 'hasPermission');
-        if(basic.property_exists(hasPermission, 'isEnabled') && !hasPermission.isEnabled) {
+        if (basic.property_exists(hasPermission, 'isEnabled') && !hasPermission.isEnabled) {
             // ask for push notifications permission
             window.FirebasePlugin.grantPermission();
         } else{
@@ -191,7 +191,7 @@ var projectData = {
                     }
 
                     var apps_html = '';
-                    for(var key in dentist_data.data.applications) {
+                    for (var key in dentist_data.data.applications) {
                         var column_class = 'col-xs-4';
                         if (Object.keys(dentist_data.data.applications).length >= 6) {
                             $('.basic-admin-panel-apps-wrapper').removeClass('col-lg-6 col-lg-offset-3');
@@ -206,6 +206,10 @@ var projectData = {
                             var app_title;
                             var app_description;
                             var class_name = '';
+                            var removable_class_name = '';
+                            if (dentist_data.data.applications[key].removable) {
+                                removable_class_name = ' removable ';
+                            }
 
                             if ($('.main-content').attr('data-lang') == 'en') {
                                 if ((dentist_data.data.applications[key].name_en == null && dentist_data.data.applications[key].description_en == null) || (dentist_data.data.applications[key].name_en == '' && dentist_data.data.applications[key].description_en == '')) {
@@ -217,7 +221,7 @@ var projectData = {
                                 }
                             }
 
-                            apps_html += '<div class="'+column_class+' text-center padding-bottom-15 inline-block-top single-app sortable-app '+class_name+'"';
+                            apps_html += '<div class="' + column_class + ' text-center padding-bottom-15 inline-block-top single-app sortable-app '+ removable_class_name + class_name + '"';
                             if (dentist_data.data.applications[key].default_application_id != null) {
                                 apps_html += ' data-default-application-id="'+dentist_data.data.applications[key].default_application_id+'"';
                             }
@@ -244,11 +248,12 @@ var projectData = {
                             }
 
                             var edit_delete_actions = '';
+                            console.log(dentist_data.data.applications[key], 'dentist_data.data.applications[key]');
                             if (edit_mode != undefined) {
                                 edit_delete_actions = '<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>';
                             }
 
-                            apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></div>';
+                            apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></div>';
                         }
                     }
                     $('.apps-list').prepend(apps_html);
@@ -305,7 +310,7 @@ var projectData = {
                                         projectData.requests.editDentistColors({
                                             token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
                                             id: JSON.parse(window.localStorage.getItem('currentDentist')).id,
-                                            base_color: '#8b2f46',
+                                            base_color: '#00b7e2',
                                             text_color: '#333',
                                             background_type: 'hex-code',
                                             background: '#fff'
@@ -335,7 +340,7 @@ var projectData = {
                                 });
 
                                 if (getDentistData_response.data.hub_background_type == 'preset-background') {
-                                    for(var i = 0, len = $('button.preset').length; i < len; i+=1) {
+                                    for (var i = 0, len = $('button.preset').length; i < len; i+=1) {
                                         if ($('button.preset').eq(i).find('img').attr('src') == getDentistData_response.data.hub_background) {
                                             $('button.preset').eq(i).addClass('checked');
                                         }
@@ -687,7 +692,7 @@ var projectData = {
                             }
                             $('body').removeClass('overflow-hidden');
 
-                            $('.single-app .app-wrapper').prepend('<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>');
+                            $('.single-app.removable .app-wrapper').prepend('<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>');
 
                             bindEditDeleteAppEvents();
 
@@ -783,7 +788,7 @@ var projectData = {
                                         var apps_to_be_added = [];
 
                                         // adding checked default or deleted apps
-                                        for(var i = 0, len = $('.add-edit-app-popup .list-with-default-apps button.checked').length; i < len; i+=1) {
+                                        for (var i = 0, len = $('.add-edit-app-popup .list-with-default-apps button.checked').length; i < len; i+=1) {
                                             var existing_deleted_app_to_be_added = $('.add-edit-app-popup .list-with-default-apps button.checked').eq(i);
                                             var app_title;
                                             var app_description;
@@ -894,7 +899,7 @@ var projectData = {
                                     }
 
                                     var apps_list = {};
-                                    for(var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
+                                    for (var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
                                         var this_app = $('.apps-list .single-app.sortable-app').eq(i);
                                         apps_list[i] = {
                                             name_en : this_app.attr('data-name-en'),
@@ -902,6 +907,7 @@ var projectData = {
                                             description_en : this_app.attr('data-description-en'),
                                             description_de : this_app.attr('data-description-de'),
                                             media : this_app.find('.app-media').attr('src'),
+                                            removable : this_app.attr('data-removable'),
                                             url : this_app.find('.app-media').attr('data-url')
                                         };
 
@@ -911,7 +917,7 @@ var projectData = {
                                     }
 
                                     var deleted_apps_list = [];
-                                    for(var i = 0, len = $('.apps-list .single-app.hide').length; i < len; i+=1) {
+                                    for (var i = 0, len = $('.apps-list .single-app.hide').length; i < len; i+=1) {
                                         deleted_apps_list.push($('.apps-list .single-app.hide').eq(i).attr('data-id'));
                                     }
 
@@ -962,7 +968,7 @@ var projectData = {
                         $('.hub-title .title-label').html($('.hub-title').attr('data-en'));
                         $('.hub-title #hub-title').val($('.hub-title').attr('data-en'));
 
-                        for(var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
+                        for (var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
                             var this_app = $('.apps-list .single-app.sortable-app').eq(i);
                             if (this_app.attr('data-name-en') == '' && this_app.attr('data-description-en') == '') {
                                 this_app.addClass('hidden-for-this-lang');
@@ -977,7 +983,7 @@ var projectData = {
                         $('.hub-title .title-label').html($('.hub-title').attr('data-de'));
                         $('.hub-title #hub-title').val($('.hub-title').attr('data-de'));
 
-                        for(var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
+                        for (var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
                             var this_app = $('.apps-list .single-app.sortable-app').eq(i);
                             if (this_app.attr('data-name-de') == '' && this_app.attr('data-description-de') == '') {
                                 this_app.addClass('hidden-for-this-lang');
@@ -1113,11 +1119,11 @@ var projectData = {
 
                     var ajaxSent = false;
                     $('.save-to-address-book').click(function() {
-                        if($('.popup-save-to-address-book #contact-name').val().trim() == '') {
+                        if ($('.popup-save-to-address-book #contact-name').val().trim() == '') {
                             basic.showAlert('Please enter name.', '', true);
-                        } else if($('.popup-save-to-address-book #wallet-address').val().trim().length != 42 || $('.popup-save-to-address-book #wallet-address').val().trim().substring(0, 2) != '0x'){
+                        } else if ($('.popup-save-to-address-book #wallet-address').val().trim().length != 42 || $('.popup-save-to-address-book #wallet-address').val().trim().substring(0, 2) != '0x'){
                             basic.showAlert('Please enter valid Wallet Address.', '', true);
-                        } else if(!ajaxSent) {
+                        } else if (!ajaxSent) {
                             ajaxSent = true;
                             var addressName = $('.popup-save-to-address-book #contact-name').val().trim();
                             var walletAddress = $('.popup-save-to-address-book #wallet-address').val().trim();
@@ -1142,12 +1148,12 @@ var projectData = {
                                         basic.showAlert(response.message, '', true);
 
 
-                                        if(response.addresses) {
+                                        if (response.addresses) {
                                             var addressesHtml = '';
 
-                                            for(var i = 0, len = response.addresses.length; i < len; i+=1) {
+                                            for (var i = 0, len = response.addresses.length; i < len; i+=1) {
                                                 var addressLabel = '';
-                                                if(response.addresses[i].dcn_address_label != '' && response.addresses[i].dcn_address_label != undefined && response.addresses[i].dcn_address_label != null) {
+                                                if (response.addresses[i].dcn_address_label != '' && response.addresses[i].dcn_address_label != undefined && response.addresses[i].dcn_address_label != null) {
                                                     addressLabel = response.addresses[i].dcn_address_label+' ('+response.addresses[i].dcn_address+')';
                                                 } else {
                                                     addressLabel = '('+response.addresses[i].dcn_address+')';
@@ -1181,14 +1187,14 @@ var projectData = {
                     alert('Test download.');
                     var profileDataUrl = 'https://booking.dentaprime.com/api/v1/hub/download-profile?token=' + JSON.parse(window.localStorage.getItem('currentPatient')).token;
                     if (is_hybrid) {
-                        if(basic.getMobileOperatingSystem() == 'Android') {
+                        if (basic.getMobileOperatingSystem() == 'Android') {
                             setTimeout(function () {
                                 //downloading the file in mobile device file system
                                 hybridAppFileDownload('hup-app-profile-data.zip', profileDataUrl, function() {
                                     $('.camp-successful-data-download').html('<div class="success-handle margin-bottom-20 margin-top-15">Your profile data has been downloaded to the top-level directory of your device file system.</div>');
                                 }, cordova.file.externalRootDirectory);
                             }, 500);
-                        } else if(basic.getMobileOperatingSystem() == 'iOS') {
+                        } else if (basic.getMobileOperatingSystem() == 'iOS') {
                             //using export plugin, because in iOS there is no such thing as direct file download
                             // window.plugins.socialsharing.share(profileDataUrl);
                             window.open(profileDataUrl, '_system');
@@ -1504,7 +1510,7 @@ var projectData = {
         updateExternalURLsForiOSDevice: function() {
             //Method that check if the device is mobile app and if the project is hybrid and then overwrite all _blank targets to _system. _blank is not working in iOS in WebView
             if ($('.data-external-link').length && is_hybrid) {
-                for(var i = 0, len = $('.data-external-link').length; i < len; i+=1) {
+                for (var i = 0, len = $('.data-external-link').length; i < len; i+=1) {
                     if (!$('.data-external-link').eq(i).hasClass('passed')) {
                         $('.data-external-link').eq(i).addClass('passed');
                         $('.data-external-link').eq(i).attr('data-href', $('.data-external-link').eq(i).attr('href'));
@@ -1530,14 +1536,14 @@ var projectData = {
                             event.preventDefault();
 
                             var currentHref = $(this).attr('href');
-                            if(currentHref.includes('wallet')) {
+                            if (currentHref.includes('wallet')) {
                                 /*window.plugins.launcher.canLaunch({uri:'wallet://'}, function() {
                                     console.log('IOS wallet EXISTS');
                                 }, function() {
                                     console.log('IOS wallet DOES NOT EXISTS');
                                 });*/
 
-                                if(basic.getMobileOperatingSystem() == 'Android') {
+                                if (basic.getMobileOperatingSystem() == 'Android') {
                                     window.plugins.launcher.canLaunch({packageName:'com.dentacoin.wallet'}, function() {
                                         console.log('wallet app is installed');
                                         // wallet app is installed
@@ -1550,17 +1556,17 @@ var projectData = {
                                         // dentacoin wallet app is not installed
                                         cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
                                     });
-                                } else if(basic.getMobileOperatingSystem() == 'iOS') {
+                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
                                     window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
                                 }
-                            } else if(currentHref.includes('dentacare')) {
+                            } else if (currentHref.includes('dentacare')) {
                                 /*window.plugins.launcher.canLaunch({uri:'dentacare://'}, function() {
                                     console.log('IOS DENTARE EXISTS');
                                 }, function() {
                                     console.log('IOS DENTARE DOES NOT EXISTS');
                                 });*/
 
-                                if(basic.getMobileOperatingSystem() == 'Android') {
+                                if (basic.getMobileOperatingSystem() == 'Android') {
                                     window.plugins.launcher.canLaunch({packageName:'com.dentacoin.dentacare'}, function() {
                                         console.log('dentacare app is installed');
                                         // dentacare app is installed
@@ -1573,7 +1579,7 @@ var projectData = {
                                         // dentacoin dentacare app is not installed
                                         cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
                                     });
-                                } else if(basic.getMobileOperatingSystem() == 'iOS') {
+                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
                                     window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
                                 }
                             } else {
@@ -1863,7 +1869,7 @@ function router() {
                 // saving mobile_device_id to send push notifications
                 if (is_hybrid) {
                     window.FirebasePlugin.hasPermission(function(hasPermission) {
-                        if(basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
+                        if (basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
                             // if permission is given save the firebase mobile device id
                             projectData.requests.addMobileDeviceId(function() {
                                 console.log('Mobile device id saved.');

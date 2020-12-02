@@ -499,7 +499,10 @@ img {
     padding: 5px;
     @include rounded(4px);
     &.alert.alert-warning {
-     display: none;
+        display: none;
+    }
+    a {
+        color: #a94442;
     }
 }
 

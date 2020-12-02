@@ -32,8 +32,8 @@
                     <a href="https://account.dentacoin.com/forgotten-password" target="_blank" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 lato-bold platform-color">{{'forgotten-password-redirect' | translate}}</a>
                 </div>
                 <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.generalError">{{'general-error' | translate}}</div>
-                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.notAPartner">{{'not-a-partner-error' | translate}}</div>
-                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.dentistAuthFailed">{{'dentist-auth-failed' | translate}}</div>
+                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.notAPartner">{{'not-a-partner-error' | translate}} <a (click)="redirectsService.redirectToRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>
+                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.dentistAuthFailed">{{'dentist-auth-failed' | translate}} <a (click)="redirectsService.redirectToRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>
             </form>
         </div>
     </div>

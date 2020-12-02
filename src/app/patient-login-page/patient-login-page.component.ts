@@ -39,7 +39,7 @@ export class PatientLoginPageComponent implements OnInit {
                         if (response.success) {
                             this.onPatientsLogin(e.detail.response_data, response.data.id, response.data.patient_of);
                         } else {
-                            this.authenticationServiceService.logout('patient')
+                            this.authenticationServiceService.logout('patient');
                         }
                     },
                     error: error => this.authenticationServiceService.logout('patient')
@@ -65,11 +65,18 @@ export class PatientLoginPageComponent implements OnInit {
 
             document.addEventListener('patientAuthErrorResponse', (e: any) => {
                 console.log(e, 'e');
-
                 let errorsHtml = '';
-                if (e.detail.response_data.errors) {
-                    for (let key in e.detail.response_data.errors) {
-                        errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                if (e.detail.response_data.not_registered) {
+                    if (this.translate.currentLang === 'de') {
+                        errorsHtml = 'Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können.';
+                    } else if (this.translate.currentLang === 'en') {
+                        errorsHtml = 'Account not found. You need to be invited by your dentist in order to use Dentacoin HubApp.';
+                    }
+                } else {
+                    if (e.detail.response_data.errors) {
+                        for (let key in e.detail.response_data.errors) {
+                            errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                        }
                     }
                 }
 
@@ -80,16 +87,17 @@ export class PatientLoginPageComponent implements OnInit {
 
             document.addEventListener('noCoreDBApiConnection', (e: any) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
+                this.additionalService.hideLoader();
             });
 
             document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
+                this.additionalService.hideLoader();
             });
         }
     }
 
     onPatientsLogin(_token: any, _id: any, _patient_of: any) {
-        console.log(_token, _id, _patient_of, 'onPatientsLogin');
         if (_patient_of !== null && _patient_of !== undefined) {
             this.requestsService.coreDbLogin(new HttpParams().set('token', _token).set('id', _id).toString()).subscribe({
                 next: (coredbResponse: any) => {
@@ -112,10 +120,12 @@ export class PatientLoginPageComponent implements OnInit {
                 },
                 error: error => {
                     document.getElementById('patient-login-failed').classList.remove('hide');
+                    this.additionalService.hideLoader();
                 }
             });
         } else {
             document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
+            this.additionalService.hideLoader();
         }
     }
 }

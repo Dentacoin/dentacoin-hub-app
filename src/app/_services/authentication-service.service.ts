@@ -21,18 +21,21 @@ export class AuthenticationServiceService {
 
     dentistLogin(email: string, password: string, type: string) {
         console.log('dentistLogin');
+        this.notAPartner = false;
+        this.dentistAuthFailed = false;
+        this.generalError = false;
+
         const ParseHeaders = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded'
             })
         };
-        const body = new HttpParams().set('email', email).set('password', password).set('platform', 'assurance').set('type', type);
-        // const body = new HttpParams().set('email', 'miroslav.nedelchev@dentacoin.com').set('password', 'uniquepass').set('platform', 'assurance').set('type', type);
+        const body = new HttpParams().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', type);
         this.http.post(environment.coreDbApiDomain + '/api/login', body.toString(), ParseHeaders).subscribe({
             next: (response: any) => {
                 console.log(response, 'dentistLogin');
                 if (response.success) {
-                    if (response.data.is_partner === true) {
+                    if (response.data.is_partner == true) {
                         console.log('partner');
 
                         window.scrollTo(0, 0);

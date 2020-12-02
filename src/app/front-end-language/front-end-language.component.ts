@@ -17,14 +17,15 @@ export class FrontEndLanguageComponent implements OnInit {
 
     ngOnInit() {
         this.activatedRoute.params.subscribe( (params : Params) => {
-            if(this.channelArray.indexOf(params['lang']) > -1) {
+            console.log(params, 'params');
+            if (this.channelArray.indexOf(params['lang']) > -1) {
                 this.translate.use(params['lang']);
-            } else if(params['lang'] === 'admin') {
+            } else if (params['lang'] === 'admin') {
                 this.translate.use(environment.default_language);
                 this.redirectsService.redirectToAdmin();
             } else {
                 this.translate.use(environment.default_language);
-                if(params.hasOwnProperty('lang')) {
+                if (params.hasOwnProperty('lang')) {
                     this.router.navigateByUrl(this.router.url.replace('/' + params['lang'], '/' + environment.default_language));
                 } else {
                     this.router.navigateByUrl(environment.default_language);

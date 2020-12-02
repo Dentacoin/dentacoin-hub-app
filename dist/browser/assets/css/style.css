@@ -4319,6 +4319,8 @@ img {
   border-radius: 4px; }
   .error-handle.alert.alert-warning {
     display: none; }
+  .error-handle a {
+    color: #a94442; }
 
 .success-handle {
   border: 1px solid #d6e9c6;

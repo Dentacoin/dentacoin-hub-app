@@ -25,6 +25,10 @@ export class RedirectsService {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang)).then();
     }
 
+    redirectToRequestAccount() {
+        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/dentist-request-account')).then();
+    }
+
     redirectToPatientLogin(type: string) {
         console.log('redirectToPatientLogin');
         if (type === 'account-verification') {

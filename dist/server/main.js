@@ -2665,18 +2665,20 @@ class AuthenticationServiceService {
     }
     dentistLogin(email, password, type) {
         console.log('dentistLogin');
+        this.notAPartner = false;
+        this.dentistAuthFailed = false;
+        this.generalError = false;
         const ParseHeaders = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
                 'Content-Type': 'application/x-www-form-urlencoded'
             })
         };
-        const body = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]().set('email', email).set('password', password).set('platform', 'assurance').set('type', type);
-        // const body = new HttpParams().set('email', 'miroslav.nedelchev@dentacoin.com').set('password', 'uniquepass').set('platform', 'assurance').set('type', type);
+        const body = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', type);
         this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].coreDbApiDomain + '/api/login', body.toString(), ParseHeaders).subscribe({
             next: (response) => {
                 console.log(response, 'dentistLogin');
                 if (response.success) {
-                    if (response.data.is_partner === true) {
+                    if (response.data.is_partner == true) {
                         console.log('partner');
                         window.scrollTo(0, 0);
                         window.localStorage.setItem('currentDentist', JSON.stringify({
@@ -2805,6 +2807,9 @@ class RedirectsService {
     }
     redirectToLoggedHome() {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang)).then();
+    }
+    redirectToRequestAccount() {
+        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/dentist-request-account')).then();
     }
     redirectToPatientLogin(type) {
         console.log('redirectToPatientLogin');
@@ -3017,8 +3022,14 @@ function View_AdminLoginComponent_1(_l) { return _angular_core__WEBPACK_IMPORTED
 function View_AdminLoginComponent_5(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 1, "div", [["class", "error-handle"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](-1, null, ["Password is required."]))], null, null); }
 function View_AdminLoginComponent_4(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 2, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵand"](16777216, null, null, 1, null, View_AdminLoginComponent_5)), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵdid"](2, 16384, null, 0, _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.dentists_form_data.password.errors.required; _ck(_v, 2, 0, currVal_0); }, null); }
 function View_AdminLoginComponent_6(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 2, "div", [["class", "error-handle margin-bottom-20"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](1, null, ["", ""])), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵpid"](131072, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"], [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])], null, function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵunv"](_v, 1, 0, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵnov"](_v, 2).transform("general-error")); _ck(_v, 1, 0, currVal_0); }); }
-function View_AdminLoginComponent_7(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 2, "div", [["class", "error-handle margin-bottom-20"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](1, null, ["", ""])), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵpid"](131072, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"], [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])], null, function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵunv"](_v, 1, 0, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵnov"](_v, 2).transform("not-a-partner-error")); _ck(_v, 1, 0, currVal_0); }); }
-function View_AdminLoginComponent_8(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 2, "div", [["class", "error-handle margin-bottom-20"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](1, null, ["", ""])), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵpid"](131072, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"], [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])], null, function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵunv"](_v, 1, 0, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵnov"](_v, 2).transform("dentist-auth-failed")); _ck(_v, 1, 0, currVal_0); }); }
+function View_AdminLoginComponent_7(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 5, "div", [["class", "error-handle margin-bottom-20"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](1, null, ["", " "])), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵpid"](131072, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"], [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]]), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](3, 0, null, null, 1, "a", [["class", "text-decoration-underline lato-bold"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.redirectsService.redirectToRequestAccount() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](-1, null, ["here"])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](-1, null, ["."]))], null, function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵunv"](_v, 1, 0, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵnov"](_v, 2).transform("not-a-partner-error")); _ck(_v, 1, 0, currVal_0); }); }
+function View_AdminLoginComponent_8(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 5, "div", [["class", "error-handle margin-bottom-20"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](1, null, ["", " "])), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵpid"](131072, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"], [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]]), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](3, 0, null, null, 1, "a", [["class", "text-decoration-underline lato-bold"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.redirectsService.redirectToRequestAccount() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](-1, null, ["here"])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](-1, null, ["."]))], null, function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵunv"](_v, 1, 0, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵnov"](_v, 2).transform("dentist-auth-failed")); _ck(_v, 1, 0, currVal_0); }); }
 function View_AdminLoginComponent_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](0, 0, null, null, 54, "div", [["class", "container padding-top-200"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](1, 0, null, null, 53, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](2, 0, null, null, 2, "div", [["class", "col-xs-12"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](3, 0, null, null, 1, "h1", [["class", "fs-30 calibri-bold text-center title-label padding-top-40 padding-bottom-30"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵted"](-1, null, ["Dentaprime Hub admin panel"])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](5, 0, null, null, 49, "div", [["class", "col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵeld"](6, 0, null, null, 48, "form", [["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngSubmit"], [null, "submit"], [null, "reset"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("submit" === en)) {
         var pd_0 = (_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵnov"](_v, 8).onSubmit($event) !== false);
         ad = (pd_0 && ad);
@@ -4472,6 +4483,7 @@ class FrontEndLanguageComponent {
     }
     ngOnInit() {
         this.activatedRoute.params.subscribe((params) => {
+            console.log(params, 'params');
             if (this.channelArray.indexOf(params['lang']) > -1) {
                 this.translate.use(params['lang']);
             }
@@ -5240,9 +5252,19 @@ class PatientLoginPageComponent {
             document.addEventListener('patientAuthErrorResponse', (e) => {
                 console.log(e, 'e');
                 let errorsHtml = '';
-                if (e.detail.response_data.errors) {
-                    for (let key in e.detail.response_data.errors) {
-                        errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                if (e.detail.response_data.not_registered) {
+                    if (this.translate.currentLang === 'de') {
+                        errorsHtml = 'Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können.';
+                    }
+                    else if (this.translate.currentLang === 'en') {
+                        errorsHtml = 'Account not found. You need to be invited by your dentist in order to use Dentacoin HubApp.';
+                    }
+                }
+                else {
+                    if (e.detail.response_data.errors) {
+                        for (let key in e.detail.response_data.errors) {
+                            errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                        }
                     }
                 }
                 document.getElementById('custom-error').classList.remove('hide');
@@ -5251,14 +5273,15 @@ class PatientLoginPageComponent {
             });
             document.addEventListener('noCoreDBApiConnection', (e) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
+                this.additionalService.hideLoader();
             });
             document.addEventListener('noExternalLoginProviderConnection', (e) => {
                 document.getElementById('patient-login-failed').classList.remove('hide');
+                this.additionalService.hideLoader();
             });
         }
     }
     onPatientsLogin(_token, _id, _patient_of) {
-        console.log(_token, _id, _patient_of, 'onPatientsLogin');
         if (_patient_of !== null && _patient_of !== undefined) {
             this.requestsService.coreDbLogin(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('token', _token).set('id', _id).toString()).subscribe({
                 next: (coredbResponse) => {
@@ -5278,11 +5301,13 @@ class PatientLoginPageComponent {
                 },
                 error: error => {
                     document.getElementById('patient-login-failed').classList.remove('hide');
+                    this.additionalService.hideLoader();
                 }
             });
         }
         else {
             document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
+            this.additionalService.hideLoader();
         }
     }
 }
