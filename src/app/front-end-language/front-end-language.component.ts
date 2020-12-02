@@ -26,7 +26,7 @@ export class FrontEndLanguageComponent implements OnInit {
             } else {
                 this.translate.use(environment.default_language);
                 if (params.hasOwnProperty('lang')) {
-                    this.router.navigateByUrl(this.router.url.replace('/' + params['lang'], '/' + environment.default_language));
+                    this.router.navigateByUrl(this.router.url.replace('/' + params['lang'], '/' + environment.default_language) + '/' + params['lang']);
                 } else {
                     this.router.navigateByUrl(environment.default_language);
                 }

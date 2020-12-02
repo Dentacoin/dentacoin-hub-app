@@ -4494,7 +4494,7 @@ class FrontEndLanguageComponent {
             else {
                 this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
                 if (params.hasOwnProperty('lang')) {
-                    this.router.navigateByUrl(this.router.url.replace('/' + params['lang'], '/' + _environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language));
+                    this.router.navigateByUrl(this.router.url.replace('/' + params['lang'], '/' + _environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language) + '/' + params['lang']);
                 }
                 else {
                     this.router.navigateByUrl(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
