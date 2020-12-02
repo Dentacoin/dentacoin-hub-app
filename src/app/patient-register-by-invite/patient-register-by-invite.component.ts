@@ -22,9 +22,11 @@ export class PatientRegisterByInviteComponent implements OnInit {
           // redirect to home if logged in
           this.redirectsService.redirectToLoggedHome();
       } else {
-          this.activatedRoute.params.subscribe( (params: Params) => {
-              this.inviteId = params.invite;
-          });
+          if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null) {
+              this.redirectsService.redirectToPatientLogin('login');
+          } else {
+              this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('invite');
+          }
       }
   }
 

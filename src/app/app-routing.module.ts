@@ -36,7 +36,7 @@ const routes: Routes = [
             {path: 'dentist-request-account', component: DentistRequestAccountComponent},
             {path: 'request-account', component: RequestAccountComponent},
             {path: 'login', component: PatientLoginPageComponent},
-            {path: 'patient-register-by-invite/:invite', component: PatientRegisterByInviteComponent},
+            {path: 'patient-register-by-invite', component: PatientRegisterByInviteComponent},
             /*{path: 'forgotten-password', component: ForgottenPasswordComponent},
             {path: 'change-password/:token', component: ChangePasswordComponent},
             {path: 'verify-account', children: [
