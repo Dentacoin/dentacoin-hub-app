@@ -82,16 +82,13 @@ export class EditAccountComponent implements OnInit {
                     this.additionalService.hideLoader();
                     if (response.success && response.data) {
                         this.patientData = response.data;
-                        this.patientName = response.data.first_name + ' ' + response.data.last_name;
+                        this.patientName = response.data.name;
                         this.patientEncryptedPassword = response.data.password;
                         if (response.data.title !== '' && response.data.title !== null) {
                             this.patientsEditAccountForm.controls['title'].setValue(response.data.title);
                         }
-                        if (response.data.first_name !== '' && response.data.first_name !== null) {
-                            this.patientsEditAccountForm.controls['firstName'].setValue(response.data.first_name);
-                        }
-                        if (response.data.last_name !== '' && response.data.last_name !== null) {
-                            this.patientsEditAccountForm.controls['lastName'].setValue(response.data.last_name);
+                        if (response.data.name !== '' && response.data.name !== null) {
+                            this.patientsEditAccountForm.controls['firstName'].setValue(response.data.name);
                         }
                         if (response.data.phone !== '' && response.data.phone !== null) {
                             this.patientsEditAccountForm.controls['phone'].setValue(response.data.phone);
@@ -116,8 +113,7 @@ export class EditAccountComponent implements OnInit {
         this.patientsEditAccountFormSubmitted = true;
         let paramsMap = new Map<any,any>();
         paramsMap.set('title', this.patients_edit_account_form_data.title.value);
-        paramsMap.set('first_name', this.patients_edit_account_form_data.firstName.value);
-        paramsMap.set('last_name', this.patients_edit_account_form_data.lastName.value);
+        paramsMap.set('name', this.patients_edit_account_form_data.firstName.value);
         paramsMap.set('phone', this.patients_edit_account_form_data.phone.value);
         paramsMap.set('country', this.patients_edit_account_form_data.country.value);
 

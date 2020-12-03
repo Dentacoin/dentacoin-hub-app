@@ -16,14 +16,13 @@ export class LoggedInWrapperComponent implements OnInit {
         logo: ''
     };
     public patientData: PatientDataObject = {
-        first_name: '',
-        last_name: ''
+        name: ''
     };
     /*public applications = [];
     public showApplications: boolean = false;*/
     public dcnAmount: number = 0;
     public usdAmount: number = 0;
-    public updateDcnAndUsdBalanceTimer: any;
+    public updatePatientDcnAndUsdBalanceTimer: any;
     public myAccountLink: string;
     hybrid = environment.hybrid;
 
@@ -51,32 +50,30 @@ export class LoggedInWrapperComponent implements OnInit {
 
             this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentPatient')).token).subscribe({
                 next: (response:any) => {
-                    this.patientData.first_name = response.data.first_name;
-                    this.patientData.last_name = response.data.last_name;
+                    this.patientData.name = response.data.name;
                 },
                 error: error => this.authenticationServiceService.logout('patient')
             });
 
-            this.updateDcnAndUsdBalance();
+            this.updatePatientDcnAndUsdBalance();
 
-            if (typeof(this.updateDcnAndUsdBalanceTimer) !== 'undefined') {
-                clearInterval(this.updateDcnAndUsdBalanceTimer);
-                this.updateDcnAndUsdBalanceTimer = undefined;
+            if (typeof(this.updatePatientDcnAndUsdBalanceTimer) !== 'undefined') {
+                clearInterval(this.updatePatientDcnAndUsdBalanceTimer);
+                this.updatePatientDcnAndUsdBalanceTimer = undefined;
             }
 
-            this.updateDcnAndUsdBalanceTimer = setInterval(() => {
+            this.updatePatientDcnAndUsdBalanceTimer = setInterval(() => {
                 if (!this.authenticationServiceService.hasPatientStorageSession()) {
-                    clearInterval(this.updateDcnAndUsdBalanceTimer);
-                    this.updateDcnAndUsdBalanceTimer = undefined;
+                    clearInterval(this.updatePatientDcnAndUsdBalanceTimer);
+                    this.updatePatientDcnAndUsdBalanceTimer = undefined;
                 } else {
-                    this.updateDcnAndUsdBalance();
+                    this.updatePatientDcnAndUsdBalance();
                 }
             }, 5000);
         }
     }
 
-    updateDcnAndUsdBalance() {
-        console.log('updateDcnAndUsdBalance');
+    updatePatientDcnAndUsdBalance() {
         this.requestsService.getDCNBalance(JSON.parse(window.localStorage.getItem('currentPatient')).token).subscribe({
             next: (response:any) => {
                 if (response.success) {
@@ -105,6 +102,5 @@ export interface DentistDataObject {
 }
 
 export interface PatientDataObject {
-    first_name: string;
-    last_name: string;
+    name: string;
 }

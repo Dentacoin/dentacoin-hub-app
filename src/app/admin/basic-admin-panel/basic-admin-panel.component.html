@@ -21,9 +21,9 @@
         </div>
         <div class="col-sm-5 col-xs-7 text-right basic-admin-panel-navigation enableBlur padding-left-0 hide-in-edit-mode-sm">
             <div class="hide-in-edit-mode">
-                <a (click)="this.redirectsService.redirectToAdvancedAdmin()" class="module platform-custom-button-opposite-colors inline-block platform-color platform-border-color hover hide-sm">Admin</a>
+                <a (click)="this.redirectsService.redirectToMyPatients()" class="module platform-custom-button-opposite-colors inline-block platform-color platform-border-color hover hide-sm">Admin</a>
                 <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover margin-left-10 edit-page inline-block hide-sm"><i class="fa fa-pencil" aria-hidden="true"></i> {{'edit-page' | translate}}</a>
-                <div class="lang-switcher inline-block hide-in-edit-mode">
+                <div class="lang-switcher module inline-block hide-in-edit-mode">
                     <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="platform-text-color fix-selects-for-ios">
                         <option class="color-main" value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
                         <option class="color-main" value="de" *ngIf="(translate.currentLang == 'en')">DE</option>

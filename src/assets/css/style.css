@@ -528,6 +528,17 @@
     border: 1px solid #00b7e2;
     color: white;
     background-color: #00b7e2; }
+.module.lang-switcher {
+  padding: 5px 10px;
+  margin-left: 15px;
+  border-left: 1px solid black; }
+  .module.lang-switcher select {
+    background: transparent;
+    border: 0;
+    font-size: 18px; }
+  @media screen and (max-width: 767px) {
+    .module.lang-switcher {
+      border: 0; } }
 
 .fix-selects-for-ios {
   background-image: url(../images/select-arrow.svg) !important;
@@ -5037,85 +5048,227 @@ header {
 .links-below-form {
   border-top: 1.5px solid #dddddd; }
 
-.admin-content input[type='text'], .admin-content input[type='number'] {
-  padding: 5px;
-  width: 100%; }
-.admin-content .form-container {
-  margin-top: 200px; }
-  .admin-content .form-container .wrapper {
+.advanced-admin-wrapper {
+  padding: 20px;
+  background-color: black;
+  min-height: 100vh; }
+  .advanced-admin-wrapper .left-nav {
+    width: 260px; }
+    .advanced-admin-wrapper .left-nav .dentist-avatar img {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%; }
+    .advanced-admin-wrapper .left-nav .email-link:hover {
+      color: white; }
+    .advanced-admin-wrapper .left-nav nav a {
+      color: white;
+      font-size: 20px;
+      font-family: 'Lato-Bold';
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      margin: 5px 0;
+      display: block;
+      position: relative;
+      -webkit-border-radius: 20px 0 0 20px;
+      -moz-border-radius: 20px 0 0 20px;
+      -ms-border-radius: 20px 0 0 20px;
+      border-radius: 20px 0 0 20px;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      -ms-transition: 0.3s;
+      transition: 0.3s; }
+      .advanced-admin-wrapper .left-nav nav a .icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat; }
+        .advanced-admin-wrapper .left-nav nav a .icon.my-patients {
+          background-image: url(../images/patients-icon.svg); }
+        .advanced-admin-wrapper .left-nav nav a .icon.push-notifications {
+          background-image: url(../images/push-notifications-icon.svg); }
+        .advanced-admin-wrapper .left-nav nav a .icon.app-page {
+          background-image: url(../images/apps-icon.svg); }
+        .advanced-admin-wrapper .left-nav nav a .icon.my-wallet {
+          background-image: url(../images/wallet.svg); }
+        .advanced-admin-wrapper .left-nav nav a .icon.exit {
+          background-image: url(../images/exit.svg); }
+      .advanced-admin-wrapper .left-nav nav a:before, .advanced-admin-wrapper .left-nav nav a:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 25px;
+        height: 25px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s; }
+      .advanced-admin-wrapper .left-nav nav a:before {
+        top: 100%;
+        background-image: url(../images/bottom-angle-effect.svg); }
+      .advanced-admin-wrapper .left-nav nav a:after {
+        bottom: 100%;
+        background-image: url(../images/top-angle-effect.svg); }
+      .advanced-admin-wrapper .left-nav nav a:hover, .advanced-admin-wrapper .left-nav nav a.active {
+        color: black;
+        background-color: white; }
+        .advanced-admin-wrapper .left-nav nav a:hover:before, .advanced-admin-wrapper .left-nav nav a:hover:after, .advanced-admin-wrapper .left-nav nav a.active:before, .advanced-admin-wrapper .left-nav nav a.active:after {
+          opacity: 1; }
+        .advanced-admin-wrapper .left-nav nav a:hover .icon.my-patients, .advanced-admin-wrapper .left-nav nav a.active .icon.my-patients {
+          background-image: url(../images/blue-patients-icon.svg); }
+        .advanced-admin-wrapper .left-nav nav a:hover .icon.push-notifications, .advanced-admin-wrapper .left-nav nav a.active .icon.push-notifications {
+          background-image: url(../images/blue-push-notifications-icon.svg); }
+        .advanced-admin-wrapper .left-nav nav a:hover .icon.app-page, .advanced-admin-wrapper .left-nav nav a.active .icon.app-page {
+          background-image: url(../images/blue-apps-icon.svg); }
+        .advanced-admin-wrapper .left-nav nav a:hover .icon.my-wallet, .advanced-admin-wrapper .left-nav nav a.active .icon.my-wallet {
+          background-image: url(../images/blue-wallet.svg); }
+        .advanced-admin-wrapper .left-nav nav a:hover .icon.exit, .advanced-admin-wrapper .left-nav nav a.active .icon.exit {
+          background-image: url(../images/blue-exit.svg); }
+  .advanced-admin-wrapper .admin-page-content {
     background-color: white;
-    padding: 25px; }
-    .admin-content .form-container .wrapper form .form-row {
-      padding-bottom: 10px; }
-      .admin-content .form-container .wrapper form .form-row input[type='text'], .admin-content .form-container .wrapper form .form-row input[type='password'] {
-        border: 1px solid #d2d6de;
-        color: #333;
-        padding: 6px 12px;
-        width: 100%; }
-      .admin-content .form-container .wrapper form .form-row.submit {
-        padding-bottom: 0;
-        padding-top: 10px; }
-        .admin-content .form-container .wrapper form .form-row.submit input[type='submit'] {
-          color: white;
-          background-color: #21bef4;
-          padding: 8px 20px;
-          border: 0; }
-.admin-content .main-header {
-  background-color: white; }
-  .admin-content .main-header figure.logo {
-    width: 230px;
-    padding: 0; }
-    .admin-content .main-header figure.logo img {
-      width: 120px; }
-  .admin-content .main-header nav {
-    background-color: #fff;
-    border-bottom: 1px solid #dee2e6; }
-    .admin-content .main-header nav:before, .admin-content .main-header nav:after {
-      display: none; }
-    .admin-content .main-header nav .sidebar-toggle:hover {
-      color: #343a40; }
-    .admin-content .main-header nav .top-right-menu .parent-menu {
-      display: inline-block; }
-      .admin-content .main-header nav .top-right-menu .parent-menu > li {
-        position: relative; }
-        .admin-content .main-header nav .top-right-menu .parent-menu > li > a {
-          padding: 15px;
-          display: inline-block;
-          height: 100%; }
-        .admin-content .main-header nav .top-right-menu .parent-menu > li .submenu {
-          display: none;
-          position: absolute;
-          width: 100%;
-          text-align: center;
-          background-color: #fff;
-          border: 1px solid #dee2e6; }
-          .admin-content .main-header nav .top-right-menu .parent-menu > li .submenu li a {
-            display: block;
-            padding-top: 7px;
-            padding-bottom: 7px; }
-        .admin-content .main-header nav .top-right-menu .parent-menu > li:hover .submenu {
-          display: block; }
-.admin-content .user-menu .dropdown-menu {
-  width: auto !important;
-  min-width: 0 !important; }
-.admin-content .content-wrapper {
-  padding: 10px;
-  min-height: calc(100vh - 50px);
-  background: #f4f6f9; }
-  .admin-content .content-wrapper section.content {
-    padding: 20px; }
-    .admin-content .content-wrapper section.content h1 {
-      text-align: center;
-      font-weight: bold;
-      margin: 0;
-      font-size: 26px;
-      padding-bottom: 20px; }
-.admin-content .main-sidebar {
-  background-color: #343a40; }
-  .admin-content .main-sidebar .sidebar-menu li a {
-    color: #c2c7d0;
-    font-size: 16px; }
+    width: calc(100% - 260px);
+    padding: 20px 50px 50px;
+    height: 600px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    border-radius: 15px; }
+    .advanced-admin-wrapper .admin-page-content .avatar img {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%; }
 
+/*.admin-content {
+    input[type='text'], input[type='number'] {
+        padding: 5px;
+        width: 100%;
+    }
+    .form-container {
+        margin-top: 200px;
+        .wrapper {
+            background-color: white;
+            padding: 25px;
+            form {
+                .form-row {
+                    padding-bottom: 10px;
+                    input[type='text'], input[type='password'] {
+                        border: 1px solid #d2d6de;
+                        color: #333;
+                        padding: 6px 12px;
+                        width: 100%;
+                    }
+                    &.submit {
+                        padding-bottom: 0;
+                        padding-top: 10px;
+                        input[type='submit'] {
+                            color: white;
+                            background-color: #21bef4;
+                            padding: 8px 20px;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-header {
+        background-color: white;
+        figure.logo {
+            width: 230px;
+            padding: 0;
+            img {
+                width: 120px;
+            }
+        }
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #dee2e6;
+            &:before, &:after {
+                display: none;
+            }
+            .sidebar-toggle {
+                &:hover {
+                    color: #343a40;
+                }
+            }
+            .top-right-menu {
+                .parent-menu {
+                    display: inline-block;
+                    > li {
+                        position: relative;
+                        > a {
+                            padding: 15px;
+                            display: inline-block;
+                            height: 100%;
+                        }
+                        .submenu {
+                            display: none;
+                            position: absolute;
+                            width: 100%;
+                            text-align: center;
+                            background-color: #fff;
+                            border: 1px solid #dee2e6;
+                            li {
+                                a {
+                                    display: block;
+                                    padding-top: 7px;
+                                    padding-bottom: 7px;
+                                }
+                            }
+                        }
+                        &:hover {
+                            .submenu {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .user-menu {
+        .dropdown-menu {
+            width: auto !important;
+            min-width: 0 !important;
+        }
+    }
+    .content-wrapper {
+        padding: 10px;
+        min-height: calc(100vh - 50px);
+        background: #f4f6f9;
+        section.content {
+            padding: 20px;
+            h1 {
+                text-align: center;
+                font-weight: bold;
+                margin: 0;
+                font-size: 26px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+    .main-sidebar {
+        background-color: #343a40;
+        .sidebar-menu {
+            li {
+                a {
+                    color: #c2c7d0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}*/
 .bootbox .modal-body {
   padding: 35px 15px 20px; }
 .bootbox.add-edit-app-popup .bootbox-close-button {
@@ -5586,17 +5739,6 @@ header {
     color: white;
     line-height: 25px;
     position: relative; }
-.basic-admin-panel .lang-switcher {
-  padding: 5px 10px;
-  margin-left: 15px;
-  border-left: 1px solid black; }
-  .basic-admin-panel .lang-switcher select {
-    background: transparent;
-    border: 0;
-    font-size: 18px; }
-  @media screen and (max-width: 767px) {
-    .basic-admin-panel .lang-switcher {
-      border: 0; } }
 .basic-admin-panel .single-app {
   padding-left: 10px;
   padding-right: 10px; }

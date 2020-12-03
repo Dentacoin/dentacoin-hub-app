@@ -294,19 +294,6 @@
             }
         }
     }
-    .lang-switcher {
-        padding: 5px 10px;
-        margin-left: 15px;
-        border-left: 1px solid black;
-        select {
-            background: transparent;
-            border: 0;
-            font-size: 18px;
-        }
-        @include breakpoint($xs) {
-            border: 0;
-        }
-    }
     .single-app {
         padding-left: 10px;
         padding-right: 10px;

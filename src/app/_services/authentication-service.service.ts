@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {RedirectsService} from './redirects.service';
 import { environment } from '../../environments/environment';
+import {FormBuilder} from '@angular/forms';
+import {RequestsService} from './requests.service';
 
 @Injectable({
     providedIn: 'root'
@@ -16,11 +18,10 @@ export class AuthenticationServiceService {
     dentistAuthFailed: boolean = false;
     notAPartner: boolean = false;
 
-    constructor(private router: Router, private http: HttpClient, private redirectsService: RedirectsService) {
+    constructor(private router: Router, private http: HttpClient, private redirectsService: RedirectsService, public requestsService: RequestsService) {
     }
 
-    dentistLogin(email: string, password: string, type: string) {
-        console.log('dentistLogin');
+    dentistLogin(email: string, password: string) {
         this.notAPartner = false;
         this.dentistAuthFailed = false;
         this.generalError = false;
@@ -30,8 +31,18 @@ export class AuthenticationServiceService {
                 'Content-Type': 'application/x-www-form-urlencoded'
             })
         };
-        const body = new HttpParams().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', type);
-        this.http.post(environment.coreDbApiDomain + '/api/login', body.toString(), ParseHeaders).subscribe({
+
+
+        const body = new HttpParams().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', 'dentist');
+        this.requestsService.dentistLogin(body.toString()).subscribe((response: any) => {
+            if (response.success) {
+
+            } else {
+
+            }
+        });
+
+        /*this.http.post(environment.coreDbApiDomain + '/api/login', body.toString(), ParseHeaders).subscribe({
             next: (response: any) => {
                 console.log(response, 'dentistLogin');
                 if (response.success) {
@@ -42,7 +53,11 @@ export class AuthenticationServiceService {
                         window.localStorage.setItem('currentDentist', JSON.stringify({
                             id: response.data.id,
                             token: response.token
+                            /!*encrypted_id: coredbResponse.encrypted_id,
+                            encrypted_token: coredbResponse.encrypted_token,
+                            encrypted_type: coredbResponse.encrypted_type*!/
                         }));
+
                         this.isDentistLoggedSubject.next(true);
                         this.redirectsService.redirectToAdmin();
                     } else {
@@ -56,7 +71,7 @@ export class AuthenticationServiceService {
             error: error => {
                 this.generalError = true;
             }
-        });
+        });*/
     }
 
     logout(redirect: string) {

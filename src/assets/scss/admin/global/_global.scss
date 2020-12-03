@@ -1,4 +1,117 @@
-.admin-content {
+.advanced-admin-wrapper {
+    padding: 20px;
+    background-color: black;
+    min-height: 100vh;
+    .left-nav {
+        width: 260px;
+        .dentist-avatar {
+            img {
+                @include rounded(50%);
+            }
+        }
+        .email-link {
+            &:hover {
+                color: white;
+            }
+        }
+        nav {
+            a {
+                color: white;
+                font-size: 20px;
+                font-family: 'Lato-Bold';
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 15px;
+                margin: 5px 0;
+                display: block;
+                position: relative;
+                @include rounded(20px 0 0 20px);
+                @include simple_transition(.3s);
+                .icon {
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 10px;
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    &.my-patients {
+                        background-image: url(../images/patients-icon.svg);
+                    }
+                    &.push-notifications {
+                        background-image: url(../images/push-notifications-icon.svg);
+                    }
+                    &.app-page {
+                        background-image: url(../images/apps-icon.svg);
+                    }
+                    &.my-wallet {
+                        background-image: url(../images/wallet.svg);
+                    }
+                    &.exit {
+                        background-image: url(../images/exit.svg);
+                    }
+                }
+                &:before, &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    width: 25px;
+                    height: 25px;
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    opacity: 0;
+                    @include simple_transition(.3s);
+                }
+                &:before {
+                    top: 100%;
+                    background-image: url(../images/bottom-angle-effect.svg);
+                }
+                &:after {
+                    bottom: 100%;
+                    background-image: url(../images/top-angle-effect.svg);
+                }
+                &:hover, &.active {
+                    color: black;
+                    background-color: white;
+                    &:before, &:after {
+                        opacity: 1;
+                    }
+                    .icon {
+                        &.my-patients {
+                            background-image: url(../images/blue-patients-icon.svg);
+                        }
+                        &.push-notifications {
+                            background-image: url(../images/blue-push-notifications-icon.svg);
+                        }
+                        &.app-page {
+                            background-image: url(../images/blue-apps-icon.svg);
+                        }
+                        &.my-wallet {
+                            background-image: url(../images/blue-wallet.svg);
+                        }
+                        &.exit {
+                            background-image: url(../images/blue-exit.svg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .admin-page-content {
+        background-color: white;
+        width: calc(100% - 260px);
+        padding: 20px 50px 50px;
+        height: 600px;
+        @include rounded(15px);
+        .avatar {
+            img {
+                @include rounded(50%);
+            }
+        }
+    }
+}
+
+/*.admin-content {
     input[type='text'], input[type='number'] {
         padding: 5px;
         width: 100%;
@@ -118,7 +231,7 @@
             }
         }
     }
-}
+}*/
 
 .bootbox {
     .modal-body {

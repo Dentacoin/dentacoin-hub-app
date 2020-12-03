@@ -47,6 +47,15 @@ export class RequestsService {
         });
     }
 
+    public dentistLogin(body: string): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/coredb-login', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    }
+
     public coreDbLogin(body: string): Observable<{}> {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/coredb-login', body, {
             headers: new HttpHeaders({

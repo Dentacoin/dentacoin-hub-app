@@ -21,6 +21,10 @@ export class RedirectsService {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/admin/advanced')).then();
     }
 
+    redirectToMyPatients() {
+        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/admin/advanced/my-patients')).then();
+    }
+
     redirectToLoggedHome() {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang)).then();
     }

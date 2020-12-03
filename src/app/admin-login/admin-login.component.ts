@@ -49,6 +49,6 @@ export class AdminLoginComponent implements OnInit {
             return;
         }
 
-        this.authenticationServiceService.dentistLogin(this.dentists_form_data.email.value.trim(), this.dentists_form_data.password.value.trim(), 'dentist');
+        this.authenticationServiceService.dentistLogin(this.dentists_form_data.email.value.trim(), this.dentists_form_data.password.value.trim());
     }
 }

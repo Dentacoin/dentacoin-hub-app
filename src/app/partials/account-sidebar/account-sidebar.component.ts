@@ -10,8 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AccountSidebarComponent implements OnInit {
     public patientData: PatientDataObject = {
-        first_name: '',
-        last_name: ''
+        name: ''
     };
 
     constructor(public redirectsService: RedirectsService, public authenticationServiceService: AuthenticationServiceService, public router: Router, public requestsService: RequestsService) {
@@ -23,8 +22,7 @@ export class AccountSidebarComponent implements OnInit {
         } else {
             this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentPatient')).token).subscribe({
                 next: (response:any) => {
-                    this.patientData.first_name = response.data.first_name;
-                    this.patientData.last_name = response.data.last_name;
+                    this.patientData.name = response.data.name;
                 },
                 error: error => this.authenticationServiceService.logout('patient')
             });
@@ -33,6 +31,5 @@ export class AccountSidebarComponent implements OnInit {
 }
 
 export interface PatientDataObject {
-    first_name: string;
-    last_name: string;
+    name: string;
 }
