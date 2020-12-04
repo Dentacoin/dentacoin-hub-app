@@ -56,6 +56,15 @@ export class RequestsService {
         });
     }
 
+    public getDentistTrpLink(body: string): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/get-dentist-trp-profile', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    }
+
     public coreDbLogin(body: string): Observable<{}> {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/coredb-login', body, {
             headers: new HttpHeaders({

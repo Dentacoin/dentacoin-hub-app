@@ -14,7 +14,7 @@ import {environment} from '../../../environments/environment';
 
 export class AdvancedAdminPanelComponent implements OnInit {
     public isDentistLoggedIn: Observable<boolean>;
-    public myAccountLink: string = environment.accountDomain /*+ '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token)*/;
+    public myAccountLink: string;
     public dcnAmount: number = 0;
     public usdAmount: number = 0;
     public updateDentistDcnAndUsdBalanceTimer: any;
@@ -29,6 +29,12 @@ export class AdvancedAdminPanelComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (environment.hybrid === true) {
+            this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
+        } else {
+            this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
+        }
+
         this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentDentist')).token).subscribe({
             next: (response: any) => {
                 console.log(response.data, 'response.data');

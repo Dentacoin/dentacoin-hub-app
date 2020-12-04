@@ -3,6 +3,7 @@ import {AuthenticationServiceService} from '../_services/authentication-service.
 import {RedirectsService} from '../_services/redirects.service';
 import {RequestsService} from '../_services/requests.service';
 import {TranslateService} from '@ngx-translate/core';
+import {HttpHeaders, HttpParams} from '../../../node_modules/@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -25,26 +26,28 @@ export class HomeComponent implements OnInit {
         } else {
             console.log('===== 2 =====');
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
-                console.log('getDentistData');
-                this.hubTitleEn = response.data.hub_title_en;
-                this.hubTitleDe = response.data.hub_title_de;
-                this.applications = Object.keys(response.data.applications).map(i => response.data.applications[i]);
+                this.requestsService.getDentistTrpLink(new HttpParams().set('id', JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).toString()).subscribe((trpLinkResponse: any) => {
+                    console.log(trpLinkResponse, 'trpLinkResponse');
 
-                if (this.applications.length) {
-                    for (let i = 0; i < this.applications.length; i += 1) {
-                        if (this.applications[i].url.includes('reviews.dentacoin.com')) {
-                            // setting up dentavox cross login
-                            this.applications[i].url = 'https://dentavox.dentacoin.com/custom-cookie';
+                    this.hubTitleEn = response.data.hub_title_en;
+                    this.hubTitleDe = response.data.hub_title_de;
+                    this.applications = Object.keys(response.data.applications).map(i => response.data.applications[i]);
+
+                    if (this.applications.length) {
+                        for (let i = 0; i < this.applications.length; i += 1) {
+                            // setting dynamic dentist trp profile link
+                            if (this.applications[i].url.includes('reviews.dentacoin.com') && trpLinkResponse.success) {
+                                // setting up dentavox cross login
+                                this.applications[i].url = trpLinkResponse.data;
+                            }
                         }
                     }
-                }
 
-                //trp_public_profile_link
-
-                if (this.applications.length >= 7) {
-                    this.pageColumnClass = 'col-xs-12 col-md-8 col-md-offset-2';
-                    this.applicationsColumnClass = 'col-xs-4 col-sm-3';
-                }
+                    if (this.applications.length >= 7) {
+                        this.pageColumnClass = 'col-xs-12 col-md-8 col-md-offset-2';
+                        this.applicationsColumnClass = 'col-xs-4 col-sm-3';
+                    }
+                });
             });
         }
     }

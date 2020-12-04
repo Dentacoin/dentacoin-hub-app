@@ -32,13 +32,29 @@ export class AuthenticationServiceService {
             })
         };
 
-
         const body = new HttpParams().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', 'dentist');
         this.requestsService.dentistLogin(body.toString()).subscribe((response: any) => {
             if (response.success) {
+                if (response.data.is_partner == true) {
+                    console.log('partner');
 
+                    window.scrollTo(0, 0);
+                    window.localStorage.setItem('currentDentist', JSON.stringify({
+                        id: response.data.id,
+                        token: response.token,
+                        encrypted_id: response.encrypted_data.encrypted_id,
+                        encrypted_token: response.encrypted_data.encrypted_token,
+                        encrypted_type: response.encrypted_data.encrypted_type
+                    }));
+
+                    this.isDentistLoggedSubject.next(true);
+                    this.redirectsService.redirectToAdmin();
+                } else {
+                    console.log('not partner');
+                    this.notAPartner = true;
+                }
             } else {
-
+                this.dentistAuthFailed = true;
             }
         });
 

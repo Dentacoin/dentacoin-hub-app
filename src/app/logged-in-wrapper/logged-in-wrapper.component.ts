@@ -24,17 +24,14 @@ export class LoggedInWrapperComponent implements OnInit {
     public usdAmount: number = 0;
     public updatePatientDcnAndUsdBalanceTimer: any;
     public myAccountLink: string;
-    hybrid = environment.hybrid;
 
-    constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public requestsService: RequestsService, public languageService: LanguageService, public translate: TranslateService, public router: Router) {
-    }
+    constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public requestsService: RequestsService, public languageService: LanguageService, public translate: TranslateService, public router: Router) {}
 
     ngOnInit() {
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            console.log('redirectToPatientLogin 1');
             this.redirectsService.redirectToPatientLogin('login');
         } else {
-            if (this.hybrid === true) {
+            if (environment.hybrid === true) {
                 this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
             } else {
                 this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
