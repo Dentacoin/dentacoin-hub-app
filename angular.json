@@ -25,20 +25,23 @@
             "styles": [
               "./src/assets/libs/bootstrap/css/bootstrap.min.css",
               "./src/assets/libs/font-awesome/css/font-awesome.min.css",
-              "./node_modules/admin-lte/dist/css/AdminLTE.min.css",
-              "./node_modules/admin-lte/dist/css/skins/_all-skins.min.css",
+              "./src/assets/libs/admin-lte/plugins/datatables/dataTables.bootstrap.css",
+              "./src/assets/libs/datatables.net-rowreorder-bs/css/rowReorder.bootstrap.min.css",
               "./src/assets/libs/jquery-ui/jquery-ui.css",
+              "./src/assets/libs/datetimepicker/jquery.datetimepicker.min.css",
               "./src/assets/css/style.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
+              "./src/assets/libs/datetimepicker/jquery.datetimepicker.full.min.js",
               "./src/assets/libs/mobile-facebook-app/openfb.js",
               "./src/assets/libs/jquery-ui/jquery-ui.js",
               "./src/assets/libs/jquery.ui.touch-punch/jquery.ui.touch-punch.min.js",
               "./src/assets/libs/bootstrap/js/bootstrap.min.js",
+              "./src/assets/libs/datatables.net/js/jquery.dataTables.min.js",
+              "./src/assets/libs/datatables.net-rowreorder/js/dataTables.rowReorder.min.js",
               "./node_modules/bootbox.js/bootbox.min.js",
               "./node_modules/clipboard/dist/clipboard.min.js",
-              "./node_modules/admin-lte/dist/js/app.min.js",
               "./node_modules/@jaames/iro/dist/iro.min.js",
               "./src/assets/js/index.js"
             ]

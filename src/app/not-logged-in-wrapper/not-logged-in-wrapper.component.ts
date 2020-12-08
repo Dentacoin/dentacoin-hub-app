@@ -17,7 +17,7 @@ export class NotLoggedInWrapperComponent implements OnInit {
 
     ngOnInit() {
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            if (window.localStorage.getItem('currentDentist') != null) {
+            if (window.localStorage.getItem('currentPatient') != null) {
                 this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
                     if (response.success) {
                         this.dentistLogo = response.data.logo;

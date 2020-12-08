@@ -32,6 +32,7 @@ export class AdvancedAdminPanelComponent implements OnInit {
         if (environment.hybrid === true) {
             this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
         } else {
+            //trp.com/custom-cookie?slog&token&id&dentist=martin-popov
             this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
         }
 

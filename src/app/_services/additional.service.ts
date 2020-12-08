@@ -24,4 +24,20 @@ export class AdditionalService {
         $('.camping-loader .response-layer').hide();
     }
 
+    dateObjToFormattedDate(object) {
+        let date;
+        let month;
+        if (object.getDate() < 10) {
+            date = '0' + object.getDate();
+        } else {
+            date = object.getDate();
+        }
+
+        if (object.getMonth() + 1 < 10) {
+            month = '0' + (object.getMonth() + 1);
+        } else {
+            month = object.getMonth() + 1;
+        }
+        return date + '/' + month + '/' + object.getFullYear();
+    }
 }

@@ -1,49 +1,90 @@
 <div class="advanced-admin-wrapper fs-0">
     <div class="left-nav inline-block-top color-white">
-        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 padding-bottom-60">
-            <img alt="Dentacoin logo" class="width-100" src="assets/images/one-line-logo-white.svg"/>
-        </figure>
-        <div class="dentist-data padding-bottom-50">
-            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-100 padding-bottom-10 dentist-avatar">
-                <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+        <div class="desktop-visible">
+            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 padding-bottom-60">
+                <img alt="Dentacoin logo" class="width-100" src="assets/images/one-line-logo-white.svg"/>
             </figure>
-            <div class="fs-20 lato-bold">{{dentistData.name}}</div>
-            <div class="fs-16"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
+            <div class="dentist-data padding-bottom-50">
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-100 padding-bottom-10 dentist-avatar">
+                    <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+                </figure>
+                <div class="fs-20 lato-bold">{{dentistData.name}}</div>
+                <div class="fs-16"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
+            </div>
+            <nav>
+                <ul itemtype="http://schema.org/SiteNavigationElement">
+                    <li>
+                        <a routerLink="my-patients" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" itemprop="url">
+                            <span class="inline-block icon my-patients"></span>
+                            <span class="inline-block">{{'admin-menu-element-my-patients' | translate}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="push-notifications" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" itemprop="url">
+                            <span class="inline-block icon push-notifications"></span>
+                            <span class="inline-block">{{'admin-menu-element-push-notifications' | translate}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="this.redirectsService.redirectToAdmin()" itemprop="url">
+                            <span class="inline-block icon app-page"></span>
+                            <span class="inline-block">{{'admin-menu-element-app-page' | translate}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{myAccountLink}}" target="_blank" itemprop="url">
+                            <span class="inline-block icon my-wallet"></span>
+                            <span class="inline-block">{{'admin-menu-element-my-wallet' | translate}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" itemprop="url" (click)="this.authenticationServiceService.logout('dentist')">
+                            <span class="inline-block icon exit"></span>
+                            <span class="inline-block">{{'admin-menu-element-exit' | translate}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul itemtype="http://schema.org/SiteNavigationElement">
-                <li>
-                    <a routerLink="my-patients" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" itemprop="url">
-                        <span class="inline-block icon my-patients"></span>
-                        <span class="inline-block">My patients</span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="push-notifications" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" itemprop="url">
-                        <span class="inline-block icon push-notifications"></span>
-                        <span class="inline-block">Push notifications</span>
-                    </a>
-                </li>
-                <li>
-                    <a (click)="this.redirectsService.redirectToAdmin()" itemprop="url">
-                        <span class="inline-block icon app-page"></span>
-                        <span class="inline-block">App Page</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{myAccountLink}}" target="_blank" itemprop="url">
-                        <span class="inline-block icon my-wallet"></span>
-                        <span class="inline-block">My Wallet</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" itemprop="url" (click)="this.authenticationServiceService.logout('dentist')">
-                        <span class="inline-block icon exit"></span>
-                        <span class="inline-block">Exit</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <div class="mobile-visible">
+            <div class="logo-and-dentist-stats">
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 padding-bottom-60">
+                    <img alt="Dentacoin logo" class="width-100" src="assets/images/one-line-logo-white.svg"/>
+                </figure>
+                <div class="dentist-data padding-bottom-50">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-100 padding-bottom-10 dentist-avatar">
+                        <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+                    </figure>
+                    <div class="fs-20 lato-bold">{{dentistData.name}}</div>
+                    <div class="fs-16"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
+                </div>
+            </div>
+            <div class="nav-and-avatar text-center">
+                <ul>
+                    <li>
+                        <a (click)="this.redirectsService.redirectToAdmin()" itemprop="url">
+                            <span class="inline-block icon app-page"></span>
+                            <span class="inline-block">{{'admin-menu-element-app-page' | translate}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-80 padding-bottom-10 dentist-avatar">
+                            <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+                        </figure>
+                    </li>
+                    <li>
+                        <a href="{{myAccountLink}}" target="_blank" itemprop="url">
+                            <span class="inline-block icon my-wallet"></span>
+                            <span class="inline-block">{{'admin-menu-element-my-wallet' | translate}}</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="dentist-info">
+                    <div class="fs-20 lato-bold">{{dentistData.name}}</div>
+                    <div class="fs-16"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="admin-page-content inline-block-top">
         <div class="user-info-tab text-right">
@@ -67,60 +108,6 @@
                 </div>
             </div>
         </div>
+        <router-outlet></router-outlet>
     </div>
 </div>
-<!--
-<div class="admin-content">
-    <div class="wrapper">
-        <div class="main-header">
-            <figure class="logo">
-                <img src="https://www.dentaprime.com/wp-content/themes/dentaprime2019/style/images/logo-swiss-dentaprime.svg" alt="Logo"/>
-            </figure>
-            &lt;!&ndash; Header Navbar: style can be found in header.less &ndash;&gt;
-            <nav class="navbar navbar-static-top">
-                &lt;!&ndash; Sidebar toggle button&ndash;&gt;
-                <a href="#" class="sidebar-toggle fs-18" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <div class="text-right top-right-menu">
-                    <ul class="parent-menu">
-                        <li>
-                            <a href="javascript:void(0);">Admin</a>
-                            <ul class="submenu">
-                                <li><a href="javascript:void(0)" class="cursor-pointer" (click)="this.authenticationServiceService.logout('dentist')">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        &lt;!&ndash; =============================================== &ndash;&gt;
-        &lt;!&ndash; Left side column. contains the sidebar &ndash;&gt;
-        <aside class="main-sidebar">
-            &lt;!&ndash; sidebar: style can be found in sidebar.less &ndash;&gt;
-            <section class="sidebar">
-                &lt;!&ndash; sidebar menu: : style can be found in sidebar.less &ndash;&gt;
-                <ul class="sidebar-menu">
-                    <li>
-                        <a [routerLink]="['my-patients']"><i class="fa fa-list-ul" aria-hidden="true"></i> My patients</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['applications']"><i class="fa fa-list-ul" aria-hidden="true"></i> Applications</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['push-notifications']"><i class="fa fa-star" aria-hidden="true"></i> Push nofitications</a>
-                    </li>
-                    <li>
-                        <a (click)="this.redirectsService.redirectToAdmin()"><i class="fa fa-list-ul" aria-hidden="true"></i> User friendly admin</a>
-                    </li>
-                </ul>
-            </section>
-            &lt;!&ndash; /.sidebar &ndash;&gt;
-        </aside>
-        &lt;!&ndash; =============================================== &ndash;&gt;
-        &lt;!&ndash; Content Wrapper. Contains page content &ndash;&gt;
-        <div class="content-wrapper">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>-->

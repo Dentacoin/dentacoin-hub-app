@@ -40,6 +40,12 @@
             background-color: $basic_color;
             text-decoration: none !important;
         }
+        &.no-hover {
+            &:hover {
+                background-color: white;
+                color: $basic_color;
+            }
+        }
     }
     &.custom-google-label-style {
         position: relative;
@@ -266,6 +272,85 @@
                 border: 1px solid $light_blue;
                 color: white;
                 background-color: $light_blue;
+            }
+        }
+    }
+    &.lang-switcher {
+        padding: 5px 10px;
+        margin-left: 15px;
+        border-left: 1px solid black;
+        select {
+            background: transparent;
+            border: 0;
+            font-size: 18px;
+        }
+        @include breakpoint($xs) {
+            border: 0;
+        }
+    }
+    &.people-invitation {
+        .inputs {
+            .inputs-row {
+                .inputs-wrapper {
+                    width: 100%;
+                    @include simple_transition(.3s);
+                    .input-field {
+                        width: 48%;
+                        margin-right: 2%;
+                        &:nth-child(2) {
+                            margin-right: 0;
+                            margin-left: 2%;
+                        }
+                    }
+                }
+                .remove-row {
+                    width: 0;
+                    visibility: hidden;
+                    @include simple_transition(.3s);
+                    a {
+                        color: #aaaaaa;
+                    }
+                }
+                &.more-than-one-row {
+                    .inputs-wrapper {
+                        width: calc(100% - 30px);
+                    }
+                    .remove-row {
+                        width: 30px;
+                        visibility: visible;
+                    }
+                    @include breakpoint($xs) {
+                        .inputs-wrapper {
+                            width: calc(100% - 20px);
+                        }
+                        .remove-row {
+                            width: 20px;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+        .buttons {
+            .send-btn-container, .add-btn-container {
+                width: 50%;
+                a {
+                    text-align: center;
+                }
+            }
+        }
+        .mobile-send-emails {
+            display: none;
+        }
+        @include breakpoint($xs) {
+            .inputs {
+                width: 100%;
+            }
+            .buttons .send-btn-container {
+                display: none;
+            }
+            .mobile-send-emails {
+                display: block;
             }
         }
     }

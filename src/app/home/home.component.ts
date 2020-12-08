@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
         } else {
             console.log('===== 2 =====');
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
-                this.requestsService.getDentistTrpLink(new HttpParams().set('id', JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).toString()).subscribe((trpLinkResponse: any) => {
-                    console.log(trpLinkResponse, 'trpLinkResponse');
+                this.requestsService.getDentistSlug(new HttpParams().set('id', JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).toString()).subscribe((dentistSlugResponse: any) => {
+                    console.log(dentistSlugResponse, 'dentistSlugResponse');
 
                     this.hubTitleEn = response.data.hub_title_en;
                     this.hubTitleDe = response.data.hub_title_de;
@@ -36,9 +36,12 @@ export class HomeComponent implements OnInit {
                     if (this.applications.length) {
                         for (let i = 0; i < this.applications.length; i += 1) {
                             // setting dynamic dentist trp profile link
-                            if (this.applications[i].url.includes('reviews.dentacoin.com') && trpLinkResponse.success) {
-                                // setting up dentavox cross login
-                                this.applications[i].url = trpLinkResponse.data;
+                            if (this.applications[i].url.includes('reviews.dentacoin.com') && dentistSlugResponse.success) {
+                                // setting up trp link to head to dentist profile and cross login
+                                this.applications[i].url = this.applications[i].url + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token) + '&token=' + dentistSlugResponse.data;
+                            } else if (this.applications[i].url.includes('dentavox.dentacoin.com') || this.applications[i].url.includes('assurance.dentacoin.com')) {
+                                // setting up dentavox and assurance cross login
+                                this.applications[i].url = this.applications[i].url + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
                             }
                         }
                     }

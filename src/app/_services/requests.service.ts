@@ -56,8 +56,26 @@ export class RequestsService {
         });
     }
 
-    public getDentistTrpLink(body: string): Observable<{}> {
-        return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/get-dentist-trp-profile', body, {
+    public getDentistSlug(body: string): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/get-dentist-slug', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    }
+
+    public getInviteHistory(body: string): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/get-invite-history', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    }
+
+    public getPushNotificationsHistory(body: string): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/get-push-notifications', body, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json'

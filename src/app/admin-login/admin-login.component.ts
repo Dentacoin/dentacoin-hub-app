@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {AuthenticationServiceService} from '../_services/authentication-service.service';
 import {RedirectsService} from '../_services/redirects.service';
 import {TranslateService} from '@ngx-translate/core';
+import {HttpClient} from '../../../node_modules/@angular/common/http';
 
 @Component({
   selector: 'app-admin-login',
@@ -13,7 +14,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class AdminLoginComponent implements OnInit {
     public isDentistLoggedIn: Observable<boolean>;
 
-    constructor(public router: Router, public formBuilder: FormBuilder, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, private translate: TranslateService) {
+    constructor(public router: Router, public formBuilder: FormBuilder, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public translate: TranslateService) {
         this.isDentistLoggedIn = authenticationServiceService.isDentistLoggedSubject;
     }
 
