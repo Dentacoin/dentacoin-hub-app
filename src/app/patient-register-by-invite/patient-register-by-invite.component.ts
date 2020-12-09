@@ -90,6 +90,12 @@ export class PatientRegisterByInviteComponent implements OnInit {
 
                 document.getElementById('custom-error').classList.remove('hide');
                 document.getElementById('custom-error').innerHTML = errorsHtml;
+
+                $('.log-link.open-dentacoin-gateway').on('click', () => {
+                    console.log('log link');
+                    this.redirectsService.redirectToPatientLogin('login');
+                });
+
                 this.additionalService.hideLoader();
             });
 
@@ -101,11 +107,6 @@ export class PatientRegisterByInviteComponent implements OnInit {
             document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
                 document.getElementById('patient-register-failed').classList.remove('hide');
                 this.additionalService.hideLoader();
-            });
-
-            $('.log-link.open-dentacoin-gateway').on('click', () => {
-                console.log('log link');
-                this.redirectsService.redirectToPatientLogin('login');
             });
         }
     }

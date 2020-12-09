@@ -5736,6 +5736,10 @@ class PatientRegisterByInviteComponent {
                 }
                 document.getElementById('custom-error').classList.remove('hide');
                 document.getElementById('custom-error').innerHTML = errorsHtml;
+                jquery__WEBPACK_IMPORTED_MODULE_4__('.log-link.open-dentacoin-gateway').on('click', () => {
+                    console.log('log link');
+                    this.redirectsService.redirectToPatientLogin('login');
+                });
                 this.additionalService.hideLoader();
             });
             document.addEventListener('noCoreDBApiConnection', (e) => {
@@ -5745,10 +5749,6 @@ class PatientRegisterByInviteComponent {
             document.addEventListener('noExternalLoginProviderConnection', (e) => {
                 document.getElementById('patient-register-failed').classList.remove('hide');
                 this.additionalService.hideLoader();
-            });
-            jquery__WEBPACK_IMPORTED_MODULE_4__('.log-link.open-dentacoin-gateway').on('click', () => {
-                console.log('log link');
-                this.redirectsService.redirectToPatientLogin('login');
             });
         }
     }
