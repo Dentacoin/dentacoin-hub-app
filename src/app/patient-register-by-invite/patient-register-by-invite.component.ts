@@ -16,6 +16,7 @@ import * as $ from 'jquery';
 })
 export class PatientRegisterByInviteComponent implements OnInit {
     public coreDbApiDomain = environment.coreDbApiDomain;
+    public inviter: string;
     public inviteId: string;
 
     constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public activatedRoute: ActivatedRoute, public translate: TranslateService, public additionalService: AdditionalService, public requestsService: RequestsService) {
@@ -29,7 +30,8 @@ export class PatientRegisterByInviteComponent implements OnInit {
             if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null) {
                 this.redirectsService.redirectToPatientLogin('login');
             } else {
-                this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('invite');
+                this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
+                this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
             }
             document.addEventListener('patientAuthSuccessResponse', (e: any) => {
                 console.log(e, 'patientAuthSuccessResponse');
