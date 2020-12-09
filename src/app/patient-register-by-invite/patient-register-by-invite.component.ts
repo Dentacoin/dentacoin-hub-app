@@ -8,6 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../environments/environment';
 import {RequestsService} from '../_services/requests.service';
 import {AdditionalService} from '../_services/additional.service';
+import * as $ from 'jquery';
 
 @Component({
     selector: 'app-patient-register-by-invite',
@@ -98,6 +99,11 @@ export class PatientRegisterByInviteComponent implements OnInit {
             document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
                 document.getElementById('patient-register-failed').classList.remove('hide');
                 this.additionalService.hideLoader();
+            });
+
+            $('.log-link.open-dentacoin-gateway').on('click', () => {
+                console.log('log link');
+                this.redirectsService.redirectToPatientLogin('login');
             });
         }
     }

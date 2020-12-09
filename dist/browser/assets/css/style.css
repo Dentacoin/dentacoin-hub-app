@@ -4388,7 +4388,9 @@ img {
   .error-handle.alert.alert-warning {
     display: none; }
   .error-handle a {
-    color: #a94442; }
+    color: #a94442;
+    text-decoration: underline;
+    font-weight: bold; }
 
 .success-handle {
   border: 1px solid #d6e9c6;
