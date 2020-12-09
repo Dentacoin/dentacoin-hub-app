@@ -248,7 +248,6 @@ var projectData = {
                             }
 
                             var edit_delete_actions = '';
-                            console.log(dentist_data.data.applications[key], 'dentist_data.data.applications[key]');
                             if (edit_mode != undefined) {
                                 edit_delete_actions = '<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>';
                             }
@@ -1050,7 +1049,6 @@ var projectData = {
                     }
 
                     if (!submit_error) {
-                        console.log(invited_people_arr, 'invited_people_arr');
                         projectData.requests.invitePatients(function(response) {
                             if (response.success) {
                                 $('.people-invitation.module .inputs .added-row').remove();
@@ -1058,13 +1056,13 @@ var projectData = {
                                 $('.people-invitation.module #request-account-email-0').val('');
                                 $('.people-invitation.module .inputs .inputs-row').removeClass('more-than-one-row');
                                 if (response.data.success_invite) {
-                                    $('.title-and-subtitle').append('<div class="alert alert-success fs-20 margin-top-20">'+response.data.success_invite+'</div>');
+                                    $('.title-and-subtitle').append('<div class="alert alert-success fs-20 fs-xs-16 margin-top-20">'+response.data.success_invite+'</div>');
                                 }
                                 if (response.data.already_invited) {
-                                    $('.title-and-subtitle').append('<div class="alert alert-info fs-20 margin-top-20">'+response.data.already_invited+'</div>');
+                                    $('.title-and-subtitle').append('<div class="alert alert-info fs-20 fs-xs-16 margin-top-20">'+response.data.already_invited+'</div>');
                                 }
                                 if (response.data.error_invite) {
-                                    $('.title-and-subtitle').append('<div class="alert alert-danger fs-20 margin-top-20">'+response.data.error_invite+'</div>');
+                                    $('.title-and-subtitle').append('<div class="alert alert-danger fs-20 fs-xs-16 margin-top-20">'+response.data.error_invite+'</div>');
                                 }
                             }
                         },
@@ -1137,7 +1135,6 @@ var projectData = {
                                     requestData.message = $('.push-notifications-custom-form #message').val().trim();
                                 }
                                 projectData.requests.registerPushNotification(function(response) {
-                                    console.log(response, 'response');
                                     if (response.success) {
                                         $('.push-notifications-custom-form #title').val('');
                                         $('.push-notifications-custom-form #message').val('');
@@ -1399,8 +1396,6 @@ var projectData = {
                 });*/
             },
             patientLoginPage: async function() {
-                console.log('patientLoginPage');
-
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
 
@@ -1477,13 +1472,11 @@ var projectData = {
 
                 $(document).off('facebookCustomBtnClicked');
                 $(document).on('facebookCustomBtnClicked', function (event) {
-                    console.log('facebookCustomBtnClicked');
                     $('.patient-login .custom-error').addClass('hide');
                 });
 
                 $(document).off('cannotLoginBecauseOfMissingCookies');
                 $(document).on('cannotLoginBecauseOfMissingCookies', function (event) {
-                    console.log('cannotLoginBecauseOfMissingCookies');
                     $('.patient-login .custom-error').html($('.patient-login').attr('data-cookies-error')).removeClass('hide');
                 });
 
@@ -1494,7 +1487,6 @@ var projectData = {
                 }
             },
             patientRegisterPage: async function() {
-                console.log('patientRegisterPage');
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
 
@@ -1615,19 +1607,16 @@ var projectData = {
 
                 $(document).off('facebookCustomBtnClicked');
                 $(document).on('facebookCustomBtnClicked', function (event) {
-                    console.log('facebookCustomBtnClicked');
                     $('.patient-register-by-invite .custom-error').addClass('hide');
                 });
 
                 $(document).off('cannotLoginBecauseOfMissingCookies');
                 $(document).on('cannotLoginBecauseOfMissingCookies', function (event) {
-                    console.log('cannotLoginBecauseOfMissingCookies');
                     $('.patient-register-by-invite .custom-error').html($('.patient-register-by-invite').attr('data-cookies-error')).removeClass('hide');
                 });
 
                 $(document).off('customCivicFbStopperTriggered');
                 $(document).on('customCivicFbStopperTriggered', function (event) {
-                    console.log('customCivicFbStopperTriggered');
                     $('.patient-register-by-invite .custom-error').html($('.patient-register-by-invite').attr('data-years-and-privacy-error')).removeClass('hide');
                 });
                 $('body').removeClass('platform-background');
@@ -1930,7 +1919,6 @@ var projectData = {
             });
         },
         addMobileDeviceId: function (callback, id) {
-            console.log('addMobileDeviceId');
             $.ajax({
                 type: 'POST',
                 url: 'https://dcn-hub-app-api.dentacoin.com/patient/add-mobile-device-id',
@@ -2085,8 +2073,6 @@ function router() {
                 projectData.pages.patient.managePrivacy();
             }*/
 
-            console.log($('app-logged-in-wrapper').length, '$(\'app-logged-in-wrapper\').length');
-            console.log(!init_logged_in_wrapper_logic, '!init_logged_in_wrapper_logic');
             if ($('app-logged-in-wrapper').length && !init_logged_in_wrapper_logic) {
                 init_logged_in_wrapper_logic = true;
                 $(document).ready(function() {
@@ -2095,10 +2081,7 @@ function router() {
 
                 // saving mobile_device_id to send push notifications
                 if (is_hybrid) {
-                    console.log(is_hybrid, 'window.FirebasePlugin.hasPermission');
                     window.FirebasePlugin.hasPermission(function(hasPermission) {
-                        console.log(hasPermission, 'hasPermission');
-                        console.log(window.localStorage.getItem('mobile_device_id'), 'window.localStorage.getItem(\'mobile_device_id\')');
                         if (basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
                             // if permission is given save the firebase mobile device id
                             projectData.requests.addMobileDeviceId(function() {
@@ -2225,9 +2208,7 @@ function addEditAppPopupLanguageSwitch() {
 }
 
 function handleOpenURL(url) {
-    console.log(url, 'url');
     var token = new URL(url).searchParams.get('token');
-    console.log(token, 'token');
 
     const event = new CustomEvent('receiveCoredbTokenFromCivicAuth', {
         detail: {
