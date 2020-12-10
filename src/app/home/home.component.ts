@@ -43,6 +43,10 @@ export class HomeComponent implements OnInit {
                                 // setting up dentavox and assurance cross login
                                 this.applications[i].url = this.applications[i].url + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
                             }
+
+                            if (this.applications[i].resource_type == 'svg') {
+                                this.applications[i].media = encodeURIComponent(this.applications[i].media);
+                            }
                         }
                     }
 
