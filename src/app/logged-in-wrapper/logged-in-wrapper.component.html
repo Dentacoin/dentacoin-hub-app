@@ -59,8 +59,8 @@
     <div class="container">
         <div class="row fs-0">
             <figure itemscope="" itemtype="http://schema.org/Organization" class="col-xs-5 inline-block padding-left-xs-10 padding-right-xs-10">
-                <a itemprop="url" routerLink="/">
-                    <img src="{{dentistData.logo}}" itemprop="logo" class="dentist-logo-img" alt="Dentaprime logo"/>
+                <a itemprop="url" routerLink="/" *ngIf="dentistData.logo != null">
+                    <img src="{{dentistData.logo}}" itemprop="logo" class="dentist-logo-img" alt="Dentist logo"/>
                 </a>
             </figure>
             <div class="col-xs-7 logged-user-right-nav inline-block text-right padding-left-xs-10 padding-right-xs-10">

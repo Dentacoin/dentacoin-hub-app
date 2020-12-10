@@ -1235,6 +1235,15 @@ var projectData = {
                 $('body').addClass('platform-background');
 
                 if (window.localStorage.getItem('currentPatient') != null) {
+                    var checkIfSvgImages = setInterval(function() {
+                        if ($('.svg-parent').length > 0) {
+                            clearInterval(checkIfSvgImages);
+                            for (var i = 0, len = $('.svg-parent').length; i < len; i+=1) {
+                                $('.svg-parent').eq(i).html(decodeURIComponent($('.svg-parent').eq(i).attr('data-svg')));
+                            }
+                        }
+                    }, 1000);
+
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
             },
