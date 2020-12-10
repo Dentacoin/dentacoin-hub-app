@@ -10,7 +10,7 @@
                             <figure itemscope="" itemtype="http://schema.org/ImageObject" *ngIf="(application.resource_type == 'image')">
                                 <img alt="" class="width-100 app-media" itemprop="contentUrl" src="{{application.media}}"/>
                             </figure>
-                            <div *ngIf="(application.resource_type == 'svg')" class="svg-parent">{{application.media}}</div>
+                            <div *ngIf="(application.resource_type == 'svg')" class="svg-parent" [innerHTML]="application.media"></div>
                             <h2 class="platform-text-color fs-18 fs-xs-15 padding-top-10 calibri-bold app-name">{{application.name_en}}</h2>
                             <p class="platform-text-color fs-16 fs-xs-14 line-height-16 app-description">{{application.description_en}}</p>
                         </a>
@@ -20,7 +20,7 @@
                             <figure itemscope="" itemtype="http://schema.org/ImageObject" *ngIf="(application.resource_type == 'image')">
                                 <img alt="" class="width-100 app-media" itemprop="contentUrl" src="{{application.media}}"/>
                             </figure>
-                            <div *ngIf="(application.resource_type == 'svg')" class="svg-parent">{{application.media}}</div>
+                            <div *ngIf="(application.resource_type == 'svg')" class="svg-parent" [innerHTML]="application.media"></div>
                             <h2 class="platform-text-color fs-18 fs-xs-15 padding-top-10 calibri-bold app-name">{{application.name_de}}</h2>
                             <p class="platform-text-color fs-16 fs-xs-14 line-height-16 app-description">{{application.description_de}}</p>
                         </a>
