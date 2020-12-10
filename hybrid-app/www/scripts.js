@@ -20293,32 +20293,31 @@ var projectData = {
                 console.log('advancedAdminPanel');
             },
             myPatients: function() {
-                console.log('myPatients');
                 var now_timestamp = Math.round((new Date()).getTime() / 1000);
-                $('.people-invitation.module .add-invitation-rows').unbind().click(function() {
+                $('.people-invitation .add-invitation-rows').unbind().click(function() {
                     now_timestamp+=1;
-                    $('.people-invitation.module .inputs').append('<div class="inputs-row added-row padding-bottom-10"><div class="remove-row inline-block"><a href="javascript:void(0);" class="lato-regular fs-20">X</a></div><div class="inputs-wrapper inline-block"><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-name-'+now_timestamp+'" class="platform-color">Name</label><input maxlength="100" type="text" id="request-account-name-'+now_timestamp+'" class="full-rounded form-field platform-border-color person-name"/> </div></div><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-email-'+now_timestamp+'" class="platform-color">Email Address</label><input maxlength="100" type="text" id="request-account-email-'+now_timestamp+'" class="full-rounded form-field platform-border-color person-email"/> </div></div> </div></div>');
-                    $('.people-invitation.module .inputs .inputs-row').addClass('more-than-one-row');
+                    $('.people-invitation .inputs').append('<div class="inputs-row added-row padding-bottom-10"><div class="remove-row inline-block"><a href="javascript:void(0);" class="lato-regular fs-20">X</a></div><div class="inputs-wrapper inline-block"><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-name-'+now_timestamp+'" class="platform-color">Name</label><input maxlength="100" type="text" id="request-account-name-'+now_timestamp+'" class="full-rounded form-field platform-border-color person-name"/> </div></div><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-email-'+now_timestamp+'" class="platform-color">Email Address</label><input maxlength="100" type="text" id="request-account-email-'+now_timestamp+'" class="full-rounded form-field platform-border-color person-email"/> </div></div> </div></div>');
+                    $('.people-invitation .inputs .inputs-row').addClass('more-than-one-row');
 
-                    $('.people-invitation.module .inputs .inputs-row .remove-row a').unbind().click(function() {
+                    $('.people-invitation .inputs .inputs-row .remove-row a').unbind().click(function() {
                         $(this).closest('.inputs-row').remove();
 
-                        if ($('.people-invitation.module .inputs .inputs-row').length == 1) {
-                            $('.people-invitation.module .inputs .inputs-row').removeClass('more-than-one-row');
+                        if ($('.people-invitation .inputs .inputs-row').length == 1) {
+                            $('.people-invitation .inputs .inputs-row').removeClass('more-than-one-row');
                         }
                     });
                 });
 
                 $('.submit-form-invite-people').unbind().click(function() {
                     $('.title-and-subtitle .alert').remove();
-                    $('.people-invitation.module .error-handle').remove();
+                    $('.people-invitation .error-handle').remove();
                     var submit_error = false;
 
                     var invited_people_arr = [];
-                    for (var i = 0, len = $('.people-invitation.module .inputs-row').length; i < len; i += 1) {
+                    for (var i = 0, len = $('.people-invitation .inputs-row').length; i < len; i += 1) {
                         invited_people_arr[i] = {};
-                        for (var y = 0, inputs_len = $('.people-invitation.module .inputs-row').eq(i).find('input').length; y < inputs_len; y += 1) {
-                            var current_input = $('.people-invitation.module .inputs-row').eq(i).find('input').eq(y);
+                        for (var y = 0, inputs_len = $('.people-invitation .inputs-row').eq(i).find('input').length; y < inputs_len; y += 1) {
+                            var current_input = $('.people-invitation .inputs-row').eq(i).find('input').eq(y);
                             if (current_input.val().trim() == '') {
                                 projectData.utils.customErrorHandle(current_input.parent().parent(), 'Please enter empty fields.');
                                 submit_error = true;
@@ -20341,10 +20340,10 @@ var projectData = {
                     if (!submit_error) {
                         projectData.requests.invitePatients(function(response) {
                             if (response.success) {
-                                $('.people-invitation.module .inputs .added-row').remove();
-                                $('.people-invitation.module #request-account-name-0').val('');
-                                $('.people-invitation.module #request-account-email-0').val('');
-                                $('.people-invitation.module .inputs .inputs-row').removeClass('more-than-one-row');
+                                $('.people-invitation .inputs .added-row').remove();
+                                $('.people-invitation #request-account-name-0').val('');
+                                $('.people-invitation #request-account-email-0').val('');
+                                $('.people-invitation .inputs .inputs-row').removeClass('more-than-one-row');
                                 if (response.data.success_invite) {
                                     $('.title-and-subtitle').append('<div class="alert alert-success fs-20 fs-xs-16 margin-top-20">'+response.data.success_invite+'</div>');
                                 }
@@ -20354,6 +20353,8 @@ var projectData = {
                                 if (response.data.error_invite) {
                                     $('.title-and-subtitle').append('<div class="alert alert-danger fs-20 fs-xs-16 margin-top-20">'+response.data.error_invite+'</div>');
                                 }
+                            } else if (response.error) {
+                                $('.title-and-subtitle').append('<div class="alert alert-danger fs-20 fs-xs-16 margin-top-20">'+response.data+'</div>');
                             }
                         },
                         JSON.stringify(invited_people_arr));
@@ -20376,8 +20377,6 @@ var projectData = {
                 }, 500);
             },
             pushNotifications: function() {
-                console.log('pushNotifications');
-                
                 projectData.utils.initDatetimePicker();
 
                 $('.push-notifications-form textarea').on('input', function() {
