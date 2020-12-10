@@ -4,97 +4,102 @@
     min-height: 100vh;
     .left-nav {
         width: 260px;
-        .dentist-avatar {
-            img {
-                @include rounded(50%);
-            }
-        }
-        .email-link {
-            &:hover {
-                color: white;
-            }
-        }
-        nav {
-            a {
-                color: white;
-                font-size: 20px;
-                font-family: 'Lato-Bold';
-                padding-top: 10px;
-                padding-bottom: 10px;
-                padding-left: 15px;
-                margin: 5px 0;
-                display: block;
-                position: relative;
-                @include rounded(20px 0 0 20px);
-                @include simple_transition(.3s);
-                .icon {
-                    width: 35px;
-                    height: 35px;
-                    margin-right: 10px;
-                    background-position: center center;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    &.my-patients {
-                        background-image: url(../images/patients-icon.svg);
-                    }
-                    &.push-notifications {
-                        background-image: url(../images/push-notifications-icon.svg);
-                    }
-                    &.app-page {
-                        background-image: url(../images/apps-icon.svg);
-                    }
-                    &.my-wallet {
-                        background-image: url(../images/wallet.svg);
-                    }
-                    &.exit {
-                        background-image: url(../images/exit.svg);
-                    }
+        .desktop-visible {
+            .dentist-avatar {
+                img {
+                    @include rounded(50%);
                 }
-                &:before, &:after {
-                    content: '';
-                    position: absolute;
-                    right: 0;
-                    width: 25px;
-                    height: 25px;
-                    background-position: center center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    opacity: 0;
+            }
+            .email-link {
+                &:hover {
+                    color: white;
+                }
+            }
+            nav {
+                a {
+                    color: white;
+                    font-size: 20px;
+                    font-family: 'Lato-Bold';
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    padding-left: 15px;
+                    margin: 5px 0;
+                    display: block;
+                    position: relative;
+                    @include rounded(20px 0 0 20px);
                     @include simple_transition(.3s);
-                }
-                &:before {
-                    top: 100%;
-                    background-image: url(../images/bottom-angle-effect.svg);
-                }
-                &:after {
-                    bottom: 100%;
-                    background-image: url(../images/top-angle-effect.svg);
-                }
-                &:hover, &.active {
-                    color: black;
-                    background-color: white;
-                    &:before, &:after {
-                        opacity: 1;
-                    }
                     .icon {
+                        width: 35px;
+                        height: 35px;
+                        margin-right: 10px;
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
                         &.my-patients {
-                            background-image: url(../images/blue-patients-icon.svg);
+                            background-image: url(../images/patients-icon.svg);
                         }
                         &.push-notifications {
-                            background-image: url(../images/blue-push-notifications-icon.svg);
+                            background-image: url(../images/push-notifications-icon.svg);
                         }
                         &.app-page {
-                            background-image: url(../images/blue-apps-icon.svg);
+                            background-image: url(../images/apps-icon.svg);
                         }
                         &.my-wallet {
-                            background-image: url(../images/blue-wallet.svg);
+                            background-image: url(../images/wallet.svg);
                         }
                         &.exit {
-                            background-image: url(../images/blue-exit.svg);
+                            background-image: url(../images/exit.svg);
+                        }
+                    }
+                    &:before, &:after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        width: 25px;
+                        height: 25px;
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        opacity: 0;
+                        @include simple_transition(.3s);
+                    }
+                    &:before {
+                        top: 100%;
+                        background-image: url(../images/bottom-angle-effect.svg);
+                    }
+                    &:after {
+                        bottom: 100%;
+                        background-image: url(../images/top-angle-effect.svg);
+                    }
+                    &:hover, &.active {
+                        color: black;
+                        background-color: white;
+                        &:before, &:after {
+                            opacity: 1;
+                        }
+                        .icon {
+                            &.my-patients {
+                                background-image: url(../images/blue-patients-icon.svg);
+                            }
+                            &.push-notifications {
+                                background-image: url(../images/blue-push-notifications-icon.svg);
+                            }
+                            &.app-page {
+                                background-image: url(../images/blue-apps-icon.svg);
+                            }
+                            &.my-wallet {
+                                background-image: url(../images/blue-wallet.svg);
+                            }
+                            &.exit {
+                                background-image: url(../images/blue-exit.svg);
+                            }
                         }
                     }
                 }
             }
+        }
+        .mobile-visible {
+            display: none;
         }
     }
     .admin-page-content {
@@ -106,6 +111,156 @@
         .avatar {
             img {
                 @include rounded(50%);
+            }
+        }
+    }
+    @include breakpoint($md-down) {
+        .admin-page-content {
+            padding: 20px 15px 50px;
+        }
+    }
+    @include breakpoint($sm-down) {
+        padding: 0;
+        .left-nav {
+            width: 100%;
+            .desktop-visible {
+                display: none;
+            }
+            .mobile-visible {
+                display: block;
+                padding-top: 15px;
+                .go-back-and-logout {
+                    .go-back, .logout {
+                        width: 50%;
+                    }
+                }
+                .nav-and-avatar {
+                    ul {
+                        .dentist-avatar {
+                            img {
+                                @include rounded(50%);
+                            }
+                        }
+                        .icon {
+                            width: 35px;
+                            height: 35px;
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            margin: 0 auto 5px;
+                            &.app-page {
+                                background-image: url(../images/apps-icon.svg);
+                            }
+                            &.my-wallet {
+                                background-image: url(../images/wallet.svg);
+                            }
+                        }
+                    }
+                    .dentist-info {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        margin-bottom: 10px;
+                        position: relative;
+                        a {
+                            &:hover {
+                                color: white;
+                            }
+                        }
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            width: 200px;
+                            height: 1.5px;
+                            background-color: white;
+                            bottom: 0;
+                            @include horizontal-align(absolute);
+                        }
+                    }
+                }
+                .white-styled-nav {
+                    ul {
+                        li {
+                            width: 50%;
+                            a {
+                                display: block;
+                                color: white;
+                                padding-top: 10px;
+                                position: relative;
+                                .icon {
+                                    width: 35px;
+                                    height: 35px;
+                                    margin: 0 auto 5px;
+                                    background-position: center center;
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    &.my-patients {
+                                        background-image: url(../images/patients-icon.svg);
+                                    }
+                                    &.push-notifications {
+                                        background-image: url(../images/push-notifications-icon.svg);
+                                    }
+                                }
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0;
+                                    width: 25px;
+                                    height: 25px;
+                                    background-position: center center;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    opacity: 0;
+                                    @include simple_transition(.3s);
+                                }
+                                &.my-patients {
+                                    &:before {
+                                        left: calc(100% - 2px);
+                                        background-image: url(../images/bottom-angle-effect.svg);
+                                        @include rotate(180deg);
+                                    }
+                                }
+                                &.push-notifications {
+                                    &:before {
+                                        right: calc(100% - 2px);
+                                        background-image: url(../images/bottom-angle-effect.svg);
+                                        @include rotate(90deg);
+                                    }
+                                }
+                                &.active {
+                                    color: black;
+                                    background-color: white;
+                                    &.my-patients {
+                                        @include rounded(0 20px 0 0);
+                                    }
+                                    &.push-notifications {
+                                        @include rounded(20px 0 0 0);
+                                    }
+                                    &:before, &:after {
+                                        opacity: 1;
+                                    }
+                                    .icon {
+                                        &.my-patients {
+                                            background-image: url(../images/blue-patients-icon.svg);
+                                        }
+                                        &.push-notifications {
+                                            background-image: url(../images/blue-push-notifications-icon.svg);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .admin-page-content {
+            width: 100%;
+            @include rounded(0);
+            .user-info-tab {
+                display: none;
+            }
+            .title-and-subtitle {
+                text-align: center;
             }
         }
     }
@@ -241,73 +396,95 @@
 }*/
 
 .custom-data-table {
-    .dataTables_length, .dataTables_filter {
-        display: none;
-    }
-    .dataTables_info {
-        color: $light_blue;
-        padding-bottom: 15px;
-        text-align: center;
-    }
-    .dataTables_paginate {
-        text-align: center;
-        .paginate_button {
-            cursor: pointer;
-            width: 30px;
-            line-height: 30px;
-            height: 30px;
-            margin: 5px;
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 16px;
-            text-align: center;
-            background-color: white;
+    .table-wrapper {
+        .dataTables_length, .dataTables_filter {
+            display: none;
+        }
+        .dataTables_info {
             color: $light_blue;
-            border: 2px solid $light_blue;
-            @include rounded(50%);
-            &.current {
-                color: white;
-                background-color: $light_blue;
-            }
-            &.previous {
-                font-size: 0;
-                position: relative;
-                &:after {
-                    content: '<';
-                    font-size: 30px;
-                    @include vertical-horizontal-align(absolute);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        .dataTables_paginate {
+            text-align: center;
+            .paginate_button {
+                cursor: pointer;
+                width: 30px;
+                line-height: 30px;
+                height: 30px;
+                margin: 5px;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 16px;
+                text-align: center;
+                background-color: white;
+                color: $light_blue;
+                border: 2px solid $light_blue;
+                @include rounded(50%);
+                &.current {
+                    color: white;
+                    background-color: $light_blue;
+                }
+                &.previous {
+                    font-size: 0;
+                    position: relative;
+                    &:after {
+                        content: '<';
+                        font-size: 30px;
+                        @include vertical-horizontal-align(absolute);
+                    }
+                }
+                &.next {
+                    font-size: 0;
+                    position: relative;
+                    &:after {
+                        content: '>';
+                        font-size: 30px;
+                        @include vertical-horizontal-align(absolute);
+                    }
                 }
             }
-            &.next {
-                font-size: 0;
-                position: relative;
-                &:after {
-                    content: '>';
-                    font-size: 30px;
-                    @include vertical-horizontal-align(absolute);
+        }
+        table {
+            width: 100%;
+            tbody {
+                tr {
+                    border-bottom: 1.5px solid #dddddd;
+                    td {
+                        padding: 10px;
+                    }
+                    .email {
+                        @include breakpoint($md-only) {
+                            max-width: 200px;
+                            word-break: break-word;
+                            display: block;
+                        }
+                    }
+                }
+            }
+            thead {
+                tr {
+                    border-bottom: 3px solid #dddddd;
+                    th {
+                        color: #888888;
+                        text-align: left;
+                        padding: 10px;
+                        font-weight: normal;
+                    }
                 }
             }
         }
     }
-    table {
-        width: 100%;
-        tbody {
-            tr {
-                border-bottom: 1.5px solid #dddddd;
-                td {
-                    padding: 10px;
-                }
-            }
-        }
-        thead {
-            tr {
-                border-bottom: 3px solid #dddddd;
-                th {
-                    color: #888888;
-                    text-align: left;
-                    padding: 10px;
-                    font-weight: normal;
-                }
+    @include breakpoint($lgll) {
+        font-size: 18px !important;
+    }
+    @include breakpoint($xs) {
+        overflow: auto;
+        padding-bottom: 20px;
+        .table-wrapper {
+            min-width: 800px;
+            .dataTables_info, .dataTables_paginate {
+                text-align: left;
             }
         }
     }

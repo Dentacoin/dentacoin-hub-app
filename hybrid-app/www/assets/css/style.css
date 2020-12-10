@@ -549,53 +549,6 @@
   @media screen and (max-width: 767px) {
     .module.lang-switcher {
       border: 0; } }
-.module.people-invitation .inputs .inputs-row .inputs-wrapper {
-  width: 100%;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -o-transition: 0.3s;
-  -ms-transition: 0.3s;
-  transition: 0.3s; }
-  .module.people-invitation .inputs .inputs-row .inputs-wrapper .input-field {
-    width: 48%;
-    margin-right: 2%; }
-    .module.people-invitation .inputs .inputs-row .inputs-wrapper .input-field:nth-child(2) {
-      margin-right: 0;
-      margin-left: 2%; }
-.module.people-invitation .inputs .inputs-row .remove-row {
-  width: 0;
-  visibility: hidden;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -o-transition: 0.3s;
-  -ms-transition: 0.3s;
-  transition: 0.3s; }
-  .module.people-invitation .inputs .inputs-row .remove-row a {
-    color: #aaaaaa; }
-.module.people-invitation .inputs .inputs-row.more-than-one-row .inputs-wrapper {
-  width: calc(100% - 30px); }
-.module.people-invitation .inputs .inputs-row.more-than-one-row .remove-row {
-  width: 30px;
-  visibility: visible; }
-@media screen and (max-width: 767px) {
-  .module.people-invitation .inputs .inputs-row.more-than-one-row .inputs-wrapper {
-    width: calc(100% - 20px); }
-  .module.people-invitation .inputs .inputs-row.more-than-one-row .remove-row {
-    width: 20px;
-    visibility: visible; } }
-.module.people-invitation .buttons .send-btn-container, .module.people-invitation .buttons .add-btn-container {
-  width: 50%; }
-  .module.people-invitation .buttons .send-btn-container a, .module.people-invitation .buttons .add-btn-container a {
-    text-align: center; }
-.module.people-invitation .mobile-send-emails {
-  display: none; }
-@media screen and (max-width: 767px) {
-  .module.people-invitation .inputs {
-    width: 100%; }
-  .module.people-invitation .buttons .send-btn-container {
-    display: none; }
-  .module.people-invitation .mobile-send-emails {
-    display: block; } }
 
 .fix-selects-for-ios {
   background-image: url(../images/select-arrow.svg) !important;
@@ -4388,7 +4341,9 @@ img {
   .error-handle.alert.alert-warning {
     display: none; }
   .error-handle a {
-    color: #a94442; }
+    color: #a94442;
+    text-decoration: underline;
+    font-weight: bold; }
 
 .success-handle {
   border: 1px solid #d6e9c6;
@@ -5085,7 +5040,7 @@ header {
 
 .homepage-container {
   min-height: 500px; }
-  .homepage-container .single-app figure {
+  .homepage-container .single-app figure, .homepage-container .single-app .svg-parent {
     overflow: hidden;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
@@ -5111,14 +5066,14 @@ header {
   min-height: 100vh; }
   .advanced-admin-wrapper .left-nav {
     width: 260px; }
-    .advanced-admin-wrapper .left-nav .dentist-avatar img {
+    .advanced-admin-wrapper .left-nav .desktop-visible .dentist-avatar img {
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       border-radius: 50%; }
-    .advanced-admin-wrapper .left-nav .email-link:hover {
+    .advanced-admin-wrapper .left-nav .desktop-visible .email-link:hover {
       color: white; }
-    .advanced-admin-wrapper .left-nav nav a {
+    .advanced-admin-wrapper .left-nav .desktop-visible nav a {
       color: white;
       font-size: 20px;
       font-family: 'Lato-Bold';
@@ -5137,24 +5092,24 @@ header {
       -o-transition: 0.3s;
       -ms-transition: 0.3s;
       transition: 0.3s; }
-      .advanced-admin-wrapper .left-nav nav a .icon {
+      .advanced-admin-wrapper .left-nav .desktop-visible nav a .icon {
         width: 35px;
         height: 35px;
         margin-right: 10px;
         background-position: center center;
         background-size: contain;
         background-repeat: no-repeat; }
-        .advanced-admin-wrapper .left-nav nav a .icon.my-patients {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a .icon.my-patients {
           background-image: url(../images/patients-icon.svg); }
-        .advanced-admin-wrapper .left-nav nav a .icon.push-notifications {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a .icon.push-notifications {
           background-image: url(../images/push-notifications-icon.svg); }
-        .advanced-admin-wrapper .left-nav nav a .icon.app-page {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a .icon.app-page {
           background-image: url(../images/apps-icon.svg); }
-        .advanced-admin-wrapper .left-nav nav a .icon.my-wallet {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a .icon.my-wallet {
           background-image: url(../images/wallet.svg); }
-        .advanced-admin-wrapper .left-nav nav a .icon.exit {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a .icon.exit {
           background-image: url(../images/exit.svg); }
-      .advanced-admin-wrapper .left-nav nav a:before, .advanced-admin-wrapper .left-nav nav a:after {
+      .advanced-admin-wrapper .left-nav .desktop-visible nav a:before, .advanced-admin-wrapper .left-nav .desktop-visible nav a:after {
         content: '';
         position: absolute;
         right: 0;
@@ -5169,27 +5124,29 @@ header {
         -o-transition: 0.3s;
         -ms-transition: 0.3s;
         transition: 0.3s; }
-      .advanced-admin-wrapper .left-nav nav a:before {
+      .advanced-admin-wrapper .left-nav .desktop-visible nav a:before {
         top: 100%;
         background-image: url(../images/bottom-angle-effect.svg); }
-      .advanced-admin-wrapper .left-nav nav a:after {
+      .advanced-admin-wrapper .left-nav .desktop-visible nav a:after {
         bottom: 100%;
         background-image: url(../images/top-angle-effect.svg); }
-      .advanced-admin-wrapper .left-nav nav a:hover, .advanced-admin-wrapper .left-nav nav a.active {
+      .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active {
         color: black;
         background-color: white; }
-        .advanced-admin-wrapper .left-nav nav a:hover:before, .advanced-admin-wrapper .left-nav nav a:hover:after, .advanced-admin-wrapper .left-nav nav a.active:before, .advanced-admin-wrapper .left-nav nav a.active:after {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover:before, .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover:after, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active:before, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active:after {
           opacity: 1; }
-        .advanced-admin-wrapper .left-nav nav a:hover .icon.my-patients, .advanced-admin-wrapper .left-nav nav a.active .icon.my-patients {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover .icon.my-patients, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active .icon.my-patients {
           background-image: url(../images/blue-patients-icon.svg); }
-        .advanced-admin-wrapper .left-nav nav a:hover .icon.push-notifications, .advanced-admin-wrapper .left-nav nav a.active .icon.push-notifications {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover .icon.push-notifications, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active .icon.push-notifications {
           background-image: url(../images/blue-push-notifications-icon.svg); }
-        .advanced-admin-wrapper .left-nav nav a:hover .icon.app-page, .advanced-admin-wrapper .left-nav nav a.active .icon.app-page {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover .icon.app-page, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active .icon.app-page {
           background-image: url(../images/blue-apps-icon.svg); }
-        .advanced-admin-wrapper .left-nav nav a:hover .icon.my-wallet, .advanced-admin-wrapper .left-nav nav a.active .icon.my-wallet {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover .icon.my-wallet, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active .icon.my-wallet {
           background-image: url(../images/blue-wallet.svg); }
-        .advanced-admin-wrapper .left-nav nav a:hover .icon.exit, .advanced-admin-wrapper .left-nav nav a.active .icon.exit {
+        .advanced-admin-wrapper .left-nav .desktop-visible nav a:hover .icon.exit, .advanced-admin-wrapper .left-nav .desktop-visible nav a.active .icon.exit {
           background-image: url(../images/blue-exit.svg); }
+    .advanced-admin-wrapper .left-nav .mobile-visible {
+      display: none; }
   .advanced-admin-wrapper .admin-page-content {
     background-color: white;
     width: calc(100% - 260px);
@@ -5204,6 +5161,132 @@ header {
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       border-radius: 50%; }
+  @media screen and (max-width: 1199px) {
+    .advanced-admin-wrapper .admin-page-content {
+      padding: 20px 15px 50px; } }
+  @media screen and (max-width: 991px) {
+    .advanced-admin-wrapper {
+      padding: 0; }
+      .advanced-admin-wrapper .left-nav {
+        width: 100%; }
+        .advanced-admin-wrapper .left-nav .desktop-visible {
+          display: none; }
+        .advanced-admin-wrapper .left-nav .mobile-visible {
+          display: block;
+          padding-top: 15px; }
+          .advanced-admin-wrapper .left-nav .mobile-visible .go-back-and-logout .go-back, .advanced-admin-wrapper .left-nav .mobile-visible .go-back-and-logout .logout {
+            width: 50%; }
+          .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar ul .dentist-avatar img {
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%; }
+          .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar ul .icon {
+            width: 35px;
+            height: 35px;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto 5px; }
+            .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar ul .icon.app-page {
+              background-image: url(../images/apps-icon.svg); }
+            .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar ul .icon.my-wallet {
+              background-image: url(../images/wallet.svg); }
+          .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar .dentist-info {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            position: relative; }
+            .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar .dentist-info a:hover {
+              color: white; }
+            .advanced-admin-wrapper .left-nav .mobile-visible .nav-and-avatar .dentist-info:after {
+              content: '';
+              position: absolute;
+              width: 200px;
+              height: 1.5px;
+              background-color: white;
+              bottom: 0;
+              position: absolute;
+              left: 50%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              transform: translateX(-50%); }
+          .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li {
+            width: 50%; }
+            .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a {
+              display: block;
+              color: white;
+              padding-top: 10px;
+              position: relative; }
+              .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a .icon {
+                width: 35px;
+                height: 35px;
+                margin: 0 auto 5px;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat; }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a .icon.my-patients {
+                  background-image: url(../images/patients-icon.svg); }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a .icon.push-notifications {
+                  background-image: url(../images/push-notifications-icon.svg); }
+              .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 25px;
+                height: 25px;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                opacity: 0;
+                -webkit-transition: 0.3s;
+                -moz-transition: 0.3s;
+                -o-transition: 0.3s;
+                -ms-transition: 0.3s;
+                transition: 0.3s; }
+              .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.my-patients:before {
+                left: calc(100% - 2px);
+                background-image: url(../images/bottom-angle-effect.svg);
+                -webkit-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg); }
+              .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.push-notifications:before {
+                right: calc(100% - 2px);
+                background-image: url(../images/bottom-angle-effect.svg);
+                -webkit-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                transform: rotate(90deg); }
+              .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active {
+                color: black;
+                background-color: white; }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active.my-patients {
+                  -webkit-border-radius: 0 20px 0 0;
+                  -moz-border-radius: 0 20px 0 0;
+                  -ms-border-radius: 0 20px 0 0;
+                  border-radius: 0 20px 0 0; }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active.push-notifications {
+                  -webkit-border-radius: 20px 0 0 0;
+                  -moz-border-radius: 20px 0 0 0;
+                  -ms-border-radius: 20px 0 0 0;
+                  border-radius: 20px 0 0 0; }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active:before, .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active:after {
+                  opacity: 1; }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active .icon.my-patients {
+                  background-image: url(../images/blue-patients-icon.svg); }
+                .advanced-admin-wrapper .left-nav .mobile-visible .white-styled-nav ul li a.active .icon.push-notifications {
+                  background-image: url(../images/blue-push-notifications-icon.svg); }
+      .advanced-admin-wrapper .admin-page-content {
+        width: 100%;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        border-radius: 0; }
+        .advanced-admin-wrapper .admin-page-content .user-info-tab {
+          display: none; }
+        .advanced-admin-wrapper .admin-page-content .title-and-subtitle {
+          text-align: center; } }
 
 .admin-container {
   max-width: 1000px; }
@@ -5332,15 +5415,15 @@ header {
         }
     }
 }*/
-.custom-data-table .dataTables_length, .custom-data-table .dataTables_filter {
+.custom-data-table .table-wrapper .dataTables_length, .custom-data-table .table-wrapper .dataTables_filter {
   display: none; }
-.custom-data-table .dataTables_info {
+.custom-data-table .table-wrapper .dataTables_info {
   color: #00b7e2;
   padding-bottom: 15px;
   text-align: center; }
-.custom-data-table .dataTables_paginate {
+.custom-data-table .table-wrapper .dataTables_paginate {
   text-align: center; }
-  .custom-data-table .dataTables_paginate .paginate_button {
+  .custom-data-table .table-wrapper .dataTables_paginate .paginate_button {
     cursor: pointer;
     width: 30px;
     line-height: 30px;
@@ -5357,13 +5440,13 @@ header {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%; }
-    .custom-data-table .dataTables_paginate .paginate_button.current {
+    .custom-data-table .table-wrapper .dataTables_paginate .paginate_button.current {
       color: white;
       background-color: #00b7e2; }
-    .custom-data-table .dataTables_paginate .paginate_button.previous {
+    .custom-data-table .table-wrapper .dataTables_paginate .paginate_button.previous {
       font-size: 0;
       position: relative; }
-      .custom-data-table .dataTables_paginate .paginate_button.previous:after {
+      .custom-data-table .table-wrapper .dataTables_paginate .paginate_button.previous:after {
         content: '<';
         font-size: 30px;
         position: absolute;
@@ -5372,10 +5455,10 @@ header {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
-    .custom-data-table .dataTables_paginate .paginate_button.next {
+    .custom-data-table .table-wrapper .dataTables_paginate .paginate_button.next {
       font-size: 0;
       position: relative; }
-      .custom-data-table .dataTables_paginate .paginate_button.next:after {
+      .custom-data-table .table-wrapper .dataTables_paginate .paginate_button.next:after {
         content: '>';
         font-size: 30px;
         position: absolute;
@@ -5384,19 +5467,35 @@ header {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
-.custom-data-table table {
+.custom-data-table .table-wrapper table {
   width: 100%; }
-  .custom-data-table table tbody tr {
+  .custom-data-table .table-wrapper table tbody tr {
     border-bottom: 1.5px solid #dddddd; }
-    .custom-data-table table tbody tr td {
+    .custom-data-table .table-wrapper table tbody tr td {
       padding: 10px; }
-  .custom-data-table table thead tr {
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      .custom-data-table .table-wrapper table tbody tr .email {
+        max-width: 200px;
+        word-break: break-word;
+        display: block; } }
+  .custom-data-table .table-wrapper table thead tr {
     border-bottom: 3px solid #dddddd; }
-    .custom-data-table table thead tr th {
+    .custom-data-table .table-wrapper table thead tr th {
       color: #888888;
       text-align: left;
       padding: 10px;
       font-weight: normal; }
+@media screen and (min-width: 1800px) {
+  .custom-data-table {
+    font-size: 18px !important; } }
+@media screen and (max-width: 767px) {
+  .custom-data-table {
+    overflow: auto;
+    padding-bottom: 20px; }
+    .custom-data-table .table-wrapper {
+      min-width: 800px; }
+      .custom-data-table .table-wrapper .dataTables_info, .custom-data-table .table-wrapper .dataTables_paginate {
+        text-align: left; } }
 
 .bootbox .modal-body {
   padding: 35px 15px 20px; }
@@ -5880,7 +5979,7 @@ header {
     -o-transition: 0.3s;
     -ms-transition: 0.3s;
     transition: 0.3s; }
-    .basic-admin-panel .single-app .app-wrapper figure {
+    .basic-admin-panel .single-app .app-wrapper figure, .basic-admin-panel .single-app .app-wrapper svg {
       overflow: hidden;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
@@ -5960,71 +6059,56 @@ header {
   .basic-admin-panel.edit-mode .show-in-edit-mode.inline-block-mode {
     display: inline-block; }
 
-.invites-table .dataTables_length, .invites-table .dataTables_filter {
+.invite-patients-form .people-invitation .inputs .inputs-row .inputs-wrapper {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s; }
+  .invite-patients-form .people-invitation .inputs .inputs-row .inputs-wrapper .input-field {
+    width: 48%;
+    margin-right: 2%; }
+    .invite-patients-form .people-invitation .inputs .inputs-row .inputs-wrapper .input-field:nth-child(2) {
+      margin-right: 0;
+      margin-left: 2%; }
+.invite-patients-form .people-invitation .inputs .inputs-row .remove-row {
+  width: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s; }
+  .invite-patients-form .people-invitation .inputs .inputs-row .remove-row a {
+    color: #aaaaaa; }
+.invite-patients-form .people-invitation .inputs .inputs-row.more-than-one-row .inputs-wrapper {
+  width: calc(100% - 30px); }
+.invite-patients-form .people-invitation .inputs .inputs-row.more-than-one-row .remove-row {
+  width: 30px;
+  visibility: visible; }
+@media screen and (max-width: 767px) {
+  .invite-patients-form .people-invitation .inputs .inputs-row.more-than-one-row .inputs-wrapper {
+    width: calc(100% - 20px); }
+  .invite-patients-form .people-invitation .inputs .inputs-row.more-than-one-row .remove-row {
+    width: 20px;
+    visibility: visible; } }
+.invite-patients-form .people-invitation .buttons .send-btn-container, .invite-patients-form .people-invitation .buttons .add-btn-container {
+  width: 50%; }
+  .invite-patients-form .people-invitation .buttons .send-btn-container a, .invite-patients-form .people-invitation .buttons .add-btn-container a {
+    text-align: center; }
+.invite-patients-form .people-invitation .mobile-send-emails {
   display: none; }
-.invites-table .dataTables_info {
-  color: #00b7e2;
-  padding-bottom: 15px;
-  text-align: center; }
-.invites-table .dataTables_paginate {
-  text-align: center; }
-  .invites-table .dataTables_paginate .paginate_button {
-    cursor: pointer;
-    width: 30px;
-    line-height: 30px;
-    height: 30px;
-    margin: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 16px;
-    text-align: center;
-    background-color: white;
-    color: #00b7e2;
-    border: 2px solid #00b7e2;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    border-radius: 50%; }
-    .invites-table .dataTables_paginate .paginate_button.current {
-      color: white;
-      background-color: #00b7e2; }
-    .invites-table .dataTables_paginate .paginate_button.previous {
-      font-size: 0;
-      position: relative; }
-      .invites-table .dataTables_paginate .paginate_button.previous:after {
-        content: '<';
-        font-size: 30px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); }
-    .invites-table .dataTables_paginate .paginate_button.next {
-      font-size: 0;
-      position: relative; }
-      .invites-table .dataTables_paginate .paginate_button.next:after {
-        content: '>';
-        font-size: 30px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); }
-.invites-table table {
-  width: 100%; }
-  .invites-table table tbody tr {
-    border-bottom: 1.5px solid #dddddd; }
-    .invites-table table tbody tr td {
-      padding: 10px; }
-  .invites-table table thead tr {
-    border-bottom: 3px solid #dddddd; }
-    .invites-table table thead tr th {
-      color: #888888;
-      text-align: left;
-      padding: 10px;
-      font-weight: normal; }
+@media screen and (max-width: 767px) {
+  .invite-patients-form .people-invitation .inputs {
+    width: 100%; }
+  .invite-patients-form .people-invitation .buttons .send-btn-container, .invite-patients-form .people-invitation .buttons .add-btn-container {
+    width: 100%; }
+  .invite-patients-form .people-invitation .buttons .send-btn-container {
+    padding-top: 20px;
+    text-align: center !important; }
+  .invite-patients-form .people-invitation .mobile-send-emails {
+    display: block; } }
 
 .push-notifications-custom-form textarea {
   border: 1.5px solid #dddddd;
@@ -6046,6 +6130,17 @@ header {
     border: 1.5px solid #0fb0e5; }
 .push-notifications-custom-form .datetimepicker-and-buttons .daterangepicker-parent, .push-notifications-custom-form .datetimepicker-and-buttons .buttons {
   width: 50%; }
+@media screen and (max-width: 767px) {
+  .push-notifications-custom-form .datetimepicker-and-buttons .daterangepicker-parent, .push-notifications-custom-form .datetimepicker-and-buttons .buttons {
+    width: 100%; }
+  .push-notifications-custom-form .datetimepicker-and-buttons .daterangepicker-parent .max-width-180 {
+    max-width: 100% !important; }
+  .push-notifications-custom-form .datetimepicker-and-buttons .buttons button {
+    font-size: 13px !important; }
+    .push-notifications-custom-form .datetimepicker-and-buttons .buttons button:first-child {
+      width: calc(50% - 5px); }
+    .push-notifications-custom-form .datetimepicker-and-buttons .buttons button:last-child {
+      width: calc(50% - 5px); } }
 .push-notifications-custom-form .schedule-button .custom-dot {
   width: 18px;
   height: 18px;
