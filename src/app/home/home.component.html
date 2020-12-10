@@ -5,20 +5,22 @@
             <h1 class="platform-text-color fs-30 fs-xs-22 calibri-bold text-center title-label padding-top-40 padding-top-xs-20 padding-bottom-30" *ngIf="(translate.currentLang == 'de')" [innerHTML]="hubTitleDe">}</h1>
             <div class="row fs-0 apps-list">
                 <ng-container *ngFor="let application of applications; index as i;">
-                    <div class="{{applicationsColumnClass}} text-center padding-bottom-20 padding-left-20 padding-right-20 padding-left-xs-10 padding-right-xs-10 inline-block-top single-app" data-id="{{application.id}}"  *ngIf="(translate.currentLang == 'en' && (application.name_en != '' || application.description_en != ''))">
+                    <div class="{{applicationsColumnClass}} text-center padding-bottom-20 padding-left-20 padding-right-20 padding-left-xs-10 padding-right-xs-10 inline-block-top single-app" data-id="{{application.id}}" *ngIf="(translate.currentLang == 'en' && (application.name_en != '' || application.description_en != ''))">
                         <a href="{{application.url}}" [attr.data-phone]="application.type == 'phone' ? 'true' : null" target="_blank" class="platform-text-color in-app-browser-link">
-                            <figure itemscope="" itemtype="http://schema.org/ImageObject">
+                            <figure itemscope="" itemtype="http://schema.org/ImageObject" *ngIf="(application.resource_type == 'image')">
                                 <img alt="" class="width-100 app-media" itemprop="contentUrl" src="{{application.media}}"/>
                             </figure>
+                            <div *ngIf="(application.resource_type == 'svg')" class="svg-parent">{{application.media}}</div>
                             <h2 class="platform-text-color fs-18 fs-xs-15 padding-top-10 calibri-bold app-name">{{application.name_en}}</h2>
                             <p class="platform-text-color fs-16 fs-xs-14 line-height-16 app-description">{{application.description_en}}</p>
                         </a>
                     </div>
-                    <div class="{{applicationsColumnClass}} text-center padding-bottom-20 padding-left-20 padding-right-20 padding-left-xs-10 padding-right-xs-10 inline-block-top single-app" data-id="{{application.id}}"  *ngIf="(translate.currentLang == 'de' && (application.name_de != '' || application.description_de != ''))">
+                    <div class="{{applicationsColumnClass}} text-center padding-bottom-20 padding-left-20 padding-right-20 padding-left-xs-10 padding-right-xs-10 inline-block-top single-app" data-id="{{application.id}}" *ngIf="(translate.currentLang == 'de' && (application.name_de != '' || application.description_de != ''))">
                         <a href="{{application.url}}" [attr.data-phone]="application.type == 'phone' ? 'true' : null" target="_blank" class="platform-text-color in-app-browser-link">
-                            <figure itemscope="" itemtype="http://schema.org/ImageObject">
+                            <figure itemscope="" itemtype="http://schema.org/ImageObject" *ngIf="(application.resource_type == 'image')">
                                 <img alt="" class="width-100 app-media" itemprop="contentUrl" src="{{application.media}}"/>
                             </figure>
+                            <div *ngIf="(application.resource_type == 'svg')" class="svg-parent">{{application.media}}</div>
                             <h2 class="platform-text-color fs-18 fs-xs-15 padding-top-10 calibri-bold app-name">{{application.name_de}}</h2>
                             <p class="platform-text-color fs-16 fs-xs-14 line-height-16 app-description">{{application.description_de}}</p>
                         </a>

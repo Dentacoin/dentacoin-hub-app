@@ -5040,7 +5040,7 @@ header {
 
 .homepage-container {
   min-height: 500px; }
-  .homepage-container .single-app figure {
+  .homepage-container .single-app figure, .homepage-container .single-app .svg-parent {
     overflow: hidden;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
