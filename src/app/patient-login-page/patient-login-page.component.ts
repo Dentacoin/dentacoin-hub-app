@@ -83,6 +83,14 @@ export class PatientLoginPageComponent implements OnInit {
 
                 document.getElementById('custom-error').classList.remove('hide');
                 document.getElementById('custom-error').innerHTML = errorsHtml;
+
+                if ($('.log-link.open-dentacoin-gateway').length) {
+                    $('.log-link.open-dentacoin-gateway').on('click', () => {
+                        console.log('log link');
+                        this.redirectsService.redirectToPatientLogin('login');
+                    });
+                }
+
                 this.additionalService.hideLoader();
             });
 
@@ -95,34 +103,34 @@ export class PatientLoginPageComponent implements OnInit {
                 document.getElementById('patient-login-failed').classList.remove('hide');
                 this.additionalService.hideLoader();
             });
-
-            $('.log-link.open-dentacoin-gateway').on('click', () => {
-                console.log('log link');
-                this.redirectsService.redirectToPatientLogin('login');
-            });
         }
     }
 
     onPatientsLogin(_token: any, _id: any, _patient_of: any) {
         if (_patient_of !== null && _patient_of !== undefined) {
-            this.requestsService.coreDbLogin(new HttpParams().set('token', _token).set('id', _id).toString()).subscribe({
+            this.requestsService.coreDbLogin(new HttpParams().set('token', _token).set('id', _id).set('patient_of', _patient_of).toString()).subscribe({
                 next: (coredbResponse: any) => {
                     window.scrollTo(0, 0);
+                    if (coredbResponse.success) {
+                        window.localStorage.setItem('currentPatient', JSON.stringify({
+                            token: _token,
+                            id: _id,
+                            patient_of: _patient_of,
+                            encrypted_id: coredbResponse.encrypted_id,
+                            encrypted_token: coredbResponse.encrypted_token,
+                            encrypted_type: coredbResponse.encrypted_type
+                        }));
 
-                    window.localStorage.setItem('currentPatient', JSON.stringify({
-                        token: _token,
-                        id: _id,
-                        patient_of: _patient_of,
-                        encrypted_id: coredbResponse.encrypted_id,
-                        encrypted_token: coredbResponse.encrypted_token,
-                        encrypted_type: coredbResponse.encrypted_type
-                    }));
+                        window.localStorage.setItem('dentist', String(_patient_of));
 
-                    window.localStorage.setItem('dentist', String(_patient_of));
-
-                    this.authenticationServiceService.isPatientLoggedSubject.next(true);
-                    this.redirectsService.redirectToLoggedHome();
-                    this.additionalService.hideLoader();
+                        this.authenticationServiceService.isPatientLoggedSubject.next(true);
+                        this.redirectsService.redirectToLoggedHome();
+                        this.additionalService.hideLoader();
+                    } else if (coredbResponse.error) {
+                        document.getElementById('custom-error').classList.remove('hide');
+                        document.getElementById('custom-error').innerHTML = coredbResponse.message;
+                        this.additionalService.hideLoader();
+                    }
                 },
                 error: error => {
                     document.getElementById('patient-login-failed').classList.remove('hide');

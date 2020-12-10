@@ -128,6 +128,129 @@
             }
             .mobile-visible {
                 display: block;
+                padding-top: 15px;
+                .go-back-and-logout {
+                    .go-back, .logout {
+                        width: 50%;
+                    }
+                }
+                .nav-and-avatar {
+                    ul {
+                        .dentist-avatar {
+                            img {
+                                @include rounded(50%);
+                            }
+                        }
+                        .icon {
+                            width: 35px;
+                            height: 35px;
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            margin: 0 auto 5px;
+                            &.app-page {
+                                background-image: url(../images/apps-icon.svg);
+                            }
+                            &.my-wallet {
+                                background-image: url(../images/wallet.svg);
+                            }
+                        }
+                    }
+                    .dentist-info {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        margin-bottom: 10px;
+                        position: relative;
+                        a {
+                            &:hover {
+                                color: white;
+                            }
+                        }
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            width: 200px;
+                            height: 1.5px;
+                            background-color: white;
+                            bottom: 0;
+                            @include horizontal-align(absolute);
+                        }
+                    }
+                }
+                .white-styled-nav {
+                    ul {
+                        li {
+                            width: 50%;
+                            a {
+                                display: block;
+                                color: white;
+                                padding-top: 10px;
+                                position: relative;
+                                .icon {
+                                    width: 35px;
+                                    height: 35px;
+                                    margin: 0 auto 5px;
+                                    background-position: center center;
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    &.my-patients {
+                                        background-image: url(../images/patients-icon.svg);
+                                    }
+                                    &.push-notifications {
+                                        background-image: url(../images/push-notifications-icon.svg);
+                                    }
+                                }
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0;
+                                    width: 25px;
+                                    height: 25px;
+                                    background-position: center center;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    opacity: 0;
+                                    @include simple_transition(.3s);
+                                }
+                                &.my-patients {
+                                    &:before {
+                                        left: calc(100% - 2px);
+                                        background-image: url(../images/bottom-angle-effect.svg);
+                                        @include rotate(180deg);
+                                    }
+                                }
+                                &.push-notifications {
+                                    &:before {
+                                        right: calc(100% - 2px);
+                                        background-image: url(../images/bottom-angle-effect.svg);
+                                        @include rotate(90deg);
+                                    }
+                                }
+                                &.active {
+                                    color: black;
+                                    background-color: white;
+                                    &.my-patients {
+                                        @include rounded(0 20px 0 0);
+                                    }
+                                    &.push-notifications {
+                                        @include rounded(20px 0 0 0);
+                                    }
+                                    &:before, &:after {
+                                        opacity: 1;
+                                    }
+                                    .icon {
+                                        &.my-patients {
+                                            background-image: url(../images/blue-patients-icon.svg);
+                                        }
+                                        &.push-notifications {
+                                            background-image: url(../images/blue-push-notifications-icon.svg);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .admin-page-content {

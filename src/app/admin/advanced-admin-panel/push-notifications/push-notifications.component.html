@@ -1,10 +1,10 @@
 <div class="color-black admin-container">
     <div class="title-and-subtitle">
-        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-40 inline-block">
+        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-40 max-width-xs-30 inline-block">
             <img alt="Patients icon" class="width-100" src="assets/images/black-push-notifications-icon.svg"/>
         </figure>
-        <span class="inline-block fs-36 padding-left-10 lato-bold">{{'push-notification-page-title' | translate}}</span>
-        <div class="fs-18 padding-bottom-20">{{'push-notification-page-subtitle' | translate}}</div>
+        <span class="inline-block fs-36 fs-xs-26 padding-left-10 lato-bold">{{'push-notification-page-title' | translate}}</span>
+        <div class="fs-18 fs-xs-16 padding-bottom-20">{{'push-notification-page-subtitle' | translate}}</div>
     </div>
     <div class="push-notifications-custom-form">
         <div class="padding-bottom-15">
@@ -17,7 +17,7 @@
             <textarea placeholder="Message..." rows="3" maxlength="255" id="message" class="full-rounded form-field platform-border-color"></textarea>
         </div>
         <div class="datetimepicker-and-buttons fs-0">
-            <div class="daterangepicker-parent inline-block">
+            <div class="daterangepicker-parent inline-block padding-bottom-xs-15">
                 <div class="max-width-180">
                     <div class="custom-google-label-style module hide field" data-input-colorful-border="true">
                         <label for="title" class="platform-color active-label">Date</label>
@@ -33,7 +33,7 @@
         <div class="custom-response hide" [attr.data-push-notifications-sent-success]="'push-notifications-sent-successfully' | translate" [attr.data-push-notifications-register-success]="'push-notifications-register-successfully' | translate" [attr.data-push-notifications-failed]="'general-error' | translate"></div>
     </div>
 </div>
-<div class="fs-18 custom-data-table padding-top-70 admin-container" *ngIf="showPushNotificationsHistory">
+<div class="fs-18 custom-data-table padding-top-70 padding-top-xs-30 admin-container" *ngIf="showPushNotificationsHistory">
     <div class="table-wrapper">
         <table class="table table-without-reorder">
             <thead>

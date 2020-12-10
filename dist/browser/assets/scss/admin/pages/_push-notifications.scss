@@ -18,6 +18,27 @@
         .daterangepicker-parent, .buttons {
             width: 50%;
         }
+        @include breakpoint($xs) {
+            .daterangepicker-parent, .buttons {
+                width: 100%;
+            }
+            .daterangepicker-parent {
+                .max-width-180 {
+                    max-width: 100% !important;
+                }
+            }
+            .buttons {
+                button {
+                    font-size: 13px !important;
+                    &:first-child {
+                        width: calc(50% - 5px);
+                    }
+                    &:last-child {
+                        width: calc(50% - 5px);
+                    }
+                }
+            }
+        }
     }
     .schedule-button {
         .custom-dot {

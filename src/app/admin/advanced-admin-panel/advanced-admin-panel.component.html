@@ -1,8 +1,10 @@
 <div class="advanced-admin-wrapper fs-0">
     <div class="left-nav inline-block-top color-white">
         <div class="desktop-visible">
-            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 padding-bottom-60">
-                <img alt="Dentacoin logo" class="width-100" src="assets/images/one-line-logo-white.svg"/>
+            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-40 padding-bottom-60">
+                <a (click)="this.redirectsService.redirectToAdmin()">
+                    <img alt="Dentacoin logo" class="width-100" src="assets/images/exit.svg"/>
+                </a>
             </figure>
             <div class="dentist-data padding-bottom-50">
                 <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-100 padding-bottom-10 dentist-avatar">
@@ -39,57 +41,77 @@
                     </li>
                     <li>
                         <a href="javascript:void(0)" itemprop="url" (click)="this.authenticationServiceService.logout('dentist')">
-                            <span class="inline-block icon exit"></span>
-                            <span class="inline-block">{{'admin-menu-element-exit' | translate}}</span>
+                            <span class="inline-block">{{'admin-menu-element-logout' | translate}}</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="mobile-visible">
-            <div class="logo-and-dentist-stats">
-                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-150 padding-bottom-60">
-                    <img alt="Dentacoin logo" class="width-100" src="assets/images/one-line-logo-white.svg"/>
-                </figure>
-                <div class="dentist-data padding-bottom-50">
-                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-100 padding-bottom-10 dentist-avatar">
-                        <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+            <div class="go-back-and-logout fs-0 padding-bottom-15 padding-left-15 padding-right-15">
+                <div class="go-back inline-block">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-40">
+                        <a (click)="this.redirectsService.redirectToAdmin()">
+                            <img alt="Dentacoin logo" class="width-100" src="assets/images/exit.svg"/>
+                        </a>
                     </figure>
-                    <div class="fs-20 lato-bold">{{dentistData.name}}</div>
-                    <div class="fs-16"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
+                </div>
+                <div class="logout text-right fs-18 inline-block">
+                    <a href="javascript:void(0)" itemprop="url" (click)="this.authenticationServiceService.logout('dentist')" class=" color-white lato-bold">
+                        <span class="inline-block">{{'admin-menu-element-logout' | translate}}</span>
+                    </a>
                 </div>
             </div>
-            <div class="nav-and-avatar text-center">
-                <ul>
-                    <li>
-                        <a (click)="this.redirectsService.redirectToAdmin()" itemprop="url">
-                            <span class="inline-block icon app-page"></span>
-                            <span class="inline-block">{{'admin-menu-element-app-page' | translate}}</span>
+            <div class="nav-and-avatar text-center color-white padding-left-15 padding-right-15">
+                <nav class="max-width-500 margin-0-auto fs-0">
+                    <ul>
+                        <li class="inline-block-bottom padding-right-20">
+                            <a (click)="this.redirectsService.redirectToAdmin()" itemprop="url">
+                                <div class="icon app-page"></div>
+                                <div class="fs-18 fs-xs-16 color-white">{{'admin-menu-element-app-page' | translate}}</div>
+                            </a>
+                        </li>
+                        <li class="inline-block-bottom">
+                            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-80 padding-bottom-10 dentist-avatar">
+                                <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+                            </figure>
+                        </li>
+                        <li class="inline-block-bottom padding-left-20">
+                            <a href="{{myAccountLink}}" target="_blank" itemprop="url">
+                                <div class="icon my-wallet"></div>
+                                <div class="fs-18 fs-xs-16 color-white">{{'admin-menu-element-my-wallet' | translate}}</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="dentist-info">
+                    <div class="fs-20 lato-bold">{{dentistData.name}}</div>
+                    <div class="fs-16 padding-top-5 padding-bottom-5"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
+                    <a href="{{myAccountLink}}" target="_blank" class="fs-16 color-white">
+                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>
+                    </a>
+                </div>
+            </div>
+            <nav class="white-styled-nav fs-0 text-center">
+                <ul itemtype="http://schema.org/SiteNavigationElement">
+                    <li class="inline-block">
+                        <a class="my-patients" routerLink="my-patients" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" itemprop="url">
+                            <div class="icon my-patients"></div>
+                            <div class="fs-16 padding-bottom-10">{{'admin-menu-element-my-patients' | translate}}</div>
                         </a>
                     </li>
-                    <li>
-                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-80 padding-bottom-10 dentist-avatar">
-                            <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
-                        </figure>
-                    </li>
-                    <li>
-                        <a href="{{myAccountLink}}" target="_blank" itemprop="url">
-                            <span class="inline-block icon my-wallet"></span>
-                            <span class="inline-block">{{'admin-menu-element-my-wallet' | translate}}</span>
+                    <li class="inline-block">
+                        <a class="push-notifications" routerLink="push-notifications" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" itemprop="url">
+                            <div class="icon push-notifications"></div>
+                            <div class="fs-16 padding-bottom-10">{{'admin-menu-element-push-notifications' | translate}}</div>
                         </a>
                     </li>
                 </ul>
-                <div class="dentist-info">
-                    <div class="fs-20 lato-bold">{{dentistData.name}}</div>
-                    <div class="fs-16"><a href="mailto:sam.johnes@gmail.com" class="color-white email-link">{{dentistData.email}}</a></div>
-                </div>
-            </div>
+            </nav>
         </div>
     </div>
     <div class="admin-page-content inline-block-top">
         <div class="user-info-tab text-right">
-            <div>
-            </div>
             <a href="{{myAccountLink}}" target="_blank" class="fs-14 inline-block">
                 <div class="padding-bottom-5">{{dentistData.name}}</div>
                 <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>

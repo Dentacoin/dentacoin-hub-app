@@ -1,12 +1,12 @@
 <div class="invite-patients-form color-black admin-container">
     <div class="title-and-subtitle">
-        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-40 inline-block">
+        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="max-width-40 max-width-xs-30 inline-block">
             <img alt="Patients icon" class="width-100" src="assets/images/black-patients-icon.svg"/>
         </figure>
-        <span class="inline-block fs-36 padding-left-10 lato-bold">{{'my-patients-page-title' | translate}}</span>
-        <div class="fs-18 padding-bottom-20">{{'my-patients-page-subtitle' | translate}}</div>
+        <span class="inline-block fs-36 fs-xs-26 padding-left-10 lato-bold">{{'my-patients-page-title' | translate}}</span>
+        <div class="fs-18 fs-xs-16 padding-bottom-20">{{'my-patients-page-subtitle' | translate}}</div>
     </div>
-    <div class="module people-invitation fs-0">
+    <div class="people-invitation fs-0">
         <div class="inputs">
             <div class="inputs-row padding-bottom-10">
                 <div class="remove-row inline-block">
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="padding-top-15 fs-0 buttons">
+        <div class="padding-top-15 padding-top-xs-5 fs-0 buttons">
             <div class="inline-block add-btn-container">
                 <a href="javascript:void(0)" class="lato-bold fs-16 add-invitation-rows module platform-color">{{'invite-patients-form-add-another-patient' | translate}}</a>
             </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
 </div>
-<div class="fs-16 custom-data-table padding-top-70 admin-container" *ngIf="showInvitationHistory">
+<div class="fs-16 custom-data-table padding-top-70 padding-top-xs-30 admin-container" *ngIf="showInvitationHistory">
     <div class="table-wrapper">
         <table class="table table-without-reorder">
             <thead>

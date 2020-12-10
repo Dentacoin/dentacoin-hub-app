@@ -170,6 +170,7 @@ var projectData = {
 
                 // refreshing dentist data from DB
                 function buildDentistData(dentist_data, build_logo_and_titles, edit_mode) {
+                    console.log('buildDentistData');
                     if (build_logo_and_titles != undefined) {
                         // setting up dentist logo
                         if (dentist_data.data.logo != undefined && dentist_data.data.logo != '' && dentist_data.data.logo != null) {
@@ -207,8 +208,18 @@ var projectData = {
                             var app_description;
                             var class_name = '';
                             var removable_class_name = '';
+                            var editable_class_name = '';
+
                             if (dentist_data.data.applications[key].removable) {
                                 removable_class_name = ' removable ';
+                            }
+
+                            if (hasOwnProperty.call(dentist_data.data.applications[key], 'editable')) {
+                                if (dentist_data.data.applications[key].editable) {
+                                    editable_class_name = ' editable ';
+                                }
+                            } else {
+                                editable_class_name = ' editable ';
                             }
 
                             if ($('.main-content').attr('data-lang') == 'en') {
@@ -221,7 +232,7 @@ var projectData = {
                                 }
                             }
 
-                            apps_html += '<div class="' + column_class + ' text-center padding-bottom-15 inline-block-top single-app sortable-app '+ removable_class_name + class_name + '"';
+                            apps_html += '<div class="' + column_class + ' text-center padding-bottom-15 inline-block-top single-app sortable-app '+ removable_class_name + editable_class_name + class_name + '"';
                             if (dentist_data.data.applications[key].default_application_id != null) {
                                 apps_html += ' data-default-application-id="'+dentist_data.data.applications[key].default_application_id+'"';
                             }
@@ -252,7 +263,16 @@ var projectData = {
                                 edit_delete_actions = '<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>';
                             }
 
-                            apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="_blank"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
+                            var imageHtml = ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="_blank"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
+                            if (hasOwnProperty.call(dentist_data.data.applications[key], 'resource_type')) {
+                                if (dentist_data.data.applications[key].resource_type == 'svg') {
+                                    apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="_blank"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+dentist_data.data.applications[key].media+'<div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
+                                } else if(dentist_data.data.applications[key].resource_type == 'image') {
+                                    apps_html += imageHtml;
+                                }
+                            } else {
+                                apps_html += imageHtml;
+                            }
                         }
                     }
                     $('.apps-list').prepend(apps_html);
@@ -691,7 +711,17 @@ var projectData = {
                             }
                             $('body').removeClass('overflow-hidden');
 
-                            $('.single-app.removable .app-wrapper').prepend('<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>');
+                            for (var i = 0, len = $('.single-app').length; i < len; i+=1) {
+                                var editModeHtml = '';
+                                if ($('.single-app').eq(i).hasClass('removable') && $('.single-app').eq(i).hasClass('editable')) {
+                                    editModeHtml = '<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>';
+                                } else if ($('.single-app').eq(i).hasClass('removable')) {
+                                    editModeHtml = '<div class="actions-on-edit"><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>';
+                                } else if ($('.single-app').eq(i).hasClass('editable')) {
+                                    editModeHtml = '<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button></div>';
+                                }
+                                $('.single-app').eq(i).find('.app-wrapper').prepend(editModeHtml);
+                            }
 
                             bindEditDeleteAppEvents();
 
@@ -718,7 +748,17 @@ var projectData = {
 
                                         if (default_apps_response.success) {
                                             for (var i = 0, len = default_apps_response.data.length; i < len; i += 1) {
-                                                add_app_popup_html += '<li><button class="platform-border-color-important" data-name-en="' + default_apps_response.data[i].name_en + '" data-name-de="' + default_apps_response.data[i].name_de + '" data-description-en="' + default_apps_response.data[i].description_en + '" data-description-de="' + default_apps_response.data[i].description_de + '" data-url="' + default_apps_response.data[i].url + '" data-media="' + default_apps_response.data[i].media + '" data-default-application-id="' + default_apps_response.data[i].id + '" data-id="' + default_apps_response.data[i].id + '"><i class="fa fa-check check-icon" aria-hidden="true"></i><img alt="" class="width-100" itemprop="contentUrl" src="' + default_apps_response.data[i].media + '"/></button></li>';
+                                                var imageHtml = '';
+                                                var imageHtmlData = '';
+                                                if (default_apps_response.data[i].resource_type == 'svg') {
+                                                    imageHtml = default_apps_response.data[i].media;
+                                                    imageHtmlData = encodeURIComponent(default_apps_response.data[i].media);
+                                                } else if (default_apps_response.data[i].resource_type == 'image') {
+                                                    imageHtmlData = default_apps_response.data[i].media;
+                                                    imageHtml = '<img alt="" class="width-100" itemprop="contentUrl" src="' + default_apps_response.data[i].media + '"/>';
+                                                }
+
+                                                add_app_popup_html += '<li><button class="platform-border-color-important" data-name-en="' + default_apps_response.data[i].name_en + '" data-name-de="' + default_apps_response.data[i].name_de + '" data-description-en="' + default_apps_response.data[i].description_en + '" data-description-de="' + default_apps_response.data[i].description_de + '" data-url="' + default_apps_response.data[i].url + '" data-media="' + imageHtmlData + '" data-default-application-id="' + default_apps_response.data[i].id + '" data-id="' + default_apps_response.data[i].id + '"><i class="fa fa-check check-icon" aria-hidden="true"></i>' + imageHtml + '</button></li>';
                                             }
                                         }
 
@@ -911,7 +951,7 @@ var projectData = {
                                             description_de : this_app.attr('data-description-de'),
                                             media : this_app.find('.app-media').attr('src'),
                                             removable : this_app.attr('data-removable'),
-                                            url : this_app.find('.app-media').attr('data-url')
+                                            url : this_app.attr('data-url')
                                         };
 
                                         if (this_app.attr('data-default-application-id') != undefined) {
@@ -1652,7 +1692,7 @@ var projectData = {
                     $('.platform-colors').remove();
                     var platform_text_color = getDentistData_response.data.text_color;
                     var platform_base_color = getDentistData_response.data.hub_color;
-                    var platform_color_and_background = '<style class="platform-colors">/*Text color*/.platform-text-color{color:'+platform_text_color+';}/*Base color*/ .module.platform-color,.module.custom-google-label-style label.active-label.platform-color,.platform-color{color:'+platform_base_color+';}.platform-color-important{color:'+platform_base_color+' !important;}.bootbox .bootbox-close-button{color:'+platform_base_color+' !important;}.btn-primary{background-color:'+platform_base_color+' !important;border-color: '+platform_base_color+' !important;}.module.hover.platform-color:hover{background-color:'+platform_base_color+';}.module.platform-background-color,.platform-background-color{background-color:'+platform_base_color+';}.module.hover.platform-background-color:hover{color:'+platform_base_color+';}.module.platform-border-color,.platform-border-color,.module.custom-google-label-style input.colorful-border.platform-border-color{border-color: '+platform_base_color+';}.edit-mode .platform-border-color-important, .important.platform-border-color{border-color: '+platform_base_color+' !important;}.svg-platform-fill{fill: '+platform_base_color+';}.svg-platform-fill-important{fill: '+platform_base_color+' !important;}.platform-background-on-hover:hover {background-color:'+platform_base_color+';}/*Background color/ image*/';
+                    var platform_color_and_background = '<style class="platform-colors">/*Text color*/.platform-text-color{color:'+platform_text_color+';}.platform-fill-color{fill:'+platform_base_color+';}/*Base color*/ .module.platform-color,.module.custom-google-label-style label.active-label.platform-color,.platform-color{color:'+platform_base_color+';}.platform-color-important{color:'+platform_base_color+' !important;}.bootbox .bootbox-close-button{color:'+platform_base_color+' !important;}.btn-primary{background-color:'+platform_base_color+' !important;border-color: '+platform_base_color+' !important;}.module.hover.platform-color:hover{background-color:'+platform_base_color+';}.module.platform-background-color,.platform-background-color{background-color:'+platform_base_color+';}.module.hover.platform-background-color:hover{color:'+platform_base_color+';}.module.platform-border-color,.platform-border-color,.module.custom-google-label-style input.colorful-border.platform-border-color{border-color: '+platform_base_color+';}.edit-mode .platform-border-color-important, .important.platform-border-color{border-color: '+platform_base_color+' !important;}.svg-platform-fill{fill: '+platform_base_color+';}.svg-platform-fill-important{fill: '+platform_base_color+' !important;}.platform-background-on-hover:hover {background-color:'+platform_base_color+';}/*Background color/ image*/';
                     if (getDentistData_response.data.hub_background_type == 'hex-code') {
                         platform_color_and_background += '.platform-background{background-color:'+getDentistData_response.data.hub_background+';}</style>';
                     } else if (getDentistData_response.data.hub_background_type == 'preset-background' || getDentistData_response.data.hub_background_type == 'upload-image') {
