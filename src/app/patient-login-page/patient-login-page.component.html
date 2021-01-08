@@ -17,6 +17,9 @@
             <div class="padding-top-10 text-center">
                 <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/login'" class="civic-custom-btn social-login-btn type-login vanilla-js-event calibri-regular fs-20 fs-xs-18">Continue with Civic</a>
             </div>
+            <div class="padding-top-10 text-center">
+                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/login'" class="apple-custom-btn social-login-btn type-login vanilla-js-event calibri-regular fs-20 fs-xs-18 hide">Continue with Apple</a>
+            </div>
             <div class="padding-top-40 padding-bottom-10 text-center fs-16">
                 <div>{{'no-account-yet' | translate}}</div>
                 <a [routerLink]="['/'+translate.currentLang+'/request-account']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color">{{'request-account-btn' | translate}}</a>

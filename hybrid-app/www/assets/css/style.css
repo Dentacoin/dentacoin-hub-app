@@ -4689,6 +4689,14 @@ img {
     .social-login-btn.facebook-custom-btn:hover {
       color: white; } }
 
+.social-login-btn.apple-custom-btn {
+  background-color: black;
+  background-image: url(../images/apple-icon.svg);
+  color: white; }
+  @media screen and (min-width: 992px) {
+    .social-login-btn.apple-custom-btn:hover {
+      color: white; } }
+
 #iframe-civic-popup {
   position: fixed;
   top: 0;

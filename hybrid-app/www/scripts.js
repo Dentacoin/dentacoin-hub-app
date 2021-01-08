@@ -20703,6 +20703,9 @@ var projectData = {
                             $('.form-login-fields').hide();
                             $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
 
+                            $('.login-parent .custom-google-label-style label').addClass('active-label');
+                            $('.login-parent .custom-google-label-style #mobile-logging-civic-email').focus();
+
                             var civicMobileProceeded = false;
                             $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
                                 //clear prev errors
@@ -20805,6 +20808,9 @@ var projectData = {
 
                             $('.form-register-fields').hide();
                             $('.register-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
+
+                            $('.register-parent .custom-google-label-style label').addClass('active-label');
+                            $('.register-parent .custom-google-label-style #mobile-logging-civic-email').focus();
 
                             var civicMobileProceeded = false;
                             $('.mobile-proceeding-to-civic .social-login-btn').click(function() {

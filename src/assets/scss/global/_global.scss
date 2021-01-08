@@ -881,6 +881,17 @@ img {
     }
 }
 
+.social-login-btn.apple-custom-btn {
+    background-color: black;
+    background-image: url(../images/apple-icon.svg);
+    color: white;
+    @include breakpoint($md) {
+        &:hover {
+            color: white;
+        }
+    }
+}
+
 #iframe-civic-popup {
     position: fixed;
     top: 0;
