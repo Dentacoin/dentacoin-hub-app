@@ -136,7 +136,7 @@
       "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.dentacoin.hub"
     },
-    "cordova-plugin-wkwebview-engine": {
+    "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.dentacoin.hub"
     }
   },
@@ -384,6 +384,6 @@
     "cordova-plugin-app-launcher": "0.4.0",
     "cordova-plugin-inappbrowser": "4.0.0",
     "cordova-plugin-customurlscheme": "5.0.2",
-    "cordova-plugin-wkwebview-engine": "1.2.1"
+    "cordova-plugin-wkwebview-file-xhr": "3.0.0"
   }
 }

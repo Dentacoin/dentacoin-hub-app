@@ -101,10 +101,10 @@
       "URL_SCHEME": "hubapp"
     }
   },
-  "cordova-plugin-wkwebview-engine": {
+  "cordova-plugin-wkwebview-file-xhr": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-wkwebview-engine"
+      "id": "cordova-plugin-wkwebview-file-xhr"
     },
     "is_top_level": true,
     "variables": {}

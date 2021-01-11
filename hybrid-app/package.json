@@ -23,7 +23,7 @@
     "cordova-plugin-firebasex": "^7.0.1",
     "cordova-plugin-inappbrowser": "^4.0.0",
     "cordova-plugin-network-information": "^2.0.2",
-    "cordova-plugin-wkwebview-engine": "^1.2.1",
+    "cordova-plugin-wkwebview-file-xhr": "^3.0.0",
     "cordova-support-android-plugin": "^1.0.1",
     "cordova-support-google-services": "^1.3.2"
   },
@@ -45,7 +45,7 @@
         "ANDROID_HOST": " ",
         "ANDROID_PATHPREFIX": "/"
       },
-      "cordova-plugin-wkwebview-engine": {}
+      "cordova-plugin-wkwebview-file-xhr": {}
     },
     "platforms": [
       "android",

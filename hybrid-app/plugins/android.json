@@ -35,7 +35,7 @@
       "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.dentacoin.hub"
     },
-    "cordova-plugin-wkwebview-engine": {
+    "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.dentacoin.hub"
     }
   },
