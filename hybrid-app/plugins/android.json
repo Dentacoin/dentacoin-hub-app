@@ -37,6 +37,9 @@
       "ANDROID_HOST": " ",
       "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-wkwebview-engine": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
     }
   },
   "dependent_plugins": {
