@@ -110,7 +110,8 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="scheme" value="app" />
+    <preference name="hostname" value="localhost" />
     <preference name="ScrollEnabled" value="true" />
     <preference name="WKWebViewOnly" value="true" />
-    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 </widget>
