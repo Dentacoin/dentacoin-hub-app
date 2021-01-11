@@ -241,6 +241,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-support-google-services": "1.3.2",
     "cordova-plugin-app-launcher": "0.4.0",
     "cordova-plugin-inappbrowser": "4.0.0",
-    "cordova-plugin-customurlscheme": "5.0.2"
+    "cordova-plugin-customurlscheme": "5.0.2",
+    "cordova-plugin-wkwebview-engine": "1.2.1"
   };
 });

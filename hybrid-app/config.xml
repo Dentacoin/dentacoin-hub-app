@@ -54,7 +54,12 @@
         <icon height="1024" src="app-resources/images/dentacoin-hub-app-icon-1024px.png" width="1024" />
         <icon height="1365" src="app-resources/images/dentacoin-hub-app-icon-1365px.png" width="1365" />
         <preference name="ScrollEnabled" value="true" />
+
         <preference name="WKWebViewOnly" value="true" />
+        <feature name="CDVWKWebViewEngine">
+            <param name="ios-package" value="CDVWKWebViewEngine" />
+        </feature>
+        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     </platform>
     <platform name="android">
         <resource-file src="google-services.json" target="app/google-services.json" />

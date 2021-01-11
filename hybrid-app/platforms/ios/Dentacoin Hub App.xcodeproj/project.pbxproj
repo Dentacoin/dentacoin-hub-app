@@ -48,6 +48,10 @@
 		DABF6E570BB642FA83DD13AC /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0452FF006A3244F791A09B76 /* FirebaseMessaging.framework */; };
 		DE843AD767284DD38F7BA9CF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA89EBFC9CF4F89BE3B9BA8 /* Crashlytics.framework */; };
 		EE6A805B112045E89B3EDD2C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20EA8E02B04610BD963E86 /* CoreTelephony.framework */; };
+		FCB386468C8D4FD89DA9110F /* CDVWKWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D05FCE3C44E04EB08D549C09 /* CDVWKWebViewEngine.m */; };
+		713CB8AD938E49B9AE9C7F8E /* CDVWKWebViewUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4BF4DE0254EC6A7F9DE84 /* CDVWKWebViewUIDelegate.m */; };
+		B692BD3E8398436B990C5F02 /* CDVWKProcessPoolFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F82BE660774FD5BB081B82 /* CDVWKProcessPoolFactory.m */; };
+		AB6F68E2982C433C93B1B6B1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD37CEC2A5FB4AD18DE0E832 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +147,13 @@
 		F434317B12AC4A96AEBB8065 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Dentacoin Hub App/config.xml"; sourceTree = "<group>"; };
 		FAA89EBFC9CF4F89BE3B9BA8 /* Crashlytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Crashlytics.framework"; sourceTree = "<group>"; };
+		D05FCE3C44E04EB08D549C09 /* CDVWKWebViewEngine.m */ = {isa = PBXFileReference; name = "CDVWKWebViewEngine.m"; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewEngine.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D8B4BF4DE0254EC6A7F9DE84 /* CDVWKWebViewUIDelegate.m */ = {isa = PBXFileReference; name = "CDVWKWebViewUIDelegate.m"; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewUIDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		20F82BE660774FD5BB081B82 /* CDVWKProcessPoolFactory.m */ = {isa = PBXFileReference; name = "CDVWKProcessPoolFactory.m"; path = "cordova-plugin-wkwebview-engine/CDVWKProcessPoolFactory.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		0A9FCE80E75F452B94822463 /* CDVWKWebViewEngine.h */ = {isa = PBXFileReference; name = "CDVWKWebViewEngine.h"; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewEngine.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		4676178C7E35405BA56F6357 /* CDVWKWebViewUIDelegate.h */ = {isa = PBXFileReference; name = "CDVWKWebViewUIDelegate.h"; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewUIDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		6E96CB5D73AB41DBA6CC0C6F /* CDVWKProcessPoolFactory.h */ = {isa = PBXFileReference; name = "CDVWKProcessPoolFactory.h"; path = "cordova-plugin-wkwebview-engine/CDVWKProcessPoolFactory.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AD37CEC2A5FB4AD18DE0E832 /* WebKit.framework */ = {isa = PBXFileReference; name = "WebKit.framework"; path = "System/Library/Frameworks/WebKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +182,7 @@
 				A4B7D52F046B4B70894FDB3C /* FirebaseABTesting.framework in Frameworks */,
 				3906D31178EB4E06A16B299C /* SystemConfiguration.framework in Frameworks */,
 				EE6A805B112045E89B3EDD2C /* CoreTelephony.framework in Frameworks */,
+				AB6F68E2982C433C93B1B6B1 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +274,7 @@
 				930810487D414020A3888DE3 /* FirebaseABTesting.framework */,
 				24B960CAF8EC4F0AA26483A2 /* SystemConfiguration.framework */,
 				BF20EA8E02B04610BD963E86 /* CoreTelephony.framework */,
+				AD37CEC2A5FB4AD18DE0E832 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -315,6 +328,12 @@
 				99AB5C390A9047DA81E4AC0D /* CDVReachability.m */,
 				D957F74EEFF348AC8925259D /* CDVConnection.h */,
 				1B03772B12A245F4BD1425AA /* CDVReachability.h */,
+				D05FCE3C44E04EB08D549C09 /* CDVWKWebViewEngine.m */,
+				D8B4BF4DE0254EC6A7F9DE84 /* CDVWKWebViewUIDelegate.m */,
+				20F82BE660774FD5BB081B82 /* CDVWKProcessPoolFactory.m */,
+				0A9FCE80E75F452B94822463 /* CDVWKWebViewEngine.h */,
+				4676178C7E35405BA56F6357 /* CDVWKWebViewUIDelegate.h */,
+				6E96CB5D73AB41DBA6CC0C6F /* CDVWKProcessPoolFactory.h */,
 			);
 			name = Plugins;
 			path = "Dentacoin Hub App/Plugins";
@@ -452,6 +471,9 @@
 				96EE9875E16A444B9EA345A8 /* CDVWKInAppBrowserUIDelegate.m in Sources */,
 				BDEDF00F44494150BC08F8E9 /* CDVConnection.m in Sources */,
 				07EAA097F25943FD801F3694 /* CDVReachability.m in Sources */,
+				FCB386468C8D4FD89DA9110F /* CDVWKWebViewEngine.m in Sources */,
+				713CB8AD938E49B9AE9C7F8E /* CDVWKWebViewUIDelegate.m in Sources */,
+				B692BD3E8398436B990C5F02 /* CDVWKProcessPoolFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

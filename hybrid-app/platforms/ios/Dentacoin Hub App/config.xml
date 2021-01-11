@@ -114,4 +114,8 @@
     <preference name="hostname" value="localhost" />
     <preference name="ScrollEnabled" value="true" />
     <preference name="WKWebViewOnly" value="true" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 </widget>
