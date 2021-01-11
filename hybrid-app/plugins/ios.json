@@ -26,9 +26,6 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
-    "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
