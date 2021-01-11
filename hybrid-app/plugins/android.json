@@ -13,9 +13,6 @@
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.dentaprime.hub"
     },
-    "cordova-plugin-firebase-lib": {
-      "PACKAGE_NAME": "com.dentaprime.hub"
-    },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.dentaprime.hub"
     },
