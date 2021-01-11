@@ -250,7 +250,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-app-launcher": "0.4.0",
     "cordova-plugin-ionic-webview": "5.0.0",
     "cordova-plugin-inappbrowser": "4.0.0",
-    "cordova-plugin-customurlscheme": "5.0.2",
-    "cordova-plugin-wkwebview-engine": "1.2.1"
+    "cordova-plugin-customurlscheme": "5.0.2"
   };
 });
