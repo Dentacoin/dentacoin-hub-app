@@ -3,73 +3,71 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01F4EAAA4B724089A9DA6FFD /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695EE9C06B9D47D9AF2E6A05 /* Protobuf.framework */; };
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
-		02614B65465C4059ABCC3A2E /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DF24CC115B44838E460CBB /* FirebaseAnalytics.framework */; };
-		034B7EDB45174560A427BF1D /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E2FD85C9594917A0F9D145 /* CDVAssetLibraryFilesystem.m */; };
-		0508D596CD944A49AD95D322 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A7B1DD1124191AE6C49E3 /* CDVConnection.m */; };
-		0609852121774A87A5748298 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7954666117104121AF43B27E /* CoreTelephony.framework */; };
-		0D0B25C1CEE440DF83D5F677 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E5B9BAED9E4E86AA66A83C /* CDVFile.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		216CCBE442FD418B95C42999 /* AppDelegate+FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A412A37C74098B77DE981 /* AppDelegate+FirebasePlugin.m */; };
-		267A5CFDDC5B499DA5366B47 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A58E6AEE9834E369F0212D5 /* Crashlytics.framework */; };
-		29DFAFC7A085448A8EBA915E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB08EC7BF4BD427D80CD22D0 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		2DCBC81F36FE45CD96334B9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CABA38251F724B2A9EDE18DC /* GoogleService-Info.plist */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		3B9A5F55F1AD42E59A62F9C6 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431BE20452C94C4AA6854F5B /* FirebaseMessaging.framework */; };
-		453A68FD4FE14CE39AB241AF /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772A53B36A8F4A099074E37D /* Fabric.framework */; };
-		45FA5AABF8FB42EAAAF2BFED /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580D6AD99C9D45758B927188 /* FirebaseRemoteConfig.framework */; };
-		49DF1F5BC0B94F8F9F1FFD95 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E8AFACEA5B4B8C9C22786E /* GoogleAppMeasurement.framework */; };
-		4A14101478DD433A9A7AE37F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B0F9A057AA4C15B0FCC716 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		645845D9A28F48E88ECFFD16 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036A55963797466D87EC0800 /* FirebaseAuth.framework */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		6BCA9175510B44AD9B4B7C81 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC5ABB7E82D4F39964B2E4C /* FirebasePerformance.framework */; };
-		6CFEC3C664C5414B8C1E356A /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7A328581047E89838D635 /* CDVReachability.m */; };
-		A254188BAC804FAD9F66B687 /* Launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A51B35BD58B44B8D88290B5F /* Launcher.m */; };
-		AA03F0A399754372B865DDA7 /* CDVInAppBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6BD3843B9C4054BF288E34 /* CDVInAppBrowserNavigationController.m */; };
-		B84CDCF103E0441CA7DB9AEB /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E52A8CC5CB4F03B1759D0E /* FirebaseCoreDiagnostics.framework */; };
-		B91A2DBDD14F493F86925D6D /* CDVWKWebViewFileXhr.m in Sources */ = {isa = PBXBuildFile; fileRef = B67D516F3B2A4EEEA86BEC26 /* CDVWKWebViewFileXhr.m */; };
-		BC6A9A35937E42AFAEA6B239 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C1E2B2A8D74422A349F6BD /* FirebaseCore.framework */; };
-		BFA5B254777B45AB829CECFD /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176FF31F4D58485AA1AA0A36 /* GoogleToolboxForMac.framework */; };
-		C17D076E4A1A404DA5FD6FF4 /* FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A03D9EE5294155835DD0A6 /* FirebasePlugin.m */; };
-		C6D749BA997A4413B381905E /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E69322C3E6F4397BEAA512E /* GTMSessionFetcher.framework */; };
-		CEF40836E09342E89829D4C9 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421CC45E720425098420573 /* FirebaseABTesting.framework */; };
-		D2B17A17C55F45A3B1FB94D5 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848EE5CEE41A4D7E99941A4F /* nanopb.framework */; };
-		D50611EE18E541AC9CC833B9 /* CDVInAppBrowserOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = A93D2ED7F6A64726B57BD2B5 /* CDVInAppBrowserOptions.m */; };
-		DBEBF3DBF51B4E1F966CDC14 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735451A76D4D4C7F861BE0F1 /* GoogleUtilities.framework */; };
-		DD18B71386F74BF5B046811F /* MeasurementNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260E24C49CB04E5E8FD30420 /* MeasurementNanoPB.framework */; };
-		F03A029CF3274F7585BEC423 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66D08E304D4AAD9607FEFA /* CDVDevice.m */; };
-		F38496178F524B9698A0DC04 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8E805BF3C4991A3D8F93B /* CDVLocalFilesystem.m */; };
-		F4F6AB12BE1F476989C3A928 /* CDVWKInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8199C9AE4946D587E75ADE /* CDVWKInAppBrowser.m */; };
-		FDC0881A52E144B1B020B474 /* CDVWKInAppBrowserUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC37140396744EB2B01589C1 /* CDVWKInAppBrowserUIDelegate.m */; };
-		FE539BC06B2442F194F3760E /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA72C2305CBB42188F26C597 /* FirebaseInstanceID.framework */; };
+		200E892EE1A84AE5BEEA9E69 /* Launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8F9CEEE35A4DE0846AC2B2 /* Launcher.m */; };
+		E53010E59BFC4F9BA1CDD135 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3D08FAC2C4E77A8906442 /* CDVDevice.m */; };
+		73F53EFB37E64AD5B8804EE2 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DDD2D55E2A4A02A542D553 /* CDVFile.m */; };
+		F45C4A36DC0B4C9B8A13FFBE /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B91B974E784734B92692F0 /* CDVLocalFilesystem.m */; };
+		0C16EB35F8B44B93B1538CEE /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A01B3C50414A84BCD9E4D7 /* CDVAssetLibraryFilesystem.m */; };
+		4DDCB137395043ADB3A73A5E /* AppDelegate+FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 89771B1B1E894D33A808A0D2 /* AppDelegate+FirebasePlugin.m */; };
+		33531DC1B9184508A8D9F620 /* FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 292EE417D7624A418E06DA87 /* FirebasePlugin.m */; };
+		77BAEDFA4DDA412DABD916C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33586FA40FCF4ADA802997A9 /* GoogleService-Info.plist */; };
+		DEC94ED1C3EB45F985191386 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FF9552E0514084B48C7AEB /* Crashlytics.framework */; };
+		305C2BB314CC42D6A0E7FC2C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9AD6DE6DE64378A6DC51DC /* Fabric.framework */; };
+		2F30AF374E184BC98FA0DAF6 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0788F56B384C5FBF97E0EB /* GoogleAppMeasurement.framework */; };
+		8BBDC63A7BC647DD8DB5D5CE /* MeasurementNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106EA729256842AF998CD0B6 /* MeasurementNanoPB.framework */; };
+		5F467F4CBC434F5991B48265 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AB8CCC2543423CB77EBFE2 /* FirebaseCore.framework */; };
+		CE1AA48CEF0F4FACB01A14CB /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6941F86DE549288BB2C792 /* FirebaseAnalytics.framework */; };
+		84A5C5B8B79A42F5A37C954E /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69ADA2D31794706946B3B80 /* GoogleUtilities.framework */; };
+		FEBB754DE4204F2589F690F2 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7594E8B502484323AE3B4D18 /* nanopb.framework */; };
+		BCFCD55A93FD46458BF06CD0 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF8A558FFC94165875A6858 /* FirebaseInstanceID.framework */; };
+		D98DB9FBD47B4E9A9D462FBF /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F3C87FCB80477398844B13 /* FirebaseCoreDiagnostics.framework */; };
+		AEDAAE39279A491BA9832FD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4577E28AC42C4FC680A9FDCA /* GTMSessionFetcher.framework */; };
+		DF8F7A01B99B4B4F8AC66688 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BAA0055BCB442F90D2C35D /* FirebaseAuth.framework */; };
+		FA56E4A633084E2E8F0E7CF7 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C346964E6A64EAF8D0B270B /* FirebaseMessaging.framework */; };
+		75594E8A202A4EB6A97D6C57 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0967168AD844D5BA50562A /* GoogleToolboxForMac.framework */; };
+		A8C93F91836F434683C772CE /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2C559A688F444F8F5F9B80 /* FirebasePerformance.framework */; };
+		2386321CFA07488F93E90680 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5DA34307B84B5DBD7855AF /* Protobuf.framework */; };
+		0FBB1430B0F64AC797E744FA /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D552ABFABE9A4AC48484DF03 /* FirebaseRemoteConfig.framework */; };
+		87B1CB2F024D44E9B15E35D5 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA52294CBC643BFA8C1B726 /* FirebaseABTesting.framework */; };
+		97630985E48C4E9792EE19F1 /* CDVInAppBrowserOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54273A9D17FA43F6B39196DD /* CDVInAppBrowserOptions.m */; };
+		759AA9AECBB7495DB28B607C /* CDVInAppBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9794B3C56FE48C8B6F90119 /* CDVInAppBrowserNavigationController.m */; };
+		FDFEDC042B2A4D6AA37E11C9 /* CDVWKInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EF4002D05A48F7BC75E987 /* CDVWKInAppBrowser.m */; };
+		B1304268D6804B12A9213773 /* CDVWKInAppBrowserUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA1BA7F3D14C39A17F5A59 /* CDVWKInAppBrowserUIDelegate.m */; };
+		30505150898240959F5BF614 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 730BBF48A5F24601816724E5 /* CDVConnection.m */; };
+		AA9BD0AE82764833A3A6BB27 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F62FE55464C742A68EFE4B98 /* CDVReachability.m */; };
+		A26450DFC6F748FEAF7CCBDA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1633A89F074098865277C6 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1CC3949365604F7D85A0BD9D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A0E5D2134E4CFC8A5CB767 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		301BF534109A57CC0062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
 		301BF550109A68C00062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
 		907D8123214C687600058A10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C0C01EB21E3911D50056E6CB;
 			remoteInfo = Cordova;
@@ -78,22 +76,11 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Dentacoin Hub App/Images.xcassets"; sourceTree = SOURCE_ROOT; };
-		02A03D9EE5294155835DD0A6 /* FirebasePlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = FirebasePlugin.m; path = "cordova-plugin-firebase-lib/FirebasePlugin.m"; sourceTree = "<group>"; };
-		036A55963797466D87EC0800 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseAuth.framework"; sourceTree = "<group>"; };
-		0A5570F60D3A4A2CB1375D72 /* Firebase.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = "cordova-plugin-firebase-lib/Firebase.h"; sourceTree = "<group>"; };
-		13A8098FD7C347159092D70E /* CDVDevice.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
-		13C8DE4F337C4EA4A1116EED /* CDVWKInAppBrowserUIDelegate.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVWKInAppBrowserUIDelegate.h; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.h"; sourceTree = "<group>"; };
-		176FF31F4D58485AA1AA0A36 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
-		18BF79FF891C43F9BAFD4393 /* CDVConnection.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVConnection.h; path = "cordova-plugin-network-information/CDVConnection.h"; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Dentacoin Hub App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dentacoin Hub App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FD8E805BF3C4991A3D8F93B /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVLocalFilesystem.m; path = "cordova-plugin-file/CDVLocalFilesystem.m"; sourceTree = "<group>"; };
-		25A57C752F64409B818B4AAF /* FirebasePlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = FirebasePlugin.h; path = "cordova-plugin-firebase-lib/FirebasePlugin.h"; sourceTree = "<group>"; };
-		260E24C49CB04E5E8FD30420 /* MeasurementNanoPB.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = MeasurementNanoPB.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/MeasurementNanoPB.framework"; sourceTree = "<group>"; };
-		27E5B9BAED9E4E86AA66A83C /* CDVFile.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVFile.m; path = "cordova-plugin-file/CDVFile.m"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib\CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -101,53 +88,61 @@
 		3047A50F1AB8059700498E2A /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-debug.xcconfig"; path = "cordova/build-debug.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
-		3216218E8BAF4F6E921E8397 /* CDVFile.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVFile.h; path = "cordova-plugin-file/CDVFile.h"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Dentacoin Hub App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dentacoin Hub App-Prefix.pch"; sourceTree = "<group>"; };
-		3739E07F42954E3BA3F87A58 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVAssetLibraryFilesystem.h; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; };
-		37E52A8CC5CB4F03B1759D0E /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseCoreDiagnostics.framework"; sourceTree = "<group>"; };
-		39F92A8413FD469491EB2C10 /* CDVReachability.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVReachability.h; path = "cordova-plugin-network-information/CDVReachability.h"; sourceTree = "<group>"; };
-		3A58E6AEE9834E369F0212D5 /* Crashlytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Crashlytics.framework"; sourceTree = "<group>"; };
-		3DF64346637F42F0AEAEDA44 /* AppDelegate+FirebasePlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+FirebasePlugin.h"; path = "cordova-plugin-firebase-lib/AppDelegate+FirebasePlugin.h"; sourceTree = "<group>"; };
-		3E69322C3E6F4397BEAA512E /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
-		431BE20452C94C4AA6854F5B /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseMessaging.framework"; sourceTree = "<group>"; };
-		538A412A37C74098B77DE981 /* AppDelegate+FirebasePlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+FirebasePlugin.m"; path = "cordova-plugin-firebase-lib/AppDelegate+FirebasePlugin.m"; sourceTree = "<group>"; };
-		580D6AD99C9D45758B927188 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseRemoteConfig.framework"; sourceTree = "<group>"; };
-		67F4AC9ECBBF4C319450A33E /* CDVWKWebViewFileXhr.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVWKWebViewFileXhr.h; path = "cordova-plugin-wkwebview-file-xhr/CDVWKWebViewFileXhr.h"; sourceTree = "<group>"; };
-		695EE9C06B9D47D9AF2E6A05 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Protobuf.framework"; sourceTree = "<group>"; };
-		6A54FD7797E04E7FAF619AD7 /* CDVInAppBrowserOptions.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowserOptions.h; path = "cordova-plugin-inappbrowser/CDVInAppBrowserOptions.h"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = "Dentacoin Hub App/CDVLaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
-		6CF5E4F39DCC47FC934E1816 /* Launcher.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Launcher.h; path = "cordova-plugin-app-launcher/Launcher.h"; sourceTree = "<group>"; };
-		735451A76D4D4C7F861BE0F1 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GoogleUtilities.framework"; sourceTree = "<group>"; };
-		772A53B36A8F4A099074E37D /* Fabric.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Fabric.framework"; sourceTree = "<group>"; };
-		7954666117104121AF43B27E /* CoreTelephony.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		7C5A7B1DD1124191AE6C49E3 /* CDVConnection.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVConnection.m; path = "cordova-plugin-network-information/CDVConnection.m"; sourceTree = "<group>"; };
-		848EE5CEE41A4D7E99941A4F /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/nanopb.framework"; sourceTree = "<group>"; };
-		886A1649E4C94671938022FC /* CDVWKInAppBrowser.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVWKInAppBrowser.h; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowser.h"; sourceTree = "<group>"; };
-		89774D87DFB5462B9FF69369 /* CDVInAppBrowserNavigationController.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowserNavigationController.h; path = "cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.h"; sourceTree = "<group>"; };
-		89B0F9A057AA4C15B0FCC716 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Dentacoin Hub App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Dentacoin Hub App-Info.plist"; path = "Dentacoin Hub App/Dentacoin Hub App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		8E6BD3843B9C4054BF288E34 /* CDVInAppBrowserNavigationController.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowserNavigationController.m; path = "cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.m"; sourceTree = "<group>"; };
-		9DC5ABB7E82D4F39964B2E4C /* FirebasePerformance.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebasePerformance.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebasePerformance.framework"; sourceTree = "<group>"; };
-		A51B35BD58B44B8D88290B5F /* Launcher.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = Launcher.m; path = "cordova-plugin-app-launcher/Launcher.m"; sourceTree = "<group>"; };
-		A7DF24CC115B44838E460CBB /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseAnalytics.framework"; sourceTree = "<group>"; };
-		A93D2ED7F6A64726B57BD2B5 /* CDVInAppBrowserOptions.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowserOptions.m; path = "cordova-plugin-inappbrowser/CDVInAppBrowserOptions.m"; sourceTree = "<group>"; };
-		AC66D08E304D4AAD9607FEFA /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
-		B67D516F3B2A4EEEA86BEC26 /* CDVWKWebViewFileXhr.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVWKWebViewFileXhr.m; path = "cordova-plugin-wkwebview-file-xhr/CDVWKWebViewFileXhr.m"; sourceTree = "<group>"; };
-		BA72C2305CBB42188F26C597 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseInstanceID.framework"; sourceTree = "<group>"; };
-		BB8199C9AE4946D587E75ADE /* CDVWKInAppBrowser.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVWKInAppBrowser.m; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowser.m"; sourceTree = "<group>"; };
-		CABA38251F724B2A9EDE18DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CB08EC7BF4BD427D80CD22D0 /* WebKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		D9E2FD85C9594917A0F9D145 /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVAssetLibraryFilesystem.m; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.m"; sourceTree = "<group>"; };
-		E8C1E2B2A8D74422A349F6BD /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseCore.framework"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		EBC7A328581047E89838D635 /* CDVReachability.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVReachability.m; path = "cordova-plugin-network-information/CDVReachability.m"; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		F421CC45E720425098420573 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseABTesting.framework"; sourceTree = "<group>"; };
-		F4E8AFACEA5B4B8C9C22786E /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GoogleAppMeasurement.framework"; sourceTree = "<group>"; };
-		F72E209D3EB6478EA858FF33 /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVLocalFilesystem.h; path = "cordova-plugin-file/CDVLocalFilesystem.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Dentacoin Hub App/config.xml"; sourceTree = "<group>"; };
-		FC37140396744EB2B01589C1 /* CDVWKInAppBrowserUIDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVWKInAppBrowserUIDelegate.m; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.m"; sourceTree = "<group>"; };
+		FC8F9CEEE35A4DE0846AC2B2 /* Launcher.m */ = {isa = PBXFileReference; name = "Launcher.m"; path = "cordova-plugin-app-launcher/Launcher.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8E0B541D50AF4462A853DE50 /* Launcher.h */ = {isa = PBXFileReference; name = "Launcher.h"; path = "cordova-plugin-app-launcher/Launcher.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		49B3D08FAC2C4E77A8906442 /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		7501D35ACDAF471B9BB32D24 /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		78DDD2D55E2A4A02A542D553 /* CDVFile.m */ = {isa = PBXFileReference; name = "CDVFile.m"; path = "cordova-plugin-file/CDVFile.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		26B91B974E784734B92692F0 /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; name = "CDVLocalFilesystem.m"; path = "cordova-plugin-file/CDVLocalFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		98A01B3C50414A84BCD9E4D7 /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; name = "CDVAssetLibraryFilesystem.m"; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		CFA3098B1EEB4D2CB0EF923E /* CDVFile.h */ = {isa = PBXFileReference; name = "CDVFile.h"; path = "cordova-plugin-file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		49F086C6BD78421C8FBEAC29 /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; name = "CDVLocalFilesystem.h"; path = "cordova-plugin-file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		EE571F611E1F40B2A660FE8C /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; name = "CDVAssetLibraryFilesystem.h"; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		89771B1B1E894D33A808A0D2 /* AppDelegate+FirebasePlugin.m */ = {isa = PBXFileReference; name = "AppDelegate+FirebasePlugin.m"; path = "cordova-plugin-firebase-lib/AppDelegate+FirebasePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		292EE417D7624A418E06DA87 /* FirebasePlugin.m */ = {isa = PBXFileReference; name = "FirebasePlugin.m"; path = "cordova-plugin-firebase-lib/FirebasePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		0AAE8E5857A44BF08F92BE9C /* AppDelegate+FirebasePlugin.h */ = {isa = PBXFileReference; name = "AppDelegate+FirebasePlugin.h"; path = "cordova-plugin-firebase-lib/AppDelegate+FirebasePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		75EBB318AEEA4145A9E5F9D6 /* FirebasePlugin.h */ = {isa = PBXFileReference; name = "FirebasePlugin.h"; path = "cordova-plugin-firebase-lib/FirebasePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		F7C3C75CB4994DEB9B652272 /* Firebase.h */ = {isa = PBXFileReference; name = "Firebase.h"; path = "cordova-plugin-firebase-lib/Firebase.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		33586FA40FCF4ADA802997A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; name = "GoogleService-Info.plist"; path = "GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
+		49FF9552E0514084B48C7AEB /* Crashlytics.framework */ = {isa = PBXFileReference; name = "Crashlytics.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Crashlytics.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9A9AD6DE6DE64378A6DC51DC /* Fabric.framework */ = {isa = PBXFileReference; name = "Fabric.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Fabric.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		FB0788F56B384C5FBF97E0EB /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; name = "GoogleAppMeasurement.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GoogleAppMeasurement.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		106EA729256842AF998CD0B6 /* MeasurementNanoPB.framework */ = {isa = PBXFileReference; name = "MeasurementNanoPB.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/MeasurementNanoPB.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		B1AB8CCC2543423CB77EBFE2 /* FirebaseCore.framework */ = {isa = PBXFileReference; name = "FirebaseCore.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseCore.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9A6941F86DE549288BB2C792 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; name = "FirebaseAnalytics.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseAnalytics.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		F69ADA2D31794706946B3B80 /* GoogleUtilities.framework */ = {isa = PBXFileReference; name = "GoogleUtilities.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GoogleUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7594E8B502484323AE3B4D18 /* nanopb.framework */ = {isa = PBXFileReference; name = "nanopb.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/nanopb.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		ABF8A558FFC94165875A6858 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; name = "FirebaseInstanceID.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseInstanceID.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		86F3C87FCB80477398844B13 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; name = "FirebaseCoreDiagnostics.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseCoreDiagnostics.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		4577E28AC42C4FC680A9FDCA /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; name = "GTMSessionFetcher.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GTMSessionFetcher.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		63BAA0055BCB442F90D2C35D /* FirebaseAuth.framework */ = {isa = PBXFileReference; name = "FirebaseAuth.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseAuth.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		4C346964E6A64EAF8D0B270B /* FirebaseMessaging.framework */ = {isa = PBXFileReference; name = "FirebaseMessaging.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseMessaging.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CC0967168AD844D5BA50562A /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; name = "GoogleToolboxForMac.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/GoogleToolboxForMac.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7E2C559A688F444F8F5F9B80 /* FirebasePerformance.framework */ = {isa = PBXFileReference; name = "FirebasePerformance.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebasePerformance.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		4B5DA34307B84B5DBD7855AF /* Protobuf.framework */ = {isa = PBXFileReference; name = "Protobuf.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/Protobuf.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		D552ABFABE9A4AC48484DF03 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; name = "FirebaseRemoteConfig.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseRemoteConfig.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CBA52294CBC643BFA8C1B726 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; name = "FirebaseABTesting.framework"; path = "Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib/FirebaseABTesting.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		54273A9D17FA43F6B39196DD /* CDVInAppBrowserOptions.m */ = {isa = PBXFileReference; name = "CDVInAppBrowserOptions.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserOptions.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F9794B3C56FE48C8B6F90119 /* CDVInAppBrowserNavigationController.m */ = {isa = PBXFileReference; name = "CDVInAppBrowserNavigationController.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		80EF4002D05A48F7BC75E987 /* CDVWKInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVWKInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8AAA1BA7F3D14C39A17F5A59 /* CDVWKInAppBrowserUIDelegate.m */ = {isa = PBXFileReference; name = "CDVWKInAppBrowserUIDelegate.m"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		0B960D5405744047BA5C10A8 /* CDVInAppBrowserOptions.h */ = {isa = PBXFileReference; name = "CDVInAppBrowserOptions.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserOptions.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AF26B2A630C349429FFCD3FC /* CDVInAppBrowserNavigationController.h */ = {isa = PBXFileReference; name = "CDVInAppBrowserNavigationController.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0B1103741B954B08975E6C6E /* CDVWKInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVWKInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C34A71BE1CCB423BA3180F9A /* CDVWKInAppBrowserUIDelegate.h */ = {isa = PBXFileReference; name = "CDVWKInAppBrowserUIDelegate.h"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		730BBF48A5F24601816724E5 /* CDVConnection.m */ = {isa = PBXFileReference; name = "CDVConnection.m"; path = "cordova-plugin-network-information/CDVConnection.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F62FE55464C742A68EFE4B98 /* CDVReachability.m */ = {isa = PBXFileReference; name = "CDVReachability.m"; path = "cordova-plugin-network-information/CDVReachability.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		ADD9992AA51E4D47B103200A /* CDVConnection.h */ = {isa = PBXFileReference; name = "CDVConnection.h"; path = "cordova-plugin-network-information/CDVConnection.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		32DFF2FAC443453FB5E4F3AC /* CDVReachability.h */ = {isa = PBXFileReference; name = "CDVReachability.h"; path = "cordova-plugin-network-information/CDVReachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		9A1633A89F074098865277C6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A1A0E5D2134E4CFC8A5CB767 /* CoreTelephony.framework */ = {isa = PBXFileReference; name = "CoreTelephony.framework"; path = "System/Library/Frameworks/CoreTelephony.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,27 +151,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				267A5CFDDC5B499DA5366B47 /* Crashlytics.framework in Frameworks */,
-				453A68FD4FE14CE39AB241AF /* Fabric.framework in Frameworks */,
-				49DF1F5BC0B94F8F9F1FFD95 /* GoogleAppMeasurement.framework in Frameworks */,
-				DD18B71386F74BF5B046811F /* MeasurementNanoPB.framework in Frameworks */,
-				BC6A9A35937E42AFAEA6B239 /* FirebaseCore.framework in Frameworks */,
-				02614B65465C4059ABCC3A2E /* FirebaseAnalytics.framework in Frameworks */,
-				DBEBF3DBF51B4E1F966CDC14 /* GoogleUtilities.framework in Frameworks */,
-				D2B17A17C55F45A3B1FB94D5 /* nanopb.framework in Frameworks */,
-				FE539BC06B2442F194F3760E /* FirebaseInstanceID.framework in Frameworks */,
-				B84CDCF103E0441CA7DB9AEB /* FirebaseCoreDiagnostics.framework in Frameworks */,
-				C6D749BA997A4413B381905E /* GTMSessionFetcher.framework in Frameworks */,
-				645845D9A28F48E88ECFFD16 /* FirebaseAuth.framework in Frameworks */,
-				3B9A5F55F1AD42E59A62F9C6 /* FirebaseMessaging.framework in Frameworks */,
-				BFA5B254777B45AB829CECFD /* GoogleToolboxForMac.framework in Frameworks */,
-				6BCA9175510B44AD9B4B7C81 /* FirebasePerformance.framework in Frameworks */,
-				01F4EAAA4B724089A9DA6FFD /* Protobuf.framework in Frameworks */,
-				45FA5AABF8FB42EAAAF2BFED /* FirebaseRemoteConfig.framework in Frameworks */,
-				CEF40836E09342E89829D4C9 /* FirebaseABTesting.framework in Frameworks */,
-				4A14101478DD433A9A7AE37F /* SystemConfiguration.framework in Frameworks */,
-				0609852121774A87A5748298 /* CoreTelephony.framework in Frameworks */,
-				29DFAFC7A085448A8EBA915E /* WebKit.framework in Frameworks */,
+				DEC94ED1C3EB45F985191386 /* Crashlytics.framework in Frameworks */,
+				305C2BB314CC42D6A0E7FC2C /* Fabric.framework in Frameworks */,
+				2F30AF374E184BC98FA0DAF6 /* GoogleAppMeasurement.framework in Frameworks */,
+				8BBDC63A7BC647DD8DB5D5CE /* MeasurementNanoPB.framework in Frameworks */,
+				5F467F4CBC434F5991B48265 /* FirebaseCore.framework in Frameworks */,
+				CE1AA48CEF0F4FACB01A14CB /* FirebaseAnalytics.framework in Frameworks */,
+				84A5C5B8B79A42F5A37C954E /* GoogleUtilities.framework in Frameworks */,
+				FEBB754DE4204F2589F690F2 /* nanopb.framework in Frameworks */,
+				BCFCD55A93FD46458BF06CD0 /* FirebaseInstanceID.framework in Frameworks */,
+				D98DB9FBD47B4E9A9D462FBF /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				AEDAAE39279A491BA9832FD2 /* GTMSessionFetcher.framework in Frameworks */,
+				DF8F7A01B99B4B4F8AC66688 /* FirebaseAuth.framework in Frameworks */,
+				FA56E4A633084E2E8F0E7CF7 /* FirebaseMessaging.framework in Frameworks */,
+				75594E8A202A4EB6A97D6C57 /* GoogleToolboxForMac.framework in Frameworks */,
+				A8C93F91836F434683C772CE /* FirebasePerformance.framework in Frameworks */,
+				2386321CFA07488F93E90680 /* Protobuf.framework in Frameworks */,
+				0FBB1430B0F64AC797E744FA /* FirebaseRemoteConfig.framework in Frameworks */,
+				87B1CB2F024D44E9B15E35D5 /* FirebaseABTesting.framework in Frameworks */,
+				A26450DFC6F748FEAF7CCBDA /* SystemConfiguration.framework in Frameworks */,
+				1CC3949365604F7D85A0BD9D /* CoreTelephony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +204,7 @@
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF11871DA420020F90C /* Staging */,
-				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
+				301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -239,7 +233,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Dentacoin Hub App-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
-				CABA38251F724B2A9EDE18DC /* GoogleService-Info.plist */,
+				33586FA40FCF4ADA802997A9 /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			path = "Dentacoin Hub App/Resources";
@@ -248,27 +242,26 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A58E6AEE9834E369F0212D5 /* Crashlytics.framework */,
-				772A53B36A8F4A099074E37D /* Fabric.framework */,
-				F4E8AFACEA5B4B8C9C22786E /* GoogleAppMeasurement.framework */,
-				260E24C49CB04E5E8FD30420 /* MeasurementNanoPB.framework */,
-				E8C1E2B2A8D74422A349F6BD /* FirebaseCore.framework */,
-				A7DF24CC115B44838E460CBB /* FirebaseAnalytics.framework */,
-				735451A76D4D4C7F861BE0F1 /* GoogleUtilities.framework */,
-				848EE5CEE41A4D7E99941A4F /* nanopb.framework */,
-				BA72C2305CBB42188F26C597 /* FirebaseInstanceID.framework */,
-				37E52A8CC5CB4F03B1759D0E /* FirebaseCoreDiagnostics.framework */,
-				3E69322C3E6F4397BEAA512E /* GTMSessionFetcher.framework */,
-				036A55963797466D87EC0800 /* FirebaseAuth.framework */,
-				431BE20452C94C4AA6854F5B /* FirebaseMessaging.framework */,
-				176FF31F4D58485AA1AA0A36 /* GoogleToolboxForMac.framework */,
-				9DC5ABB7E82D4F39964B2E4C /* FirebasePerformance.framework */,
-				695EE9C06B9D47D9AF2E6A05 /* Protobuf.framework */,
-				580D6AD99C9D45758B927188 /* FirebaseRemoteConfig.framework */,
-				F421CC45E720425098420573 /* FirebaseABTesting.framework */,
-				89B0F9A057AA4C15B0FCC716 /* SystemConfiguration.framework */,
-				7954666117104121AF43B27E /* CoreTelephony.framework */,
-				CB08EC7BF4BD427D80CD22D0 /* WebKit.framework */,
+				49FF9552E0514084B48C7AEB /* Crashlytics.framework */,
+				9A9AD6DE6DE64378A6DC51DC /* Fabric.framework */,
+				FB0788F56B384C5FBF97E0EB /* GoogleAppMeasurement.framework */,
+				106EA729256842AF998CD0B6 /* MeasurementNanoPB.framework */,
+				B1AB8CCC2543423CB77EBFE2 /* FirebaseCore.framework */,
+				9A6941F86DE549288BB2C792 /* FirebaseAnalytics.framework */,
+				F69ADA2D31794706946B3B80 /* GoogleUtilities.framework */,
+				7594E8B502484323AE3B4D18 /* nanopb.framework */,
+				ABF8A558FFC94165875A6858 /* FirebaseInstanceID.framework */,
+				86F3C87FCB80477398844B13 /* FirebaseCoreDiagnostics.framework */,
+				4577E28AC42C4FC680A9FDCA /* GTMSessionFetcher.framework */,
+				63BAA0055BCB442F90D2C35D /* FirebaseAuth.framework */,
+				4C346964E6A64EAF8D0B270B /* FirebaseMessaging.framework */,
+				CC0967168AD844D5BA50562A /* GoogleToolboxForMac.framework */,
+				7E2C559A688F444F8F5F9B80 /* FirebasePerformance.framework */,
+				4B5DA34307B84B5DBD7855AF /* Protobuf.framework */,
+				D552ABFABE9A4AC48484DF03 /* FirebaseRemoteConfig.framework */,
+				CBA52294CBC643BFA8C1B726 /* FirebaseABTesting.framework */,
+				9A1633A89F074098865277C6 /* SystemConfiguration.framework */,
+				A1A0E5D2134E4CFC8A5CB767 /* CoreTelephony.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -295,35 +288,33 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				A51B35BD58B44B8D88290B5F /* Launcher.m */,
-				6CF5E4F39DCC47FC934E1816 /* Launcher.h */,
-				AC66D08E304D4AAD9607FEFA /* CDVDevice.m */,
-				13A8098FD7C347159092D70E /* CDVDevice.h */,
-				27E5B9BAED9E4E86AA66A83C /* CDVFile.m */,
-				1FD8E805BF3C4991A3D8F93B /* CDVLocalFilesystem.m */,
-				D9E2FD85C9594917A0F9D145 /* CDVAssetLibraryFilesystem.m */,
-				3216218E8BAF4F6E921E8397 /* CDVFile.h */,
-				F72E209D3EB6478EA858FF33 /* CDVLocalFilesystem.h */,
-				3739E07F42954E3BA3F87A58 /* CDVAssetLibraryFilesystem.h */,
-				538A412A37C74098B77DE981 /* AppDelegate+FirebasePlugin.m */,
-				02A03D9EE5294155835DD0A6 /* FirebasePlugin.m */,
-				3DF64346637F42F0AEAEDA44 /* AppDelegate+FirebasePlugin.h */,
-				25A57C752F64409B818B4AAF /* FirebasePlugin.h */,
-				0A5570F60D3A4A2CB1375D72 /* Firebase.h */,
-				A93D2ED7F6A64726B57BD2B5 /* CDVInAppBrowserOptions.m */,
-				8E6BD3843B9C4054BF288E34 /* CDVInAppBrowserNavigationController.m */,
-				BB8199C9AE4946D587E75ADE /* CDVWKInAppBrowser.m */,
-				FC37140396744EB2B01589C1 /* CDVWKInAppBrowserUIDelegate.m */,
-				6A54FD7797E04E7FAF619AD7 /* CDVInAppBrowserOptions.h */,
-				89774D87DFB5462B9FF69369 /* CDVInAppBrowserNavigationController.h */,
-				886A1649E4C94671938022FC /* CDVWKInAppBrowser.h */,
-				13C8DE4F337C4EA4A1116EED /* CDVWKInAppBrowserUIDelegate.h */,
-				7C5A7B1DD1124191AE6C49E3 /* CDVConnection.m */,
-				EBC7A328581047E89838D635 /* CDVReachability.m */,
-				18BF79FF891C43F9BAFD4393 /* CDVConnection.h */,
-				39F92A8413FD469491EB2C10 /* CDVReachability.h */,
-				B67D516F3B2A4EEEA86BEC26 /* CDVWKWebViewFileXhr.m */,
-				67F4AC9ECBBF4C319450A33E /* CDVWKWebViewFileXhr.h */,
+				FC8F9CEEE35A4DE0846AC2B2 /* Launcher.m */,
+				8E0B541D50AF4462A853DE50 /* Launcher.h */,
+				49B3D08FAC2C4E77A8906442 /* CDVDevice.m */,
+				7501D35ACDAF471B9BB32D24 /* CDVDevice.h */,
+				78DDD2D55E2A4A02A542D553 /* CDVFile.m */,
+				26B91B974E784734B92692F0 /* CDVLocalFilesystem.m */,
+				98A01B3C50414A84BCD9E4D7 /* CDVAssetLibraryFilesystem.m */,
+				CFA3098B1EEB4D2CB0EF923E /* CDVFile.h */,
+				49F086C6BD78421C8FBEAC29 /* CDVLocalFilesystem.h */,
+				EE571F611E1F40B2A660FE8C /* CDVAssetLibraryFilesystem.h */,
+				89771B1B1E894D33A808A0D2 /* AppDelegate+FirebasePlugin.m */,
+				292EE417D7624A418E06DA87 /* FirebasePlugin.m */,
+				0AAE8E5857A44BF08F92BE9C /* AppDelegate+FirebasePlugin.h */,
+				75EBB318AEEA4145A9E5F9D6 /* FirebasePlugin.h */,
+				F7C3C75CB4994DEB9B652272 /* Firebase.h */,
+				54273A9D17FA43F6B39196DD /* CDVInAppBrowserOptions.m */,
+				F9794B3C56FE48C8B6F90119 /* CDVInAppBrowserNavigationController.m */,
+				80EF4002D05A48F7BC75E987 /* CDVWKInAppBrowser.m */,
+				8AAA1BA7F3D14C39A17F5A59 /* CDVWKInAppBrowserUIDelegate.m */,
+				0B960D5405744047BA5C10A8 /* CDVInAppBrowserOptions.h */,
+				AF26B2A630C349429FFCD3FC /* CDVInAppBrowserNavigationController.h */,
+				0B1103741B954B08975E6C6E /* CDVWKInAppBrowser.h */,
+				C34A71BE1CCB423BA3180F9A /* CDVWKInAppBrowserUIDelegate.h */,
+				730BBF48A5F24601816724E5 /* CDVConnection.m */,
+				F62FE55464C742A68EFE4B98 /* CDVReachability.m */,
+				ADD9992AA51E4D47B103200A /* CDVConnection.h */,
+				32DFF2FAC443453FB5E4F3AC /* CDVReachability.h */,
 			);
 			name = Plugins;
 			path = "Dentacoin Hub App/Plugins";
@@ -366,20 +357,18 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 510;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 9VFT72C446;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Dentacoin Hub App" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -388,7 +377,7 @@
 			projectReferences = (
 				{
 					ProductGroup = 301BF52E109A57CC0062928A /* Products */;
-					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -423,7 +412,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
-				2DCBC81F36FE45CD96334B9D /* GoogleService-Info.plist in Resources */,
+				77BAEDFA4DDA412DABD916C9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,20 +444,19 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				A254188BAC804FAD9F66B687 /* Launcher.m in Sources */,
-				F03A029CF3274F7585BEC423 /* CDVDevice.m in Sources */,
-				0D0B25C1CEE440DF83D5F677 /* CDVFile.m in Sources */,
-				F38496178F524B9698A0DC04 /* CDVLocalFilesystem.m in Sources */,
-				034B7EDB45174560A427BF1D /* CDVAssetLibraryFilesystem.m in Sources */,
-				216CCBE442FD418B95C42999 /* AppDelegate+FirebasePlugin.m in Sources */,
-				C17D076E4A1A404DA5FD6FF4 /* FirebasePlugin.m in Sources */,
-				D50611EE18E541AC9CC833B9 /* CDVInAppBrowserOptions.m in Sources */,
-				AA03F0A399754372B865DDA7 /* CDVInAppBrowserNavigationController.m in Sources */,
-				F4F6AB12BE1F476989C3A928 /* CDVWKInAppBrowser.m in Sources */,
-				FDC0881A52E144B1B020B474 /* CDVWKInAppBrowserUIDelegate.m in Sources */,
-				0508D596CD944A49AD95D322 /* CDVConnection.m in Sources */,
-				6CFEC3C664C5414B8C1E356A /* CDVReachability.m in Sources */,
-				B91A2DBDD14F493F86925D6D /* CDVWKWebViewFileXhr.m in Sources */,
+				200E892EE1A84AE5BEEA9E69 /* Launcher.m in Sources */,
+				E53010E59BFC4F9BA1CDD135 /* CDVDevice.m in Sources */,
+				73F53EFB37E64AD5B8804EE2 /* CDVFile.m in Sources */,
+				F45C4A36DC0B4C9B8A13FFBE /* CDVLocalFilesystem.m in Sources */,
+				0C16EB35F8B44B93B1538CEE /* CDVAssetLibraryFilesystem.m in Sources */,
+				4DDCB137395043ADB3A73A5E /* AppDelegate+FirebasePlugin.m in Sources */,
+				33531DC1B9184508A8D9F620 /* FirebasePlugin.m in Sources */,
+				97630985E48C4E9792EE19F1 /* CDVInAppBrowserOptions.m in Sources */,
+				759AA9AECBB7495DB28B607C /* CDVInAppBrowserNavigationController.m in Sources */,
+				FDFEDC042B2A4D6AA37E11C9 /* CDVWKInAppBrowser.m in Sources */,
+				B1304268D6804B12A9213773 /* CDVWKInAppBrowserUIDelegate.m in Sources */,
+				30505150898240959F5BF614 /* CDVConnection.m in Sources */,
+				AA9BD0AE82764833A3A6BB27 /* CDVReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,13 +477,21 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 9VFT72C446;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dentacoin Hub App/Dentacoin Hub App-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "Dentacoin Hub App/Dentacoin Hub App-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dentacoin.hub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib\"",
@@ -517,20 +513,6 @@
 					"\"Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib\"",
 					"\"Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib\"",
 				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Dentacoin Hub App/Dentacoin Hub App-Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
-				INFOPLIST_FILE = "Dentacoin Hub App/Dentacoin Hub App-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentacoin.hub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WK_WEB_VIEW_ONLY = 1;
 			};
 			name = Debug;
 		};
@@ -540,13 +522,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = 9VFT72C446;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dentacoin Hub App/Dentacoin Hub App-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "Dentacoin Hub App/Dentacoin Hub App-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dentacoin.hub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib\"",
@@ -568,18 +556,6 @@
 					"\"Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib\"",
 					"\"Dentacoin Hub App/Plugins/cordova-plugin-firebase-lib\"",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Dentacoin Hub App/Dentacoin Hub App-Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
-				INFOPLIST_FILE = "Dentacoin Hub App/Dentacoin Hub App-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentacoin.hub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WK_WEB_VIEW_ONLY = 1;
 			};
 			name = Release;
 		};
@@ -587,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -619,7 +596,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentacoin.hub;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 1;
@@ -630,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -660,7 +637,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dentacoin.hub;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 1;

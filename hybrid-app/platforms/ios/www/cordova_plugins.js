@@ -229,30 +229,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "Connection"
       ]
-    },
-    {
-      "id": "cordova-plugin-wkwebview-file-xhr.formdata-polyfill",
-      "file": "plugins/cordova-plugin-wkwebview-file-xhr/src/www/ios/formdata-polyfill.js",
-      "pluginId": "cordova-plugin-wkwebview-file-xhr",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-wkwebview-file-xhr.xhr-polyfill",
-      "file": "plugins/cordova-plugin-wkwebview-file-xhr/src/www/ios/xhr-polyfill.js",
-      "pluginId": "cordova-plugin-wkwebview-file-xhr",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-wkwebview-file-xhr.fetch-bootstrap",
-      "file": "plugins/cordova-plugin-wkwebview-file-xhr/src/www/ios/fetch-bootstrap.js",
-      "pluginId": "cordova-plugin-wkwebview-file-xhr",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-wkwebview-file-xhr.fetch-polyfill",
-      "file": "plugins/cordova-plugin-wkwebview-file-xhr/src/www/ios/whatwg-fetch-2.0.3.js",
-      "pluginId": "cordova-plugin-wkwebview-file-xhr",
-      "runs": true
     }
   ];
   module.exports.metadata = {
@@ -264,7 +240,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-inappbrowser": "4.0.0",
     "cordova-plugin-network-information": "2.0.2",
     "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-wkwebview-file-xhr": "3.0.0",
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2"
   };
