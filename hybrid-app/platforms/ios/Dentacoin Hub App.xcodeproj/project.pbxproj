@@ -477,6 +477,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DEVELOPMENT_TEAM = 9VFT72C446;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,6 +527,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DEVELOPMENT_TEAM = 9VFT72C446;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
