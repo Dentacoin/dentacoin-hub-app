@@ -114,5 +114,8 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="ScrollEnabled" value="true" />
+<<<<<<< HEAD
     <preference name="WKWebViewOnly" value="true" />
+=======
+>>>>>>> 1ba61555ec70e113e13cde42622f991060ae4256
 </widget>
