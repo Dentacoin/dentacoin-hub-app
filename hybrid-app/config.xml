@@ -75,4 +75,6 @@
     </feature>
     <access origin="*"/>
     <allow-navigation href="https://dentacoin.com/*"/>
+    <preference name="scheme" value="app" />
+    <preference name="hostname" value="localhost" />
 </widget>
