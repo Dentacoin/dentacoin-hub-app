@@ -42,10 +42,14 @@
             },
             {
               "xml": "<preference name=\"CordovaWebViewEngine\" value=\"CDVWKWebViewEngine\" />",
-              "count": 1
+              "count": 2
             },
             {
               "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"CDVWKWebViewEngine\"><param name=\"ios-package\" value=\"CDVWKWebViewEngine\" /></feature>",
               "count": 1
             }
           ]
@@ -116,6 +120,9 @@
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-support-google-services": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-wkwebview-engine": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
@@ -366,6 +373,22 @@
       "clobbers": [
         "Connection"
       ]
+    },
+    {
+      "id": "cordova-plugin-wkwebview-engine.ios-wkwebview-exec",
+      "file": "plugins/cordova-plugin-wkwebview-engine/src/www/ios/ios-wkwebview-exec.js",
+      "pluginId": "cordova-plugin-wkwebview-engine",
+      "clobbers": [
+        "cordova.exec"
+      ]
+    },
+    {
+      "id": "cordova-plugin-wkwebview-engine.ios-wkwebview",
+      "file": "plugins/cordova-plugin-wkwebview-engine/src/www/ios/ios-wkwebview.js",
+      "pluginId": "cordova-plugin-wkwebview-engine",
+      "clobbers": [
+        "window.WkWebView"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -379,6 +402,7 @@
     "cordova-plugin-network-information": "2.0.2",
     "cordova-plugin-whitelist": "1.3.4",
     "cordova-support-android-plugin": "1.0.1",
-    "cordova-support-google-services": "1.3.2"
+    "cordova-support-google-services": "1.3.2",
+    "cordova-plugin-wkwebview-engine": "1.2.1"
   }
 }
