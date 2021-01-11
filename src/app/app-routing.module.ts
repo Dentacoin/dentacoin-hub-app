@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {environment} from './../environments/environment';
 
 import { PatientLoginPageComponent } from './patient-login-page/patient-login-page.component';
@@ -71,7 +71,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+    imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload', preloadingStrategy: PreloadAllModules, useHash: true})],
     exports: [RouterModule]
 })
 
