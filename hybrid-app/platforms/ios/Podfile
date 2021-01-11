@@ -2,7 +2,7 @@
 
 platform :ios, '10.0'
 
-target 'Dentacoin Hub App' do
-	project 'Dentacoin Hub App.xcodeproj'
+target 'D:\wamp\www\dcn-hub-app\hybrid-app\platforms\ios\Dentacoin Hub App' do
+	project 'D:\wamp\www\dcn-hub-app\hybrid-app\platforms\ios\Dentacoin Hub App.xcodeproj'
 
 end

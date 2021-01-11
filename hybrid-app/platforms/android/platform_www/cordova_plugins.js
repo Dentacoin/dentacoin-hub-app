@@ -215,14 +215,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-ionic-webview.IonicWebView",
-      "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
-      "pluginId": "cordova-plugin-ionic-webview",
-      "clobbers": [
-        "Ionic.WebView"
-      ]
-    },
-    {
       "id": "cordova-plugin-inappbrowser.inappbrowser",
       "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
       "pluginId": "cordova-plugin-inappbrowser",
@@ -248,7 +240,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2",
     "cordova-plugin-app-launcher": "0.4.0",
-    "cordova-plugin-ionic-webview": "5.0.0",
     "cordova-plugin-inappbrowser": "4.0.0",
     "cordova-plugin-customurlscheme": "5.0.2",
     "cordova-plugin-wkwebview-engine": "1.2.1"
