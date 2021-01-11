@@ -16,13 +16,7 @@
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.dentaprime.hub"
     },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.dentaprime.hub"
-    },
     "cordova-plugin-app-launcher": {
-      "PACKAGE_NAME": "com.dentaprime.hub"
-    },
-    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.dentaprime.hub"
     },
     "cordova-plugin-customurlscheme": {
