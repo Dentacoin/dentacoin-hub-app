@@ -39,6 +39,7 @@
       },
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-fcm-with-dependecy-updated": {
+        "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
         "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.0.0"
       }
     },

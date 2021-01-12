@@ -42,9 +42,6 @@
     <feature name="NetworkStatus">
         <param name="ios-package" value="CDVConnection" />
     </feature>
-    <feature name="FCMPlugin">
-        <param name="ios-package" value="FCMPlugin" />
-    </feature>
     <name>Dentacoin Hub App</name>
     <description>
         Dentaprime Hub App is a mobile application, dedicated to the patients of Dentaprime dental clinics. It allows them to manage bookings, earn Dentacoin, and make payments.
@@ -111,4 +108,7 @@
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
     <preference name="ScrollEnabled" value="true" />
+    <feature name="FCMPlugin">
+        <param name="ios-package" value="FCMPlugin" />
+    </feature>
 </widget>

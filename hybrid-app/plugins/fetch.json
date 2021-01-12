@@ -90,6 +90,8 @@
       "id": "cordova-plugin-fcm-with-dependecy-updated"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0"
+    }
   }
 }
