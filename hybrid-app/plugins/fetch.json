@@ -75,5 +75,21 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-firebase-analytics": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase-analytics@~5.0.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-fcm-with-dependecy-updated": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm-with-dependecy-updated"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

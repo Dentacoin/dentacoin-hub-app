@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.dentacoin.hub" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
+    <feature name="CDVWebViewEngine">
+        <param name="ios-package" value="CDVWebViewEngine" />
+    </feature>
+    <feature name="LaunchScreen">
+        <param name="ios-package" value="CDVLaunchScreen" />
+    </feature>
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IntentAndNavigationFilter">
+        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GestureHandler">
+        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Launcher">
+        <param name="ios-package" value="Launcher" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVWKInAppBrowser" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <name>Dentacoin Hub App</name>
+    <description>
+        Dentaprime Hub App is a mobile application, dedicated to the patients of Dentaprime dental clinics. It allows them to manage bookings, earn Dentacoin, and make payments.
+    </description>
+    <author email="admin@dentacoin.com" href="http://dentacoin.com">
+        Dentacoin Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <access origin="*" />
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    <icon height="180" src="app-resources/images/dentacoin-hub-app-icon-180px.jpg" width="180" />
+    <icon height="60" src="app-resources/images/dentacoin-hub-app-icon-60px.jpg" width="60" />
+    <icon height="120" src="app-resources/images/dentacoin-hub-app-icon-120px.jpg" width="120" />
+    <icon height="76" src="app-resources/images/dentacoin-hub-app-icon-76px.jpg" width="76" />
+    <icon height="152" src="app-resources/images/dentacoin-hub-app-icon-152px.jpg" width="152" />
+    <icon height="40" src="app-resources/images/dentacoin-hub-app-icon-40px.jpg" width="40" />
+    <icon height="80" src="app-resources/images/dentacoin-hub-app-icon-80px.jpg" width="80" />
+    <icon height="57" src="app-resources/images/dentacoin-hub-app-icon-57px.jpg" width="57" />
+    <icon height="114" src="app-resources/images/dentacoin-hub-app-icon-114px.jpg" width="114" />
+    <icon height="72" src="app-resources/images/dentacoin-hub-app-icon-72px.jpg" width="72" />
+    <icon height="144" src="app-resources/images/dentacoin-hub-app-icon-144px.jpg" width="144" />
+    <icon height="29" src="app-resources/images/dentacoin-hub-app-icon-29px.jpg" width="29" />
+    <icon height="58" src="app-resources/images/dentacoin-hub-app-icon-58px.jpg" width="58" />
+    <icon height="50" src="app-resources/images/dentacoin-hub-app-icon-50px.jpg" width="50" />
+    <icon height="100" src="app-resources/images/dentacoin-hub-app-icon-100px.png" width="100" />
+    <icon height="167" src="app-resources/images/dentacoin-hub-app-icon-167px.jpg" width="167" />
+    <icon height="20" src="app-resources/images/dentacoin-hub-app-icon-20px.jpg" width="20" />
+    <icon height="127" src="app-resources/images/dentacoin-hub-app-icon-127px.jpg" width="127" />
+    <icon height="196" src="app-resources/images/dentacoin-hub-app-icon-196px.jpg" width="196" />
+    <icon height="24" src="app-resources/images/dentacoin-hub-app-icon-24px.jpg" width="24" />
+    <icon height="44" src="app-resources/images/dentacoin-hub-app-icon-44px.jpg" width="44" />
+    <icon height="48" src="app-resources/images/dentacoin-hub-app-icon-48px.jpg" width="48" />
+    <icon height="55" src="app-resources/images/dentacoin-hub-app-icon-55px.jpg" width="55" />
+    <icon height="87" src="app-resources/images/dentacoin-hub-app-icon-87px.jpg" width="87" />
+    <icon height="88" src="app-resources/images/dentacoin-hub-app-icon-88px.jpg" width="88" />
+    <icon height="1024" src="app-resources/images/dentacoin-hub-app-icon-1024px.png" width="1024" />
+    <icon height="1365" src="app-resources/images/dentacoin-hub-app-icon-1365px.png" width="1365" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaTypesRequiringUserActionForPlayback" value="none" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="SuppressesLongPressGesture" value="false" />
+    <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <preference name="orientation" value="portrait" />
+    <preference name="SplashScreen" value="none" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="scheme" value="app" />
+    <preference name="hostname" value="localhost" />
+    <preference name="ScrollEnabled" value="true" />
+    <feature name="FCMPlugin">
+        <param name="ios-package" value="FCMPlugin" />
+    </feature>
+</widget>

@@ -1,0 +1,66 @@
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadeIn { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadeIn { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadeIn { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.rotate-animation {
+    -webkit-animation: spin .9s linear infinite;
+    -moz-animation: spin .9s linear infinite;
+    animation: spin .9s linear infinite;
+}
+
+.fade-in-animation {
+    @include animation(0s, 1s, fadeIn);
+}
+
+.fade-in-animation-1 {
+    @include animation(.442s, 1s, fadeIn);
+}
+
+.fade-in-animation-2 {
+    @include animation(.884s, 1s, fadeIn);
+}
+
+.fade-in-animation-3 {
+    @include animation(1.326s, 1s, fadeIn);
+}
+
+.fade-in-animation-4 {
+    @include animation(1.786s, 1s, fadeIn);
+}
+
+.fade-in-animation-5 {
+    @include animation(2.21s, 1s, fadeIn);
+}
