@@ -1,0 +1,65 @@
+{
+  "_from": "cordova-plugin-firebase-inappmessaging",
+  "_id": "cordova-plugin-firebase-inappmessaging@4.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-YCn7yntxKYIq3JAwWLT1DJr5jdxTQoZPAbpiTuHStzvd0NwnraUGKq4p1/Ah5Qi84sco1pBL40NRJcZt2rYSTA==",
+  "_location": "/cordova-plugin-firebase-inappmessaging",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-firebase-inappmessaging",
+    "name": "cordova-plugin-firebase-inappmessaging",
+    "escapedName": "cordova-plugin-firebase-inappmessaging",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-firebase-inappmessaging/-/cordova-plugin-firebase-inappmessaging-4.0.0.tgz",
+  "_shasum": "e2fbd08805e4f3f7bbb2e85d24a01f8669f2c6ca",
+  "_spec": "cordova-plugin-firebase-inappmessaging",
+  "_where": "D:\\wamp\\www\\dcn-hub-app\\hybrid-app",
+  "author": {
+    "name": "Maksim Chemerisuk",
+    "email": "chemerisuk@gmail.com",
+    "url": "https://github.com/chemerisuk"
+  },
+  "bugs": {
+    "url": "https://github.com/chemerisuk/cordova-plugin-firebase-inappmessaging/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-firebase-inappmessaging",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova plugin for Firebase In-App Messaging",
+  "funding": "https://github.com/chemerisuk/cordova-plugin-firebase-inappmessaging?sponsor=1",
+  "homepage": "https://github.com/chemerisuk/cordova-plugin-firebase-inappmessaging#readme",
+  "keywords": [
+    "cordova",
+    "firebase",
+    "in-app messaging",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-firebase-inappmessaging",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chemerisuk/cordova-plugin-firebase-inappmessaging.git"
+  },
+  "scripts": {
+    "postversion": "git push && git push --tags",
+    "version": "replace -s 'version=\"(.+)(?=\">)' 'version=\"'$npm_package_version plugin.xml && git add plugin.xml"
+  },
+  "version": "4.0.0"
+}

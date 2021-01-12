@@ -60,7 +60,7 @@ document.addEventListener('deviceready', function() {
 
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
-    /*
+    /* ====== GET APPS LIST ======
     cordova plugin add cordova-plugin-intent-list
     navigator.IntentList.getList(function(applist) {
         console.log(applist, 'applist');
@@ -68,7 +68,7 @@ document.addEventListener('deviceready', function() {
         console.log(errorMesage);
     });*/
 
-    /*
+    /* ====== RUN LOCAL PUSH NOTIFICATION ======
     cordova-plugin-local-notification
     cordova.plugins.notification.local.schedule({
         title: 'My first notification',
@@ -76,6 +76,7 @@ document.addEventListener('deviceready', function() {
         foreground: true
     });*/
 
+    /* ====== cordova-plugin-firebase-lib, working on Android and iOS, but using depracted web view and iOS publishing is permitted
     window.FirebasePlugin.hasPermission(function(hasPermission) {
         console.log(hasPermission, 'hasPermission');
         if (basic.property_exists(hasPermission, 'isEnabled') && !hasPermission.isEnabled) {
@@ -91,30 +92,18 @@ document.addEventListener('deviceready', function() {
         localStorage.setItem('mobile_device_id', token);
     }, function(error) {
         console.error(error);
+    });*/
+
+    console.log(cordova.plugins, 'cordova.plugins');
+
+    cordova.plugins.firebase.messaging.requestPermission().then(function() {
+        console.log("Push messaging is allowed");
     });
 
-    /*cordova.plugins.firebase.messaging.getToken().then(function(token) {
+    cordova.plugins.firebase.messaging.getToken().then(function(token) {
         console.log("Got device token: ", token);
-    });*/
-
-    /*var push = PushNotification.init({
-        android: {}
+        localStorage.setItem('mobile_device_id', token);
     });
-
-    console.log(push, 'push');
-
-    push.on('registration', function(data) {
-        // data.registrationId
-        console.log(data.registrationId, 'data.registrationId');
-    });
-
-    push.on('notification', function(data) {
-        alert("Title:" + data.title + " Message:" + data.message);
-    });
-
-    push.on('error', function(e) {
-        console.log(e.message, 'e.message')
-    });*/
 }, false);
 
 function bindGoogleAlikeButtonsEvents() {

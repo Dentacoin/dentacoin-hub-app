@@ -62,21 +62,16 @@
     },
     "is_top_level": true,
     "variables": {
-      "URL_SCHEME": "hubapp"
+      "URL_SCHEME": "hubapp",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/"
     }
   },
   "cordova-plugin-inappbrowser": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-inappbrowser@4.1.0"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-firebasex": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-firebasex"
     },
     "is_top_level": true,
     "variables": {}
