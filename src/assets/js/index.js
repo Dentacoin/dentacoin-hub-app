@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
 
 });
 
-document.addEventListener('deviceready', function() {
+document.addEventListener('deviceready', async function() {
     console.log('================= deviceready ===================');
 
     window.open = cordova.InAppBrowser.open;
@@ -96,7 +96,7 @@ document.addEventListener('deviceready', function() {
 
     console.log(typeof(FCM), 'FCM');
 
-    const wasPermissionGiven = FCM.requestPushPermission({
+    const wasPermissionGiven = await FCM.requestPushPermission({
         ios9Support: {
             timeout: 10,  // How long it will wait for a decision from the user before returning `false`
             interval: 0.3 // How long between each permission verification
@@ -104,14 +104,10 @@ document.addEventListener('deviceready', function() {
     });
     console.log(wasPermissionGiven, 'wasPermissionGiven');
 
-    /*cordova.plugins.firebase.messaging.requestPermission().then(function() {
-        console.log("Push messaging is allowed");
-    });
 
-    cordova.plugins.firebase.messaging.getToken().then(function(token) {
-        console.log("Got device token: ", token);
-        localStorage.setItem('mobile_device_id', token);
-    });*/
+    var FCMToken = await FCM.getToken();
+    console.log(FCMToken, 'FCMToken');
+    localStorage.setItem('mobile_device_id', FCMToken);
 }, false);
 
 function bindGoogleAlikeButtonsEvents() {
@@ -2100,7 +2096,7 @@ function router() {
     var current_route;
     var init_logged_in_wrapper_logic = false;
 
-    $('body').on('DOMSubtreeModified', '.main-content', function() {
+    $('body').on('DOMSubtreeModified', '.main-content', async function() {
         if (window.localStorage.getItem('currentPatient') != null) {
             // LOGGED IN ROUTES
             if ($('app-home').length && current_route != 'home') {
@@ -2132,14 +2128,21 @@ function router() {
 
                 // saving mobile_device_id to send push notifications
                 if (is_hybrid) {
-                    window.FirebasePlugin.hasPermission(function(hasPermission) {
+                    console.log(await FCM.hasPermission(), 'await FCM.hasPermission()');
+                    if (await FCM.hasPermission()) {
+                        projectData.requests.addMobileDeviceId(function() {
+                            console.log('Mobile device id saved.');
+                        }, window.localStorage.getItem('mobile_device_id'))
+                    }
+
+                    /*window.FirebasePlugin.hasPermission(function(hasPermission) {
                         if (basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
                             // if permission is given save the firebase mobile device id
                             projectData.requests.addMobileDeviceId(function() {
                                 console.log('Mobile device id saved.');
                             }, window.localStorage.getItem('mobile_device_id'))
                         }
-                    });
+                    });*/
                 }
             }
         } else {
