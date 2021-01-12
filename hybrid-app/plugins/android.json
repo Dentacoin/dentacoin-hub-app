@@ -1,0 +1,49 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-app-launcher": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "hubapp",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
+      "ANDROID_FCM_VERSION": "21.0.0",
+      "ANDROID_FIREBASE_BOM_VERSION": "26.0.0",
+      "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4",
+      "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.dentacoin.hub"
+    }
+  }
+}

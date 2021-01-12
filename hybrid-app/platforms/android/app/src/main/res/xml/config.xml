@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.dentacoin.hub" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
+    <feature name="Launcher">
+        <param name="android-package" value="com.hutchind.cordova.plugins.launcher.Launcher" />
+    </feature>
+    <feature name="LaunchMyApp">
+        <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <platform name="android">
+        <preference name="AndroidXEnabled" value="true" />
+    </platform>
+    <name>Dentacoin Hub App</name>
+    <description>
+        Dentaprime Hub App is a mobile application, dedicated to the patients of Dentaprime dental clinics. It allows them to manage bookings, earn Dentacoin, and make payments.
+    </description>
+    <author email="admin@dentacoin.com" href="http://dentacoin.com">
+        Dentacoin Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <access origin="*" />
+    <allow-intent href="market:*" />
+    <icon density="hdpi" height="48" src="/app-resources/images/dentacoin-hub-app-icon-48px.jpg" width="48" />
+    <icon density="xhdpi" height="72" src="/app-resources/images/dentacoin-hub-app-icon-72px.jpg" width="72" />
+    <icon density="xxhdpi" height="144" src="/app-resources/images/dentacoin-hub-app-icon-144px.jpg" width="144" />
+    <resource-file src="google-services.json" target="app/google-services.json" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="orientation" value="portrait" />
+    <preference name="SplashScreen" value="none" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="scheme" value="app" />
+    <preference name="hostname" value="localhost" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+</widget>
