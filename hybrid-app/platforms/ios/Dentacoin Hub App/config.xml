@@ -107,6 +107,7 @@
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="ScrollEnabled" value="true" />
     <feature name="FCMPlugin">
         <param name="ios-package" value="FCMPlugin" />

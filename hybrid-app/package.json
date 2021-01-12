@@ -13,12 +13,10 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.1.0",
     "cordova-ios": "^6.0.0",
     "cordova-plugin-app-launcher": "git+https://github.com/nchutchind/cordova-plugin-app-launcher.git",
     "cordova-plugin-customurlscheme": "^5.0.2",
     "cordova-plugin-device": "^2.0.3",
-    "cordova-plugin-fcm-with-dependecy-updated": "^7.7.0",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-inappbrowser": "^4.1.0",
     "cordova-plugin-network-information": "^2.0.2",
@@ -38,16 +36,10 @@
         "ANDROID_HOST": " ",
         "ANDROID_PATHPREFIX": "/"
       },
-      "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-fcm-with-dependecy-updated": {
-        "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
-        "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4",
-        "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.0.0"
-      }
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ]
   }
 }

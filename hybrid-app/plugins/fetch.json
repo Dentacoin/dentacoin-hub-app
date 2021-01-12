@@ -83,16 +83,5 @@
     },
     "is_top_level": false,
     "variables": {}
-  },
-  "cordova-plugin-fcm-with-dependecy-updated": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-fcm-with-dependecy-updated"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
-      "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4"
-    }
   }
 }

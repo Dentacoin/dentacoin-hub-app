@@ -25,10 +25,6 @@
     },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
-    "cordova-plugin-fcm-with-dependecy-updated": {
-      "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.0.0",
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {
