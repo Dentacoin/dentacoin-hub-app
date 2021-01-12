@@ -198,22 +198,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-firebase-lib.FirebasePlugin",
-      "file": "plugins/cordova-plugin-firebase-lib/www/firebase.js",
-      "pluginId": "cordova-plugin-firebase-lib",
-      "clobbers": [
-        "FirebasePlugin"
-      ]
-    },
-    {
-      "id": "cordova-plugin-inappbrowser.inappbrowser",
-      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-      "pluginId": "cordova-plugin-inappbrowser",
-      "clobbers": [
-        "cordova.InAppBrowser.open"
-      ]
-    },
-    {
       "id": "cordova-plugin-network-information.network",
       "file": "plugins/cordova-plugin-network-information/www/network.js",
       "pluginId": "cordova-plugin-network-information",
@@ -236,10 +220,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-customurlscheme": "5.0.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file": "6.0.2",
-    "cordova-plugin-firebase-lib": "3.3.0",
-    "cordova-plugin-inappbrowser": "4.0.0",
     "cordova-plugin-network-information": "2.0.2",
-    "cordova-plugin-whitelist": "1.3.4",
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2"
   };
