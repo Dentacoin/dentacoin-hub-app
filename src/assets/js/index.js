@@ -94,16 +94,24 @@ document.addEventListener('deviceready', function() {
         console.error(error);
     });*/
 
-    console.log(cordova.plugins, 'cordova.plugins');
+    console.log(typeof(FCM), 'FCM');
 
-    cordova.plugins.firebase.messaging.requestPermission().then(function() {
+    const wasPermissionGiven = FCM.requestPushPermission({
+        ios9Support: {
+            timeout: 10,  // How long it will wait for a decision from the user before returning `false`
+            interval: 0.3 // How long between each permission verification
+        }
+    });
+    console.log(wasPermissionGiven, 'wasPermissionGiven');
+
+    /*cordova.plugins.firebase.messaging.requestPermission().then(function() {
         console.log("Push messaging is allowed");
     });
 
     cordova.plugins.firebase.messaging.getToken().then(function(token) {
         console.log("Got device token: ", token);
         localStorage.setItem('mobile_device_id', token);
-    });
+    });*/
 }, false);
 
 function bindGoogleAlikeButtonsEvents() {
