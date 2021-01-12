@@ -73,4 +73,5 @@
     <access origin="*"/>
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 </widget>
