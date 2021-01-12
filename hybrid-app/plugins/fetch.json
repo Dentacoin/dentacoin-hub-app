@@ -91,7 +91,7 @@
     },
     "is_top_level": true,
     "variables": {
-      "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0"
+      "ANDROID_GRADLE_TOOLS_VERSION": "4.3.4"
     }
   }
 }
