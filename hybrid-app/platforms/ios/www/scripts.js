@@ -19280,7 +19280,7 @@ window.addEventListener('load', function() {
 
 });
 
-document.addEventListener('deviceready', function() {
+document.addEventListener('deviceready', async function() {
     console.log('================= deviceready ===================');
 
     window.open = cordova.InAppBrowser.open;
@@ -19310,7 +19310,7 @@ document.addEventListener('deviceready', function() {
 
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
-    /*
+    /* ====== GET APPS LIST ======
     cordova plugin add cordova-plugin-intent-list
     navigator.IntentList.getList(function(applist) {
         console.log(applist, 'applist');
@@ -19318,7 +19318,7 @@ document.addEventListener('deviceready', function() {
         console.log(errorMesage);
     });*/
 
-    /*
+    /* ====== RUN LOCAL PUSH NOTIFICATION ======
     cordova-plugin-local-notification
     cordova.plugins.notification.local.schedule({
         title: 'My first notification',
@@ -19326,13 +19326,14 @@ document.addEventListener('deviceready', function() {
         foreground: true
     });*/
 
+    /* ====== cordova-plugin-firebase-lib, working on Android and iOS, but using depracted web view and iOS publishing is permitted
     window.FirebasePlugin.hasPermission(function(hasPermission) {
         console.log(hasPermission, 'hasPermission');
         if (basic.property_exists(hasPermission, 'isEnabled') && !hasPermission.isEnabled) {
             // ask for push notifications permission
             window.FirebasePlugin.grantPermission();
         } else{
-            console.log("Permission already granted");
+            console.log('Permission already granted');
         }
     });
 
@@ -19341,30 +19342,22 @@ document.addEventListener('deviceready', function() {
         localStorage.setItem('mobile_device_id', token);
     }, function(error) {
         console.error(error);
-    });
-
-    /*cordova.plugins.firebase.messaging.getToken().then(function(token) {
-        console.log("Got device token: ", token);
     });*/
 
-    /*var push = PushNotification.init({
-        android: {}
+    console.log(typeof(FCM), 'FCM');
+
+    const wasPermissionGiven = await FCM.requestPushPermission({
+        ios9Support: {
+            timeout: 10,  // How long it will wait for a decision from the user before returning `false`
+            interval: 0.3 // How long between each permission verification
+        }
     });
+    console.log(wasPermissionGiven, 'wasPermissionGiven');
 
-    console.log(push, 'push');
 
-    push.on('registration', function(data) {
-        // data.registrationId
-        console.log(data.registrationId, 'data.registrationId');
-    });
-
-    push.on('notification', function(data) {
-        alert("Title:" + data.title + " Message:" + data.message);
-    });
-
-    push.on('error', function(e) {
-        console.log(e.message, 'e.message')
-    });*/
+    var FCMToken = await FCM.getToken();
+    console.log(FCMToken, 'FCMToken');
+    localStorage.setItem('mobile_device_id', FCMToken);
 }, false);
 
 function bindGoogleAlikeButtonsEvents() {
@@ -21353,7 +21346,7 @@ function router() {
     var current_route;
     var init_logged_in_wrapper_logic = false;
 
-    $('body').on('DOMSubtreeModified', '.main-content', function() {
+    $('body').on('DOMSubtreeModified', '.main-content', async function() {
         if (window.localStorage.getItem('currentPatient') != null) {
             // LOGGED IN ROUTES
             if ($('app-home').length && current_route != 'home') {
@@ -21385,14 +21378,21 @@ function router() {
 
                 // saving mobile_device_id to send push notifications
                 if (is_hybrid) {
-                    window.FirebasePlugin.hasPermission(function(hasPermission) {
+                    console.log(await FCM.hasPermission(), 'await FCM.hasPermission()');
+                    if (await FCM.hasPermission()) {
+                        projectData.requests.addMobileDeviceId(function() {
+                            console.log('Mobile device id saved.');
+                        }, window.localStorage.getItem('mobile_device_id'))
+                    }
+
+                    /*window.FirebasePlugin.hasPermission(function(hasPermission) {
                         if (basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
                             // if permission is given save the firebase mobile device id
                             projectData.requests.addMobileDeviceId(function() {
                                 console.log('Mobile device id saved.');
                             }, window.localStorage.getItem('mobile_device_id'))
                         }
-                    });
+                    });*/
                 }
             }
         } else {

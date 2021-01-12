@@ -62,7 +62,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FirebaseCore
-    - GoogleUtilities
   trunk:
     - Firebase
     - FirebaseCoreDiagnostics
