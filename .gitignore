@@ -16,6 +16,10 @@
 /hybrid-app/plugins/android.json
 /hybrid-app/plugins/fetch.json
 /hybrid-app/platforms
+/hybrid-app/package.json
+/hybrid-app/package-lock.json
+/hybrid-app/plugins/cordova-plugin-firebase-lib
+/hybrid-app/plugins/cordova-plugin-fcm-with-dependecy-updated
 
 # profiling files
 chrome-profiler-events.json
