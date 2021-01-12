@@ -72,5 +72,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-firebasex": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebasex"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

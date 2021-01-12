@@ -38,6 +38,10 @@
     <feature name="NetworkStatus">
         <param name="ios-package" value="CDVConnection" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVWKInAppBrowser" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Dentacoin Hub App</name>
     <description>
         Dentaprime Hub App is a mobile application, dedicated to the patients of Dentaprime dental clinics. It allows them to manage bookings, earn Dentacoin, and make payments.
@@ -53,7 +57,6 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <access origin="*" />
-    <allow-navigation href="https://dentacoin.com/*" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon height="180" src="app-resources/images/dentacoin-hub-app-icon-180px.jpg" width="180" />
@@ -105,8 +108,4 @@
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
     <preference name="ScrollEnabled" value="true" />
-    <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVWKInAppBrowser" />
-        <param name="onload" value="true" />
-    </feature>
 </widget>

@@ -30,18 +30,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>0.0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>dentacoin.com</key>
-			<dict/>
-		</dict>
 	</dict>
 	<key>NSMainNibFile</key>
 	<string/>
@@ -65,5 +60,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>FirebaseScreenReportingEnabled</key>
+	<true/>
 </dict>
 </plist>
