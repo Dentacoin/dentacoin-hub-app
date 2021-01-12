@@ -50,7 +50,7 @@
   "cordova-plugin-firebasex": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-firebasex@^7.0.1"
+      "id": "cordova-plugin-firebasex@^7.0.2"
     },
     "is_top_level": true,
     "variables": {
@@ -76,5 +76,29 @@
     "variables": {
       "URL_SCHEME": "hubapp"
     }
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@4.1.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx@^1.0.2"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-androidx-adapter": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx-adapter@^1.1.0"
+    },
+    "is_top_level": false,
+    "variables": {}
   }
 }

@@ -44,9 +44,9 @@
 		</dict>
 	</dict>
 	<key>NSMainNibFile</key>
-	<string></string>
+	<string/>
 	<key>NSMainNibFile~ipad</key>
-	<string></string>
+	<string/>
 	<key>UIInterfaceOrientation</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

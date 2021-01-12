@@ -105,4 +105,8 @@
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
     <preference name="ScrollEnabled" value="true" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVWKInAppBrowser" />
+        <param name="onload" value="true" />
+    </feature>
 </widget>

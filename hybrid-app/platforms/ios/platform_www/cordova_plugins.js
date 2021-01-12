@@ -213,6 +213,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "Connection"
       ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -222,6 +230,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-network-information": "2.0.2",
     "cordova-support-android-plugin": "1.0.1",
-    "cordova-support-google-services": "1.3.2"
+    "cordova-support-google-services": "1.3.2",
+    "cordova-plugin-inappbrowser": "4.1.0",
+    "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.3"
   };
 });
