@@ -83,5 +83,13 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-firebase-lib": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase-lib"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

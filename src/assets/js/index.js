@@ -94,20 +94,37 @@ document.addEventListener('deviceready', async function() {
         console.error(error);
     });*/
 
-    console.log(typeof(FCM), 'FCM');
+    if (basic.getMobileOperatingSystem() == 'Android') {
+        window.FirebasePlugin.hasPermission(function(hasPermission) {
+            console.log(hasPermission, 'hasPermission');
+            if (basic.property_exists(hasPermission, 'isEnabled') && !hasPermission.isEnabled) {
+                // ask for push notifications permission
+                window.FirebasePlugin.grantPermission();
+            } else{
+                console.log('Permission already granted');
+            }
+        });
 
-    const wasPermissionGiven = await FCM.requestPushPermission({
-        ios9Support: {
-            timeout: 10,  // How long it will wait for a decision from the user before returning `false`
-            interval: 0.3 // How long between each permission verification
-        }
-    });
-    console.log(wasPermissionGiven, 'wasPermissionGiven');
+        window.FirebasePlugin.getToken(function(token) {
+            // save this server-side and use it to push notifications to this device
+            localStorage.setItem('mobile_device_id', token);
+        }, function(error) {
+            console.error(error);
+        });
+    } else if (basic.getMobileOperatingSystem() == 'iOS') {
+        console.log(typeof(FCM), 'FCM');
+        const wasPermissionGiven = await FCM.requestPushPermission({
+            ios9Support: {
+                timeout: 10,  // How long it will wait for a decision from the user before returning `false`
+                interval: 0.3 // How long between each permission verification
+            }
+        });
 
-
-    var FCMToken = await FCM.getToken();
-    console.log(FCMToken, 'FCMToken');
-    localStorage.setItem('mobile_device_id', FCMToken);
+        console.log(wasPermissionGiven, 'wasPermissionGiven');
+        var FCMToken = await FCM.getToken();
+        console.log(FCMToken, 'FCMToken');
+        localStorage.setItem('mobile_device_id', FCMToken);
+    }
 }, false);
 
 function bindGoogleAlikeButtonsEvents() {
@@ -2128,21 +2145,23 @@ function router() {
 
                 // saving mobile_device_id to send push notifications
                 if (is_hybrid) {
-                    console.log(await FCM.hasPermission(), 'await FCM.hasPermission()');
-                    if (await FCM.hasPermission()) {
-                        projectData.requests.addMobileDeviceId(function() {
-                            console.log('Mobile device id saved.');
-                        }, window.localStorage.getItem('mobile_device_id'))
-                    }
-
-                    /*window.FirebasePlugin.hasPermission(function(hasPermission) {
-                        if (basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
-                            // if permission is given save the firebase mobile device id
+                    if (basic.getMobileOperatingSystem() == 'Android') {
+                        window.FirebasePlugin.hasPermission(function(hasPermission) {
+                            if (basic.property_exists(hasPermission, 'isEnabled') && hasPermission.isEnabled) {
+                                // if permission is given save the firebase mobile device id
+                                projectData.requests.addMobileDeviceId(function() {
+                                    console.log('Mobile device id saved.');
+                                }, window.localStorage.getItem('mobile_device_id'))
+                            }
+                        });
+                    } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                        console.log(await FCM.hasPermission(), 'await FCM.hasPermission()');
+                        if (await FCM.hasPermission()) {
                             projectData.requests.addMobileDeviceId(function() {
                                 console.log('Mobile device id saved.');
                             }, window.localStorage.getItem('mobile_device_id'))
                         }
-                    });*/
+                    }
                 }
             }
         } else {
