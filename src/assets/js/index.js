@@ -82,7 +82,7 @@ document.addEventListener('deviceready', function() {
             // ask for push notifications permission
             window.FirebasePlugin.grantPermission();
         } else{
-            console.log("Permission already granted");
+            console.log('Permission already granted');
         }
     });
 

@@ -14,7 +14,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <!--<allow-navigation href="*" />-->
     <preference name="orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
@@ -72,7 +71,6 @@
         <param name="android-package" value="com.hutchind.cordova.plugins.launcher.Launcher" />
     </feature>
     <access origin="*"/>
-    <allow-navigation href="https://dentacoin.com/*"/>
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
 </widget>
