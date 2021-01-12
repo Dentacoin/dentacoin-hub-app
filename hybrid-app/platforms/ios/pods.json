@@ -1,5 +1,16 @@
 {
     "declarations": {},
-    "sources": {},
-    "libraries": {}
+    "sources": {
+        "https://github.com/CocoaPods/Specs.git": {
+            "source": "https://github.com/CocoaPods/Specs.git",
+            "count": 1
+        }
+    },
+    "libraries": {
+        "Firebase/Messaging": {
+            "name": "Firebase/Messaging",
+            "spec": "~> 7.0.0",
+            "count": 1
+        }
+    }
 }

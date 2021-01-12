@@ -221,6 +221,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "Connection"
       ]
+    },
+    {
+      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+      "clobbers": [
+        "FCM"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -231,6 +239,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-inappbrowser": "4.1.0",
     "cordova-plugin-network-information": "2.0.2",
     "cordova-support-android-plugin": "1.0.1",
-    "cordova-support-google-services": "1.3.2"
+    "cordova-support-google-services": "1.3.2",
+    "cordova-plugin-fcm-with-dependecy-updated": "7.7.0"
   };
 });

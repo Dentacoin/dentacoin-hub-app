@@ -13,7 +13,6 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.1.0",
     "cordova-ios": "^6.0.0",
     "cordova-plugin-app-launcher": "git+https://github.com/nchutchind/cordova-plugin-app-launcher.git",
     "cordova-plugin-customurlscheme": "^5.0.2",
@@ -44,8 +43,7 @@
       }
     },
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ]
   }
 }
