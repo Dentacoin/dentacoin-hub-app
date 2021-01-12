@@ -40,7 +40,8 @@
         "ANDROID_PATHPREFIX": "/"
       },
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-firebase-lib": {}
     },
     "platforms": [
       "android"
