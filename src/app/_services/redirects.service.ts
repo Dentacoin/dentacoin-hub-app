@@ -38,13 +38,14 @@ export class RedirectsService {
     }
 
     redirectToPatientLogin(type: string) {
-        console.log(type, 'redirectToPatientLogin');
         if (type === 'account-verification') {
             this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyVerifiedAccount: true}});
         } else if (type === 'change-password') {
             this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyChangePassword: true}});
         } else if (type === 'login') {
             this.router.navigateByUrl(this.translate.currentLang + '/login');
+        } else {
+            this.router.navigateByUrl(this.translate.currentLang + '/' + type);
         }
     }
 

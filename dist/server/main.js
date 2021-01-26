@@ -2862,7 +2862,6 @@ class RedirectsService {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/request-account')).then();
     }
     redirectToPatientLogin(type) {
-        console.log(type, 'redirectToPatientLogin');
         if (type === 'account-verification') {
             this.router.navigate([this.translate.currentLang + '/login'], { state: { successfullyVerifiedAccount: true } });
         }
@@ -2871,6 +2870,9 @@ class RedirectsService {
         }
         else if (type === 'login') {
             this.router.navigateByUrl(this.translate.currentLang + '/login');
+        }
+        else {
+            this.router.navigateByUrl(this.translate.currentLang + '/' + type);
         }
     }
     redirectToMyWallet() {
