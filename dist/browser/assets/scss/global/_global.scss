@@ -822,6 +822,7 @@ img {
 
 .dentist-logo-img {
     max-width: 200px;
+    max-height: 100px;
     @include breakpoint($xs) {
         max-width: 100%;
     }
@@ -873,6 +874,17 @@ img {
 .social-login-btn.facebook-custom-btn {
     background-color: #4267B2;
     background-image: url(../images/facebook-icon.svg);
+    color: white;
+    @include breakpoint($md) {
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.social-login-btn.apple-custom-btn {
+    background-color: black;
+    background-image: url(../images/apple-icon.svg);
     color: white;
     @include breakpoint($md) {
         &:hover {

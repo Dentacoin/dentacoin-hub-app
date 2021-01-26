@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationServiceService} from '../_services/authentication-service.service';
 import {RedirectsService} from '../_services/redirects.service';
 import {HttpClient, HttpParams} from '../../../node_modules/@angular/common/http';
@@ -17,8 +17,9 @@ import * as $ from 'jquery';
 })
 export class PatientLoginPageComponent implements OnInit {
     coreDbApiDomain = environment.coreDbApiDomain;
+    missingPatientAccount = true;
 
-    constructor(public router: Router, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public http: HttpClient, public translate: TranslateService, public languageService: LanguageService, public requestsService: RequestsService, public additionalService: AdditionalService) {
+    constructor(public router: Router, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public http: HttpClient, public translate: TranslateService, public languageService: LanguageService, public requestsService: RequestsService, public additionalService: AdditionalService, public activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -26,6 +27,9 @@ export class PatientLoginPageComponent implements OnInit {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
+            console.log(this.activatedRoute.snapshot.queryParamMap.get('invite'), 'invite');
+            console.log(this.activatedRoute.snapshot.queryParamMap.get('inviteid'), 'inviteid');
+
             document.addEventListener('patientAuthSuccessResponse', (e: any) => {
                 console.log(e, 'patientAuthSuccessResponse');
                 this.onPatientsLogin(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
@@ -68,21 +72,18 @@ export class PatientLoginPageComponent implements OnInit {
                 console.log(e, 'e');
                 let errorsHtml = '';
                 if (e.detail.response_data.not_registered) {
-                    if (this.translate.currentLang === 'de') {
-                        errorsHtml = 'Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können.';
-                    } else if (this.translate.currentLang === 'en') {
-                        errorsHtml = 'Account not found. You need to be invited by your dentist in order to use Dentacoin HubApp.';
-                    }
+                    this.missingPatientAccount = true;
+                    document.getElementById('missing-patient-account-error').classList.remove('hide');
                 } else {
                     if (e.detail.response_data.errors) {
                         for (let key in e.detail.response_data.errors) {
                             errorsHtml += e.detail.response_data.errors[key] + '<br>';
                         }
                     }
-                }
 
-                document.getElementById('custom-error').classList.remove('hide');
-                document.getElementById('custom-error').innerHTML = errorsHtml;
+                    document.getElementById('custom-error').classList.remove('hide');
+                    document.getElementById('custom-error').innerHTML = errorsHtml;
+                }
 
                 if ($('.log-link.open-dentacoin-gateway').length) {
                     $('.log-link.open-dentacoin-gateway').on('click', () => {
@@ -107,6 +108,7 @@ export class PatientLoginPageComponent implements OnInit {
     }
 
     onPatientsLogin(_token: any, _id: any, _patient_of: any) {
+        console.log('onPatientsLogin');
         if (_patient_of !== null && _patient_of !== undefined) {
             this.requestsService.coreDbLogin(new HttpParams().set('token', _token).set('id', _id).set('patient_of', _patient_of).toString()).subscribe({
                 next: (coredbResponse: any) => {

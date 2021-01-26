@@ -39,10 +39,6 @@ export class LoggedInWrapperComponent implements OnInit {
 
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
                 this.dentistData.logo = response.data.logo;
-                /*if(this.router.url.length > 3) {
-                    this.showApplications = true;
-                    this.applications = Object.keys(response.data.applications).map(i => response.data.applications[i]);
-                }*/
             });
 
             this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentPatient')).token).subscribe({

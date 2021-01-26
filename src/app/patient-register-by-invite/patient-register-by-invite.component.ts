@@ -16,8 +16,8 @@ import * as $ from 'jquery';
 })
 export class PatientRegisterByInviteComponent implements OnInit {
     public coreDbApiDomain = environment.coreDbApiDomain;
-    public inviter: string;
-    public inviteId: string;
+    public inviter = '';
+    public inviteId = '';
 
     constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public activatedRoute: ActivatedRoute, public translate: TranslateService, public additionalService: AdditionalService, public requestsService: RequestsService) {
     }
@@ -27,89 +27,82 @@ export class PatientRegisterByInviteComponent implements OnInit {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
-            if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null) {
+            if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
                 this.redirectsService.redirectToPatientLogin('login');
             } else {
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
-            }
-            document.addEventListener('patientAuthSuccessResponse', (e: any) => {
-                console.log(e, 'patientAuthSuccessResponse');
-                this.onPatientsRegister(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
-            });
 
-            document.addEventListener('receiveCoredbTokenFromCivicAuth', (e: any) => {
-                console.log(e.detail.response_data, 'receiveCoredbTokenFromCivicAuth');
-                console.log(e, 'receiveCoredbTokenFromCivicAuth');
-
-                this.requestsService.getUserData(e.detail.response_data).subscribe({
-                    next: (response: any) => {
-                        if (response.success) {
-                            this.onPatientsRegister(e.detail.response_data, response.data.id, response.data.patient_of);
-                        } else {
-                            this.authenticationServiceService.logout('patient');
-                        }
-                    },
-                    error: error => this.authenticationServiceService.logout('patient')
+                document.addEventListener('patientAuthSuccessResponse', (e: any) => {
+                    console.log(e, 'patientAuthSuccessResponse');
+                    this.onPatientsRegister(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
                 });
-            });
 
-            document.addEventListener('receivedFacebookToken', (e: any) => {
-                this.additionalService.showLoader();
-            });
+                document.addEventListener('receiveCoredbTokenFromCivicAuth', (e: any) => {
+                    this.requestsService.getUserData(e.detail.response_data).subscribe({
+                        next: (response: any) => {
+                            if (response.success) {
+                                this.onPatientsRegister(e.detail.response_data, response.data.id, response.data.patient_of);
+                            } else {
+                                this.authenticationServiceService.logout('patient');
+                            }
+                        },
+                        error: error => this.authenticationServiceService.logout('patient')
+                    });
+                });
 
-            document.addEventListener('civicRead', (e: any) => {
-                this.additionalService.showLoader();
-            });
+                document.addEventListener('receivedFacebookToken', (e: any) => {
+                    this.additionalService.showLoader();
+                });
 
-            document.addEventListener('hideGatewayLoader', (e: any) => {
-                this.additionalService.hideLoader();
-            });
+                document.addEventListener('civicRead', (e: any) => {
+                    this.additionalService.showLoader();
+                });
 
-            document.addEventListener('registeredAccountMissingEmail', (e: any) => {
-                // COVER THIS !!!!!!!!!!!!!
-                document.getElementById('patient-register-failed-missing-email').classList.remove('hide');
-            });
+                document.addEventListener('hideGatewayLoader', (e: any) => {
+                    this.additionalService.hideLoader();
+                });
 
-            document.addEventListener('patientAuthErrorResponse', (e: any) => {
-                console.log(e, 'e');
-                let errorsHtml = '';
-                if (e.detail.response_data.not_registered) {
-                    if (this.translate.currentLang === 'de') {
-                        errorsHtml = 'Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können.';
-                    } else if (this.translate.currentLang === 'en') {
-                        errorsHtml = 'Account not found. You need to be invited by your dentist in order to use Dentacoin HubApp.';
-                    }
-                } else {
-                    if (e.detail.response_data.errors) {
-                        for (let key in e.detail.response_data.errors) {
-                            errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                document.addEventListener('registeredAccountMissingEmail', (e: any) => {
+                    // COVER THIS !!!!!!!!!!!!!
+                    document.getElementById('patient-register-failed-missing-email').classList.remove('hide');
+                });
+
+                document.addEventListener('patientAuthErrorResponse', (e: any) => {
+                    console.log(e, 'e');
+                    let errorsHtml = '';
+                    if (e.detail.response_data.not_registered) {
+                        errorsHtml = this.translate.instant('account-not-found');
+                    } else {
+                        if (e.detail.response_data.errors) {
+                            for (let key in e.detail.response_data.errors) {
+                                errorsHtml += e.detail.response_data.errors[key] + '<br>';
+                            }
                         }
                     }
-                }
 
-                document.getElementById('custom-error').classList.remove('hide');
-                document.getElementById('custom-error').innerHTML = errorsHtml;
+                    document.getElementById('custom-error').classList.remove('hide');
+                    document.getElementById('custom-error').innerHTML = errorsHtml;
 
-                if ($('.log-link.open-dentacoin-gateway').length) {
-                    $('.log-link.open-dentacoin-gateway').on('click', () => {
-                        console.log('log link');
-                        this.redirectsService.redirectToPatientLogin('login');
-                    });
-                }
+                    if ($('.log-link.open-dentacoin-gateway').length) {
+                        $('.log-link.open-dentacoin-gateway').on('click', () => {
+                            this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                        });
+                    }
 
-                this.additionalService.hideLoader();
-            });
+                    this.additionalService.hideLoader();
+                });
 
-            document.addEventListener('noCoreDBApiConnection', (e: any) => {
-                document.getElementById('patient-register-failed').classList.remove('hide');
-                this.additionalService.hideLoader();
-            });
+                document.addEventListener('noCoreDBApiConnection', (e: any) => {
+                    document.getElementById('patient-register-failed').classList.remove('hide');
+                    this.additionalService.hideLoader();
+                });
 
-            document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
-                document.getElementById('patient-register-failed').classList.remove('hide');
-                this.additionalService.hideLoader();
-            });
+                document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
+                    document.getElementById('patient-register-failed').classList.remove('hide');
+                    this.additionalService.hideLoader();
+                });
+            }
         }
     }
 

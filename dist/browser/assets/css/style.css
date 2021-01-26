@@ -4637,7 +4637,8 @@ img {
     padding-right: 10px; }
 
 .dentist-logo-img {
-  max-width: 200px; }
+  max-width: 200px;
+  max-height: 100px; }
   @media screen and (max-width: 767px) {
     .dentist-logo-img {
       max-width: 100%; } }
@@ -4687,6 +4688,14 @@ img {
   color: white; }
   @media screen and (min-width: 992px) {
     .social-login-btn.facebook-custom-btn:hover {
+      color: white; } }
+
+.social-login-btn.apple-custom-btn {
+  background-color: black;
+  background-image: url(../images/apple-icon.svg);
+  color: white; }
+  @media screen and (min-width: 992px) {
+    .social-login-btn.apple-custom-btn:hover {
       color: white; } }
 
 #iframe-civic-popup {
@@ -5532,6 +5541,8 @@ header {
     border-radius: 25px; }
     .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body {
       padding: 0; }
+      .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body .svg-full-size svg {
+        width: 100% !important; }
       .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body .language-switcher {
         font-size: 0; }
         .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body .language-switcher button {
@@ -5696,6 +5707,21 @@ header {
             margin: 0 auto;
             padding-bottom: 25px; } }
 
+.basic-admin-panel .dentist-helper {
+  display: none;
+  background-color: #ebebeb;
+  color: #8c8c8c; }
+  .basic-admin-panel .dentist-helper .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #8c8c8c; }
+    .basic-admin-panel .dentist-helper .wrapper .text {
+      width: calc(100% - 35px); }
+    .basic-admin-panel .dentist-helper .wrapper .close-dentist-helper {
+      width: 35px;
+      font-weight: bold; }
+      .basic-admin-panel .dentist-helper .wrapper .close-dentist-helper a {
+        color: #8c8c8c; }
 .basic-admin-panel .dentist-logo-wrapper {
   padding: 12px 20px;
   border: 1.5px dashed #0fb0e5;
@@ -5726,8 +5752,8 @@ header {
       padding: 10px;
       cursor: pointer; }
   .basic-admin-panel .dentist-logo-wrapper.with-logo img {
-    width: 100%;
-    max-width: 200px; }
+    max-width: 200px;
+    max-height: 100px; }
   .basic-admin-panel .dentist-logo-wrapper.with-logo .dentist-logo-btn {
     position: absolute;
     left: 100%;

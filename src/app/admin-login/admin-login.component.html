@@ -30,9 +30,9 @@
                 </div>
                 <div class="padding-top-20 padding-bottom-10 text-center fs-16 calibri-light">
                     <div>{{'having-trouble-login' | translate}}</div>
-                    <a href="https://account.dentacoin.com/forgotten-password" target="_blank" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 lato-bold platform-color">{{'forgotten-password-redirect' | translate}}</a>
+                    <a href="https://account.dentacoin.com/forgotten-password" target="_blank" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color">{{'forgotten-password-redirect' | translate}}</a>
                     |
-                    <a [routerLink]="['/'+translate.currentLang+'/dentist-request-account']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 lato-bold platform-color">{{'request-account-btn' | translate}}</a>
+                    <a [routerLink]="['/'+translate.currentLang+'/dentist-request-account']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color">{{'request-account-btn' | translate}}</a>
                 </div>
                 <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.generalError">{{'general-error' | translate}}</div>
                 <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.notAPartner">{{'not-a-partner-error' | translate}} <a (click)="redirectsService.redirectToDentistRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>

@@ -1,73 +1,95 @@
-<div class="container basic-admin-panel padding-top-20 padding-bottom-15">
-    <div class="row">
-        <div class="col-xs-5 padding-right-0 enableBlur dentist-logo">
-            <div class="dentist-logo-wrapper platform-border-color important show-in-edit-mode inline-block-mode">
-                <button type="button" class="dentist-logo-btn">
-                    <label for="dentist-logo"></label>
-                </button>
-                <input type="file" accept=".jpg,.jpeg,.png" class="hide" id="dentist-logo"/>
-                <input type="hidden" class="hide" id="dentist-logo-media"/>
-                <input type="hidden" class="hide" id="dentist-logo-media-name"/>
-            </div>
-            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="hide-in-edit-mode max-width-200"></figure>
-        </div>
-        <div class="col-xs-2 text-center pick-dentist-color-parent disableBlur">
-            <a href="javascript:void(0);" class="pick-dentist-color show-in-edit-mode" data-opened="false">
-                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="platform-border-color important">
-                    <img src="assets/images/change-color-icon.png" alt="Change color icon"/>
-                </figure>
-            </a>
-            <div class="custom-dropdown-with-color-pickers"></div>
-        </div>
-        <div class="col-sm-5 col-xs-7 text-right basic-admin-panel-navigation enableBlur padding-left-0 hide-in-edit-mode-sm">
-            <div class="hide-in-edit-mode">
-                <a (click)="this.redirectsService.redirectToMyPatients()" class="module platform-custom-button-opposite-colors inline-block platform-color platform-border-color hover hide-sm">Admin</a>
-                <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover margin-left-10 edit-page inline-block hide-sm"><i class="fa fa-pencil" aria-hidden="true"></i> {{'edit-page' | translate}}</a>
-                <div class="lang-switcher module inline-block hide-in-edit-mode">
-                    <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="platform-text-color fix-selects-for-ios">
-                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
-                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'en')">DE</option>
-                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'de')">EN</option>
-                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'de')" selected>DE</option>
-                    </select>
+<div class="basic-admin-panel">
+    <div class="container padding-top-20">
+        <div class="row">
+            <div class="col-xs-5 padding-right-0 enableBlur dentist-logo">
+                <div class="dentist-logo-wrapper platform-border-color important show-in-edit-mode inline-block-mode">
+                    <button type="button" class="dentist-logo-btn">
+                        <label for="dentist-logo"></label>
+                    </button>
+                    <input type="file" accept=".jpg,.jpeg,.png" class="hide" id="dentist-logo"/>
+                    <input type="hidden" class="hide" id="dentist-logo-media"/>
+                    <input type="hidden" class="hide" id="dentist-logo-media-name"/>
                 </div>
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="hide-in-edit-mode max-width-200"></figure>
             </div>
-            <div class="show-in-edit-mode hide-sm">
-                <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover save-changes">SAVE CHANGES</a>
+            <div class="col-xs-2 text-center pick-dentist-color-parent disableBlur">
+                <a href="javascript:void(0);" class="pick-dentist-color show-in-edit-mode" data-opened="false">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="platform-border-color important">
+                        <img src="assets/images/change-color-icon.png" alt="Change color icon"/>
+                    </figure>
+                </a>
+                <div class="custom-dropdown-with-color-pickers"></div>
             </div>
-        </div>
-    </div>
-    <div class="row enableBlur">
-        <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 basic-admin-panel-apps-wrapper">
-            <div class="hub-title">
-                <div class="hide-in-edit-mode padding-top-40 padding-top-xs-20 padding-bottom-30">
-                    <h1 class="fs-30 fs-xs-22 calibri-bold text-center title-label platform-text-color"></h1>
-                </div>
-                <div class="show-in-edit-mode padding-top-40 padding-top-xs-20 padding-bottom-30">
-                    <div class="custom-google-label-style module" data-input-colorful-border="true">
-                        <label for="hub-title" class="active-label platform-color">Title:</label>
-                        <input type="text" id="hub-title" class="full-rounded form-field colorful-border platform-border-color"/>
+            <div class="col-sm-5 col-xs-7 text-right basic-admin-panel-navigation enableBlur padding-left-0 hide-in-edit-mode-sm">
+                <div class="hide-in-edit-mode">
+                    <a (click)="this.redirectsService.redirectToMyPatients()" class="module platform-custom-button-opposite-colors inline-block platform-color platform-border-color hover hide-sm">Admin</a>
+                    <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover margin-left-10 edit-page inline-block hide-sm"><i class="fa fa-pencil" aria-hidden="true"></i> {{'edit-page' | translate}}</a>
+                    <div class="lang-switcher module inline-block hide-in-edit-mode">
+                        <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="platform-text-color fix-selects-for-ios">
+                            <option class="color-main" value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
+                            <option class="color-main" value="de" *ngIf="(translate.currentLang == 'en')">DE</option>
+                            <option class="color-main" value="en" *ngIf="(translate.currentLang == 'de')">EN</option>
+                            <option class="color-main" value="de" *ngIf="(translate.currentLang == 'de')" selected>DE</option>
+                        </select>
                     </div>
                 </div>
+                <div class="show-in-edit-mode hide-sm">
+                    <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover save-changes">SAVE CHANGES</a>
+                    <a class="module platform-custom-button platform-background-color platform-border-color hover cancel-changes padding-left-10 padding-right-10 margin-left-5" href="javascript:void(0);">CANCEL</a>
+                </div>
             </div>
-            <div class="row fs-0 apps-list">
-                <div class="col-xs-4 text-center padding-bottom-15 inline-block-top single-app empty">
-                    <div class="wrapper">
-                        <button class="fs-60 line-height-60 calibri-bold add-app platform-color-important platform-border-color important" [attr.data-default-apps-title]="'default-apps-title' | translate" [attr.data-adding-custom-app-title]="'adding-custom-app-title' | translate">+</button>
+        </div>
+        <div class="row enableBlur">
+            <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 basic-admin-panel-apps-wrapper">
+                <div class="hub-title">
+                    <div class="hide-in-edit-mode padding-top-40 padding-top-xs-20 padding-bottom-10">
+                        <h1 class="fs-30 fs-xs-22 calibri-bold text-center title-label platform-text-color"></h1>
+                    </div>
+                    <div class="show-in-edit-mode padding-top-40 padding-top-xs-20 padding-bottom-10">
+                        <div class="custom-google-label-style module" data-input-colorful-border="true">
+                            <label for="hub-title" class="active-label platform-color">Title:</label>
+                            <input type="text" id="hub-title" class="full-rounded form-field colorful-border platform-border-color"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mobile-btns-row show-on-sm padding-top-30 padding-bottom-20 enableBlur">
-        <div class="col-xs-6 padding-right-5 text-right hide-in-edit-mode">
-            <a (click)="this.redirectsService.redirectToMyPatients()" class="module platform-custom-button-opposite-colors inline-block platform-color platform-border-color hover padding-left-10 padding-right-10">Admin</a>
+    <div class="container-fluid dentist-helper text-center padding-top-10 padding-bottom-10">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wrapper fs-0">
+                    <div class="text fs-16 inline-block-top">{{'dentist-helper' | translate}}</div>
+                    <div class="close-dentist-helper inline-block-top text-right">
+                        <a href="javascript:void(0);" class="fs-30 line-height-24">×</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-6 padding-left-5 hide-in-edit-mode">
-            <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover edit-page inline-block padding-left-10 padding-right-10"><i class="fa fa-pencil" aria-hidden="true"></i> {{'edit-page' | translate}}</a>
+    </div>
+    <div class="container padding-top-20 padding-bottom-15">
+        <div class="row enableBlur">
+            <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 basic-admin-panel-apps-wrapper">
+                <div class="row fs-0 apps-list">
+                    <div class="col-xs-4 text-center padding-bottom-15 inline-block-top single-app empty">
+                        <div class="wrapper">
+                            <button class="fs-60 line-height-60 calibri-bold add-app platform-color-important platform-border-color important" [attr.data-default-apps-title]="'default-apps-title' | translate" [attr.data-adding-custom-app-title]="'adding-custom-app-title' | translate">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-12 text-center show-in-edit-mode">
-            <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover save-changes">SAVE CHANGES</a>
+        <div class="row mobile-btns-row show-on-sm padding-top-30 padding-bottom-20 enableBlur">
+            <div class="col-xs-6 padding-right-5 text-right hide-in-edit-mode">
+                <a (click)="this.redirectsService.redirectToMyPatients()" class="module platform-custom-button-opposite-colors inline-block platform-color platform-border-color hover padding-left-10 padding-right-10">Admin</a>
+            </div>
+            <div class="col-xs-6 padding-left-5 hide-in-edit-mode">
+                <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover edit-page inline-block padding-left-10 padding-right-10"><i class="fa fa-pencil" aria-hidden="true"></i> {{'edit-page' | translate}}</a>
+            </div>
+            <div class="col-xs-12 text-center show-in-edit-mode">
+                <a href="javascript:void(0);" class="module platform-custom-button platform-background-color platform-border-color hover save-changes padding-left-10 padding-right-10">SAVE CHANGES</a>
+                <a class="module platform-custom-button platform-background-color platform-border-color hover cancel-changes padding-left-10 padding-right-10 margin-left-5" href="javascript:void(0);">CANCEL</a>
+            </div>
         </div>
     </div>
 </div>

@@ -520,6 +520,11 @@
                 @include rounded(25px);
                 .modal-body {
                     padding: 0;
+                    .svg-full-size {
+                        svg {
+                            width: 100% !important;
+                        }
+                    }
                     .language-switcher {
                         font-size: 0;
                         button {

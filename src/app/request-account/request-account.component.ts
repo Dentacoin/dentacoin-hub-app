@@ -43,6 +43,9 @@ export class RequestAccountComponent implements OnInit {
                 phone: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(20)
                 ])),
+                dentistName: new FormControl('', Validators.compose([
+                    Validators.required, Validators.maxLength(200)
+                ])),
                 privacyPolicy: new FormControl('', Validators.requiredTrue)
             });
         }
@@ -71,6 +74,7 @@ export class RequestAccountComponent implements OnInit {
         paramsMap.set('lastName', this.request_form_data.lastName.value);
         paramsMap.set('email', this.request_form_data.email.value);
         paramsMap.set('phone', this.request_form_data.phone.value);
+        paramsMap.set('dentistName', this.request_form_data.dentistName.value);
         /*paramsMap.set('captcha', this.request_form_data.captcha.value);*/
 
         let params = new HttpParams();

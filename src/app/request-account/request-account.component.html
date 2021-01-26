@@ -50,6 +50,16 @@
                     <div class="error-handle" *ngIf="request_form_data.phone.hasError('maxlength')">{{'phone-max-length-validation' | translate}}</div>
                 </div>
             </div>
+            <div class="padding-top-10">
+                <div class="custom-google-label-style module" data-input-colorful-border="true">
+                    <label for="request-account-dentistName" class="platform-color">{{'dentist-name-label' | translate}}</label>
+                    <input type="text" maxlength="100" id="request-account-dentistName" formControlName="dentistName" class="full-rounded form-field platform-border-color"/>
+                </div>
+                <div *ngIf="requestAccountFormSubmitted && request_form_data.dentistName.errors">
+                    <div class="error-handle" *ngIf="request_form_data.dentistName.errors.required">{{'dentist-name-required' | translate}}</div>
+                    <div class="error-handle" *ngIf="request_form_data.dentistName.hasError('maxlength')">{{'dentist-name-max-length' | translate}}</div>
+                </div>
+            </div>
             <div class="patient-register-checkboxes padding-top-15 margin-0-auto">
                 <div class="custom-checkbox-style module">
                     <input type="checkbox" class="custom-checkbox-input" id="privacy-policy-registration-patient" formControlName="privacyPolicy"/>
