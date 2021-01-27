@@ -18,6 +18,7 @@
     <!--<allow-navigation href="*" />-->
     <preference name="orientation" value="portrait" />
     <platform name="android">
+        <preference name="android-targetSdkVersion" value="29" />
         <allow-intent href="market:*" />
         <icon density="hdpi" height="48" src="/app-resources/images/dentacoin-hub-app-icon-48px.png" width="48" />
         <icon density="xhdpi" height="72" src="/app-resources/images/dentacoin-hub-app-icon-72px.png" width="72" />

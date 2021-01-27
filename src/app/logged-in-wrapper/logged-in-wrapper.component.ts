@@ -32,6 +32,10 @@ export class LoggedInWrapperComponent implements OnInit {
             this.redirectsService.redirectToPatientLogin('login');
         } else {
             if (environment.hybrid === true) {
+                document.addEventListener('shouldLogoutPatient', () => {
+                    this.authenticationServiceService.logout('patient');
+                });
+
                 this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
             } else {
                 this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
