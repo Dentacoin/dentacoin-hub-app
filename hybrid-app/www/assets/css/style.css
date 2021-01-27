@@ -4574,7 +4574,7 @@ img {
     height: 100%;
     background-color: white;
     float: right;
-    padding-top: 50px;
+    padding-top: 60px;
     max-width: 300px; }
     .logged-mobile-profile-menu .profile-menu li a {
       display: block;
@@ -4618,9 +4618,9 @@ img {
         width: 100%; } }
   .logged-mobile-profile-menu .close-logged-mobile-profile-menu {
     position: absolute;
-    top: 10px;
-    font-size: 20px;
-    right: 20px; }
+    font-size: 24px;
+    right: 30px;
+    top: 20px; }
   .logged-mobile-profile-menu.active {
     right: 0; }
 
@@ -4637,7 +4637,8 @@ img {
     padding-right: 10px; }
 
 .dentist-logo-img {
-  max-width: 200px; }
+  max-width: 200px;
+  max-height: 100px; }
   @media screen and (max-width: 767px) {
     .dentist-logo-img {
       max-width: 100%; } }
@@ -4705,6 +4706,34 @@ img {
   height: 100%;
   z-index: 1000;
   border: 0; }
+
+.mobile-app-banner .wrapper {
+  background-image: url(../images/banner-bg.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0; }
+  .mobile-app-banner .wrapper .close-mobile-app-banner {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 100; }
+    .mobile-app-banner .wrapper .close-mobile-app-banner:hover {
+      color: white; }
+  .mobile-app-banner .wrapper .phone img {
+    margin-top: -15%; }
+  .mobile-app-banner .wrapper .mobile-title {
+    display: none; }
+  @media screen and (max-width: 767px) {
+    .mobile-app-banner .wrapper .desktop-title {
+      display: none; }
+    .mobile-app-banner .wrapper .mobile-title {
+      display: block; }
+    .mobile-app-banner .wrapper .phone img {
+      margin-top: -10%; } }
 
 header {
   padding-top: 10px;
@@ -5540,6 +5569,8 @@ header {
     border-radius: 25px; }
     .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body {
       padding: 0; }
+      .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body .svg-full-size svg {
+        width: 100% !important; }
       .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body .language-switcher {
         font-size: 0; }
         .bootbox.add-edit-app-popup .modal-dialog .modal-content .modal-body .language-switcher button {
@@ -5704,6 +5735,21 @@ header {
             margin: 0 auto;
             padding-bottom: 25px; } }
 
+.basic-admin-panel .dentist-helper {
+  display: none;
+  background-color: #ebebeb;
+  color: #8c8c8c; }
+  .basic-admin-panel .dentist-helper .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #8c8c8c; }
+    .basic-admin-panel .dentist-helper .wrapper .text {
+      width: calc(100% - 35px); }
+    .basic-admin-panel .dentist-helper .wrapper .close-dentist-helper {
+      width: 35px;
+      font-weight: bold; }
+      .basic-admin-panel .dentist-helper .wrapper .close-dentist-helper a {
+        color: #8c8c8c; }
 .basic-admin-panel .dentist-logo-wrapper {
   padding: 12px 20px;
   border: 1.5px dashed #0fb0e5;
@@ -5734,8 +5780,8 @@ header {
       padding: 10px;
       cursor: pointer; }
   .basic-admin-panel .dentist-logo-wrapper.with-logo img {
-    width: 100%;
-    max-width: 200px; }
+    max-width: 200px;
+    max-height: 100px; }
   .basic-admin-panel .dentist-logo-wrapper.with-logo .dentist-logo-btn {
     position: absolute;
     left: 100%;

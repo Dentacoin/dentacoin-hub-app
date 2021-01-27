@@ -140,5 +140,7 @@
   "missing-patient-account-error": "It looks like you don't have an account yet.",
   "request-one-here": "Request one here.",
   "dentist-helper": "This is the main screen of your patient loyalty app. Click \"Edit page\" to customize it.",
-  "account-not-found": "Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können."
+  "account-not-found": "Konto nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um Dentacoin HubApp verwenden zu können.",
+  "banner-title-desktop": "Get your patient loyalty rewards on the go!",
+  "banner-title-mobile": "Enjoy the full benefits and loyalty rewards!"
 }

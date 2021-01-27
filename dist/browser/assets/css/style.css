@@ -4574,7 +4574,7 @@ img {
     height: 100%;
     background-color: white;
     float: right;
-    padding-top: 50px;
+    padding-top: 60px;
     max-width: 300px; }
     .logged-mobile-profile-menu .profile-menu li a {
       display: block;
@@ -4618,9 +4618,9 @@ img {
         width: 100%; } }
   .logged-mobile-profile-menu .close-logged-mobile-profile-menu {
     position: absolute;
-    top: 10px;
-    font-size: 20px;
-    right: 20px; }
+    font-size: 24px;
+    right: 30px;
+    top: 20px; }
   .logged-mobile-profile-menu.active {
     right: 0; }
 
@@ -4706,6 +4706,34 @@ img {
   height: 100%;
   z-index: 1000;
   border: 0; }
+
+.mobile-app-banner .wrapper {
+  background-image: url(../images/banner-bg.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0; }
+  .mobile-app-banner .wrapper .close-mobile-app-banner {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 100; }
+    .mobile-app-banner .wrapper .close-mobile-app-banner:hover {
+      color: white; }
+  .mobile-app-banner .wrapper .phone img {
+    margin-top: -15%; }
+  .mobile-app-banner .wrapper .mobile-title {
+    display: none; }
+  @media screen and (max-width: 767px) {
+    .mobile-app-banner .wrapper .desktop-title {
+      display: none; }
+    .mobile-app-banner .wrapper .mobile-title {
+      display: block; }
+    .mobile-app-banner .wrapper .phone img {
+      margin-top: -10%; } }
 
 header {
   padding-top: 10px;

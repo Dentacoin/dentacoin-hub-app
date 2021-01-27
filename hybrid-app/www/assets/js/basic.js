@@ -237,5 +237,18 @@ var basic = {
     },
     property_exists: function(object, key) {
         return object ? hasOwnProperty.call(object, key) : false;
-    }
+    },
+    getGETParameters: function() {
+        var prmstr = window.location.search.substr(1);
+        return prmstr != null && prmstr != "" ? basic.transformToAssocArray(prmstr) : {};
+    },
+    transformToAssocArray: function(prmstr) {
+        var params = {};
+        var prmarr = prmstr.split("&");
+        for (var i = 0, len = prmarr.length; i < len; i+=1) {
+            var tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = tmparr[1];
+        }
+        return params;
+    },
 };

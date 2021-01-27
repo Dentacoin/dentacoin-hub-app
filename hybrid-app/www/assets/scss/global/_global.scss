@@ -743,7 +743,7 @@ img {
         height: 100%;
         background-color: white;
         float: right;
-        padding-top: 50px;
+        padding-top: 60px;
         max-width: 300px;
         li {
             a {
@@ -794,9 +794,9 @@ img {
     }
     .close-logged-mobile-profile-menu {
         position: absolute;
-        top: 10px;
-        font-size: 20px;
-        right: 20px;
+        font-size: 24px;
+        right: 30px;
+        top: 20px;
     }
     &.active {
         right: 0;
@@ -822,6 +822,7 @@ img {
 
 .dentist-logo-img {
     max-width: 200px;
+    max-height: 100px;
     @include breakpoint($xs) {
         max-width: 100%;
     }
@@ -900,4 +901,47 @@ img {
     height: 100%;
     z-index: 1000;
     border: 0;
+}
+
+.mobile-app-banner {
+    .wrapper {
+        background-image: url(../images/banner-bg.png);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        .close-mobile-app-banner {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 100;
+            &:hover {
+                color: white;
+            }
+        }
+        .phone {
+            img {
+                margin-top: -15%;
+            }
+        }
+        .mobile-title {
+            display: none;
+        }
+        @include breakpoint($xs) {
+            .desktop-title {
+                display: none;
+            }
+            .mobile-title {
+                display: block;
+            }
+            .phone {
+                img {
+                    margin-top: -10%;
+                }
+            }
+        }
+    }
 }

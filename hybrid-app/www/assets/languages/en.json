@@ -2,7 +2,8 @@
   "edit-page": "Edit page",
   "default-apps-title": "ADD EXISTING APPS",
   "adding-custom-app-title" : "ADD NEW APP",
-  "patients-login-title" : "Login to get free access to Dentacoin’s patient loyalty applications!",
+  "patients-login-title" : "GET REWARDED",
+  "patients-login-subtitle" : "Login to get free access to Dentacoin’s patient loyalty applications!",
   "patients-register-title" : "Register to get free access to Dentacoin’s patient loyalty applications!",
   "request-account-title" : "REQUEST ACCOUNT",
   "request-account-subtitle" : "You can access Dentacoin HubApp only if you are a patient of Dentacoin partner dental practice.",
@@ -39,6 +40,9 @@
   "lname-label" : "Last Name:",
   "lname-required" : "Last name is required.",
   "lname-max-length" : "Last name maximum length is 100 symbols.",
+  "dentist-name-label" : "Your dentist:",
+  "dentist-name-required" : "Your dentist is required.",
+  "dentist-name-max-length" : "Your dentist maximum length is 200 symbols.",
   "phone-label" : "Phone:",
   "phone-required" : "Phone is required.",
   "phone-max-length-validation" : "Phone maximum length is 20 symbols.",
@@ -138,5 +142,11 @@
   "push-notifications-register-successfully": "Push notifications scheduled successfully.",
   "push-notifications-date": "Date",
   "push-notifications-title": "Title",
-  "push-notifications-message": "Message"
+  "push-notifications-message": "Message",
+  "missing-patient-account-error": "It looks like you don't have an account yet.",
+  "request-one-here": "Request one here.",
+  "dentist-helper": "This is the main screen of your patient loyalty app. Click \"Edit page\" to customize it.",
+  "account-not-found": "Account not found. You need to be invited by your dentist in order to use Dentacoin HubApp.",
+  "banner-title-desktop": "Get your patient loyalty rewards on the go!",
+  "banner-title-mobile": "Enjoy the full benefits and loyalty rewards!"
 }

@@ -1,4 +1,25 @@
 .basic-admin-panel {
+    .dentist-helper {
+        display: none;
+        background-color: #ebebeb;
+        color: #8c8c8c;
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            color: #8c8c8c;
+            .text {
+                width: calc(100% - 35px);
+            }
+            .close-dentist-helper {
+                width: 35px;
+                font-weight: bold;
+                a {
+
+                    color: #8c8c8c;
+                }
+            }
+        }
+    }
     .dentist-logo-wrapper {
         padding: 12px 20px;
         border: 1.5px dashed $basic_color;
@@ -23,8 +44,8 @@
         }
         &.with-logo {
             img {
-                width: 100%;
                 max-width: 200px;
+                max-height: 100px;
             }
             .dentist-logo-btn {
                 position: absolute;

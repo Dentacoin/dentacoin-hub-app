@@ -39,13 +39,13 @@ export class RedirectsService {
 
     redirectToPatientLogin(type: string) {
         if (type === 'account-verification') {
-            this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyVerifiedAccount: true}});
+            this.ngZone.run(() => this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyVerifiedAccount: true}})).then();
         } else if (type === 'change-password') {
-            this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyChangePassword: true}});
+            this.ngZone.run(() => this.router.navigate([this.translate.currentLang + '/login'], {state: {successfullyChangePassword: true}})).then();
         } else if (type === 'login') {
-            this.router.navigateByUrl(this.translate.currentLang + '/login');
+            this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/login')).then();
         } else {
-            this.router.navigateByUrl(this.translate.currentLang + '/' + type);
+            this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/' + type)).then();
         }
     }
 

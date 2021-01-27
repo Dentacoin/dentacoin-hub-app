@@ -19412,6 +19412,18 @@ var projectData = {
             basicAdminPanel: function() {
                 $('body').addClass('platform-background');
                 $('.dentist-logo-btn label[for="dentist-logo"]').html('<svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 90 69.2" style="enable-background:new 0 0 90 69.2;" xml:space="preserve"><style type="text/css">.st0{fill:#8E3146;}</style><metadata><sfw><slices/><sliceSourceBounds bottomLeftOrigin="true" height="69.2" width="90" x="5" y="40.4"/></sfw></metadata><path class="st0 svg-platform-fill-important" d="M7.6,69.2h74.9c4.2,0,7.6-3.4,7.6-7.6V18.8c0-4.2-3.4-7.6-7.6-7.6H71.3c-3.9,0-7.3-2.7-8.1-6.5 c-0.6-2.7-3-4.7-5.8-4.7H32.6c-2.8,0-5.2,1.9-5.8,4.7c-0.8,3.8-4.2,6.5-8.1,6.5H7.6c-4.2,0-7.6,3.4-7.6,7.6c0,0,0,0,0,0v42.9 C0,65.8,3.4,69.2,7.6,69.2C7.6,69.2,7.6,69.2,7.6,69.2z M78.4,16.9c2.6,0,4.8,2.1,4.8,4.8c0,2.6-2.1,4.8-4.8,4.8 c-2.6,0-4.8-2.1-4.8-4.8c0,0,0,0,0,0C73.6,19.1,75.7,16.9,78.4,16.9C78.4,16.9,78.4,16.9,78.4,16.9z M45,15.5 c12.5,0,22.7,10.2,22.7,22.7S57.5,60.9,45,60.9S22.3,50.8,22.3,38.2c0,0,0,0,0,0C22.3,25.7,32.5,15.5,45,15.5L45,15.5z M27.3,38.2 c0-9.8,7.9-17.7,17.7-17.7s17.7,7.9,17.7,17.7S54.8,55.9,45,55.9h0C35.2,55.9,27.3,48,27.3,38.2z"/></svg>');
+
+                // show dentist helper if accessing the HubApp for first time
+                if (window.localStorage.getItem('dentistHelperClosed') == null) {
+                    $('.dentist-helper').slideDown(500);
+
+                    $('.dentist-helper .close-dentist-helper a').click(function() {
+                        window.localStorage.setItem('dentistHelperClosed', true);
+
+                        $('.dentist-helper').slideUp(500);
+                    });
+                }
+
                 $('.dentist-logo-wrapper #dentist-logo').on('change', function() {
                     projectData.general_logic.readURL(this, function(e, filename) {
                         $('.dentist-logo-wrapper').addClass('with-logo').find('img').remove();
@@ -19492,7 +19504,7 @@ var projectData = {
                                 }
                             }
 
-                            apps_html += '<div class="' + column_class + ' text-center padding-bottom-15 inline-block-top single-app sortable-app '+ removable_class_name + editable_class_name + class_name + '"';
+                            apps_html += '<div data-type="'+dentist_data.data.applications[key].type+'" class="' + column_class + ' text-center padding-bottom-15 inline-block-top single-app sortable-app '+ removable_class_name + editable_class_name + class_name + '"';
                             if (dentist_data.data.applications[key].default_application_id != null) {
                                 apps_html += ' data-default-application-id="'+dentist_data.data.applications[key].default_application_id+'"';
                             }
@@ -19523,10 +19535,17 @@ var projectData = {
                                 edit_delete_actions = '<div class="actions-on-edit"><button type="button" class="edit-app platform-color-important"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="delete-app platform-color-important"><i class="fa fa-times" aria-hidden="true"></i></button></div>';
                             }
 
-                            var imageHtml = ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="_blank"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
+                            var anchorTargetValue;
+                            if (dentist_data.data.applications[key].type == 'phone') {
+                                anchorTargetValue = '_self';
+                            } else {
+                                anchorTargetValue = '_blank';
+                            }
+
+                            var imageHtml = ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="'+anchorTargetValue+'"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-17 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-15 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
                             if (hasOwnProperty.call(dentist_data.data.applications[key], 'resource_type')) {
                                 if (dentist_data.data.applications[key].resource_type == 'svg') {
-                                    apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="_blank"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+dentist_data.data.applications[key].media+'<div class="platform-text-color fs-18 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-16 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
+                                    apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+encodeURIComponent(dentist_data.data.applications[key].media)+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="'+anchorTargetValue+'"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+dentist_data.data.applications[key].media+'<div class="platform-text-color fs-17 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-15 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
                                 } else if(dentist_data.data.applications[key].resource_type == 'image') {
                                     apps_html += imageHtml;
                                 }
@@ -19542,6 +19561,8 @@ var projectData = {
                 $('.pick-dentist-color').click(function() {
                     var this_btn = $(this);
                     if (this_btn.attr('data-opened') == 'false') {
+                        $('.apps-list').sortable('destroy');
+
                         projectData.requests.getDentistData(function(getDentistData_response) {
                             $('body').addClass('overflow-hidden');
                             if ($(window).width() < 1000) {
@@ -19609,6 +19630,8 @@ var projectData = {
 
                                                 basic.showAlert('Colors have been restored to their default settings!', '', true);
                                                 projectData.general_logic.hideLoader();
+
+                                                $('.apps-list').sortable();
                                             } else if (response.errors) {
                                                 resetToDefault = true;
                                                 basic.showAlert(default_error_message, '', true);
@@ -19643,6 +19666,8 @@ var projectData = {
                                     $('.pick-dentist-color').attr('data-opened', 'false');
                                     $('.enableBlur').removeClass('active');
                                     $(this).closest('.custom-dropdown-with-color-pickers').html('');
+
+                                    $('.apps-list').sortable();
                                 });
 
                                 var saveColorChanges = true;
@@ -19722,6 +19747,8 @@ var projectData = {
 
                                                                 basic.showAlert('Color changes have been saved successfully!', '', true);
                                                                 projectData.general_logic.hideLoader();
+
+                                                                $('.apps-list').sortable();
                                                             } else if (response.errors) {
                                                                 saveColorChanges = true;
                                                                 basic.showAlert(default_error_message, '', true);
@@ -19851,6 +19878,7 @@ var projectData = {
                 // binding edit and delete events for all current apps
                 function bindEditDeleteAppEvents() {
                     $('.delete-app').click(function() {
+                        console.log('delete-app');
                         $(this).closest('.single-app').addClass('hide').removeClass('sortable-app');
                     });
 
@@ -19860,13 +19888,30 @@ var projectData = {
                         var this_app_id = this_app.attr('data-id');
                         var upload_app_image_html = '';
                         if ($(this).closest('.single-app').attr('data-media') != '') {
-                            upload_app_image_html = '<button type="button"><label class="platform-border-color important" for="application-icon" style="background-image: url(' + $(this).closest('.single-app').attr('data-media') + ');"></label></button>';
+                            if (this_app.attr('data-type') == 'phone' || this_app.attr('data-type') == 'website') {
+                                upload_app_image_html = '<button type="button"><label class="platform-border-color important svg-full-size" style="background-color: white;cursor: auto;border: 0; -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);">'+decodeURIComponent($(this).closest('.single-app').attr('data-media'))+'</label></button>';
+                            } else {
+                                upload_app_image_html = '<button type="button"><label class="platform-border-color important" for="application-icon" style="background-image: url(' + $(this).closest('.single-app').attr('data-media') + ');"></label></button>';
+                            }
                         } else {
                             upload_app_image_html = '<button type="button"><label class="platform-border-color important" for="application-icon"><svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 90 69.2" style="enable-background:new 0 0 90 69.2;" xml:space="preserve"><style type="text/css">.st0{fill:#8E3146;}</style><metadata><sfw><slices/><sliceSourceBounds bottomLeftOrigin="true" height="69.2" width="90" x="5" y="40.4"/></sfw></metadata><path class="st0 svg-platform-fill-important" d="M7.6,69.2h74.9c4.2,0,7.6-3.4,7.6-7.6V18.8c0-4.2-3.4-7.6-7.6-7.6H71.3c-3.9,0-7.3-2.7-8.1-6.5 c-0.6-2.7-3-4.7-5.8-4.7H32.6c-2.8,0-5.2,1.9-5.8,4.7c-0.8,3.8-4.2,6.5-8.1,6.5H7.6c-4.2,0-7.6,3.4-7.6,7.6c0,0,0,0,0,0v42.9 C0,65.8,3.4,69.2,7.6,69.2C7.6,69.2,7.6,69.2,7.6,69.2z M78.4,16.9c2.6,0,4.8,2.1,4.8,4.8c0,2.6-2.1,4.8-4.8,4.8 c-2.6,0-4.8-2.1-4.8-4.8c0,0,0,0,0,0C73.6,19.1,75.7,16.9,78.4,16.9C78.4,16.9,78.4,16.9,78.4,16.9z M45,15.5 c12.5,0,22.7,10.2,22.7,22.7S57.5,60.9,45,60.9S22.3,50.8,22.3,38.2c0,0,0,0,0,0C22.3,25.7,32.5,15.5,45,15.5L45,15.5z M27.3,38.2 c0-9.8,7.9-17.7,17.7-17.7s17.7,7.9,17.7,17.7S54.8,55.9,45,55.9h0C35.2,55.9,27.3,48,27.3,38.2z"/></svg></label></button>';
                         }
 
+                        var editUrlFieldHtml;
+                        var imageFileInfo;
+                        if (this_app.attr('data-type') == 'phone') {
+                            editUrlFieldHtml = '<div class="margin-top-15"><i>You can edit your phone from the account section.</i></div>';
+                            imageFileInfo = '';
+                        } else if (this_app.attr('data-type') == 'website') {
+                            editUrlFieldHtml = '<div class="margin-top-15"><i>You can edit your website from the account section.</i></div>';
+                            imageFileInfo = '';
+                        } else {
+                            editUrlFieldHtml = '<div class="custom-google-label-style module max-width-400 margin-top-15" data-input-colorful-border="true"><label for="app-url" class="platform-color active-label">URL:</label><input maxlength="500" type="text" id="app-url" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-url') + '"/></div>';
+                            imageFileInfo = '<div class="inline-block file-text">The image should be in .png, .jpg or .jpeg format. Maximum size 2MB.</div>';
+                        }
+
                         basic.closeDialog();
-                        var add_app_popup_html = '<div class="language-switcher"><button class="inline-block en-version active" data-app-name-en="' + $(this).closest('.single-app').attr('data-name-en') + '" data-app-description-en="' + $(this).closest('.single-app').attr('data-description-en') + '"><img src="assets/images/en-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> English Version</button><button class="inline-block de-version" data-app-name-de="' + $(this).closest('.single-app').attr('data-name-de') + '" data-app-description-de="' + $(this).closest('.single-app').attr('data-description-de') + '"><img src="assets/images/de-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> German Version</button></div><div class="container-fluid padding-top-30"><div class="fs-30 padding-bottom-15 text-center adding-custom-app-title"></div><div class="col-xs-12 col-sm-5 text-right upload-application-icon"><input type="file" class="hide" accept=".jpg,.jpeg,.png" id="application-icon"/>' + upload_app_image_html + '<div class="inline-block file-text">The image should be in .png, .jpg or .jpeg format. Maximum size 2MB.</div><input type="hidden" id="app-icon-base64"/><input type="hidden" id="app-icon-filename"/></div><div class="col-xs-12 col-sm-7"><div class="custom-google-label-style module max-width-400" data-input-colorful-border="true"><label for="app-name" class="platform-color active-label">Name:</label><input maxlength="255" type="text" id="app-name" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-name-en') + '"/></div><div class="custom-google-label-style module max-width-400 margin-top-15" data-input-colorful-border="true"><label for="app-description" class="platform-color active-label">Description:</label><input maxlength="1000" type="text" id="app-description" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-description-en') + '"/></div><div class="custom-google-label-style module max-width-400 margin-top-15" data-input-colorful-border="true"><label for="app-url" class="platform-color active-label">URL:</label><input maxlength="500" type="text" id="app-url" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-url') + '"/></div></div></div><div class="padding-top-30 padding-bottom-40 padding-left-15 padding-right-15 text-center"><button class="module platform-custom-button-opposite-colors platform-border-color hover margin-right-15 close-popup">CLOSE</button><button class="module platform-custom-button platform-background-color platform-border-color hover edit-app-action">EDIT</button></div>';
+                        var add_app_popup_html = '<div class="language-switcher"><button class="inline-block en-version active" data-app-name-en="' + $(this).closest('.single-app').attr('data-name-en') + '" data-app-description-en="' + $(this).closest('.single-app').attr('data-description-en') + '"><img src="assets/images/en-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> English Version</button><button class="inline-block de-version" data-app-name-de="' + $(this).closest('.single-app').attr('data-name-de') + '" data-app-description-de="' + $(this).closest('.single-app').attr('data-description-de') + '"><img src="assets/images/de-icon.svg" class="max-width-20 margin-right-5" alt="English version icon"/> German Version</button></div><div class="container-fluid padding-top-30"><div class="fs-30 padding-bottom-15 text-center adding-custom-app-title"></div><div class="col-xs-12 col-sm-5 text-right upload-application-icon"><input type="file" class="hide" accept=".jpg,.jpeg,.png" id="application-icon"/>' + upload_app_image_html + imageFileInfo + '<input type="hidden" id="app-icon-base64"/><input type="hidden" id="app-icon-filename"/></div><div class="col-xs-12 col-sm-7"><div class="custom-google-label-style module max-width-400" data-input-colorful-border="true"><label for="app-name" class="platform-color active-label">Name:</label><input maxlength="255" type="text" id="app-name" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-name-en') + '"/></div><div class="custom-google-label-style module max-width-400 margin-top-15" data-input-colorful-border="true"><label for="app-description" class="platform-color active-label">Description:</label><input maxlength="1000" type="text" id="app-description" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-description-en') + '"/></div>'+editUrlFieldHtml+'</div></div><div class="padding-top-30 padding-bottom-40 padding-left-15 padding-right-15 text-center"><button class="module platform-custom-button-opposite-colors platform-border-color hover margin-right-15 close-popup">CLOSE</button><button class="module platform-custom-button platform-background-color platform-border-color hover edit-app-action">EDIT</button></div>';
                         basic.showDialog(add_app_popup_html, 'add-edit-app-popup', null, true);
 
                         $('.close-popup').click(function() {
@@ -20157,6 +20202,10 @@ var projectData = {
                                                                 buildDentistData(getDentistData_response);
                                                             }
                                                             basic.closeDialog();
+
+                                                            if ($('[data-stop-linking-on-edit]').length) {
+                                                                $('[data-stop-linking-on-edit]').attr('href', 'javascript:void(0);').removeAttr('target');
+                                                            }
                                                         } else {
                                                             basic.showAlert(default_error_message, '', true);
                                                         }
@@ -20173,6 +20222,13 @@ var projectData = {
                                     });
                                 });
                             });
+                        });
+
+                        // saving changes and submitting them to backend
+                        $('.cancel-changes').unbind().on('click', function() {
+                            $('.basic-admin-panel').removeClass('edit-mode');
+                            $('.apps-list').sortable('destroy');
+                            $('.single-app .app-wrapper .actions-on-edit').remove();
                         });
 
                         // saving changes and submitting them to backend
@@ -20297,6 +20353,15 @@ var projectData = {
                             }
                         }
                     }
+
+                    var checkIfSvgImages = setInterval(function() {
+                        if ($('.svg-parent').length > 0) {
+                            clearInterval(checkIfSvgImages);
+                            for (var i = 0, len = $('.svg-parent').length; i < len; i+=1) {
+                                $('.svg-parent').eq(i).html(decodeURIComponent($('.svg-parent').eq(i).attr('data-svg')));
+                            }
+                        }
+                    }, 1000);
                 });
             },
             advancedAdminPanel: function() {
@@ -20402,6 +20467,7 @@ var projectData = {
                     $(this).find('.inner-dot').toggleClass('platform-background-color');
 
                     if ($(this).hasClass('active')) {
+                        $('.daterangepicker-parent .selected-time-text').removeClass('hide');
                         $('.daterangepicker-parent .field').removeClass('hide');
                         $('.daterangepicker-parent label').addClass('active-label');
                         $('.daterangepicker-parent input[type="text"]').addClass('colorful-border');
@@ -20409,6 +20475,7 @@ var projectData = {
                         $('.datetimepicker').trigger('focus');
                     } else {
                         $('.daterangepicker-parent .field').addClass('hide');
+                        $('.daterangepicker-parent .selected-time-text').addClass('hide');
                     }
                 });
 
@@ -20423,11 +20490,12 @@ var projectData = {
                             if ($('.push-notifications-custom-form #datetimepicker').val().trim() == '') {
                                 projectData.utils.customErrorHandle($('.push-notifications-custom-form #datetimepicker').parent().parent(), 'Date is required');
                             } else {
+                                // passing time as converted date to UTC timezone
                                 var requestData = {
                                     token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
                                     id: JSON.parse(window.localStorage.getItem('currentDentist')).id,
                                     title: $('.push-notifications-custom-form #title').val().trim(),
-                                    time: $('.push-notifications-custom-form #datetimepicker').val().trim()
+                                    time: projectData.utils.dateObjToFormattedDate(new Date($('.push-notifications-custom-form #datetimepicker').val().trim() +' UTC+0'), true)
                                 };
 
                                 if ($('.push-notifications-custom-form #message').val().trim() != '') {
@@ -20708,7 +20776,7 @@ var projectData = {
                     $('.social-login-btn').addClass('mobile-app');
 
                     $('.civic-custom-btn').click(function() {
-                        if (window.localStorage.getItem('user_civic_email') == null) {
+                        /*if (window.localStorage.getItem('user_civic_email') == null) {
                             // display email field to let user save his civic email into the mobile app
                             $('.form-login-fields').hide();
                             $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
@@ -20746,10 +20814,14 @@ var projectData = {
                             if (!$('#iframe-civic-popup').length) {
                                 $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                             }
+                        }*/
+
+                        if (!$('#iframe-civic-popup').length) {
+                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                         }
                     });
 
-                    if (!civic_iframe_removedEventLoaded) {
+                    /*if (!civic_iframe_removedEventLoaded) {
                         civic_iframe_removedEventLoaded = true;
 
                         window.addEventListener('message', function(event) {
@@ -20768,7 +20840,7 @@ var projectData = {
                                 $('#iframe-civic-popup').remove();
                             }
                         });
-                    }
+                    }*/
                 } else {
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
@@ -20813,7 +20885,11 @@ var projectData = {
                             return false;
                         }
 
-                        if (window.localStorage.getItem('user_civic_email') == null) {
+                        if (!$('#iframe-civic-popup').length) {
+                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                        }
+
+                        /*if (window.localStorage.getItem('user_civic_email') == null) {
                             // display email field to let user save his civic email into the mobile app
 
                             $('.form-register-fields').hide();
@@ -20852,10 +20928,10 @@ var projectData = {
                             if (!$('#iframe-civic-popup').length) {
                                 $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
                             }
-                        }
+                        }*/
                     });
 
-                    if (!civic_iframe_removedEventLoaded) {
+                    /*if (!civic_iframe_removedEventLoaded) {
                         civic_iframe_removedEventLoaded = true;
 
                         window.addEventListener('message', function(event) {
@@ -20874,7 +20950,7 @@ var projectData = {
                                 $('#iframe-civic-popup').remove();
                             }
                         });
-                    }
+                    }*/
                 } else {
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
@@ -21002,6 +21078,35 @@ var projectData = {
                 }
             }
         },
+        mobileAppBanner: function() {
+            setTimeout(function() {
+                if (!is_hybrid) {
+                    var bannerHtml = '<div class="wrapper"> <a href="javascript:void(0);" class="close-mobile-app-banner color-white fs-40">×</a> <div class="container"> <div class="row fs-0"> <picture itemscope="" itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-5 phone text-right text-center-xs inline-block-bottom"> <source media="(max-width: 768px)" srcset="assets/images/mobile-phone-for-hub-app-banner.png"> <img alt="Phone icon" class="width-100 max-width-320 max-width-xs-250" src="assets/images/phone-for-web-banner.png"/> </picture> <div class="col-xs-12 col-sm-7 inline-block-bottom"> <h2 class="lato-bold color-white fs-30 padding-top-30 padding-bottom-10 max-width-350 desktop-title">'+$('.mobile-app-banner').attr('data-banner-title-desktop')+'</h2><h2 class="lato-bold color-white fs-26 padding-top-10 padding-bottom-10 max-width-350 margin-0-auto mobile-title text-center">'+$('.mobile-app-banner').attr('data-banner-title-mobile')+'</h2> <div class="fs-0 padding-bottom-60 padding-bottom-xs-15 text-center-xs"> <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block padding-right-10 padding-right-xs-0 hide-xs google-play-btn"> <a href="javascript:void(0);" onclick="alert(\'Coming soon, stay tuned!\');"> <img alt="Google play icon" class="width-100 max-width-180" src="assets/images/google-play-badge.svg"/> </a> </figure> <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block padding-left-10 padding-left-xs-0 hide-xs play-store-btn"> <a href="javascript:void(0);" onclick="alert(\'Coming soon, stay tuned!\');"> <img alt="Play store icon" class="width-100 max-width-180" src="assets/images/app-store.svg"/></a></figure></div></div></div></div></div>';
+                    if (basic.isMobile()) {
+                        $('.mobile-app-banner').html(bannerHtml);
+
+                        if (basic.getMobileOperatingSystem() == 'Android') {
+                            $('.mobile-app-banner .google-play-btn').removeClass('hide-xs');
+                        } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                            $('.mobile-app-banner .play-store-btn').removeClass('hide-xs');
+                        }
+
+                        $('.mobile-app-banner .close-mobile-app-banner').click(function() {
+                            $('.mobile-app-banner').html('');
+                        });
+                    } else {
+                        if (window.localStorage.getItem('already_closed_mobile_app_banner') == null) {
+                            $('.mobile-app-banner').html(bannerHtml);
+
+                            $('.mobile-app-banner .close-mobile-app-banner').click(function() {
+                                $('.mobile-app-banner').html('');
+                                window.localStorage.setItem('already_closed_mobile_app_banner', true);
+                            });
+                        }
+                    }
+                }
+            }, 3000);
+        },
         updateExternalURLsForiOSDevice: function() {
             //Method that check if the device is mobile app and if the project is hybrid and then overwrite all _blank targets to _system. _blank is not working in iOS in WebView
             if ($('.data-external-link').length && is_hybrid) {
@@ -21078,7 +21183,42 @@ var projectData = {
                                     window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
                                 }
                             } else {
-                                cordova.InAppBrowser.open(currentHref, '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+
+                                inAppBrowserRef.addEventListener('loadstop', function(){
+                                    // listener for GDPR data download
+                                    var downloadGDPRLoop = window.setInterval(function(){
+                                        inAppBrowserRef.executeScript({
+                                                code: "window.shouldCloseAndRedirect"
+                                            },
+                                            function(values) {
+                                                console.log(values, 'values');
+                                                if (values[0]){
+                                                    window.open(values[0], '_system', 'location=yes');
+                                                    inAppBrowserRef.close();
+                                                    window.clearInterval(downloadGDPRLoop);
+                                                }
+                                            }
+                                        );
+                                    }, 500);
+
+                                    // listener for account deletion
+                                    var accountDeletionLoop = window.setInterval(function(){
+                                        inAppBrowserRef.executeScript({
+                                                code: "window.shouldLogoutPatient"
+                                            },
+                                            function(values) {
+                                                if (values[0]){
+                                                    const event = new CustomEvent('shouldLogoutPatient');
+                                                    document.dispatchEvent(event);
+
+                                                    inAppBrowserRef.close();
+                                                    window.clearInterval(accountDeletionLoop);
+                                                }
+                                            }
+                                        );
+                                    }, 500);
+                                });
                             }
                         }
                     });
@@ -21310,6 +21450,43 @@ var projectData = {
                     startDate: new Date()
                 });
             }
+        },
+        dateObjToFormattedDate: function(object, withHours) {
+            if (object.getDate() < 10) {
+                var date = '0' + object.getDate();
+            } else {
+                var date = object.getDate();
+            }
+
+            if (object.getHours() < 10) {
+                var hours = '0' + object.getHours();
+            } else {
+                var hours = object.getHours();
+            }
+
+            if (object.getMinutes() < 10) {
+                var minutes = '0' + object.getMinutes();
+            } else {
+                var minutes = object.getMinutes();
+            }
+
+            if (object.getSeconds() < 10) {
+                var seconds = '0' + object.getSeconds();
+            } else {
+                var seconds = object.getSeconds();
+            }
+
+            if (object.getMonth() + 1 < 10) {
+                var month = '0' + (object.getMonth() + 1);
+            } else {
+                var month = object.getMonth() + 1;
+            }
+
+            if (withHours != undefined) {
+                return object.getFullYear() + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
+            } else {
+                return date + '/' + month + '/' + object.getFullYear();
+            }
         }
     }
 };
@@ -21359,8 +21536,8 @@ function hybridAppFileDownload(file_name, fileUrl, callback, location) {
     xhr.send();
 }
 
+var current_route;
 function router() {
-    var current_route;
     var init_logged_in_wrapper_logic = false;
 
     $('body').on('DOMSubtreeModified', '.main-content', async function() {
@@ -21435,7 +21612,8 @@ function router() {
             }
         }
 
-        // projectData.general_logic.updateExternalURLsForiOSDevice();
+
+        projectData.general_logic.mobileAppBanner();
     });
 }
 router();
@@ -21531,17 +21709,30 @@ function addEditAppPopupLanguageSwitch() {
 }
 
 function handleOpenURL(url) {
-    var token = new URL(url).searchParams.get('token');
+    var get_params = basic.getGETParameters();
+    var urlInstance = new URL(url);
+    var iframeUrl = '';
+    var authType = '';
+    var dev = '';
 
-    const event = new CustomEvent('receiveCoredbTokenFromCivicAuth', {
-        detail: {
-            platform_type: 'civic',
-            response_data: token,
-            time: new Date()
-        }
-    });
+    if ($('.main-content').attr('data-production') == 'false') {
+        dev = '&dev=true';
+    }
 
-    document.dispatchEvent(event);
+    //if (current_route == 'patient-login-page') {
+        authType = 'login';
+    /*} else if (current_route == 'patient-register-by-invite') {
+        authType = 'register';
+    }*/
+
+    /*if (basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid')) {
+        iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp&invite=' + get_params.invite + '&inviteid=' + get_params.inviteid + dev;
+    } else {*/
+        iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
+    //}
+
+    $('#iframe-civic-popup').remove();
+    $('body').append('<iframe src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
 }
 ;
 //# sourceMappingURL=scripts.js.map

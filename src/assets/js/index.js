@@ -1526,7 +1526,7 @@ var projectData = {
                     $('.social-login-btn').addClass('mobile-app');
 
                     $('.civic-custom-btn').click(function() {
-                        if (window.localStorage.getItem('user_civic_email') == null) {
+                        /*if (window.localStorage.getItem('user_civic_email') == null) {
                             // display email field to let user save his civic email into the mobile app
                             $('.form-login-fields').hide();
                             $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
@@ -1564,10 +1564,14 @@ var projectData = {
                             if (!$('#iframe-civic-popup').length) {
                                 $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                             }
+                        }*/
+
+                        if (!$('#iframe-civic-popup').length) {
+                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                         }
                     });
 
-                    if (!civic_iframe_removedEventLoaded) {
+                    /*if (!civic_iframe_removedEventLoaded) {
                         civic_iframe_removedEventLoaded = true;
 
                         window.addEventListener('message', function(event) {
@@ -1586,7 +1590,7 @@ var projectData = {
                                 $('#iframe-civic-popup').remove();
                             }
                         });
-                    }
+                    }*/
                 } else {
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
@@ -1631,7 +1635,11 @@ var projectData = {
                             return false;
                         }
 
-                        if (window.localStorage.getItem('user_civic_email') == null) {
+                        if (!$('#iframe-civic-popup').length) {
+                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                        }
+
+                        /*if (window.localStorage.getItem('user_civic_email') == null) {
                             // display email field to let user save his civic email into the mobile app
 
                             $('.form-register-fields').hide();
@@ -1670,10 +1678,10 @@ var projectData = {
                             if (!$('#iframe-civic-popup').length) {
                                 $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
                             }
-                        }
+                        }*/
                     });
 
-                    if (!civic_iframe_removedEventLoaded) {
+                    /*if (!civic_iframe_removedEventLoaded) {
                         civic_iframe_removedEventLoaded = true;
 
                         window.addEventListener('message', function(event) {
@@ -1692,7 +1700,7 @@ var projectData = {
                                 $('#iframe-civic-popup').remove();
                             }
                         });
-                    }
+                    }*/
                 } else {
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
@@ -1820,6 +1828,35 @@ var projectData = {
                 }
             }
         },
+        mobileAppBanner: function() {
+            setTimeout(function() {
+                if (!is_hybrid) {
+                    var bannerHtml = '<div class="wrapper"> <a href="javascript:void(0);" class="close-mobile-app-banner color-white fs-40">×</a> <div class="container"> <div class="row fs-0"> <picture itemscope="" itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-5 phone text-right text-center-xs inline-block-bottom"> <source media="(max-width: 768px)" srcset="assets/images/mobile-phone-for-hub-app-banner.png"> <img alt="Phone icon" class="width-100 max-width-320 max-width-xs-250" src="assets/images/phone-for-web-banner.png"/> </picture> <div class="col-xs-12 col-sm-7 inline-block-bottom"> <h2 class="lato-bold color-white fs-30 padding-top-30 padding-bottom-10 max-width-350 desktop-title">'+$('.mobile-app-banner').attr('data-banner-title-desktop')+'</h2><h2 class="lato-bold color-white fs-26 padding-top-10 padding-bottom-10 max-width-350 margin-0-auto mobile-title text-center">'+$('.mobile-app-banner').attr('data-banner-title-mobile')+'</h2> <div class="fs-0 padding-bottom-60 padding-bottom-xs-15 text-center-xs"> <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block padding-right-10 padding-right-xs-0 hide-xs google-play-btn"> <a href="javascript:void(0);" onclick="alert(\'Coming soon, stay tuned!\');"> <img alt="Google play icon" class="width-100 max-width-180" src="assets/images/google-play-badge.svg"/> </a> </figure> <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block padding-left-10 padding-left-xs-0 hide-xs play-store-btn"> <a href="javascript:void(0);" onclick="alert(\'Coming soon, stay tuned!\');"> <img alt="Play store icon" class="width-100 max-width-180" src="assets/images/app-store.svg"/></a></figure></div></div></div></div></div>';
+                    if (basic.isMobile()) {
+                        $('.mobile-app-banner').html(bannerHtml);
+
+                        if (basic.getMobileOperatingSystem() == 'Android') {
+                            $('.mobile-app-banner .google-play-btn').removeClass('hide-xs');
+                        } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                            $('.mobile-app-banner .play-store-btn').removeClass('hide-xs');
+                        }
+
+                        $('.mobile-app-banner .close-mobile-app-banner').click(function() {
+                            $('.mobile-app-banner').html('');
+                        });
+                    } else {
+                        if (window.localStorage.getItem('already_closed_mobile_app_banner') == null) {
+                            $('.mobile-app-banner').html(bannerHtml);
+
+                            $('.mobile-app-banner .close-mobile-app-banner').click(function() {
+                                $('.mobile-app-banner').html('');
+                                window.localStorage.setItem('already_closed_mobile_app_banner', true);
+                            });
+                        }
+                    }
+                }
+            }, 3000);
+        },
         updateExternalURLsForiOSDevice: function() {
             //Method that check if the device is mobile app and if the project is hybrid and then overwrite all _blank targets to _system. _blank is not working in iOS in WebView
             if ($('.data-external-link').length && is_hybrid) {
@@ -1896,7 +1933,42 @@ var projectData = {
                                     window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
                                 }
                             } else {
-                                cordova.InAppBrowser.open(currentHref, '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+
+                                inAppBrowserRef.addEventListener('loadstop', function(){
+                                    // listener for GDPR data download
+                                    var downloadGDPRLoop = window.setInterval(function(){
+                                        inAppBrowserRef.executeScript({
+                                                code: "window.shouldCloseAndRedirect"
+                                            },
+                                            function(values) {
+                                                console.log(values, 'values');
+                                                if (values[0]){
+                                                    window.open(values[0], '_system', 'location=yes');
+                                                    inAppBrowserRef.close();
+                                                    window.clearInterval(downloadGDPRLoop);
+                                                }
+                                            }
+                                        );
+                                    }, 500);
+
+                                    // listener for account deletion
+                                    var accountDeletionLoop = window.setInterval(function(){
+                                        inAppBrowserRef.executeScript({
+                                                code: "window.shouldLogoutPatient"
+                                            },
+                                            function(values) {
+                                                if (values[0]){
+                                                    const event = new CustomEvent('shouldLogoutPatient');
+                                                    document.dispatchEvent(event);
+
+                                                    inAppBrowserRef.close();
+                                                    window.clearInterval(accountDeletionLoop);
+                                                }
+                                            }
+                                        );
+                                    }, 500);
+                                });
                             }
                         }
                     });
@@ -2214,8 +2286,8 @@ function hybridAppFileDownload(file_name, fileUrl, callback, location) {
     xhr.send();
 }
 
+var current_route;
 function router() {
-    var current_route;
     var init_logged_in_wrapper_logic = false;
 
     $('body').on('DOMSubtreeModified', '.main-content', async function() {
@@ -2290,7 +2362,8 @@ function router() {
             }
         }
 
-        // projectData.general_logic.updateExternalURLsForiOSDevice();
+
+        projectData.general_logic.mobileAppBanner();
     });
 }
 router();
@@ -2386,15 +2459,28 @@ function addEditAppPopupLanguageSwitch() {
 }
 
 function handleOpenURL(url) {
-    var token = new URL(url).searchParams.get('token');
+    var get_params = basic.getGETParameters();
+    var urlInstance = new URL(url);
+    var iframeUrl = '';
+    var authType = '';
+    var dev = '';
 
-    const event = new CustomEvent('receiveCoredbTokenFromCivicAuth', {
-        detail: {
-            platform_type: 'civic',
-            response_data: token,
-            time: new Date()
-        }
-    });
+    if ($('.main-content').attr('data-production') == 'false') {
+        dev = '&dev=true';
+    }
 
-    document.dispatchEvent(event);
+    //if (current_route == 'patient-login-page') {
+        authType = 'login';
+    /*} else if (current_route == 'patient-register-by-invite') {
+        authType = 'register';
+    }*/
+
+    /*if (basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid')) {
+        iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp&invite=' + get_params.invite + '&inviteid=' + get_params.inviteid + dev;
+    } else {*/
+        iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
+    //}
+
+    $('#iframe-civic-popup').remove();
+    $('body').append('<iframe src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
 }

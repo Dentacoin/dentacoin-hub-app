@@ -1,3 +1,4 @@
-<div class="main-content" [attr.data-lang]="translate.currentLang" [attr.hybrid]="hybrid ? 'true' : null" [attr.data-dentacoinDomain]="dentacoinDomain">
+<div class="main-content" [attr.data-lang]="translate.currentLang" [attr.hybrid]="hybrid ? 'true' : null" [attr.data-dentacoinDomain]="dentacoinDomain" [attr.data-production]="production">
     <router-outlet></router-outlet>
 </div>
+<div class="mobile-app-banner" [attr.data-banner-title-desktop]="this.translate.instant('banner-title-desktop')" [attr.data-banner-title-mobile]="this.translate.instant('banner-title-mobile')"></div>
