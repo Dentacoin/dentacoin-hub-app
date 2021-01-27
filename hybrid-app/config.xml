@@ -19,38 +19,38 @@
     <preference name="orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="hdpi" height="48" src="/app-resources/images/dentacoin-hub-app-icon-48px.jpg" width="48" />
-        <icon density="xhdpi" height="72" src="/app-resources/images/dentacoin-hub-app-icon-72px.jpg" width="72" />
-        <icon density="xxhdpi" height="144" src="/app-resources/images/dentacoin-hub-app-icon-144px.jpg" width="144" />
+        <icon density="hdpi" height="48" src="/app-resources/images/dentacoin-hub-app-icon-48px.png" width="48" />
+        <icon density="xhdpi" height="72" src="/app-resources/images/dentacoin-hub-app-icon-72px.png" width="72" />
+        <icon density="xxhdpi" height="144" src="/app-resources/images/dentacoin-hub-app-icon-144px.png" width="144" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <icon height="180" src="app-resources/images/dentacoin-hub-app-icon-180px.jpg" width="180" />
-        <icon height="60" src="app-resources/images/dentacoin-hub-app-icon-60px.jpg" width="60" />
-        <icon height="120" src="app-resources/images/dentacoin-hub-app-icon-120px.jpg" width="120" />
-        <icon height="76" src="app-resources/images/dentacoin-hub-app-icon-76px.jpg" width="76" />
-        <icon height="152" src="app-resources/images/dentacoin-hub-app-icon-152px.jpg" width="152" />
-        <icon height="40" src="app-resources/images/dentacoin-hub-app-icon-40px.jpg" width="40" />
-        <icon height="80" src="app-resources/images/dentacoin-hub-app-icon-80px.jpg" width="80" />
-        <icon height="57" src="app-resources/images/dentacoin-hub-app-icon-57px.jpg" width="57" />
-        <icon height="114" src="app-resources/images/dentacoin-hub-app-icon-114px.jpg" width="114" />
-        <icon height="72" src="app-resources/images/dentacoin-hub-app-icon-72px.jpg" width="72" />
-        <icon height="144" src="app-resources/images/dentacoin-hub-app-icon-144px.jpg" width="144" />
-        <icon height="29" src="app-resources/images/dentacoin-hub-app-icon-29px.jpg" width="29" />
-        <icon height="58" src="app-resources/images/dentacoin-hub-app-icon-58px.jpg" width="58" />
-        <icon height="50" src="app-resources/images/dentacoin-hub-app-icon-50px.jpg" width="50" />
+        <icon height="180" src="app-resources/images/dentacoin-hub-app-icon-180px.png" width="180" />
+        <icon height="60" src="app-resources/images/dentacoin-hub-app-icon-60px.png" width="60" />
+        <icon height="120" src="app-resources/images/dentacoin-hub-app-icon-120px.png" width="120" />
+        <icon height="76" src="app-resources/images/dentacoin-hub-app-icon-76px.png" width="76" />
+        <icon height="152" src="app-resources/images/dentacoin-hub-app-icon-152px.png" width="152" />
+        <icon height="40" src="app-resources/images/dentacoin-hub-app-icon-40px.png" width="40" />
+        <icon height="80" src="app-resources/images/dentacoin-hub-app-icon-80px.png" width="80" />
+        <icon height="57" src="app-resources/images/dentacoin-hub-app-icon-57px.png" width="57" />
+        <icon height="114" src="app-resources/images/dentacoin-hub-app-icon-114px.png" width="114" />
+        <icon height="72" src="app-resources/images/dentacoin-hub-app-icon-72px.png" width="72" />
+        <icon height="144" src="app-resources/images/dentacoin-hub-app-icon-144px.png" width="144" />
+        <icon height="29" src="app-resources/images/dentacoin-hub-app-icon-29px.png" width="29" />
+        <icon height="58" src="app-resources/images/dentacoin-hub-app-icon-58px.png" width="58" />
+        <icon height="50" src="app-resources/images/dentacoin-hub-app-icon-50px.png" width="50" />
         <icon height="100" src="app-resources/images/dentacoin-hub-app-icon-100px.png" width="100" />
-        <icon height="167" src="app-resources/images/dentacoin-hub-app-icon-167px.jpg" width="167" />
-        <icon height="20" src="app-resources/images/dentacoin-hub-app-icon-20px.jpg" width="20" />
-        <icon height="127" src="app-resources/images/dentacoin-hub-app-icon-127px.jpg" width="127" />
-        <icon height="196" src="app-resources/images/dentacoin-hub-app-icon-196px.jpg" width="196" />
-        <icon height="24" src="app-resources/images/dentacoin-hub-app-icon-24px.jpg" width="24" />
-        <icon height="44" src="app-resources/images/dentacoin-hub-app-icon-44px.jpg" width="44" />
-        <icon height="48" src="app-resources/images/dentacoin-hub-app-icon-48px.jpg" width="48" />
-        <icon height="55" src="app-resources/images/dentacoin-hub-app-icon-55px.jpg" width="55" />
-        <icon height="87" src="app-resources/images/dentacoin-hub-app-icon-87px.jpg" width="87" />
-        <icon height="88" src="app-resources/images/dentacoin-hub-app-icon-88px.jpg" width="88" />
+        <icon height="167" src="app-resources/images/dentacoin-hub-app-icon-167px.png" width="167" />
+        <icon height="20" src="app-resources/images/dentacoin-hub-app-icon-20px.png" width="20" />
+        <icon height="127" src="app-resources/images/dentacoin-hub-app-icon-127px.png" width="127" />
+        <icon height="196" src="app-resources/images/dentacoin-hub-app-icon-196px.png" width="196" />
+        <icon height="24" src="app-resources/images/dentacoin-hub-app-icon-24px.png" width="24" />
+        <icon height="44" src="app-resources/images/dentacoin-hub-app-icon-44px.png" width="44" />
+        <icon height="48" src="app-resources/images/dentacoin-hub-app-icon-48px.png" width="48" />
+        <icon height="55" src="app-resources/images/dentacoin-hub-app-icon-55px.png" width="55" />
+        <icon height="87" src="app-resources/images/dentacoin-hub-app-icon-87px.png" width="87" />
+        <icon height="88" src="app-resources/images/dentacoin-hub-app-icon-88px.png" width="88" />
         <icon height="1024" src="app-resources/images/dentacoin-hub-app-icon-1024px.png" width="1024" />
         <icon height="1365" src="app-resources/images/dentacoin-hub-app-icon-1365px.png" width="1365" />
         <preference name="ScrollEnabled" value="true" />
