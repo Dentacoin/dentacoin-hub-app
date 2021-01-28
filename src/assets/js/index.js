@@ -1527,7 +1527,7 @@ var projectData = {
                         $('.apple-custom-btn').removeClass('hide');
 
                         if (!hasOwnProperty.call(loadedLibs, 'apple')) {
-                            loadedLibs.facebook = true;
+                            loadedLibs.apple = true;
                             await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                         }
                     }
@@ -1634,7 +1634,7 @@ var projectData = {
                         $('.apple-custom-btn').removeClass('hide');
 
                         if (!hasOwnProperty.call(loadedLibs, 'apple')) {
-                            loadedLibs.facebook = true;
+                            loadedLibs.apple = true;
                             await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                         }
                     }
