@@ -1334,29 +1334,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_services/authentication-service.service */ "./src/app/_services/authentication-service.service.ts");
-
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(translate, authenticationServiceService) {
+    function AppComponent(translate) {
         this.translate = translate;
-        this.authenticationServiceService = authenticationServiceService;
         this.hybrid = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].hybrid;
         this.dentacoinDomain = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].dentacoinDomain;
         this.production = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production;
     }
     AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        document.addEventListener('shouldLogoutPatient', function () {
-            _this.authenticationServiceService.logout('patient');
-        });
     };
     AppComponent.ctorParameters = function () { return [
-        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] },
-        { type: _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationServiceService"] }
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] }
     ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2259,6 +2251,9 @@ var LoggedInWrapperComponent = /** @class */ (function () {
         }
         else {
             if (_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].hybrid === true) {
+                document.addEventListener('shouldLogoutPatient', function () {
+                    _this.authenticationServiceService.logout('patient');
+                });
                 this.myAccountLink = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
             }
             else {
