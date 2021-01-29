@@ -1523,6 +1523,15 @@ var projectData = {
             },
             patientLoginPage: async function() {
                 if (is_hybrid) {
+                    if (basic.getMobileOperatingSystem() == 'iOS') {
+                        $('.apple-custom-btn').removeClass('hide');
+
+                        if (!hasOwnProperty.call(loadedLibs, 'apple')) {
+                            loadedLibs.apple = true;
+                            await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
+                        }
+                    }
+
                     $('.social-login-btn').addClass('mobile-app');
 
                     $('.civic-custom-btn').click(function() {
@@ -1621,6 +1630,15 @@ var projectData = {
             },
             patientRegisterPage: async function() {
                 if (is_hybrid) {
+                    if (basic.getMobileOperatingSystem() == 'iOS') {
+                        $('.apple-custom-btn').removeClass('hide');
+
+                        if (!hasOwnProperty.call(loadedLibs, 'apple')) {
+                            loadedLibs.apple = true;
+                            await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
+                        }
+                    }
+
                     $('.social-login-btn').addClass('mobile-app');
 
                     $('.civic-custom-btn').click(function() {
@@ -2341,29 +2359,34 @@ function router() {
                     }
                 }
             }
+
+            projectData.general_logic.mobileAppBanner();
         } else {
             // NOT LOGGED IN ROUTES
             if ($('app-patient-login-page').length && current_route != 'patient-login-page') {
                 current_route = 'patient-login-page';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.patientLoginPage();
+
+                projectData.general_logic.mobileAppBanner();
             } else if ($('app-patient-register-by-invite').length && current_route != 'patient-register-by-invite') {
                 current_route = 'patient-register-by-invite';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.patientRegisterPage();
+
+                projectData.general_logic.mobileAppBanner();
             } else if ($('app-request-account').length && current_route != 'request-account') {
                 current_route = 'request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.requestAccount();
+
+                projectData.general_logic.mobileAppBanner();
             } else if ($('app-dentist-request-account').length && current_route != 'dentist-request-account') {
                 current_route = 'dentist-request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.dentistRequestAccount();
             }
         }
-
-
-        projectData.general_logic.mobileAppBanner();
     });
 }
 router();
