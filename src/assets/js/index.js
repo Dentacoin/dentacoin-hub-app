@@ -2504,6 +2504,10 @@ function handleOpenURL(url) {
         iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
     //}
 
+    console.log(url, 'url');
+    console.log(get_params, 'get_params');
+    console.log(iframeUrl, 'iframeUrl');
+
     $('#iframe-civic-popup').remove();
     $('body').append('<iframe src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
 }

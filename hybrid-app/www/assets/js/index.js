@@ -2359,29 +2359,34 @@ function router() {
                     }
                 }
             }
+
+            projectData.general_logic.mobileAppBanner();
         } else {
             // NOT LOGGED IN ROUTES
             if ($('app-patient-login-page').length && current_route != 'patient-login-page') {
                 current_route = 'patient-login-page';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.patientLoginPage();
+
+                projectData.general_logic.mobileAppBanner();
             } else if ($('app-patient-register-by-invite').length && current_route != 'patient-register-by-invite') {
                 current_route = 'patient-register-by-invite';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.patientRegisterPage();
+
+                projectData.general_logic.mobileAppBanner();
             } else if ($('app-request-account').length && current_route != 'request-account') {
                 current_route = 'request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.requestAccount();
+
+                projectData.general_logic.mobileAppBanner();
             } else if ($('app-dentist-request-account').length && current_route != 'dentist-request-account') {
                 current_route = 'dentist-request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.dentistRequestAccount();
             }
         }
-
-
-        projectData.general_logic.mobileAppBanner();
     });
 }
 router();
@@ -2498,6 +2503,10 @@ function handleOpenURL(url) {
     } else {*/
         iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
     //}
+
+    console.log(url, 'url');
+    console.log(get_params, 'get_params');
+    console.log(iframeUrl, 'iframeUrl');
 
     $('#iframe-civic-popup').remove();
     $('body').append('<iframe src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
