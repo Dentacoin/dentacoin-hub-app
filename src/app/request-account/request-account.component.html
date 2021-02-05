@@ -44,6 +44,7 @@
                 <div class="custom-google-select-style module">
                     <label class="platform-color" for="country">{{'country-label' | translate}}</label>
                     <select id="country" class="platform-border-color" formControlName="country">
+                        <option [selected]="true">Select country:</option>
                         <ng-container *ngFor="let item of countriesList | keyvalue">
                             <option value="{{item.value.code}}">{{item.value.name}}</option>
                         </ng-container>
