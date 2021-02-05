@@ -1550,6 +1550,8 @@ var projectData = {
                             loadedLibs.apple = true;
                             await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                         }
+                    } else if(basic.getMobileOperatingSystem() == 'Android') {
+                        $('.civic-custom-btn').removeClass('hide');
                     }
 
                     $('.social-login-btn').addClass('mobile-app');
@@ -1657,6 +1659,8 @@ var projectData = {
                             loadedLibs.apple = true;
                             await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                         }
+                    } else if(basic.getMobileOperatingSystem() == 'Android') {
+                        $('.civic-custom-btn').removeClass('hide');
                     }
 
                     $('.social-login-btn').addClass('mobile-app');
