@@ -19,6 +19,8 @@ export class PatientLoginPageComponent implements OnInit {
     coreDbApiDomain = environment.coreDbApiDomain;
     missingPatientAccount = true;
     patientLoginEventsAdded = false;
+    public inviter = '';
+    public inviteId = '';
 
     constructor(public router: Router, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public http: HttpClient, public translate: TranslateService, public languageService: LanguageService, public requestsService: RequestsService, public additionalService: AdditionalService, public activatedRoute: ActivatedRoute) {
     }
@@ -28,8 +30,8 @@ export class PatientLoginPageComponent implements OnInit {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
-            console.log(this.activatedRoute.snapshot.queryParamMap.get('invite'), 'invite');
-            console.log(this.activatedRoute.snapshot.queryParamMap.get('inviteid'), 'inviteid');
+            this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
+            this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
 
             if (!this.patientLoginEventsAdded) {
                 this.patientLoginEventsAdded = true;

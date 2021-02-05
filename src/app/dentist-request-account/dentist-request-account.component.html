@@ -40,6 +40,30 @@
                     <div class="error-handle" *ngIf="dentist_request_form_data.practice.hasError('maxlength')">{{'practice-max-length' | translate}}</div>
                 </div>
             </div>
+            <div class="padding-top-10" *ngIf="(showCountries == true)">
+                <div class="custom-google-select-style module">
+                    <label class="platform-color" for="country">{{'country-label' | translate}}</label>
+                    <select id="country" class="platform-border-color" formControlName="country">
+                        <ng-container *ngFor="let item of countriesList | keyvalue">
+                            <option value="{{item.value.code}}">{{item.value.name}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div *ngIf="requestAccountFormSubmitted && dentist_request_form_data.country.errors">
+                    <div class="error-handle" *ngIf="dentist_request_form_data.country.errors.required">{{'country-required' | translate}}</div>
+                </div>
+            </div>
+            <div class="padding-top-10">
+                <div class="custom-google-label-style module" data-input-colorful-border="true">
+                    <label for="request-account-phone" class="platform-color">{{'phone-label' | translate}}</label>
+                    <input type="text" maxlength="20" id="request-account-phone" formControlName="phone" class="full-rounded form-field platform-border-color"/>
+                </div>
+                <div *ngIf="requestAccountFormSubmitted && dentist_request_form_data.phone.errors">
+                    <div class="error-handle" *ngIf="dentist_request_form_data.phone.errors.required">{{'phone-required' | translate}}</div>
+                    <div class="error-handle" *ngIf="dentist_request_form_data.phone.hasError('maxlength')">{{'phone-max-length-validation' | translate}}</div>
+                </div>
+                <div class="error-handle" *ngIf="notValidPhone">{{'not-valid-phone' | translate}}</div>
+            </div>
             <div class="padding-top-10">
                 <div class="custom-google-label-style module" data-input-colorful-border="true">
                     <label for="request-account-website" class="platform-color">{{'website-label' | translate}}</label>

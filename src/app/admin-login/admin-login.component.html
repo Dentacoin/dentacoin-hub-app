@@ -2,11 +2,14 @@
     <div class="row">
         <div class="col-xs-12">
             <figure class="max-width-150 max-width-xs-100 margin-0-auto" itemscope="" itemtype="http://schema.org/ImageObject"><img alt="Hub icon" class="width-100" src="assets/images/hub-icon-white.png"></figure>
-            <h1 class="text-center fs-36 fs-xs-26 lato-bold padding-top-10 padding-top-xs-0 padding-bottom-30 padding-bottom-xs-10">DENTACOIN HUB APP ADMIN PANEL</h1>
+            <h1 class="text-center fs-36 fs-xs-26 lato-bold padding-top-10 padding-top-xs-0 padding-bottom-20 padding-bottom-xs-10">DENTACOIN HUB APP ADMIN PANEL</h1>
         </div>
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
             <form [formGroup]="dentistsLoginForm" (ngSubmit)="onDentistsFormSubmit()">
-                <div>
+                <div class="error-handle margin-bottom-10" *ngIf="authenticationServiceService.generalError">{{'general-error' | translate}}</div>
+                <div class="error-handle margin-bottom-10" *ngIf="authenticationServiceService.notAPartner">{{'not-a-partner-error' | translate}} <a (click)="redirectsService.redirectToDentistRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>
+                <div class="error-handle margin-bottom-10" *ngIf="authenticationServiceService.dentistAuthFailed">{{'dentist-auth-failed' | translate}} <a (click)="redirectsService.redirectToDentistRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>
+                <div class="padding-top-10">
                     <div class="custom-google-label-style module" data-input-colorful-border="true">
                         <label for="dentist-login-email" class="platform-color">Email address:</label>
                         <input maxlength="100" type="text" id="dentist-login-email" formControlName="email" class="full-rounded form-field platform-border-color"/>
@@ -34,9 +37,6 @@
                     |
                     <a [routerLink]="['/'+translate.currentLang+'/dentist-request-account']" itemprop="url" class="text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color">{{'request-account-btn' | translate}}</a>
                 </div>
-                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.generalError">{{'general-error' | translate}}</div>
-                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.notAPartner">{{'not-a-partner-error' | translate}} <a (click)="redirectsService.redirectToDentistRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>
-                <div class="error-handle margin-bottom-20" *ngIf="authenticationServiceService.dentistAuthFailed">{{'dentist-auth-failed' | translate}} <a (click)="redirectsService.redirectToDentistRequestAccount()" class="text-decoration-underline lato-bold">here</a>.</div>
             </form>
         </div>
     </div>

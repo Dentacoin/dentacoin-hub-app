@@ -113,6 +113,39 @@
             @include rounded(0 4px 4px 0);
         }
     }
+    &.custom-google-select-style {
+        position: relative;
+        label {
+            width: auto !important;
+            font-size: 14px !important;
+            top: -8px;
+            padding: 0 5px !important;
+            -webkit-transform: none;
+            -ms-transform: none;
+            transform: none;
+            color: $basic_color;
+            font-weight: bold;
+            position: absolute;
+            left: 10px;
+            background-color: white;
+            @include rounded(4px);
+            @include simple_transition(.3s);
+        }
+        select {
+            background-image: url(../images/select-arrow.svg);
+            background-position: top 50% right 10px;
+            background-size: 15px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            padding: 10px 30px 10px 15px;
+            -webkit-appearance: initial;
+            border-style: solid;
+            border-width: 1.5px;
+            @include rounded(4px);
+        }
+    }
     &.copy-link {
         display: flex;
         position: relative;

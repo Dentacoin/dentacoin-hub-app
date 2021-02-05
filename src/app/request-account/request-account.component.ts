@@ -15,9 +15,12 @@ import {LanguageService} from '../_services/language.service';
 })
 export class RequestAccountComponent implements OnInit {
     requestAccountForm: FormGroup;
-    requestAccountFormSubmitted = false;
-    sendRequestSucceed = false;
-    sendRequestFailed = false;
+    requestAccountFormSubmitted: boolean = false;
+    sendRequestSucceed: boolean = false;
+    sendRequestFailed: boolean = false;
+    public notValidPhone: boolean = false;
+    public showCountries: boolean = false;
+    countriesList = {};
 
     constructor(public router: Router, public formBuilder: FormBuilder, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public http: HttpClient, public requestsService: RequestsService, public additionalService: AdditionalService, public translate: TranslateService, public languageService: LanguageService) {
 
@@ -29,6 +32,13 @@ export class RequestAccountComponent implements OnInit {
             this.redirectsService.redirectToLoggedHome();
 
         } else {
+            this.requestsService.getCountries().subscribe((response: any) => {
+                if (response.success && response.data) {
+                    this.countriesList = response.data;
+                    this.showCountries = true;
+                }
+            });
+
             this.requestAccountForm = this.formBuilder.group({
                 firstName: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(100)
@@ -39,6 +49,9 @@ export class RequestAccountComponent implements OnInit {
                 email: new FormControl('', Validators.compose([
                     Validators.required,
                     Validators.email
+                ])),
+                country: new FormControl('', Validators.compose([
+                    Validators.required
                 ])),
                 phone: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(20)
@@ -62,6 +75,7 @@ export class RequestAccountComponent implements OnInit {
     onAccountRequestFormSubmit() {
         this.additionalService.showLoader();
         this.requestAccountFormSubmitted = true;
+        this.notValidPhone = false;
 
         // stop here if form is invalid
         if (this.requestAccountForm.invalid) {
@@ -73,6 +87,7 @@ export class RequestAccountComponent implements OnInit {
         paramsMap.set('firstName', this.request_form_data.firstName.value);
         paramsMap.set('lastName', this.request_form_data.lastName.value);
         paramsMap.set('email', this.request_form_data.email.value);
+        paramsMap.set('country', this.request_form_data.country.value);
         paramsMap.set('phone', this.request_form_data.phone.value);
         paramsMap.set('dentistName', this.request_form_data.dentistName.value);
         /*paramsMap.set('captcha', this.request_form_data.captcha.value);*/
@@ -82,20 +97,27 @@ export class RequestAccountComponent implements OnInit {
             params = params.set(key, value);
         });
 
-        this.requestsService.sendRequestAccountMail(params.toString()).subscribe((response: any) => {
-            if (response.success) {
-                this.requestAccountForm.reset();
+        this.requestsService.validatePhone(new HttpParams().set('phone', this.request_form_data.phone.value).set('country_code', this.request_form_data.country.value).toString()).subscribe((validatePhoneResponse: any) => {
+            if (validatePhoneResponse.success) {
+                this.requestsService.sendRequestAccountMail(params.toString()).subscribe((response: any) => {
+                    if (response.success) {
+                        this.requestAccountForm.reset();
 
-                Object.keys(this.requestAccountForm.controls).forEach(key => {
-                    this.requestAccountForm.get(key).setErrors(null) ;
+                        Object.keys(this.requestAccountForm.controls).forEach(key => {
+                            this.requestAccountForm.get(key).setErrors(null) ;
+                        });
+
+                        this.sendRequestSucceed = true;
+                        this.sendRequestFailed = false;
+                        this.additionalService.hideLoader();
+                    } else {
+                        this.sendRequestFailed = true;
+                        this.sendRequestSucceed = false;
+                        this.additionalService.hideLoader();
+                    }
                 });
-
-                this.sendRequestSucceed = true;
-                this.sendRequestFailed = false;
-                this.additionalService.hideLoader();
             } else {
-                this.sendRequestFailed = true;
-                this.sendRequestSucceed = false;
+                this.notValidPhone = true;
                 this.additionalService.hideLoader();
             }
         });

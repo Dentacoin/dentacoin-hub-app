@@ -15,9 +15,12 @@ import {LanguageService} from '../_services/language.service';
 })
 export class DentistRequestAccountComponent implements OnInit {
     dentistRequestAccountForm: FormGroup;
-    dentistRequestAccountFormSubmitted = false;
-    sendRequestSucceed = false;
-    sendRequestFailed = false;
+    dentistRequestAccountFormSubmitted: boolean = false;
+    sendRequestSucceed: boolean = false;
+    sendRequestFailed: boolean = false;
+    public notValidPhone: boolean = false;
+    public showCountries: boolean = false;
+    countriesList = {};
 
     constructor(public router: Router, public formBuilder: FormBuilder, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public http: HttpClient, public requestsService: RequestsService, public additionalService: AdditionalService, public translate: TranslateService, public languageService: LanguageService) {
 
@@ -29,6 +32,13 @@ export class DentistRequestAccountComponent implements OnInit {
             this.redirectsService.redirectToLoggedHome();
 
         } else {
+            this.requestsService.getCountries().subscribe((response: any) => {
+                if (response.success && response.data) {
+                    this.countriesList = response.data;
+                    this.showCountries = true;
+                }
+            });
+
             this.dentistRequestAccountForm = this.formBuilder.group({
                 fullName: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(100)
@@ -39,6 +49,12 @@ export class DentistRequestAccountComponent implements OnInit {
                 ])),
                 practice: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(200)
+                ])),
+                country: new FormControl('', Validators.compose([
+                    Validators.required
+                ])),
+                phone: new FormControl('', Validators.compose([
+                    Validators.required, Validators.maxLength(20)
                 ])),
                 website: new FormControl('', Validators.compose([
                     Validators.required, Validators.maxLength(500)
@@ -70,6 +86,8 @@ export class DentistRequestAccountComponent implements OnInit {
         paramsMap.set('fullName', this.dentist_request_form_data.fullName.value);
         paramsMap.set('email', this.dentist_request_form_data.email.value);
         paramsMap.set('practice', this.dentist_request_form_data.practice.value);
+        paramsMap.set('country', this.dentist_request_form_data.country.value);
+        paramsMap.set('phone', this.dentist_request_form_data.phone.value);
         paramsMap.set('website', this.dentist_request_form_data.website.value);
 
         let params = new HttpParams();
@@ -77,20 +95,27 @@ export class DentistRequestAccountComponent implements OnInit {
             params = params.set(key, value);
         });
 
-        this.requestsService.dentistSendRequestAccountMail(params.toString()).subscribe((response: any) => {
-            if (response.success) {
-                this.dentistRequestAccountForm.reset();
+        this.requestsService.validatePhone(new HttpParams().set('phone', this.dentist_request_form_data.phone.value).set('country_code', this.dentist_request_form_data.country.value).toString()).subscribe((validatePhoneResponse: any) => {
+            if (validatePhoneResponse.success) {
+                this.requestsService.dentistSendRequestAccountMail(params.toString()).subscribe((response: any) => {
+                    if (response.success) {
+                        this.dentistRequestAccountForm.reset();
 
-                Object.keys(this.dentistRequestAccountForm.controls).forEach(key => {
-                    this.dentistRequestAccountForm.get(key).setErrors(null) ;
+                        Object.keys(this.dentistRequestAccountForm.controls).forEach(key => {
+                            this.dentistRequestAccountForm.get(key).setErrors(null) ;
+                        });
+
+                        this.sendRequestSucceed = true;
+                        this.sendRequestFailed = false;
+                        this.additionalService.hideLoader();
+                    } else {
+                        this.sendRequestFailed = true;
+                        this.sendRequestSucceed = false;
+                        this.additionalService.hideLoader();
+                    }
                 });
-
-                this.sendRequestSucceed = true;
-                this.sendRequestFailed = false;
-                this.additionalService.hideLoader();
             } else {
-                this.sendRequestFailed = true;
-                this.sendRequestSucceed = false;
+                this.notValidPhone = true;
                 this.additionalService.hideLoader();
             }
         });

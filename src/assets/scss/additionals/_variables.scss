@@ -40,3 +40,7 @@ $basic_color: #0fb0e5;
 .color-basic, .platform-color {
     color: $basic_color;
 }
+
+select.platform-border-color {
+    border-color: $basic_color;
+}

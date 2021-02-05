@@ -5,7 +5,7 @@ import {RedirectsService} from '../../_services/redirects.service';
 import {RequestsService} from '../../_services/requests.service';
 import {LanguageService} from '../../_services/language.service';
 import {TranslateService} from '@ngx-translate/core';
-import {environment} from '../../../environments/environment';
+import {AdditionalService} from '../../_services/additional.service';
 
 @Component({
     selector: 'app-advanced-admin-panel',
@@ -24,16 +24,12 @@ export class AdvancedAdminPanelComponent implements OnInit {
         avatar_url: ''
     };
 
-    constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public requestsService: RequestsService, public languageService: LanguageService, public translate: TranslateService) {
+    constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public requestsService: RequestsService, public languageService: LanguageService, public translate: TranslateService, public additionalService: AdditionalService) {
         this.isDentistLoggedIn = authenticationServiceService.isDentistLoggedSubject;
     }
 
     ngOnInit() {
-        if (environment.hybrid === true) {
-            this.myAccountLink = environment.accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
-        } else {
-            this.myAccountLink = environment.accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
-        }
+        this.myAccountLink = this.additionalService.generateAccountLink();
 
         this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentDentist')).token).subscribe({
             next: (response: any) => {

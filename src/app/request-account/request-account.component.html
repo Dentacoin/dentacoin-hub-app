@@ -40,6 +40,19 @@
                     <div class="error-handle" *ngIf="request_form_data.email.errors.email">{{'valid-email' | translate}}</div>
                 </div>
             </div>
+            <div class="padding-top-10" *ngIf="(showCountries == true)">
+                <div class="custom-google-select-style module">
+                    <label class="platform-color" for="country">{{'country-label' | translate}}</label>
+                    <select id="country" class="platform-border-color" formControlName="country">
+                        <ng-container *ngFor="let item of countriesList | keyvalue">
+                            <option value="{{item.value.code}}">{{item.value.name}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div *ngIf="requestAccountFormSubmitted && request_form_data.country.errors">
+                    <div class="error-handle" *ngIf="request_form_data.country.errors.required">{{'country-required' | translate}}</div>
+                </div>
+            </div>
             <div class="padding-top-10">
                 <div class="custom-google-label-style module" data-input-colorful-border="true">
                     <label for="request-account-phone" class="platform-color">{{'phone-label' | translate}}</label>
@@ -49,6 +62,7 @@
                     <div class="error-handle" *ngIf="request_form_data.phone.errors.required">{{'phone-required' | translate}}</div>
                     <div class="error-handle" *ngIf="request_form_data.phone.hasError('maxlength')">{{'phone-max-length-validation' | translate}}</div>
                 </div>
+                <div class="error-handle" *ngIf="notValidPhone">{{'not-valid-phone' | translate}}</div>
             </div>
             <div class="padding-top-10">
                 <div class="custom-google-label-style module" data-input-colorful-border="true">

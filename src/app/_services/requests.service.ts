@@ -117,6 +117,16 @@ export class RequestsService {
         return this.http.get(environment.coreDbApiDomain + '/api/countries');
     }
 
+    public validatePhone(body: string): Observable<{}> {
+        console.log(body, 'body');
+        return this.http.post(environment.coreDbApiDomain + '/api/phone/', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    }
+
     public downloadGDPRData(token: string): Observable<{}> {
         return this.http.post(environment.coreDbApiDomain + '/api/gdpr/', null, {
             headers: new HttpHeaders({

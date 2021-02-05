@@ -9,14 +9,16 @@
                     <input type="file" accept=".jpg,.jpeg,.png" class="hide" id="dentist-logo"/>
                     <input type="hidden" class="hide" id="dentist-logo-media"/>
                     <input type="hidden" class="hide" id="dentist-logo-media-name"/>
+                    <label for="dentist-logo" class="platform-color fs-16 calibri-bold add-logo padding-top-10 padding-bottom-10">Add logo</label>
                 </div>
-                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="hide-in-edit-mode max-width-200"></figure>
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="hide-in-edit-mode visible-dentist-logo"></figure>
             </div>
             <div class="col-xs-2 text-center pick-dentist-color-parent disableBlur">
                 <a href="javascript:void(0);" class="pick-dentist-color show-in-edit-mode" data-opened="false">
                     <figure itemscope="" itemtype="http://schema.org/ImageObject" class="platform-border-color important">
                         <img src="assets/images/change-color-icon.png" alt="Change color icon"/>
                     </figure>
+                    <div class="padding-top-5 calibri-bold platform-color fs-16 hide-xs text-center">Edit colours</div>
                 </a>
                 <div class="custom-dropdown-with-color-pickers"></div>
             </div>
@@ -70,7 +72,7 @@
     <div class="container padding-top-20 padding-bottom-15">
         <div class="row enableBlur">
             <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 basic-admin-panel-apps-wrapper">
-                <div class="row fs-0 apps-list">
+                <div class="row fs-0 apps-list" [attr.data-account-section-url]="myAccountLink">
                     <div class="col-xs-4 text-center padding-bottom-15 inline-block-top single-app empty">
                         <div class="wrapper">
                             <button class="fs-60 line-height-60 calibri-bold add-app platform-color-important platform-border-color important" [attr.data-default-apps-title]="'default-apps-title' | translate" [attr.data-adding-custom-app-title]="'adding-custom-app-title' | translate">+</button>

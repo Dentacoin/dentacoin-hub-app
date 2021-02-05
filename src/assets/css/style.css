@@ -269,6 +269,9 @@
 .color-basic, .platform-color {
   color: #0fb0e5; }
 
+select.platform-border-color {
+  border-color: #0fb0e5; }
+
 .module.platform-custom-button {
   background-color: #0fb0e5;
   color: white;
@@ -397,6 +400,46 @@
     -moz-border-radius: 0 4px 4px 0;
     -ms-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0; }
+.module.custom-google-select-style {
+  position: relative; }
+  .module.custom-google-select-style label {
+    width: auto !important;
+    font-size: 14px !important;
+    top: -8px;
+    padding: 0 5px !important;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    color: #0fb0e5;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s; }
+  .module.custom-google-select-style select {
+    background-image: url(../images/select-arrow.svg);
+    background-position: top 50% right 10px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 30px 10px 15px;
+    -webkit-appearance: initial;
+    border-style: solid;
+    border-width: 1.5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px; }
 .module.copy-link {
   display: flex;
   position: relative; }
@@ -4937,6 +4980,15 @@ header {
     padding: 5px;
     font-size: 16px; }
 
+footer {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s; }
+  footer.opacity-not-visible {
+    opacity: 0; }
+
 .manage-privacy-container .delete-local-storage-border-bottom {
   border-bottom: 3px solid black; }
 .manage-privacy-container .delete figure, .manage-privacy-container .download figure {
@@ -5643,6 +5695,7 @@ header {
               border: 0;
               background-color: transparent;
               width: 140px;
+              height: 140px;
               padding: 5px;
               position: relative;
               -webkit-border-radius: 20px;
@@ -5750,6 +5803,9 @@ header {
       font-weight: bold; }
       .basic-admin-panel .dentist-helper .wrapper .close-dentist-helper a {
         color: #8c8c8c; }
+.basic-admin-panel .visible-dentist-logo img {
+  max-width: 200px;
+  max-height: 100px; }
 .basic-admin-panel .dentist-logo-wrapper {
   padding: 12px 20px;
   border: 1.5px dashed #0fb0e5;
@@ -5765,6 +5821,12 @@ header {
     font-size: 0;
     padding: 0;
     margin: 0;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -5779,6 +5841,8 @@ header {
       display: inline-block;
       padding: 10px;
       cursor: pointer; }
+  .basic-admin-panel .dentist-logo-wrapper .add-logo {
+    display: none; }
   .basic-admin-panel .dentist-logo-wrapper.with-logo img {
     max-width: 200px;
     max-height: 100px; }
@@ -6033,8 +6097,10 @@ header {
     -o-transition: 0.3s;
     -ms-transition: 0.3s;
     transition: 0.3s; }
-    .basic-admin-panel .single-app .app-wrapper figure, .basic-admin-panel .single-app .app-wrapper svg {
+    .basic-admin-panel .single-app .app-wrapper figure, .basic-admin-panel .single-app .app-wrapper .svg-parent {
       overflow: hidden;
+      position: relative;
+      padding-top: 100%;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
       -ms-border-radius: 25px;
@@ -6043,6 +6109,14 @@ header {
       -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
       -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
       box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
+      .basic-admin-panel .single-app .app-wrapper figure img, .basic-admin-panel .single-app .app-wrapper figure svg, .basic-admin-panel .single-app .app-wrapper .svg-parent img, .basic-admin-panel .single-app .app-wrapper .svg-parent svg {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
     .basic-admin-panel .single-app .app-wrapper .actions-on-edit button {
       position: absolute;
       width: 35px;
@@ -6052,6 +6126,7 @@ header {
       color: #0fb0e5;
       border: 0;
       text-align: center;
+      z-index: 100;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
@@ -6112,6 +6187,26 @@ header {
   display: block; }
   .basic-admin-panel.edit-mode .show-in-edit-mode.inline-block-mode {
     display: inline-block; }
+  .basic-admin-panel.edit-mode .show-in-edit-mode.dentist-logo-wrapper {
+    min-height: 50px;
+    min-width: 120px;
+    position: relative; }
+    .basic-admin-panel.edit-mode .show-in-edit-mode.dentist-logo-wrapper .add-logo {
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    .basic-admin-panel.edit-mode .show-in-edit-mode.dentist-logo-wrapper.with-logo .add-logo {
+      display: none; }
+    @media screen and (max-width: 767px) {
+      .basic-admin-panel.edit-mode .show-in-edit-mode.dentist-logo-wrapper {
+        min-width: 100px; } }
 
 .invite-patients-form .people-invitation .inputs .inputs-row .inputs-wrapper {
   width: 100%;

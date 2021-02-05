@@ -295,7 +295,7 @@ var projectData = {
                             var imageHtml = ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+dentist_data.data.applications[key].media+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="'+anchorTargetValue+'"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+'<figure itemscope="" itemtype="http://schema.org/ImageObject"><img alt="" class="width-100 app-media" itemprop="contentUrl" src="'+dentist_data.data.applications[key].media+'"/></figure><div class="platform-text-color fs-17 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-15 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
                             if (hasOwnProperty.call(dentist_data.data.applications[key], 'resource_type')) {
                                 if (dentist_data.data.applications[key].resource_type == 'svg') {
-                                    apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+encodeURIComponent(dentist_data.data.applications[key].media)+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="'+anchorTargetValue+'"><div class="app-wrapper platform-border-color-important">'+edit_delete_actions+dentist_data.data.applications[key].media+'<div class="platform-text-color fs-17 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-15 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
+                                    apps_html += ' data-id="'+dentist_data.data.applications[key].id+'" data-removable="'+dentist_data.data.applications[key].removable+'" data-name-en="'+dentist_data.data.applications[key].name_en+'" data-name-de="'+dentist_data.data.applications[key].name_de+'" data-description-en="'+dentist_data.data.applications[key].description_en+'" data-description-de="'+dentist_data.data.applications[key].description_de+'" data-media="'+encodeURIComponent(dentist_data.data.applications[key].media)+'" data-url="'+dentist_data.data.applications[key].url+'"><a href="'+dentist_data.data.applications[key].url+'" data-stop-linking-on-edit="'+dentist_data.data.applications[key].url+'" target="'+anchorTargetValue+'"><div class="app-wrapper platform-border-color-important"><div class="svg-parent">'+edit_delete_actions+dentist_data.data.applications[key].media+'</div><div class="platform-text-color fs-17 fs-xs-15 padding-top-5 calibri-bold app-name">'+app_title+'</div><div class="platform-text-color fs-15 fs-xs-14 padding-top-5 line-height-20 app-description">'+app_description+'</div></div></a></div>';
                                 } else if(dentist_data.data.applications[key].resource_type == 'image') {
                                     apps_html += imageHtml;
                                 }
@@ -650,10 +650,10 @@ var projectData = {
                         var editUrlFieldHtml;
                         var imageFileInfo;
                         if (this_app.attr('data-type') == 'phone') {
-                            editUrlFieldHtml = '<div class="margin-top-15"><i>You can edit your phone from the account section.</i></div>';
+                            editUrlFieldHtml = '<div class="margin-top-15"><i>You can edit your phone from the <a href="'+$('.apps-list').attr('data-account-section-url')+'" class="color-light-blue lato-bold">Account section</a>.</i></div>';
                             imageFileInfo = '';
                         } else if (this_app.attr('data-type') == 'website') {
-                            editUrlFieldHtml = '<div class="margin-top-15"><i>You can edit your website from the account section.</i></div>';
+                            editUrlFieldHtml = '<div class="margin-top-15"><i>You can edit your website from the <a href="'+$('.apps-list').attr('data-account-section-url')+'" class="color-light-blue lato-bold">Account section</a>.</i></div>';
                             imageFileInfo = '';
                         } else {
                             editUrlFieldHtml = '<div class="custom-google-label-style module max-width-400 margin-top-15" data-input-colorful-border="true"><label for="app-url" class="platform-color active-label">URL:</label><input maxlength="500" type="text" id="app-url" class="full-rounded form-field platform-border-color" value="' + $(this).closest('.single-app').attr('data-url') + '"/></div>';
@@ -1063,6 +1063,18 @@ var projectData = {
                                     }, 1000);
                                 }
                             };
+
+                            confirm_obj.buttons = {
+                                confirm: {
+                                    label: 'Yes',
+                                    className: 'btn-success'
+                                },
+                                cancel: {
+                                    label: 'No, keep editing',
+                                    className: 'btn-danger'
+                                }
+                            };
+
                             basic.showConfirm('Are you sure you want to save the changes?', '', confirm_obj, true);
                         });
                     } else {
@@ -1223,9 +1235,13 @@ var projectData = {
                         $('.daterangepicker-parent input[type="text"]').addClass('colorful-border');
 
                         $('.datetimepicker').trigger('focus');
+
+                        $('.send-now').html($('.send-now').attr('data-save-now'));
                     } else {
                         $('.daterangepicker-parent .field').addClass('hide');
                         $('.daterangepicker-parent .selected-time-text').addClass('hide');
+
+                        $('.send-now').html($('.send-now').attr('data-send-now'));
                     }
                 });
 
@@ -1922,7 +1938,7 @@ var projectData = {
                                         });
                                     }, function() {
                                         // dentacoin wallet app is not installed
-                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', 'location=no,toolbar=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
                                     });
                                 } else if (basic.getMobileOperatingSystem() == 'iOS') {
                                     window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
@@ -1945,13 +1961,13 @@ var projectData = {
                                         });
                                     }, function() {
                                         // dentacoin dentacare app is not installed
-                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', 'location=no,toolbar=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
                                     });
                                 } else if (basic.getMobileOperatingSystem() == 'iOS') {
                                     window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
                                 }
                             } else {
-                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', 'location=no,toolbar=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
 
                                 inAppBrowserRef.addEventListener('loadstop', function(){
                                     // listener for GDPR data download
@@ -1992,6 +2008,16 @@ var projectData = {
                     });
                 } else {
                     projectData.general_logic.cookie();
+                }
+
+                if (is_hybrid || basic.isMobile()) {
+                    $(window).on('load', function() {
+                        if ($('.main-content').height() < $(window).height()) {
+                            $('footer').css({'margin-top' : ($(window).height() - $('.main-content').height()) + 'px'}).removeClass('opacity-not-visible');
+                        }
+                    });
+                } else {
+                    $('footer').removeClass('opacity-not-visible');
                 }
             }
         },
