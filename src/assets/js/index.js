@@ -1623,6 +1623,7 @@ var projectData = {
                         });
                     }*/
                 } else {
+                    $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
                         await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
@@ -1744,6 +1745,7 @@ var projectData = {
                         });
                     }*/
                 } else {
+                    $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
                         await $.getScript('https://dentacoin.com/assets/libs/civic-login/civic-combined-login.js?v='+new Date().getTime(), function() {});
