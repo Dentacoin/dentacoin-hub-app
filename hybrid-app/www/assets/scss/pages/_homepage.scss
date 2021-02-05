@@ -3,8 +3,21 @@
     .single-app {
         figure, .svg-parent {
             overflow: hidden;
+            padding-top: 100%;
+            position: relative;
             @include rounded(25px);
             @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.2));
+            img, svg {
+                width: 100%;
+                @include vertical-horizontal-align(absolute);
+            }
+            @include breakpoint($xs) {
+                width: 85%;
+                margin: 0 auto;
+                padding-top: 85%;
+                @include rounded(15px);
+                @include box-shadow(0px 0px 7px 1px rgba(0, 0, 0, 0.35));
+            }
         }
     }
     @include breakpoint($xs) {

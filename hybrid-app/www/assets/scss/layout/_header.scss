@@ -188,7 +188,7 @@ header {
         }
     }
     @include breakpoint($xs) {
-        padding-top: 25px !important;
+        padding-top: 15px !important;
         padding-bottom: 5px;
     }
     .currently-offline {
