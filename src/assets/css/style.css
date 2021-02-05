@@ -5131,6 +5131,8 @@ footer {
   min-height: 500px; }
   .homepage-container .single-app figure, .homepage-container .single-app .svg-parent {
     overflow: hidden;
+    padding-top: 100%;
+    position: relative;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
@@ -5139,6 +5141,14 @@ footer {
     -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2); }
+    .homepage-container .single-app figure img, .homepage-container .single-app figure svg, .homepage-container .single-app .svg-parent img, .homepage-container .single-app .svg-parent svg {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
   @media screen and (max-width: 767px) {
     .homepage-container {
       min-height: 350px; } }

@@ -49,7 +49,7 @@
                         </ng-container>
                     </select>
                 </div>
-                <div *ngIf="requestAccountFormSubmitted && dentist_request_form_data.country.errors">
+                <div *ngIf="dentistRequestAccountFormSubmitted && dentist_request_form_data.country.errors">
                     <div class="error-handle" *ngIf="dentist_request_form_data.country.errors.required">{{'country-required' | translate}}</div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     <label for="request-account-phone" class="platform-color">{{'phone-label' | translate}}</label>
                     <input type="text" maxlength="20" id="request-account-phone" formControlName="phone" class="full-rounded form-field platform-border-color"/>
                 </div>
-                <div *ngIf="requestAccountFormSubmitted && dentist_request_form_data.phone.errors">
+                <div *ngIf="dentistRequestAccountFormSubmitted && dentist_request_form_data.phone.errors">
                     <div class="error-handle" *ngIf="dentist_request_form_data.phone.errors.required">{{'phone-required' | translate}}</div>
                     <div class="error-handle" *ngIf="dentist_request_form_data.phone.hasError('maxlength')">{{'phone-max-length-validation' | translate}}</div>
                 </div>
