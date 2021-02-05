@@ -21188,7 +21188,7 @@ var projectData = {
                                         });
                                     }, function() {
                                         // dentacoin wallet app is not installed
-                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', 'location=no,toolbar=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
                                     });
                                 } else if (basic.getMobileOperatingSystem() == 'iOS') {
                                     window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
@@ -21211,13 +21211,13 @@ var projectData = {
                                         });
                                     }, function() {
                                         // dentacoin dentacare app is not installed
-                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', 'location=no,toolbar=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
                                     });
                                 } else if (basic.getMobileOperatingSystem() == 'iOS') {
                                     window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
                                 }
                             } else {
-                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', 'location=no,toolbar=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
+                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes');
 
                                 inAppBrowserRef.addEventListener('loadstop', function(){
                                     // listener for GDPR data download
@@ -21261,11 +21261,11 @@ var projectData = {
                 }
 
                 if (is_hybrid || basic.isMobile()) {
-                    $(window).on('load', function() {
+                    setTimeout(function() {
                         if ($('.main-content').height() < $(window).height()) {
                             $('footer').css({'margin-top' : ($(window).height() - $('.main-content').height()) + 'px'}).removeClass('opacity-not-visible');
                         }
-                    });
+                    }, 3000);
                 } else {
                     $('footer').removeClass('opacity-not-visible');
                 }
