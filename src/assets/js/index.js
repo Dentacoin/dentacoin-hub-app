@@ -1278,7 +1278,9 @@ var projectData = {
                                         $('.push-notifications-custom-form #datetimepicker').val('');
 
                                         $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-success fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-register-success')+'</div>').removeClass('hide');
-                                    } else if (response.error) {
+                                    } else if (response.type && response.type == 'missing_patients') {
+                                        $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-missing-patients')+'</div>').removeClass('hide');
+                                    } else {
                                         $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-failed')+'</div>').removeClass('hide');
                                     }
                                 }, requestData);
@@ -1302,7 +1304,9 @@ var projectData = {
                                     $('.push-notifications-custom-form #datetimepicker').val('');
 
                                     $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-success fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-sent-success')+'</div>').removeClass('hide');
-                                } else if (response.error) {
+                                } else if (response.type && response.type == 'missing_patients') {
+                                    $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-missing-patients')+'</div>').removeClass('hide');
+                                } else {
                                     $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-failed')+'</div>').removeClass('hide');
                                 }
                             }, requestData);

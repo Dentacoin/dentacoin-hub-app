@@ -33,7 +33,6 @@ export class PushNotificationsComponent implements OnInit {
                             } else {
                                 this.push_notifications[i].date = this.additionalService.dateObjToFormattedDate(new Date(this.push_notifications[i].created_at));
                             }
-                            console.log(this.push_notifications[i], 'this.push_notifications[i]');
                         }
                     }
                 }
