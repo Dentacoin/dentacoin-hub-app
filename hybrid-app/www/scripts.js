@@ -20798,12 +20798,12 @@ var projectData = {
             patientLoginPage: async function() {
                 if (is_hybrid) {
                     if (basic.getMobileOperatingSystem() == 'iOS') {
-                        /*$('.apple-custom-btn').removeClass('hide');
+                        $('.apple-custom-btn').removeClass('hide');
 
                         if (!hasOwnProperty.call(loadedLibs, 'apple')) {
                             loadedLibs.apple = true;
                             await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
-                        }*/
+                        }
                     } else if(basic.getMobileOperatingSystem() == 'Android') {
                         $('.civic-custom-btn').removeClass('hide');
                     }
@@ -20908,12 +20908,12 @@ var projectData = {
             patientRegisterPage: async function() {
                 if (is_hybrid) {
                     if (basic.getMobileOperatingSystem() == 'iOS') {
-                        /*$('.apple-custom-btn').removeClass('hide');
+                        $('.apple-custom-btn').removeClass('hide');
 
                         if (!hasOwnProperty.call(loadedLibs, 'apple')) {
                             loadedLibs.apple = true;
                             await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
-                        }*/
+                        }
                     } else if(basic.getMobileOperatingSystem() == 'Android') {
                         $('.civic-custom-btn').removeClass('hide');
                     }
