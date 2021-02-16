@@ -78,7 +78,7 @@
             <div class="patient-register-checkboxes padding-top-15 margin-0-auto">
                 <div class="custom-checkbox-style module">
                     <input type="checkbox" class="custom-checkbox-input" id="privacy-policy-registration-patient" formControlName="privacyPolicy"/>
-                    <label class="fs-15 custom-checkbox-label" for="privacy-policy-registration-patient">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a>.</label>
+                    <label class="fs-15 custom-checkbox-label" for="privacy-policy-registration-patient">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a> {{'i-agree-end' | translate}}.</label>
                 </div>
                 <div class="error-handle" *ngIf="isDentistPrivacyAccepted.invalid">{{'privacy-policy-agree' | translate}}</div>
             </div>
