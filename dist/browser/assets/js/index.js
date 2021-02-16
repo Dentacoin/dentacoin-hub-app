@@ -1546,87 +1546,26 @@ var projectData = {
                 });*/
             },
             patientLoginPage: async function() {
-                if (is_hybrid) {
-                    if (basic.getMobileOperatingSystem() == 'iOS') {
-                        /*$('.apple-custom-btn').removeClass('hide');
+                if (basic.getMobileOperatingSystem() == 'iOS') {
+                    $('.apple-custom-btn').removeClass('hide');
 
-                        if (!hasOwnProperty.call(loadedLibs, 'apple')) {
-                            loadedLibs.apple = true;
-                            await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
-                        }*/
-                    } else if(basic.getMobileOperatingSystem() == 'Android') {
-                        $('.civic-custom-btn').removeClass('hide');
+                    if (!hasOwnProperty.call(loadedLibs, 'apple')) {
+                        loadedLibs.apple = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                     }
+                } else if(basic.getMobileOperatingSystem() == 'Android') {
+                    $('.civic-custom-btn').removeClass('hide');
+                }
 
-                    $('.social-login-btn').addClass('mobile-app');
+                $('.social-login-btn').addClass('mobile-app');
 
-                    $('.civic-custom-btn').click(function() {
-                        /*if (window.localStorage.getItem('user_civic_email') == null) {
-                            // display email field to let user save his civic email into the mobile app
-                            $('.form-login-fields').hide();
-                            $('.login-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
+                $('.civic-custom-btn').click(function() {
+                    if (!$('#iframe-civic-popup').length) {
+                        $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                    }
+                });
 
-                            $('.login-parent .custom-google-label-style label').addClass('active-label');
-                            $('.login-parent .custom-google-label-style #mobile-logging-civic-email').focus();
-
-                            var civicMobileProceeded = false;
-                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
-                                //clear prev errors
-                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
-                                    $('.mobile-proceeding-to-civic .error-handle').remove();
-                                }
-
-                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
-                                    if (!civicMobileProceeded) {
-                                        civicMobileProceeded = true;
-
-                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
-
-                                        if (!$('#iframe-civic-popup').length) {
-                                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
-                                        }
-                                    }
-                                } else {
-                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
-                                }
-                            });
-
-                            $('.go-back-to-logins').click(function() {
-                                $('.mobile-proceeding-to-civic').remove();
-                                $('.form-register-fields, .form-login-fields').show();
-                            });
-                        } else {
-                            if (!$('#iframe-civic-popup').length) {
-                                $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
-                            }
-                        }*/
-
-                        if (!$('#iframe-civic-popup').length) {
-                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
-                        }
-                    });
-
-                    /*if (!civic_iframe_removedEventLoaded) {
-                        civic_iframe_removedEventLoaded = true;
-
-                        window.addEventListener('message', function(event) {
-                            if (event.data.event_id === 'civic_iframe_removed' && $('#iframe-civic-popup').length) {
-                                if ($('.mobile-proceeding-to-civic').length) {
-                                    $('.mobile-proceeding-to-civic').remove();
-                                }
-                                if ($('.form-register-fields').length) {
-                                    $('.form-register-fields').show();
-                                }
-                                if ($('.form-login-fields').length) {
-                                    $('.form-login-fields').show();
-                                }
-
-                                projectData.general_logic.proceedWithMobileAppAuth();
-                                $('#iframe-civic-popup').remove();
-                            }
-                        });
-                    }*/
-                } else {
+                if (!is_hybrid) {
                     $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
@@ -1656,99 +1595,37 @@ var projectData = {
                 }
             },
             patientRegisterPage: async function() {
-                if (is_hybrid) {
-                    if (basic.getMobileOperatingSystem() == 'iOS') {
-                        /*$('.apple-custom-btn').removeClass('hide');
+                if (basic.getMobileOperatingSystem() == 'iOS') {
+                    $('.apple-custom-btn').removeClass('hide');
 
-                        if (!hasOwnProperty.call(loadedLibs, 'apple')) {
-                            loadedLibs.apple = true;
-                            await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
-                        }*/
-                    } else if(basic.getMobileOperatingSystem() == 'Android') {
-                        $('.civic-custom-btn').removeClass('hide');
+                    if (!hasOwnProperty.call(loadedLibs, 'apple')) {
+                        loadedLibs.apple = true;
+                        await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
+                    }
+                } else if(basic.getMobileOperatingSystem() == 'Android') {
+                    $('.civic-custom-btn').removeClass('hide');
+                }
+
+                $('.social-login-btn').addClass('mobile-app');
+
+                $('.civic-custom-btn').click(function() {
+                    var thisBtn = $(this);
+                    if ($('.form-register-fields .error-handle').length) {
+                        $('.form-register-fields .error-handle').remove();
                     }
 
-                    $('.social-login-btn').addClass('mobile-app');
+                    if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
 
-                    $('.civic-custom-btn').click(function() {
-                        var thisBtn = $(this);
-                        if ($('.form-register-fields .error-handle').length) {
-                            $('.form-register-fields .error-handle').remove();
-                        }
+                        projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
+                        return false;
+                    }
 
-                        if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
+                    if (!$('#iframe-civic-popup').length) {
+                        $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                    }
+                });
 
-                            projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
-                            return false;
-                        }
-
-                        if (!$('#iframe-civic-popup').length) {
-                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
-                        }
-
-                        /*if (window.localStorage.getItem('user_civic_email') == null) {
-                            // display email field to let user save his civic email into the mobile app
-
-                            $('.form-register-fields').hide();
-                            $('.register-parent').append('<div class="padding-bottom-50 mobile-proceeding-to-civic"><div class="padding-bottom-10 field-parent fs-16">Open your Civic Wallet mobile app and paste your account email:</div><div class="padding-bottom-10 field-parent"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="mobile-logging-civic-email">Civic Wallet email</label><input class="full-rounded form-field" maxlength="100" type="email" id="mobile-logging-civic-email" /></div></div><div class="padding-bottom-20"><a href="javascript:void(0)" class="social-login-btn civic-style lato-regular fs-20 fs-xs-18">Continue with Civic</a></div><div><a href="javascript:void(0);" class="go-back-to-logins fs-16">← Go back</a></div></div>');
-
-                            $('.register-parent .custom-google-label-style label').addClass('active-label');
-                            $('.register-parent .custom-google-label-style #mobile-logging-civic-email').focus();
-
-                            var civicMobileProceeded = false;
-                            $('.mobile-proceeding-to-civic .social-login-btn').click(function() {
-                                //clear prev errors
-                                if ($('.mobile-proceeding-to-civic .error-handle').length) {
-                                    $('.mobile-proceeding-to-civic .error-handle').remove();
-                                }
-
-                                if ($('#mobile-logging-civic-email').val().trim() != '' && basic.validateEmail($('#mobile-logging-civic-email').val().trim())) {
-                                    if (!civicMobileProceeded) {
-                                        civicMobileProceeded = true;
-
-                                        window.localStorage.setItem('user_civic_email', $('#mobile-logging-civic-email').val().trim());
-                                        if (!$('#iframe-civic-popup').length) {
-                                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
-                                        }
-                                    }
-                                } else {
-                                    projectData.utils.customErrorHandle($('#mobile-logging-civic-email').closest('.field-parent'), 'Please enter valid email.');
-                                }
-                            });
-
-                            $('.go-back-to-logins').click(function() {
-                                $('.mobile-proceeding-to-civic').remove();
-                                $('.form-register-fields, .form-login-fields').show();
-                            });
-                        } else {
-                            // civic email already saved in mobile app
-                            if (!$('#iframe-civic-popup').length) {
-                                $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
-                            }
-                        }*/
-                    });
-
-                    /*if (!civic_iframe_removedEventLoaded) {
-                        civic_iframe_removedEventLoaded = true;
-
-                        window.addEventListener('message', function(event) {
-                            if (event.data.event_id === 'civic_iframe_removed' && $('#iframe-civic-popup').length) {
-                                if ($('.mobile-proceeding-to-civic').length) {
-                                    $('.mobile-proceeding-to-civic').remove();
-                                }
-                                if ($('.form-register-fields').length) {
-                                    $('.form-register-fields').show();
-                                }
-                                if ($('.form-login-fields').length) {
-                                    $('.form-login-fields').show();
-                                }
-
-                                projectData.general_logic.proceedWithMobileAppAuth();
-                                $('#iframe-civic-popup').remove();
-                            }
-                        });
-                    }*/
-                } else {
+                if (!is_hybrid) {
                     $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
