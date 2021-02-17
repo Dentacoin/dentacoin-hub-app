@@ -1546,7 +1546,9 @@ var projectData = {
                 });*/
             },
             patientLoginPage: async function() {
-                if (basic.getMobileOperatingSystem() == 'iOS') {
+                var get_params = basic.getGETParameters();
+
+                if (is_hybrid || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
                     $('.apple-custom-btn').removeClass('hide');
 
                     if (!hasOwnProperty.call(loadedLibs, 'apple')) {
@@ -1595,7 +1597,9 @@ var projectData = {
                 }
             },
             patientRegisterPage: async function() {
-                if (basic.getMobileOperatingSystem() == 'iOS') {
+                var get_params = basic.getGETParameters();
+
+                if (is_hybrid || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
                     $('.apple-custom-btn').removeClass('hide');
 
                     if (!hasOwnProperty.call(loadedLibs, 'apple')) {
