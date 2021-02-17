@@ -20807,15 +20807,15 @@ var projectData = {
                     $('.civic-custom-btn').removeClass('hide');
                 }
 
-                $('.social-login-btn').addClass('mobile-app');
-
                 $('.civic-custom-btn').click(function() {
                     if (!$('#iframe-civic-popup').length) {
                         $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                     }
                 });
 
-                if (!is_hybrid) {
+                if (is_hybrid) {
+                    $('.social-login-btn').addClass('mobile-app');
+                } else {
                     $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
@@ -20856,7 +20856,6 @@ var projectData = {
                     $('.civic-custom-btn').removeClass('hide');
                 }
 
-                $('.social-login-btn').addClass('mobile-app');
 
                 $('.civic-custom-btn').click(function() {
                     var thisBtn = $(this);
@@ -20875,7 +20874,9 @@ var projectData = {
                     }
                 });
 
-                if (!is_hybrid) {
+                if (is_hybrid) {
+                    $('.social-login-btn').addClass('mobile-app');
+                } else {
                     $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
                         loadedLibs.civic = true;
