@@ -1753,7 +1753,9 @@ var projectData = {
                     await $.getScript('https://dentacoin.com/assets/libs/dentacoin-package/js/init.js?v='+new Date().getTime(), function() {});
 
                     if (typeof(dcnCookie) != 'undefined') {
-                        dcnCookie.init({});
+                        dcnCookie.init({
+                            'google_app_id': 'G-Q4R353XKMQ'
+                        });
                     }
                 }
             }
