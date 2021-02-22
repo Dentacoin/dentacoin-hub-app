@@ -2,7 +2,7 @@ console.log("( ͡° ͜ʖ ͡°) I see you. 1");
 
 var default_error_message = 'Something went wrong. Please try again later or write a message to admin@dentacoin.com with description of the problem.';
 var allowed_imgs_extensions = ['png', 'jpg', 'jpeg'/*, 'gif', 'svg'*/];
-var is_hybrid;
+var is_hybrid = $('body').hasClass('hybrid-app');
 var loadedLibs = {};
 var civic_iframe_removedEventLoaded = false;
 var inAppBrowserSettings = 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
@@ -38,6 +38,9 @@ document.addEventListener('deviceready', async function() {
     console.log('================= deviceready ===================');
 
     window.open = cordova.InAppBrowser.open;
+
+    // start hybrid app analytics tracker
+    cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
 
     //=================================== internet connection check ONLY for MOBILE DEVICES ===================================
 
@@ -1333,6 +1336,8 @@ var projectData = {
         patient: {
             homepage: function() {
                 console.log('========= homepage ====================');
+                cordova.plugins.firebase.analytics.setCurrentScreen('homepage');
+
                 $('body').addClass('platform-background');
 
                 if (window.localStorage.getItem('currentPatient') != null) {
@@ -1349,6 +1354,8 @@ var projectData = {
                 }
             },
             myWallet: function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
+
                 if (window.localStorage.getItem('currentPatient') != null) {
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
@@ -1513,11 +1520,15 @@ var projectData = {
                 });
             },
             editAccount: function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
+
                 if (window.localStorage.getItem('currentPatient') != null) {
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
             },
             managePrivacy: function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
+
                 if (window.localStorage.getItem('currentPatient') != null) {
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
@@ -1546,6 +1557,8 @@ var projectData = {
                 });*/
             },
             patientLoginPage: async function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen('patientLoginPage');
+
                 var get_params = basic.getGETParameters();
 
                 if (is_hybrid || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
@@ -1597,6 +1610,8 @@ var projectData = {
                 }
             },
             patientRegisterPage: async function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen('patientRegisterPage');
+
                 var get_params = basic.getGETParameters();
 
                 if (is_hybrid || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
@@ -1696,6 +1711,8 @@ var projectData = {
                 }
             },
             requestAccount: function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen('patientRequestAccount');
+
                 $('body').removeClass('platform-background');
 
                 basic.initCustomCheckboxes('.patient-request-account');
@@ -1705,6 +1722,8 @@ var projectData = {
                 }
             },
             dentistRequestAccount: function() {
+                cordova.plugins.firebase.analytics.setCurrentScreen('dentistRequestAccount');
+
                 $('body').removeClass('platform-background');
 
                 basic.initCustomCheckboxes('.dentist-request-account');
@@ -1808,117 +1827,113 @@ var projectData = {
             }
         },
         setIsHybrid: function() {
-            if (is_hybrid == undefined && $('.main-content').length) {
-                is_hybrid = $('.main-content').attr('hybrid') == 'true';
+            if (is_hybrid) {
+                // opening the external links in app browser
+                $(document).on('click', '.in-app-browser-link', function() {
+                    if ($(this).attr('data-phone') == undefined) {
+                        event.preventDefault();
 
-                if (is_hybrid) {
-                    // opening the external links in app browser
-                    $(document).on('click', '.in-app-browser-link', function() {
-                        if ($(this).attr('data-phone') == undefined) {
-                            event.preventDefault();
+                        var currentHref = $(this).attr('href');
+                        if (currentHref.includes('wallet')) {
+                            /*window.plugins.launcher.canLaunch({uri:'wallet://'}, function() {
+                                console.log('IOS wallet EXISTS');
+                            }, function() {
+                                console.log('IOS wallet DOES NOT EXISTS');
+                            });*/
 
-                            var currentHref = $(this).attr('href');
-                            if (currentHref.includes('wallet')) {
-                                /*window.plugins.launcher.canLaunch({uri:'wallet://'}, function() {
-                                    console.log('IOS wallet EXISTS');
-                                }, function() {
-                                    console.log('IOS wallet DOES NOT EXISTS');
-                                });*/
+                            if (basic.getMobileOperatingSystem() == 'Android') {
+                                window.plugins.launcher.canLaunch({packageName:'wallet.dentacoin.com'}, function() {
+                                    console.log('wallet app is installed');
+                                    // wallet app is installed
+                                    window.plugins.launcher.launch({packageName:'wallet.dentacoin.com'}, function() {
 
-                                if (basic.getMobileOperatingSystem() == 'Android') {
-                                    window.plugins.launcher.canLaunch({packageName:'com.dentacoin.wallet'}, function() {
-                                        console.log('wallet app is installed');
-                                        // wallet app is installed
-                                        window.plugins.launcher.launch({packageName:'com.dentacoin.wallet'}, function() {
-
-                                        }, function() {
-                                            basic.showAlert(default_error_message, '', true);
-                                        });
                                     }, function() {
-                                        // dentacoin wallet app is not installed
-                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', inAppBrowserSettings);
+                                        basic.showAlert(default_error_message, '', true);
                                     });
-                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                    window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
-                                }
-                            } else if (currentHref.includes('dentacare')) {
-                                /*window.plugins.launcher.canLaunch({uri:'dentacare://'}, function() {
-                                    console.log('IOS DENTARE EXISTS');
                                 }, function() {
-                                    console.log('IOS DENTARE DOES NOT EXISTS');
-                                });*/
-
-                                if (basic.getMobileOperatingSystem() == 'Android') {
-                                    window.plugins.launcher.canLaunch({packageName:'com.dentacoin.dentacare'}, function() {
-                                        console.log('dentacare app is installed');
-                                        // dentacare app is installed
-                                        window.plugins.launcher.launch({packageName:'com.dentacoin.dentacare'}, function() {
-
-                                        }, function() {
-                                            basic.showAlert(default_error_message, '', true);
-                                        });
-                                    }, function() {
-                                        // dentacoin dentacare app is not installed
-                                        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', inAppBrowserSettings);
-                                    });
-                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                    window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
-                                }
-                            } else {
-                                var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', inAppBrowserSettings);
-
-                                inAppBrowserRef.addEventListener('loadstop', function(){
-                                    // listener for GDPR data download
-                                    var downloadGDPRLoop = window.setInterval(function(){
-                                        inAppBrowserRef.executeScript({
-                                                code: "window.shouldCloseAndRedirect"
-                                            },
-                                            function(values) {
-                                                console.log(values, 'values');
-                                                if (values[0]){
-                                                    window.open(values[0], '_system', 'location=yes');
-                                                    inAppBrowserRef.close();
-                                                    window.clearInterval(downloadGDPRLoop);
-                                                }
-                                            }
-                                        );
-                                    }, 500);
-
-                                    // listener for account deletion
-                                    var accountDeletionLoop = window.setInterval(function(){
-                                        inAppBrowserRef.executeScript({
-                                                code: "window.shouldLogoutPatient"
-                                            },
-                                            function(values) {
-                                                if (values[0]){
-                                                    const event = new CustomEvent('shouldLogoutPatient');
-                                                    document.dispatchEvent(event);
-
-                                                    inAppBrowserRef.close();
-                                                    window.clearInterval(accountDeletionLoop);
-                                                }
-                                            }
-                                        );
-                                    }, 500);
+                                    // dentacoin wallet app is not installed
+                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', inAppBrowserSettings);
                                 });
+                            } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
                             }
-                        }
-                    });
-                } else {
-                    projectData.general_logic.cookie();
-                }
+                        } else if (currentHref.includes('dentacare')) {
+                            /*window.plugins.launcher.canLaunch({uri:'dentacare://'}, function() {
+                                console.log('IOS DENTARE EXISTS');
+                            }, function() {
+                                console.log('IOS DENTARE DOES NOT EXISTS');
+                            });*/
 
-                if (is_hybrid || basic.isMobile()) {
-                    setTimeout(function() {
-                        if ($('.main-content').height() < $(window).height()) {
-                            $('footer').css({'margin-top' : ($(window).height() - $('.main-content').height()) + 'px'}).removeClass('opacity-not-visible');
+                            if (basic.getMobileOperatingSystem() == 'Android') {
+                                window.plugins.launcher.canLaunch({packageName:'com.dentacoin.dentacare'}, function() {
+                                    console.log('dentacare app is installed');
+                                    // dentacare app is installed
+                                    window.plugins.launcher.launch({packageName:'com.dentacoin.dentacare'}, function() {
+
+                                    }, function() {
+                                        basic.showAlert(default_error_message, '', true);
+                                    });
+                                }, function() {
+                                    // dentacoin dentacare app is not installed
+                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', inAppBrowserSettings);
+                                });
+                            } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
+                            }
                         } else {
-                            $('footer').css({'margin-top' : '0px'}).removeClass('opacity-not-visible');
+                            var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', inAppBrowserSettings);
+
+                            inAppBrowserRef.addEventListener('loadstop', function(){
+                                // listener for GDPR data download
+                                var downloadGDPRLoop = window.setInterval(function(){
+                                    inAppBrowserRef.executeScript({
+                                            code: "window.shouldCloseAndRedirect"
+                                        },
+                                        function(values) {
+                                            console.log(values, 'values');
+                                            if (values[0]){
+                                                window.open(values[0], '_system', 'location=yes');
+                                                inAppBrowserRef.close();
+                                                window.clearInterval(downloadGDPRLoop);
+                                            }
+                                        }
+                                    );
+                                }, 500);
+
+                                // listener for account deletion
+                                var accountDeletionLoop = window.setInterval(function(){
+                                    inAppBrowserRef.executeScript({
+                                            code: "window.shouldLogoutPatient"
+                                        },
+                                        function(values) {
+                                            if (values[0]){
+                                                const event = new CustomEvent('shouldLogoutPatient');
+                                                document.dispatchEvent(event);
+
+                                                inAppBrowserRef.close();
+                                                window.clearInterval(accountDeletionLoop);
+                                            }
+                                        }
+                                    );
+                                }, 500);
+                            });
                         }
-                    }, 3000);
-                } else {
-                    $('footer').removeClass('opacity-not-visible');
-                }
+                    }
+                });
+            } else {
+                projectData.general_logic.cookie();
+            }
+
+            if (is_hybrid || basic.isMobile()) {
+                setTimeout(function() {
+                    if ($('.main-content').height() < $(window).height()) {
+                        $('footer').css({'margin-top' : ($(window).height() - $('.main-content').height()) + 'px'}).removeClass('opacity-not-visible');
+                    } else {
+                        $('footer').css({'margin-top' : '0px'}).removeClass('opacity-not-visible');
+                    }
+                }, 3000);
+            } else {
+                $('footer').removeClass('opacity-not-visible');
             }
         },
         readURL: function(input, callback, failed_callback) {
