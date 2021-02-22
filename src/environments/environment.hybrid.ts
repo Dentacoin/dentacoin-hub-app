@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+    production: true,
     hybrid: true,
     default_language: 'en',
     /*dentacoinDomain: 'https://dev.dentacoin.com',

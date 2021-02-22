@@ -1336,6 +1336,10 @@ var projectData = {
         patient: {
             homepage: function() {
                 console.log('========= homepage ====================');
+                if (is_hybrid) {
+                    cordova.plugins.firebase.analytics.setCurrentScreen('homepage');
+                }
+
                 $('body').addClass('platform-background');
 
                 if (window.localStorage.getItem('currentPatient') != null) {
@@ -1549,9 +1553,13 @@ var projectData = {
                 });*/
             },
             patientLoginPage: async function() {
+                if (is_hybrid) {
+                    cordova.plugins.firebase.analytics.setCurrentScreen('patientLoginPage');
+                }
+
                 var get_params = basic.getGETParameters();
 
-                if (is_hybrid || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
+                if ((is_hybrid && basic.getMobileOperatingSystem() == 'iOS') || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
                     $('.apple-custom-btn').removeClass('hide');
 
                     if (!hasOwnProperty.call(loadedLibs, 'apple')) {
@@ -1560,13 +1568,13 @@ var projectData = {
                     }
                 } else if(basic.getMobileOperatingSystem() == 'Android') {
                     $('.civic-custom-btn').removeClass('hide');
-                }
 
-                $('.civic-custom-btn').click(function() {
-                    if (!$('#iframe-civic-popup').length) {
-                        $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
-                    }
-                });
+                    $('.civic-custom-btn').click(function() {
+                        if (!$('#iframe-civic-popup').length) {
+                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                        }
+                    });
+                }
 
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
@@ -1600,9 +1608,13 @@ var projectData = {
                 }
             },
             patientRegisterPage: async function() {
+                if (is_hybrid) {
+                    cordova.plugins.firebase.analytics.setCurrentScreen('patientRegisterPage');
+                }
+
                 var get_params = basic.getGETParameters();
 
-                if (is_hybrid || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
+                if ((is_hybrid && basic.getMobileOperatingSystem() == 'iOS') || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
                     $('.apple-custom-btn').removeClass('hide');
 
                     if (!hasOwnProperty.call(loadedLibs, 'apple')) {
@@ -1611,25 +1623,24 @@ var projectData = {
                     }
                 } else if(basic.getMobileOperatingSystem() == 'Android') {
                     $('.civic-custom-btn').removeClass('hide');
+
+                    $('.civic-custom-btn').click(function() {
+                        var thisBtn = $(this);
+                        if ($('.form-register-fields .error-handle').length) {
+                            $('.form-register-fields .error-handle').remove();
+                        }
+
+                        if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
+
+                            projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
+                            return false;
+                        }
+
+                        if (!$('#iframe-civic-popup').length) {
+                            $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                        }
+                    });
                 }
-
-
-                $('.civic-custom-btn').click(function() {
-                    var thisBtn = $(this);
-                    if ($('.form-register-fields .error-handle').length) {
-                        $('.form-register-fields .error-handle').remove();
-                    }
-
-                    if (!$('#agree-over-eighteen').is(':checked') || !$('#privacy-policy-registration-patient').is(':checked')) {
-
-                        projectData.utils.customErrorHandle($('.form-register-fields'), 'Please confirm you\'re 18 years of age and agree with our Privacy Policy.');
-                        return false;
-                    }
-
-                    if (!$('#iframe-civic-popup').length) {
-                        $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
-                    }
-                });
 
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
@@ -1699,6 +1710,11 @@ var projectData = {
                 }
             },
             requestAccount: function() {
+                if (is_hybrid) {
+                    cordova.plugins.firebase.analytics.setCurrentScreen('patientRequestAccount');
+                }
+
+
                 $('body').removeClass('platform-background');
 
                 basic.initCustomCheckboxes('.patient-request-account');
@@ -1708,6 +1724,10 @@ var projectData = {
                 }
             },
             dentistRequestAccount: function() {
+                if (is_hybrid) {
+                    cordova.plugins.firebase.analytics.setCurrentScreen('dentistRequestAccount');
+                }
+
                 $('body').removeClass('platform-background');
 
                 basic.initCustomCheckboxes('.dentist-request-account');

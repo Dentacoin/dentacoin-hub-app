@@ -3602,7 +3602,7 @@ var environment = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 var environment = {
-    production: false,
+    production: true,
     hybrid: true,
     default_language: 'en',
     /*dentacoinDomain: 'https://dev.dentacoin.com',
