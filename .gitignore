@@ -19,6 +19,7 @@
 /hybrid-app/package.json
 /hybrid-app/package-lock.json
 /hybrid-app/plugins/cordova-plugin-firebase-lib
+/hybrid-app/plugins/cordova-support-android-plugin
 /hybrid-app/plugins/cordova-plugin-fcm-with-dependecy-updated
 /hybrid-app/plugins/cordova-plugin-sign-in-with-apple
 

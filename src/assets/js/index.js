@@ -8,6 +8,8 @@ var civic_iframe_removedEventLoaded = false;
 var inAppBrowserSettings = 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
 if (basic.getMobileOperatingSystem() == 'iOS') {
     inAppBrowserSettings = 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
+var isDeviceReady = false;
+var lastHybridScreen;
 }
 
 $(document).ready(function() {
@@ -36,6 +38,7 @@ window.addEventListener('load', function() {
 
 document.addEventListener('deviceready', async function() {
     console.log('================= deviceready ===================');
+    isDeviceReady = true;
 
     window.open = cordova.InAppBrowser.open;
 
@@ -1336,9 +1339,7 @@ var projectData = {
         patient: {
             homepage: function() {
                 console.log('========= homepage ====================');
-                if (is_hybrid) {
-                    cordova.plugins.firebase.analytics.setCurrentScreen('homepage');
-                }
+                projectData.utils.saveHybridAppCurrentScreen();
 
                 $('body').addClass('platform-background');
 
@@ -1553,9 +1554,7 @@ var projectData = {
                 });*/
             },
             patientLoginPage: async function() {
-                if (is_hybrid) {
-                    cordova.plugins.firebase.analytics.setCurrentScreen('patientLoginPage');
-                }
+                projectData.utils.saveHybridAppCurrentScreen();
 
                 var get_params = basic.getGETParameters();
 
@@ -1608,9 +1607,7 @@ var projectData = {
                 }
             },
             patientRegisterPage: async function() {
-                if (is_hybrid) {
-                    cordova.plugins.firebase.analytics.setCurrentScreen('patientRegisterPage');
-                }
+                projectData.utils.saveHybridAppCurrentScreen();
 
                 var get_params = basic.getGETParameters();
 
@@ -1710,10 +1707,7 @@ var projectData = {
                 }
             },
             requestAccount: function() {
-                if (is_hybrid) {
-                    cordova.plugins.firebase.analytics.setCurrentScreen('patientRequestAccount');
-                }
-
+                projectData.utils.saveHybridAppCurrentScreen();
 
                 $('body').removeClass('platform-background');
 
@@ -1724,9 +1718,7 @@ var projectData = {
                 }
             },
             dentistRequestAccount: function() {
-                if (is_hybrid) {
-                    cordova.plugins.firebase.analytics.setCurrentScreen('dentistRequestAccount');
-                }
+                projectData.utils.saveHybridAppCurrentScreen();
 
                 $('body').removeClass('platform-background');
 
@@ -2199,6 +2191,13 @@ var projectData = {
                 return object.getFullYear() + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
             } else {
                 return date + '/' + month + '/' + object.getFullYear();
+            }
+        },
+        saveHybridAppCurrentScreen: function () {
+            if (is_hybrid && isDeviceReady && lastHybridScreen != $('title').html()) {
+                lastHybridScreen = $('title').html();
+                cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
+                console.log('cordova.plugins.firebase.analytics.setCurrentScreen', $('title').html());
             }
         }
     }
