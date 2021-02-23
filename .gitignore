@@ -20,6 +20,7 @@
 /hybrid-app/package-lock.json
 /hybrid-app/plugins/cordova-plugin-firebase-lib
 /hybrid-app/plugins/cordova-plugin-fcm-with-dependecy-updated
+/hybrid-app/plugins/cordova-plugin-sign-in-with-apple
 
 # profiling files
 chrome-profiler-events.json
