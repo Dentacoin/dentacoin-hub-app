@@ -20815,18 +20815,17 @@ var projectData = {
                         loadedLibs.apple = true;
                         await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                     }
-                } /*else if(basic.getMobileOperatingSystem() == 'Android') {*/
-                    $('.civic-custom-btn').removeClass('hide');
+                }
 
+                if (is_hybrid) {
+                    $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').removeClass('hide');
                     $('.civic-custom-btn').click(function() {
                         if (!$('#iframe-civic-popup').length) {
                             $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                         }
                     });
-                //}
-
-                if (is_hybrid) {
-                    $('.social-login-btn').addClass('mobile-app');
                 } else {
                     $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
@@ -20868,9 +20867,12 @@ var projectData = {
                         loadedLibs.apple = true;
                         await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                     }
-                } else if(basic.getMobileOperatingSystem() == 'Android') {
-                    $('.civic-custom-btn').removeClass('hide');
+                }
 
+                if (is_hybrid) {
+                    $('.social-login-btn').addClass('mobile-app');
+
+                    $('.civic-custom-btn').removeClass('hide');
                     $('.civic-custom-btn').click(function() {
                         var thisBtn = $(this);
                         if ($('.form-register-fields .error-handle').length) {
@@ -20887,10 +20889,6 @@ var projectData = {
                             $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
                         }
                     });
-                }
-
-                if (is_hybrid) {
-                    $('.social-login-btn').addClass('mobile-app');
                 } else {
                     $('.civic-custom-btn').removeClass('hide');
                     if (!hasOwnProperty.call(loadedLibs, 'civic')) {
