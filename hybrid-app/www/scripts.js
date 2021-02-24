@@ -20815,7 +20815,7 @@ var projectData = {
                         loadedLibs.apple = true;
                         await $.getScript('https://dentacoin.com/assets/libs/apple-login/apple-combined-login.js?v='+new Date().getTime(), function() {});
                     }
-                } else if(basic.getMobileOperatingSystem() == 'Android') {
+                } /*else if(basic.getMobileOperatingSystem() == 'Android') {*/
                     $('.civic-custom-btn').removeClass('hide');
 
                     $('.civic-custom-btn').click(function() {
@@ -20823,7 +20823,7 @@ var projectData = {
                             $('body').append('<iframe src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                         }
                     });
-                }
+                //}
 
                 if (is_hybrid) {
                     $('.social-login-btn').addClass('mobile-app');
