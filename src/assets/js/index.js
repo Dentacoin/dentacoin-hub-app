@@ -1570,7 +1570,7 @@ var projectData = {
 
                     $('.civic-custom-btn').click(function() {
                         if (!$('#iframe-civic-popup').length) {
-                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
                         }
                     });
                 //}
@@ -1634,7 +1634,7 @@ var projectData = {
                         }
 
                         if (!$('#iframe-civic-popup').length) {
-                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
                         }
                     });
                 }
@@ -2453,5 +2453,5 @@ function handleOpenURL(url) {
     console.log(iframeUrl, 'iframeUrl');
 
     $('#iframe-civic-popup').remove();
-    $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts" src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
+    $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
 }
