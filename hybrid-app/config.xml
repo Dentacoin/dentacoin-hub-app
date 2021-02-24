@@ -78,4 +78,10 @@
     <allow-navigation href="https://hosted-sip.civic.com/*"/>
     <allow-navigation href="https://civic.com/*"/>
     <allow-navigation href="https://api.civic.com/*"/>
+    <allow-navigation href="http://localhost:8080/*" />
+    <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 </widget>
