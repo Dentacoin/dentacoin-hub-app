@@ -78,6 +78,5 @@
     <allow-navigation href="https://hosted-sip.civic.com/*"/>
     <allow-navigation href="https://civic.com/*"/>
     <allow-navigation href="https://api.civic.com/*"/>
-    <preference name="scheme" value="app" />
-    <preference name="hostname" value="localhost" />
+    <preference name="scheme" value="app"/>
 </widget>
