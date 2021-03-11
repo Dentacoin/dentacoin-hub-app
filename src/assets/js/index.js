@@ -1,4 +1,4 @@
-console.log("( ͡° ͜ʖ ͡°) I see you. 1");
+console.log("( ͡° ͜ʖ ͡°) I see you.");
 
 var default_error_message = 'Something went wrong. Please try again later or write a message to admin@dentacoin.com with description of the problem.';
 var allowed_imgs_extensions = ['png', 'jpg', 'jpeg'/*, 'gif', 'svg'*/];
@@ -8,9 +8,9 @@ var civic_iframe_removedEventLoaded = false;
 var inAppBrowserSettings = 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
 if (basic.getMobileOperatingSystem() == 'iOS') {
     inAppBrowserSettings = 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
+}
 var isDeviceReady = false;
 var lastHybridScreen;
-}
 
 $(document).ready(function() {
 
@@ -122,7 +122,6 @@ document.addEventListener('deviceready', async function() {
             console.error(error);
         });
     } else if (basic.getMobileOperatingSystem() == 'iOS') {
-        console.log(typeof(FCM), 'FCM');
         const wasPermissionGiven = await FCM.requestPushPermission({
             ios9Support: {
                 timeout: 10,  // How long it will wait for a decision from the user before returning `false`
@@ -132,7 +131,6 @@ document.addEventListener('deviceready', async function() {
 
         console.log(wasPermissionGiven, 'wasPermissionGiven');
         var FCMToken = await FCM.getToken();
-        console.log(FCMToken, 'FCMToken');
         localStorage.setItem('mobile_device_id', FCMToken);
     }
 }, false);
@@ -1884,7 +1882,6 @@ var projectData = {
                                             code: "window.shouldCloseAndRedirect"
                                         },
                                         function(values) {
-                                            console.log(values, 'values');
                                             if (values[0]){
                                                 window.open(values[0], '_system', 'location=yes');
                                                 inAppBrowserRef.close();
@@ -2195,7 +2192,6 @@ var projectData = {
             if (is_hybrid && isDeviceReady && lastHybridScreen != $('title').html()) {
                 lastHybridScreen = $('title').html();
                 cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
-                console.log('cordova.plugins.firebase.analytics.setCurrentScreen', $('title').html());
             }
         }
     }
@@ -2445,10 +2441,6 @@ function handleOpenURL(url) {
     } else {*/
         iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
     //}
-
-    console.log(url, 'url');
-    console.log(get_params, 'get_params');
-    console.log(iframeUrl, 'iframeUrl');
 
     $('#iframe-civic-popup').remove();
     $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
