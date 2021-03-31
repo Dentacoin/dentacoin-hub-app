@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: "Lato-Regular";
     color: $main_color;
+    min-height: 100vh; 
     &.overflow-hidden {
         overflow: hidden;
     }

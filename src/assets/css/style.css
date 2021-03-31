@@ -604,7 +604,8 @@ select.platform-border-color {
 body {
   margin: 0;
   font-family: "Lato-Regular";
-  color: #333333; }
+  color: #333333;
+  min-height: 100vh; }
   body.overflow-hidden {
     overflow: hidden; }
   body.overflow-visible {
