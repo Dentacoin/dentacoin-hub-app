@@ -35,7 +35,7 @@ export class AuthenticationServiceService {
         const body = new HttpParams().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', 'dentist');
         this.requestsService.dentistLogin(body.toString()).subscribe((response: any) => {
             if (response.success) {
-                if (response.data.is_partner == true) {
+                if (response.data.is_partner == true || response.data.is_hub_app_dentist == true) {
                     console.log('partner');
 
                     window.scrollTo(0, 0);

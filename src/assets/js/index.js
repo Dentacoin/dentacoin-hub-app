@@ -1833,22 +1833,26 @@ var projectData = {
                                 console.log('IOS wallet DOES NOT EXISTS');
                             });*/
 
+                            var walletPackageName;
                             if (basic.getMobileOperatingSystem() == 'Android') {
-                                window.plugins.launcher.canLaunch({packageName:'wallet.dentacoin.com'}, function() {
-                                    console.log('wallet app is installed');
-                                    // wallet app is installed
-                                    window.plugins.launcher.launch({packageName:'wallet.dentacoin.com'}, function() {
-
-                                    }, function() {
-                                        basic.showAlert(default_error_message, '', true);
-                                    });
-                                }, function() {
-                                    // dentacoin wallet app is not installed
-                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', inAppBrowserSettings);
-                                });
+                                walletPackageName = 'wallet.dentacoin.com';
                             } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
+                                walletPackageName = 'com.dentacoin.wallet';
+                                //window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
                             }
+
+                            window.plugins.launcher.canLaunch({packageName:walletPackageName}, function() {
+                                console.log('wallet app is installed');
+                                // wallet app is installed
+                                window.plugins.launcher.launch({packageName:walletPackageName}, function() {
+
+                                }, function() {
+                                    basic.showAlert(default_error_message, '', true);
+                                });
+                            }, function() {
+                                // dentacoin wallet app is not installed
+                                cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', inAppBrowserSettings);
+                            });
                         } else if (currentHref.includes('dentacare')) {
                             /*window.plugins.launcher.canLaunch({uri:'dentacare://'}, function() {
                                 console.log('IOS DENTARE EXISTS');
