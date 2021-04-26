@@ -1137,6 +1137,16 @@ var projectData = {
             advancedAdminPanel: function() {
                 console.log('advancedAdminPanel');
             },
+            landingPage: function() {
+                $('body').addClass('overflow-hidden');
+                if ($(window).width() < 992) {
+                    $(document).off('click', '.logged-in-content');
+                    $(document).on('click', '.logged-in-content', function() {
+                        $('.logout-button').toggleClass('active');
+                    });
+                }
+                $('body').removeClass('overflow-hidden');
+            },
             myPatients: function() {
                 var now_timestamp = Math.round((new Date()).getTime() / 1000);
                 $('.people-invitation .add-invitation-rows').unbind().click(function() {
@@ -2257,6 +2267,9 @@ function router() {
                 projectData.general_logic.setIsHybrid();
                 current_route = 'home';
                 projectData.pages.patient.homepage();
+            } else if ($('app-landing-page').length && current_route != 'landing-page') {
+                current_route = 'landing-page';
+                projectData.pages.dentist.landingPage();
             }/* else if ($('app-my-wallet').length && $('app-my-wallet .my-wallet-container .dropdown-hidden-menu button').length && current_route != 'my-wallet') {
                 $('body').removeClass('platform-background');
                 projectData.general_logic.setIsHybrid();
@@ -2327,6 +2340,9 @@ function router() {
                 current_route = 'dentist-request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.dentistRequestAccount();
+            } else if ($('app-landing-page').length && current_route != 'landing-page') {
+                current_route = 'landing-page';
+                projectData.pages.dentist.landingPage();
             }
         }
     });

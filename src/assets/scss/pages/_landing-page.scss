@@ -48,6 +48,9 @@
                     padding-left: 15px;
                     padding-right: 15px;
                 }
+                &.active {
+                    display: block;
+                }
             }
             @include breakpoint($md) {
                 &:hover {
@@ -55,6 +58,13 @@
                         display: block;
                     }
                 }
+            }
+        }
+        &[data-loggedin="true"] {
+            @include breakpoint($xs) {
+                position: relative;
+                background-color: white;
+                @include clear_transform();
             }
         }
     }

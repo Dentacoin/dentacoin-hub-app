@@ -6389,9 +6389,20 @@ footer {
         .landing-page-container .section-header .logged-in-content .logout-button .my-account {
           padding-left: 15px;
           padding-right: 15px; }
+        .landing-page-container .section-header .logged-in-content .logout-button.active {
+          display: block; }
       @media screen and (min-width: 992px) {
         .landing-page-container .section-header .logged-in-content:hover .logout-button {
           display: block; } }
+    @media screen and (max-width: 767px) {
+      .landing-page-container .section-header[data-loggedin="true"] {
+        position: relative;
+        background-color: white;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none; } }
   .landing-page-container .section-top-image .top-image-wrapper {
     position: relative; }
     .landing-page-container .section-top-image .top-image-wrapper .top-image img {

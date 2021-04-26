@@ -1,12 +1,12 @@
 <div class="landing-page-container">
-    <section class="container-fluid padding-top-15 padding-bottom-15 section-header">
+    <section class="container-fluid padding-top-15 padding-bottom-10 section-header" [attr.data-loggedin]="isNotAPartnerDentistLoggedIn == true ? 'true' : null">
         <div class="row">
-            <figure itemscope="" itemtype="http://schema.org/Organization" class="col-xs-6">
+            <figure itemscope="" itemtype="http://schema.org/Organization" class="col-xs-4 padding-right-xs-0">
                 <a itemprop="url" routerLink="/">
                     <img src="assets/images/hub-app-white-logo-with-text.svg" itemprop="logo" alt="Dentacoin logo" class="max-width-150 width-100"/>
                 </a>
             </figure>
-            <div class="col-xs-6 text-right">
+            <div class="col-xs-8 text-right">
                 <a [routerLink]="['/'+translate.currentLang+'/admin-login']" *ngIf="isNotAPartnerDentistLoggedIn == false" itemprop="url" class="module black-white-button">SIGN IN</a>
                 <div *ngIf="isNotAPartnerDentistLoggedIn == true" class="fs-14 inline-block-top padding-bottom-15 logged-in-content">
                     <div class="inline-block">
