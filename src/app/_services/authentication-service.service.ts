@@ -49,7 +49,7 @@ export class AuthenticationServiceService {
                     }));
 
                     this.requestsService.getDentistData(response.data.id).subscribe((innerResponse: any) => {
-                        if (response.data.logo != null) {
+                        if (innerResponse.data.logo != null) {
                             this.isDentistLoggedSubject.next(true);
                             this.redirectsService.redirectToMyPatients();
                         } else {

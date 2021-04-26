@@ -2723,7 +2723,7 @@ class AuthenticationServiceService {
                         encrypted_type: response.encrypted_data.encrypted_type
                     }));
                     this.requestsService.getDentistData(response.data.id).subscribe((innerResponse) => {
-                        if (response.data.logo != null) {
+                        if (innerResponse.data.logo != null) {
                             this.isDentistLoggedSubject.next(true);
                             this.redirectsService.redirectToMyPatients();
                         }
