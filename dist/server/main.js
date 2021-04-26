@@ -5193,7 +5193,12 @@ class LandingPageComponent {
         this.isNotAPartnerDentistLoggedIn = authenticationServiceService.hasNotAPartnerDentistStorageSession();
     }
     ngOnInit() {
-        this.myAccountLink = this.additionalService.generateNotAPartnerDentistAccountLink();
+        if (window.localStorage.getItem('currentDentist') != null) {
+            this.redirectsService.redirectToAdmin();
+        }
+        else if (window.localStorage.getItem('currentNotAPartnerDentist') != null) {
+            this.myAccountLink = this.additionalService.generateNotAPartnerDentistAccountLink();
+        }
         this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).token).subscribe({
             next: (response) => {
                 this.dentistData.name = response.data.name;
