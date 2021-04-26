@@ -1,0 +1,218 @@
+.landing-page-container {
+    position: relative;
+    .section-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        .logged-in-content {
+            position: relative;
+            .dentist-avatar {
+                img {
+                    @include rounded(50%);
+                }
+            }
+            .logout-button {
+                width: 280px;
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: white;
+                padding: 10px;
+                text-align: center;
+                font-size: 0;
+                -webkit-box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.5);
+                -moz-box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.5);
+                -ms-box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.5);
+                -webkit-border-radius: 15px;
+                @include rounded(15px);
+                .up-arrow {
+                    position: absolute;
+                    bottom: calc(100% - 10px);
+                    z-index: 5000000000;
+                    right: 20px;
+                    color: white;
+                    font-size: 20px;
+                }
+                .logout {
+                    i {
+                        font-size: 24px;
+                        vertical-align: middle;
+                        margin-right: 5px;
+                    }
+                }
+                .my-account {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+            @include breakpoint($md) {
+                &:hover {
+                    .logout-button {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .section-top-image {
+        .top-image-wrapper {
+            position: relative;
+            .top-image {
+                img {
+                    width: 100%;
+                }
+            }
+            .top-image-description {
+                width: 40%;
+                left: 60%;
+                padding-right: 5%;
+                @include vertical-align(absolute);
+                @include breakpoint($xs) {
+                    position: static;
+                    @include clear_transform();
+                    width: 100%;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    margin-top: -20px;
+                }
+            }
+        }
+    }
+    .delimeter {
+        position: relative;
+        .tile-image {
+            width: 350px;
+            bottom: -85px;
+            @include horizontal-align(absolute);
+            figcaption {
+                width: 100%;
+                @include vertical-align(absolute);
+            }
+            @include breakpoint($xs) {
+                width: 200px;
+                bottom: -40px;
+                figcaption {
+                    width: 90%;
+                    @include vertical-horizontal-align(absolute);
+                }
+            }
+        }
+        .line {
+            background: rgb(232,30,121);
+            height: 18px;
+            background: linear-gradient(43deg, rgba(232,30,121,1) 0%, rgba(108,45,144,1) 100%);
+        }
+    }
+}
+
+.section-everything-you-need {
+    .flex {
+        align-items: center;
+        margin-top: -5%;
+        margin-bottom: -5%;
+        .content {
+            order: 1;
+        }
+        figure {
+            order: 2;
+        }
+        @include breakpoint($xs) {
+            display: block;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    .small-delimeter-line {
+        height: 6px;
+        background: rgb(232,30,121);
+        background: linear-gradient(43deg, rgba(232,30,121,1) 0%, rgba(108,45,144,1) 100%);
+    }
+}
+
+.section-how-it-works {
+    background-image: url('../images/footer-element.png');
+    background-position: bottom 0 right 0;
+    background-repeat: no-repeat;
+    background-size: 300px auto;
+    .list-with-icons {
+        .icon {
+            width: 130px;
+        }
+        .content {
+            width: calc(100% - 130px);
+            padding-left: 40px;
+        }
+    }
+    @include breakpoint($xs) {
+        background-size: 200px auto;
+        .list-with-icons {
+            .icon {
+                width: 100%;
+                text-align: center;
+                padding-bottom: 10px;
+                img {
+                    max-width: 100px;
+                }
+            }
+            .content {
+                width: 100%;
+                padding-left: 0;
+                text-align: center;
+                a {
+                    display: block;
+                    width: 220px;
+                    margin: 15px auto 0 !important;
+                }
+            }
+        }
+    }
+}
+
+.section-footer {
+    background: rgb(215,32,124);
+    background: linear-gradient(43deg, rgba(215,32,124,1) 0%, rgba(169,38,133,1) 100%);
+    ul {
+        li {
+            padding-left: 5px;
+            padding-right: 5px;
+            a {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .socials {
+        ul {
+            li {
+                a {
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    background-color: white;
+                    display: inline-block;
+                    font-size: 20px;
+                    color: #bb2482;
+                    @include rounded(50%);
+                }
+                &.telegram {
+                    a {
+                        background-color: #bb2482;
+                        i {
+                            width: 30px;
+                            height: 30px;
+                            font-size: 30px;
+                            line-height: 30px;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

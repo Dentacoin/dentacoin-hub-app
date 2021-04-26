@@ -26,6 +26,10 @@ export class RedirectsService {
     }
 
     redirectToLoggedHome() {
+        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/patients')).then();
+    }
+
+    redirectToLandingPage() {
         this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang)).then();
     }
 

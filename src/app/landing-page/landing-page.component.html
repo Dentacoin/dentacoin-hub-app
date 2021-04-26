@@ -1,0 +1,189 @@
+<div class="landing-page-container">
+    <section class="container-fluid padding-top-15 padding-bottom-15 section-header">
+        <div class="row">
+            <figure itemscope="" itemtype="http://schema.org/Organization" class="col-xs-6">
+                <a itemprop="url" routerLink="/">
+                    <img src="assets/images/hub-app-white-logo-with-text.svg" itemprop="logo" alt="Dentacoin logo" class="max-width-150 width-100"/>
+                </a>
+            </figure>
+            <div class="col-xs-6 text-right">
+                <a [routerLink]="['/'+translate.currentLang+'/admin-login']" *ngIf="isNotAPartnerDentistLoggedIn == false" itemprop="url" class="module black-white-button">SIGN IN</a>
+                <div *ngIf="isNotAPartnerDentistLoggedIn == true" class="fs-14 inline-block-top padding-bottom-15 logged-in-content">
+                    <div class="inline-block">
+                        <div class="padding-bottom-5">{{dentistData.name}}</div>
+                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>
+                    </div>
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block margin-left-15 max-width-40 dentist-avatar">
+                        <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+                    </figure>
+                    <div class="logout-button">
+                        <span class="up-arrow">▲</span>
+                        <a href="javascript:void(0)" itemprop="url" class="inline-block logout margin-right-15" (click)="this.authenticationServiceService.logout('dentist')">
+                            <span class="inline-block fs-16"><i class="fa fa-power-off" aria-hidden="true"></i> {{'admin-menu-element-logout' | translate}}</span>
+                        </a>
+                        <a href="{{myAccountLink}}" target="_blank" itemprop="url" class="inline-block module white-light-blue-button lato-bold my-account">My Account</a>
+                    </div>
+                </div>
+                <!--<div class="lang-switcher inline-block-top margin-left-10">
+                    <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="platform-text-color fix-selects-for-ios">
+                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'en')" selected>EN</option>
+                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'en')">DE</option>
+                        <option class="color-main" value="en" *ngIf="(translate.currentLang == 'de')">EN</option>
+                        <option class="color-main" value="de" *ngIf="(translate.currentLang == 'de')" selected>DE</option>
+                    </select>
+                </div>-->
+            </div>
+        </div>
+    </section>
+    <section class="section-top-image">
+        <div class="top-image-wrapper">
+            <picture itemscope="" itemtype="http://schema.org/ImageObject" class="top-image">
+                <source media="(max-width: 768px)" srcset="assets/images/mobile-image.png">
+                <img alt="Header image" src="assets/images/header-image.png" itemprop="contentUrl"/>
+            </picture>
+            <div class="top-image-description text-center-xs padding-bottom-xs-60">
+                <h1 class="fs-46 fs-md-34 fs-xs-28 line-height-xs-32 line-height-54 fs-sm-26 line-height-sm-30 lato-bold color-black">LAUNCH YOUR <br class="hide-xs"> OWN LOYALTY APP</h1>
+                <div class="fs-28 fs-sm-20 fs-xs-20 lato-light padding-top-15 padding-bottom-25 padding-bottom-sm-15 padding-bottom-xs-15">Retain and reward loyal patients at no cost</div>
+                <a [routerLink]="['/'+translate.currentLang+'/dentist-request-account']" itemprop="url" class="module white-light-blue-button fs-24 lato-bold padding-left-40 padding-right-40">START NOW</a>
+            </div>
+        </div>
+        <div class="delimeter">
+            <div class="line"></div>
+            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="tile-image">
+                <img alt="Tile image" src="assets/images/absolute-element.png" itemprop="contentUrl" class="width-100"/>
+                <figcaption class="color-white lato-bold text-center fs-18 fs-xs-14 padding-bottom-20 padding-bottom-xs-10 padding-right-10">NO DEVELOPMENT NEEDED</figcaption>
+            </figure>
+        </div>
+    </section>
+    <section class="section-everything-you-need">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 padding-top-100 padding-bottom-50 text-center padding-top-xs-60">
+                    <h2 class="lato-bold fs-38 fs-xs-24 color-mid-gray">EVERYTHING YOU NEED TO <br class="hide-xs"> GET MORE LOYAL PATIENTS</h2>
+                </div>
+            </div>
+            <div class="row fs-0 text-center-xs padding-bottom-xs-50">
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 padding-right-60 inline-block padding-bottom-xs-20 padding-right-xs-15">
+                    <img alt="Phone image" src="assets/images/phone-img1.png" itemprop="contentUrl" class="width-100"/>
+                </figure>
+                <div class="col-xs-12 col-sm-6 color-black inline-block">
+                    <h3 class="fs-36 line-height-40 fs-xs-26 line-height-xs-28 fs-sm-24 line-height-sm-28 lato-bold padding-bottom-15">Use a ready mobile app with your patients</h3>
+                    <div class="fs-18 fs-xs-16">Customize it with your own logo, colors, and shortcuts for appointments booking, your website,featured treatments and any other information you want to emphasize.</div>
+                </div>
+            </div>
+            <div class="row fs-0 flex text-center-xs padding-bottom-xs-50">
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-7 inline-block padding-bottom-xs-20">
+                    <img alt="Phone image" src="assets/images/phone-img2.png" itemprop="contentUrl" class="width-100"/>
+                </figure>
+                <div class="col-xs-12 col-sm-5 color-black inline-block content">
+                    <h3 class="fs-36 line-height-40 fs-xs-26 line-height-xs-28 fs-sm-24 line-height-sm-28 lato-bold padding-bottom-15">Drive loyalty with free rewards for your patients</h3>
+                    <div class="fs-18 fs-xs-16">Patients earn rewards in Dentacoin digital currency through the app for various  activities such as submitting an online review for your practice, participating in surveys on dental topics, and improving their oral care routine.</div>
+                </div>
+            </div>
+            <div class="row fs-0 text-center-xs">
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 padding-right-60 inline-block padding-bottom-xs-20 padding-right-xs-15">
+                    <img alt="Phone image" src="assets/images/phone-img3.png" itemprop="contentUrl" class="width-100"/>
+                </figure>
+                <div class="col-xs-12 col-sm-6 color-black inline-block">
+                    <h3 class="fs-36 line-height-40 fs-xs-26 line-height-xs-28 fs-sm-24 line-height-sm-28 lato-bold padding-bottom-15">Deliver notifications to patient’s smart phone</h3>
+                    <div class="fs-18 fs-xs-16">Send push notifications for promotions, special offers, change of hours and other updates to engage and keep in touch with patients. No coding experience needed!</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center padding-top-50">
+                    <div class="padding-bottom-80">
+                        <a [routerLink]="['/'+translate.currentLang+'/dentist-request-account']" itemprop="url" class="module white-light-blue-button fs-24 lato-bold padding-left-40 padding-right-40">START NOW</a>
+                    </div>
+                    <div class="small-delimeter-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-how-it-works padding-bottom-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2 class="lato-bold fs-38 fs-xs-24 color-mid-gray padding-top-30 padding-bottom-50">HOW IT WORKS</h2>
+                </div>
+            </div>
+            <div class="row list-with-icons">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 fs-0">
+                    <div class="padding-bottom-20 padding-bottom-xs-40">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="icon inline-block">
+                            <img alt="How it works image" src="assets/images/steps-icon1.png" itemprop="contentUrl" class="width-100"/>
+                        </figure>
+                        <div class="content inline-block"><span class="lato-bold fs-22 fs-xs-18">Create a dentist profile on dentacoin.com</span>
+                            <a *ngIf="isNotAPartnerDentistLoggedIn == false" [routerLink]="['/'+translate.currentLang+'/admin-login']" class="white-purple-gradient-button module lato-bold margin-left-25 padding-left-50 padding-right-50 fs-20">SIGN UP</a>
+                            <span *ngIf="isNotAPartnerDentistLoggedIn == true" class="white-gray-button-with-check module lato-bold margin-left-25 padding-left-30 padding-right-60 fs-20">SIGNED</span>
+                        </div>
+                    </div>
+                    <div class="padding-bottom-20 padding-bottom-xs-40">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="icon inline-block">
+                            <img alt="How it works image" src="assets/images/steps-icon2.png" itemprop="contentUrl" class="width-100"/>
+                        </figure>
+                        <div class="content inline-block"><span class="lato-bold fs-22 fs-xs-18">Wait for a verification email from the Onboarding Team</span></div>
+                    </div>
+                    <div class="padding-bottom-20 padding-bottom-xs-40">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="icon inline-block">
+                            <img alt="How it works image" src="assets/images/steps-icon3.png" itemprop="contentUrl" class="width-100"/>
+                        </figure>
+                        <div class="content inline-block"><span class="lato-bold fs-22 fs-xs-18">Join Dentacoin partner network</span> <a [routerLink]="['/'+translate.currentLang+'/dentist-request-account']" class="white-purple-gradient-button module lato-bold margin-left-25 padding-left-50 padding-right-50 fs-20">JOIN NOW</a></div>
+                    </div>
+                    <div class="padding-bottom-20 padding-bottom-xs-40">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="icon inline-block">
+                            <img alt="How it works image" src="assets/images/steps-icon4.png" itemprop="contentUrl" class="width-100"/>
+                        </figure>
+                        <div class="content inline-block"><span class="lato-bold fs-22 fs-xs-18">Access and customize your app screen</span></div>
+                    </div>
+                    <div class="padding-bottom-20 padding-bottom-xs-40">
+                        <figure itemscope="" itemtype="http://schema.org/ImageObject" class="icon inline-block">
+                            <img alt="How it works image" src="assets/images/steps-icon5.png" itemprop="contentUrl" class="width-100"/>
+                        </figure>
+                        <div class="content inline-block"><span class="lato-bold fs-22 fs-xs-18">Invite patients to download your app</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="section-footer padding-bottom-30 padding-top-40 color-white">
+    <div class="container">
+        <div class="row fs-0">
+            <div class="col-xs-12 col-md-3 inline-block text-center-xs text-center-sm padding-bottom-xs-20 padding-bottom-sm-20">
+                <figure itemscope="" itemtype="http://schema.org/Organization">
+                    <a itemprop="url" href="//dentacoin.com" class="fs-14">
+                        <img src="assets/images/round-logo-white.svg" itemprop="logo" class="max-width-30" alt="Dentacoin logo"/>
+                        <span class="color-white padding-left-10 inline-block">Powered by Dentacoin</span>
+                    </a>
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-6 text-center inline-block padding-bottom-xs-20 padding-bottom-sm-20">
+                <ul itemscope="" itemtype="http://schema.org/SiteNavigationElement" class="fs-14">
+                    <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://dentavox.dentacoin.com/" class="vox-link-tracker"><span class="color-white" itemprop="name">DentaVox</span></a></li>
+                    <li class="inline-block-top separator">|</li>
+                    <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://reviews.dentacoin.com/" class="trp-link-tracker"><span class="color-white" itemprop="name">Trusted Reviews</span></a></li>
+                    <li class="inline-block-top separator">|</li>
+                    <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://assurance.dentacoin.com/"><span class="color-white" itemprop="name">Assurance</span></a></li>
+                    <li class="inline-block-top separator">|</li>
+                    <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://wallet.dentacoin.com/"><span class="color-white" itemprop="name">Wallet</span></a></li>
+                    <li class="inline-block-top separator">|</li>
+                    <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://jawsofbattle.dentacoin.com/"><span class="color-white" itemprop="name">Jaws of Battle</span></a></li> </ul>
+            </div>
+            <div class="col-xs-12 col-md-3 inline-block text-right socials text-center-xs text-center-sm" itemscope="" itemtype="http://schema.org/Organization">
+                <link itemprop="url" [routerLink]="['/'+translate.currentLang]">
+                <ul class="inline-block">
+                    <li class="inline-block fs-14">Stay in the loop: </li>
+                    <li class="inline-block">
+                        <a itemprop="sameAs" target="_blank" href="https://www.facebook.com/dentacare.dentacoin/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="inline-block telegram">
+                        <a itemprop="sameAs" target="_blank" href="https://t.me/dentacoin"><i class="fa fa-telegram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center fs-14 padding-top-20 fs-12">© {{year}} Dentacoin Foundation. All rights reserved.</div>
+        </div>
+    </div>
+</section>

@@ -6,6 +6,7 @@ $main_color: #333333;
 $light_blue: #00b7e2;
 $light_gray: #ddd;
 $solid_gray: #888888;
+$solid_gray: #555555;
 $warning_red: #ff0046;
 $basic_color: #0fb0e5;
 
@@ -30,6 +31,10 @@ $basic_color: #0fb0e5;
 }
 
 .color-solid-gray {
+    color: $solid_gray;
+}
+
+.color-mid-gray {
     color: $solid_gray;
 }
 

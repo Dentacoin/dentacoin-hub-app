@@ -40,7 +40,7 @@ export class AdvancedAdminPanelComponent implements OnInit {
 
                 console.log(this.dentistData, 'this.dentistData');
             },
-            error: error => this.authenticationServiceService.logout('patient')
+            error: error => this.authenticationServiceService.logout('dentist')
         });
 
         this.updateDentistDcnAndUsdBalance();
@@ -71,7 +71,7 @@ export class AdvancedAdminPanelComponent implements OnInit {
                     });
                 }
             },
-            error: error => this.authenticationServiceService.logout('patient')
+            error: error => this.authenticationServiceService.logout('dentist')
         });
     }
 }

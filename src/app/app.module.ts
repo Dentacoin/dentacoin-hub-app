@@ -7,12 +7,14 @@ import {AppComponent} from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AccountSidebarComponent } from './partials/account-sidebar/account-sidebar.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         routingComponents,
-        AccountSidebarComponent
+        AccountSidebarComponent,
+        LandingPageComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),

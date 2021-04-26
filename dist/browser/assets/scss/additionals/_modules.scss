@@ -9,10 +9,12 @@
         display: inline-block;
         @include rounded(4px);
         @include simple_transition(.3s);
-        &:hover {
-            color: $basic_color;
-            background-color: white;
-            text-decoration: none !important;
+        @include breakpoint($md) {
+            &:hover {
+                color: $basic_color;
+                background-color: white;
+                text-decoration: none !important;
+            }
         }
     }
     &.platform-custom-button-no-hover {
@@ -35,17 +37,78 @@
         display: inline-block;
         @include rounded(4px);
         @include simple_transition(.3s);
-        &:hover {
-            color: white;
-            background-color: $basic_color;
-            text-decoration: none !important;
-        }
-        &.no-hover {
+        @include breakpoint($md) {
             &:hover {
-                background-color: white;
-                color: $basic_color;
+                color: white;
+                background-color: $basic_color;
+                text-decoration: none !important;
+            }
+            &.no-hover {
+                &:hover {
+                    background-color: white;
+                    color: $basic_color;
+                }
             }
         }
+    }
+    &.black-white-button {
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        padding: 6px 30px;
+        border: 1.5px solid black;
+        text-decoration: none !important;
+        display: inline-block;
+        @include rounded(4px);
+        @include simple_transition(.3s);
+        @include breakpoint($md) {
+            &:hover {
+                color: white;
+                background-color: black;
+                text-decoration: none !important;
+            }
+        }
+    }
+    &.white-light-blue-button {
+        background-color: $light_blue;
+        color: white;
+        font-size: 16px;
+        padding: 6px 30px;
+        border: 1.5px solid $light_blue;
+        text-decoration: none !important;
+        display: inline-block;
+        @include rounded(4px);
+        @include simple_transition(.3s);
+        @include breakpoint($md) {
+            &:hover {
+                color: $light_blue;
+                background-color: white;
+                text-decoration: none !important;
+            }
+        }
+    }
+    &.white-purple-gradient-button {
+        background: rgb(232,30,121);
+        background: linear-gradient(43deg, rgba(232,30,121,1) 0%, rgba(108,45,144,1) 100%);
+        color: white;
+        font-size: 16px;
+        padding: 6px 30px;
+        text-decoration: none !important;
+        display: inline-block;
+        @include rounded(10px);
+    }
+    &.white-gray-button-with-check {
+        background-color: $light_gray;
+        background-image: url(../images/check.svg);
+        background-position: center right 10px;
+        background-size: auto 75%;
+        background-repeat: no-repeat;
+        color: white;
+        font-size: 16px;
+        padding: 6px 30px;
+        text-decoration: none !important;
+        display: inline-block;
+        @include rounded(10px);
     }
     &.custom-google-label-style {
         position: relative;

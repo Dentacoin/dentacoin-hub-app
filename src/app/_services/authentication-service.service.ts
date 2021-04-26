@@ -13,6 +13,7 @@ import {RequestsService} from './requests.service';
 
 export class AuthenticationServiceService {
     isDentistLoggedSubject = new BehaviorSubject<boolean>(this.hasDentistStorageSession());
+    isNotAPartnerDentistLoggedSubject = new BehaviorSubject<boolean>(this.hasNotAPartnerDentistStorageSession());
     isPatientLoggedSubject = new BehaviorSubject<boolean>(this.hasPatientStorageSession());
     generalError: boolean = false;
     dentistAuthFailed: boolean = false;
@@ -50,8 +51,19 @@ export class AuthenticationServiceService {
                     this.isDentistLoggedSubject.next(true);
                     this.redirectsService.redirectToAdmin();
                 } else {
-                    console.log('not partner');
-                    this.notAPartner = true;
+                    console.log('not a partner');
+
+                    window.scrollTo(0, 0);
+                    window.localStorage.setItem('currentNotAPartnerDentist', JSON.stringify({
+                        id: response.data.id,
+                        token: response.token,
+                        encrypted_id: response.encrypted_data.encrypted_id,
+                        encrypted_token: response.encrypted_data.encrypted_token,
+                        encrypted_type: response.encrypted_data.encrypted_type
+                    }));
+
+                    this.isNotAPartnerDentistLoggedSubject.next(true);
+                    this.redirectsService.redirectToLandingPage();
                 }
             } else {
                 this.dentistAuthFailed = true;
@@ -94,6 +106,7 @@ export class AuthenticationServiceService {
         window.localStorage.clear();
         this.isPatientLoggedSubject.next(false);
         this.isDentistLoggedSubject.next(false);
+        this.isNotAPartnerDentistLoggedSubject.next(false);
 
         if (redirect === 'dentist') {
             this.redirectsService.redirectToAdminLogin();
@@ -106,12 +119,20 @@ export class AuthenticationServiceService {
         return !!window.localStorage.getItem('currentDentist');
     }
 
+    hasNotAPartnerDentistStorageSession(): boolean {
+        return !!window.localStorage.getItem('currentNotAPartnerDentist');
+    }
+
     hasPatientStorageSession(): boolean {
         return !!window.localStorage.getItem('currentPatient');
     }
 
     isDentistLoggedIn() : Observable<boolean> {
         return this.isDentistLoggedSubject.asObservable();
+    }
+
+    isNotAPartnerDentistLoggedIn() : Observable<boolean> {
+        return this.isNotAPartnerDentistLoggedSubject.asObservable();
     }
 
     isPatientLoggedIn() : Observable<boolean> {

@@ -30,6 +30,22 @@ body {
 }
 
 @for $i from 0 through 80 {
+    @include breakpoint($md-only)    {
+        .fs-md-#{$i} {
+            font-size: 0px + $i!important;
+        }
+    }
+}
+
+@for $i from 0 through 80 {
+    @include breakpoint($sm-only)    {
+        .fs-sm-#{$i} {
+            font-size: 0px + $i!important;
+        }
+    }
+}
+
+@for $i from 0 through 80 {
     @include breakpoint($xs)    {
         .fs-xs-#{$i} {
             font-size: 0px + $i!important;
@@ -40,6 +56,22 @@ body {
 @for $i from 0 through 100 {
     .line-height-#{$i} {
         line-height: 0px + $i!important;
+    }
+}
+
+@for $i from 0 through 100 {
+    @include breakpoint($sm-only) {
+        .line-height-sm-#{$i} {
+            line-height: 0px + $i!important;
+        }
+    }
+}
+
+@for $i from 0 through 100 {
+    @include breakpoint($xs) {
+        .line-height-xs-#{$i} {
+            line-height: 0px + $i!important;
+        }
     }
 }
 

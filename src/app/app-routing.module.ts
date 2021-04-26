@@ -11,6 +11,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FrontEndLanguageComponent } from './front-end-language/front-end-language.component';
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
 import { HomeComponent } from './home/home.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MyWalletComponent } from './my-wallet/my-wallet.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { ManagePrivacyComponent } from './manage-privacy/manage-privacy.component';
@@ -23,25 +24,79 @@ import { PatientRegisterByInviteComponent } from './patient-register-by-invite/p
 import { DentistRequestAccountComponent } from './dentist-request-account/dentist-request-account.component';
 import { MyPatientsComponent } from './admin/advanced-admin-panel/my-patients/my-patients.component';
 
-const routes: Routes = [
+/*const routes: Routes = [
+    {path: '', pathMatch: 'full', redirectTo: '/' + environment.default_language},
+    {path: ':lang', component: FrontEndLanguageComponent, children: [
+            {path: '', component: LoggedInWrapperComponent, children: [
+                    {path: '', component: HomeComponent},
+                    /!*{path: 'my-wallet', component: MyWalletComponent},
+                    {path: 'edit-account', component: EditAccountComponent},
+                    {path: 'manage-privacy', component: ManagePrivacyComponent},*!/
+                ]},
+            {path: '', component: NotLoggedInWrapperComponent, children: [
+                    {path: 'dentist-request-account', component: DentistRequestAccountComponent},
+                    {path: 'request-account', component: RequestAccountComponent},
+                    {path: 'login', component: PatientLoginPageComponent},
+                    {path: 'patient-register-by-invite', component: PatientRegisterByInviteComponent},
+                    /!*{path: 'forgotten-password', component: ForgottenPasswordComponent},
+                    {path: 'change-password/:token', component: ChangePasswordComponent},
+                    {path: 'verify-account', children: [
+                        {path: ':token', component: VerifyAccountComponent}
+                    ]},*!/
+                ]},
+            {path: 'admin-login', component: AdminLoginComponent},
+            {path: 'admin', component: AdminComponent,
+                children: [
+                    {
+                        path: '',
+                        component: BasicAdminPanelComponent
+                    },
+                    {
+                        path: 'advanced',
+                        component: AdvancedAdminPanelComponent,
+                        children: [
+                            {
+                                path: 'my-patients',
+                                component: MyPatientsComponent
+                            },
+                            {
+                                path: 'push-notifications',
+                                component: PushNotificationsComponent
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]},
+    {path: '**', redirectTo: '/' + environment.default_language}
+];*/
+
+const routes: Routes = environment.hybrid ? [
     {path: '', pathMatch: 'full', redirectTo: '/' + environment.default_language},
     {path: ':lang', component: FrontEndLanguageComponent, children: [
         {path: '', component: LoggedInWrapperComponent, children: [
-            {path: '', component: HomeComponent},
-            /*{path: 'my-wallet', component: MyWalletComponent},
-            {path: 'edit-account', component: EditAccountComponent},
-            {path: 'manage-privacy', component: ManagePrivacyComponent},*/
+            {path: '', component: HomeComponent}
         ]},
         {path: '', component: NotLoggedInWrapperComponent, children: [
             {path: 'dentist-request-account', component: DentistRequestAccountComponent},
             {path: 'request-account', component: RequestAccountComponent},
             {path: 'login', component: PatientLoginPageComponent},
-            {path: 'patient-register-by-invite', component: PatientRegisterByInviteComponent},
-            /*{path: 'forgotten-password', component: ForgottenPasswordComponent},
-            {path: 'change-password/:token', component: ChangePasswordComponent},
-            {path: 'verify-account', children: [
-                {path: ':token', component: VerifyAccountComponent}
-            ]},*/
+            {path: 'patient-register-by-invite', component: PatientRegisterByInviteComponent}
+        ]}
+    ]},
+    {path: '**', redirectTo: '/' + environment.default_language}
+] : [
+    {path: '', pathMatch: 'full', redirectTo: '/' + environment.default_language},
+    {path: ':lang', component: FrontEndLanguageComponent, children: [
+        {path: '', component: LandingPageComponent},
+        {path: '', component: LoggedInWrapperComponent, children: [
+            {path: 'patients', component: HomeComponent}
+        ]},
+        {path: '', component: NotLoggedInWrapperComponent, children: [
+            {path: 'dentist-request-account', component: DentistRequestAccountComponent},
+            {path: 'request-account', component: RequestAccountComponent},
+            {path: 'login', component: PatientLoginPageComponent},
+            {path: 'patient-register-by-invite', component: PatientRegisterByInviteComponent}
         ]},
         {path: 'admin-login', component: AdminLoginComponent},
         {path: 'admin', component: AdminComponent,
@@ -77,4 +132,4 @@ const routes: Routes = [
 
 export class AppRoutingModule {}
 
-export const routingComponents = [FrontEndLanguageComponent, PatientLoginPageComponent, BasicAdminPanelComponent, AdminComponent, AdvancedAdminPanelComponent, PushNotificationsComponent, AdminLoginComponent, VerifyAccountComponent, HomeComponent, MyWalletComponent, EditAccountComponent, ManagePrivacyComponent, LoggedInWrapperComponent, RequestAccountComponent, ForgottenPasswordComponent, ChangePasswordComponent, NotLoggedInWrapperComponent, PatientRegisterByInviteComponent, DentistRequestAccountComponent, MyPatientsComponent];
+export const routingComponents = [FrontEndLanguageComponent, PatientLoginPageComponent, BasicAdminPanelComponent, AdminComponent, AdvancedAdminPanelComponent, PushNotificationsComponent, AdminLoginComponent, VerifyAccountComponent, HomeComponent, LandingPageComponent, MyWalletComponent, EditAccountComponent, ManagePrivacyComponent, LoggedInWrapperComponent, RequestAccountComponent, ForgottenPasswordComponent, ChangePasswordComponent, NotLoggedInWrapperComponent, PatientRegisterByInviteComponent, DentistRequestAccountComponent, MyPatientsComponent];
