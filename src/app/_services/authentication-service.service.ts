@@ -48,8 +48,15 @@ export class AuthenticationServiceService {
                         encrypted_type: response.encrypted_data.encrypted_type
                     }));
 
-                    this.isDentistLoggedSubject.next(true);
-                    this.redirectsService.redirectToAdmin();
+                    this.requestsService.getDentistData(response.data.id).subscribe((innerResponse: any) => {
+                        if (response.data.logo != null) {
+                            this.isDentistLoggedSubject.next(true);
+                            this.redirectsService.redirectToMyPatients();
+                        } else {
+                            this.isDentistLoggedSubject.next(true);
+                            this.redirectsService.redirectToAdmin();
+                        }
+                    });
                 } else {
                     console.log('not a partner');
 

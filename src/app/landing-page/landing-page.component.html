@@ -113,7 +113,7 @@
                             <img alt="How it works image" src="assets/images/steps-icon1.png" itemprop="contentUrl" class="width-100"/>
                         </figure>
                         <div class="content inline-block"><span class="lato-bold fs-22 fs-xs-18">Create a dentist profile on dentacoin.com</span>
-                            <a *ngIf="isNotAPartnerDentistLoggedIn == false" [routerLink]="['/'+translate.currentLang+'/admin-login']" class="white-purple-gradient-button module lato-bold margin-left-25 padding-left-50 padding-right-50 fs-20">SIGN UP</a>
+                            <a *ngIf="isNotAPartnerDentistLoggedIn == false" href="https://dentacoin.com/?dcn-gateway-type=dentist-register" target="_blank" class="white-purple-gradient-button module lato-bold margin-left-25 padding-left-50 padding-right-50 fs-20">SIGN UP</a>
                             <span *ngIf="isNotAPartnerDentistLoggedIn == true" class="white-gray-button-with-check module lato-bold margin-left-25 padding-left-30 padding-right-60 fs-20">SIGNED</span>
                         </div>
                     </div>
@@ -159,6 +159,8 @@
             </div>
             <div class="col-xs-12 col-md-6 text-center inline-block padding-bottom-xs-20 padding-bottom-sm-20">
                 <ul itemscope="" itemtype="http://schema.org/SiteNavigationElement" class="fs-14">
+                    <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://hubapp.dentacoin.com/patients"><span class="color-white" itemprop="name">for Patients</span></a></li>
+                    <li class="inline-block-top separator">|</li>
                     <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://dentavox.dentacoin.com/" class="vox-link-tracker"><span class="color-white" itemprop="name">DentaVox</span></a></li>
                     <li class="inline-block-top separator">|</li>
                     <li class="inline-block-top"><a target="_blank" itemprop="url" href="https://reviews.dentacoin.com/" class="trp-link-tracker"><span class="color-white" itemprop="name">Trusted Reviews</span></a></li>
