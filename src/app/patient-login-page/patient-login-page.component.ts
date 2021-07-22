@@ -70,7 +70,6 @@ export class PatientLoginPageComponent implements OnInit {
                 });
 
                 document.addEventListener('registeredAccountMissingEmail', (e: any) => {
-                    // COVER THIS THE PROPER WAY !!!!!!!!!!!!!
                     document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
                 });
 
@@ -93,7 +92,6 @@ export class PatientLoginPageComponent implements OnInit {
 
                     if ($('.log-link.open-dentacoin-gateway').length) {
                         $('.log-link.open-dentacoin-gateway').on('click', () => {
-                            console.log('log link');
                             this.redirectsService.redirectToPatientLogin('login');
                         });
                     }
@@ -116,7 +114,6 @@ export class PatientLoginPageComponent implements OnInit {
                         document.getElementById('patient-login-failed').classList.remove('hide');
                         document.getElementById('iframe-civic-popup').remove();
                     } else if (event.data.event_id === 'registeredAccountMissingEmail') {
-                        // COVER THIS THE PROPER WAY !!!!!!!!!!!!!
                         document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
                         document.getElementById('iframe-civic-popup').remove();
                     } else if (event.data.event_id === 'patientProceedWithCreatingSession') {

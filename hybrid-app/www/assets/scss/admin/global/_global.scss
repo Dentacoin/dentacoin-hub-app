@@ -494,6 +494,51 @@
     .modal-body {
         padding: 35px 15px 20px;
     }
+    &.popup-select-patients {
+        .bootbox-close-button {
+            display: none;
+        }
+        .modal-dialog {
+            width: 95%;
+            max-width: 900px;
+            .modal-content {
+                .modal-body {
+                    padding: 30px 100px;
+                    .table-wrapper {
+                        max-height: 320px;
+                        overflow: auto;
+                        table {
+                            width: 100%;
+                            tr {
+                                cursor: pointer;
+                                td, th {
+                                    padding: 20px 10px;
+                                    font-size: 16px;
+                                }
+                            }
+                            thead {
+                                border-bottom: 2px solid black;
+                            }
+                            tbody {
+                                tr {
+                                    border-bottom: 1.5px solid #bfbfbf;
+                                    @include simple_transition(.5s);
+                                    &:hover {
+                                        background-color: #cdeaf8;
+                                    }
+                                }
+                                input[type="checkbox"] {
+                                    font-size: 26px;
+                                    transform: scale(1.6);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     &.add-edit-app-popup {
         .bootbox-close-button {
             position: absolute;

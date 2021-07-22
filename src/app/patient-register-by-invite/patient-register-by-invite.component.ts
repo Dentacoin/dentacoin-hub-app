@@ -24,15 +24,21 @@ export class PatientRegisterByInviteComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log('PatientRegisterByInvite');
         if (this.authenticationServiceService.hasPatientStorageSession()) {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
+            console.log('PatientRegisterByInvite', 1);
             if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
+                console.log('PatientRegisterByInvite', 2);
                 this.redirectsService.redirectToPatientLogin('login');
             } else {
+                console.log('PatientRegisterByInvite', 3);
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                console.log(this.inviter, 'this.inviter');
+                console.log(this.inviteId, 'this.inviteId');
 
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', (e: any) => {
@@ -67,7 +73,7 @@ export class PatientRegisterByInviteComponent implements OnInit {
 
                     document.addEventListener('registeredAccountMissingEmail', (e: any) => {
                         // COVER THIS !!!!!!!!!!!!!
-                        document.getElementById('patient-register-failed-missing-email').classList.remove('hide');
+                        document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
                     });
 
                     document.addEventListener('patientAuthErrorResponse', (e: any) => {
@@ -96,12 +102,12 @@ export class PatientRegisterByInviteComponent implements OnInit {
                     });
 
                     document.addEventListener('noCoreDBApiConnection', (e: any) => {
-                        document.getElementById('patient-register-failed').classList.remove('hide');
+                        document.getElementById('patient-login-failed').classList.remove('hide');
                         this.additionalService.hideLoader();
                     });
 
                     document.addEventListener('noExternalLoginProviderConnection', (e: any) => {
-                        document.getElementById('patient-register-failed').classList.remove('hide');
+                        document.getElementById('patient-login-failed').classList.remove('hide');
                         this.additionalService.hideLoader();
                     });
 
@@ -182,12 +188,12 @@ export class PatientRegisterByInviteComponent implements OnInit {
                     }
                 },
                 error: error => {
-                    document.getElementById('patient-register-failed').classList.remove('hide');
+                    document.getElementById('patient-login-failed').classList.remove('hide');
                     this.additionalService.hideLoader();
                 }
             });
         } else {
-            document.getElementById('patient-register-failed-not-a-patient-of-any-dentist').classList.remove('hide');
+            document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
             this.additionalService.hideLoader();
         }
     }

@@ -3,8 +3,6 @@ import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {RedirectsService} from './redirects.service';
-import { environment } from '../../environments/environment';
-import {FormBuilder} from '@angular/forms';
 import {RequestsService} from './requests.service';
 
 @Injectable({
@@ -111,6 +109,7 @@ export class AuthenticationServiceService {
 
     logout(redirect: string) {
         window.localStorage.clear();
+        window.localStorage.setItem('greetNewUser', 'true');
         this.isPatientLoggedSubject.next(false);
         this.isDentistLoggedSubject.next(false);
         this.isNotAPartnerDentistLoggedSubject.next(false);

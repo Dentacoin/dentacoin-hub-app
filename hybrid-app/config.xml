@@ -81,4 +81,9 @@
     <allow-navigation href="https://api.civic.com/*"/>
     <preference name="scheme" value="app"/>
     <preference name="hostname" value="localhost"/>
+    <universal-links>
+        <host name="hubapp.dentacoin.com" scheme="https">
+            <path url="/*/patient-register-by-invite"/>
+        </host>
+    </universal-links>
 </widget>

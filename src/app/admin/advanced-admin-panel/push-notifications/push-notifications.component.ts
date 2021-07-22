@@ -4,16 +4,19 @@ import {AuthenticationServiceService} from '../../../_services/authentication-se
 import {HttpParams} from '../../../../../node_modules/@angular/common/http';
 import {RequestsService} from '../../../_services/requests.service';
 import {AdditionalService} from '../../../_services/additional.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-push-notifications',
     templateUrl: './push-notifications.component.html'
 })
 export class PushNotificationsComponent implements OnInit {
-    showPushNotificationsHistory: boolean = false;
+    public showPushNotificationsHistory: boolean = false;
     public push_notifications = [];
+    public showCurrentDentistPatients: boolean = false;
+    public currentDentistPatients: string = '';
     
-    constructor(public redirectsService: RedirectsService, public requestsService: RequestsService, public authenticationServiceService: AuthenticationServiceService, public additionalService: AdditionalService) {
+    constructor(public redirectsService: RedirectsService, public requestsService: RequestsService, public authenticationServiceService: AuthenticationServiceService, public additionalService: AdditionalService, public translate: TranslateService) {
     }
 
     ngOnInit() {
@@ -35,6 +38,13 @@ export class PushNotificationsComponent implements OnInit {
                             }
                         }
                     }
+                }
+            });
+
+            this.requestsService.getPatientsWhichCanReceivePushNotifications(new HttpParams().set('id', JSON.parse(window.localStorage.getItem('currentDentist')).id).set('token', JSON.parse(window.localStorage.getItem('currentDentist')).token).toString()).subscribe((response: any) => {
+                if (response.success && response.data.length) {
+                    this.currentDentistPatients = JSON.stringify(response.data);
+                    this.showCurrentDentistPatients = true;
                 }
             });
         }

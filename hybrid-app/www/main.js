@@ -52,7 +52,7 @@ module.exports = "<main class=\"admin-main-content\">\r\n    <router-outlet></ro
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"advanced-admin-wrapper fs-0\">\n    <div class=\"left-nav inline-block-top color-white\">\n        <div class=\"desktop-visible\">\n            <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40 padding-bottom-60\">\n                <a (click)=\"this.redirectsService.redirectToAdmin()\">\n                    <img alt=\"Dentacoin logo\" class=\"width-100\" src=\"assets/images/exit.svg\"/>\n                </a>\n            </figure>\n            <div class=\"dentist-data padding-bottom-50\">\n                <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-100 padding-bottom-10 dentist-avatar\">\n                    <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\n                </figure>\n                <div class=\"fs-20 lato-bold\">{{dentistData.name}}</div>\n                <div class=\"fs-16\"><a href=\"mailto:sam.johnes@gmail.com\" class=\"color-white email-link\">{{dentistData.email}}</a></div>\n            </div>\n            <nav>\n                <ul itemtype=\"http://schema.org/SiteNavigationElement\">\n                    <li>\n                        <a routerLink=\"my-patients\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <span class=\"inline-block icon my-patients\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-my-patients' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a routerLink=\"push-notifications\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <span class=\"inline-block icon push-notifications\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-push-notifications' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a (click)=\"this.redirectsService.redirectToAdmin()\" itemprop=\"url\">\n                            <span class=\"inline-block icon app-page\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-app-page' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"{{myAccountLink}}\" target=\"_blank\" itemprop=\"url\">\n                            <span class=\"inline-block icon my-wallet\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-my-wallet' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"javascript:void(0)\" itemprop=\"url\" (click)=\"this.authenticationServiceService.logout('dentist')\">\n                            <span class=\"inline-block\">{{'admin-menu-element-logout' | translate}}</span>\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n        <div class=\"mobile-visible\">\n            <div class=\"go-back-and-logout fs-0 padding-bottom-15 padding-left-15 padding-right-15\">\n                <div class=\"go-back inline-block\">\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40\">\n                        <a (click)=\"this.redirectsService.redirectToAdmin()\">\n                            <img alt=\"Dentacoin logo\" class=\"width-100\" src=\"assets/images/exit.svg\"/>\n                        </a>\n                    </figure>\n                </div>\n                <div class=\"logout text-right fs-18 inline-block\">\n                    <a href=\"javascript:void(0)\" itemprop=\"url\" (click)=\"this.authenticationServiceService.logout('dentist')\" class=\" color-white lato-bold\">\n                        <span class=\"inline-block\">{{'admin-menu-element-logout' | translate}}</span>\n                    </a>\n                </div>\n            </div>\n            <div class=\"nav-and-avatar text-center color-white padding-left-15 padding-right-15\">\n                <nav class=\"max-width-500 margin-0-auto fs-0\">\n                    <ul>\n                        <li class=\"inline-block-bottom padding-right-20\">\n                            <a (click)=\"this.redirectsService.redirectToAdmin()\" itemprop=\"url\">\n                                <div class=\"icon app-page\"></div>\n                                <div class=\"fs-18 fs-xs-16 color-white\">{{'admin-menu-element-app-page' | translate}}</div>\n                            </a>\n                        </li>\n                        <li class=\"inline-block-bottom\">\n                            <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-80 padding-bottom-10 dentist-avatar\">\n                                <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\n                            </figure>\n                        </li>\n                        <li class=\"inline-block-bottom padding-left-20\">\n                            <a href=\"{{myAccountLink}}\" target=\"_blank\" itemprop=\"url\">\n                                <div class=\"icon my-wallet\"></div>\n                                <div class=\"fs-18 fs-xs-16 color-white\">{{'admin-menu-element-my-wallet' | translate}}</div>\n                            </a>\n                        </li>\n                    </ul>\n                </nav>\n                <div class=\"dentist-info\">\n                    <div class=\"fs-20 lato-bold\">{{dentistData.name}}</div>\n                    <div class=\"fs-16 padding-top-5 padding-bottom-5\"><a href=\"mailto:sam.johnes@gmail.com\" class=\"color-white email-link\">{{dentistData.email}}</a></div>\n                    <a href=\"{{myAccountLink}}\" target=\"_blank\" class=\"fs-16 color-white\">\n                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\n                    </a>\n                </div>\n            </div>\n            <nav class=\"white-styled-nav fs-0 text-center\">\n                <ul itemtype=\"http://schema.org/SiteNavigationElement\">\n                    <li class=\"inline-block\">\n                        <a class=\"my-patients\" routerLink=\"my-patients\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <div class=\"icon my-patients\"></div>\n                            <div class=\"fs-16 padding-bottom-10\">{{'admin-menu-element-my-patients' | translate}}</div>\n                        </a>\n                    </li>\n                    <li class=\"inline-block\">\n                        <a class=\"push-notifications\" routerLink=\"push-notifications\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <div class=\"icon push-notifications\"></div>\n                            <div class=\"fs-16 padding-bottom-10\">{{'admin-menu-element-push-notifications' | translate}}</div>\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n    </div>\n    <div class=\"admin-page-content inline-block-top\">\n        <div class=\"user-info-tab text-right\">\n            <a href=\"{{myAccountLink}}\" target=\"_blank\" class=\"fs-14 inline-block\">\n                <div class=\"padding-bottom-5\">{{dentistData.name}}</div>\n                <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\n            </a>\n            <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block margin-left-15 max-width-40 avatar\">\n                <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\n            </figure>\n            <div class=\"lang-switcher module inline-block\">\n                <div class=\"border-top\">\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" class=\"fix-selects-for-ios\">\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\n                    </select>\n                </div>\n            </div>\n        </div>\n        <router-outlet></router-outlet>\n    </div>\n</div>"
+module.exports = "<div class=\"advanced-admin-wrapper fs-0\">\n    <div class=\"left-nav inline-block-top color-white\">\n        <div class=\"desktop-visible\">\n            <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40 padding-bottom-60\">\n                <a (click)=\"this.redirectsService.redirectToAdmin()\">\n                    <img alt=\"Dentacoin logo\" class=\"width-100\" src=\"assets/images/exit.svg\"/>\n                </a>\n            </figure>\n            <div class=\"dentist-data padding-bottom-50\">\n                <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-100 padding-bottom-10 dentist-avatar\">\n                    <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\n                </figure>\n                <div class=\"fs-20 lato-bold\">{{dentistData.name}}</div>\n                <div class=\"fs-16\"><a href=\"mailto:sam.johnes@gmail.com\" class=\"color-white email-link\">{{dentistData.email}}</a></div>\n            </div>\n            <nav>\n                <ul itemtype=\"http://schema.org/SiteNavigationElement\">\n                    <li>\n                        <a routerLink=\"my-patients\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <span class=\"inline-block icon my-patients\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-my-patients' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a routerLink=\"push-notifications\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <span class=\"inline-block icon push-notifications\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-push-notifications' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a (click)=\"this.redirectsService.redirectToAdmin()\" itemprop=\"url\">\n                            <span class=\"inline-block icon app-page\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-app-page' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"{{myAccountLink}}\" target=\"_blank\" itemprop=\"url\">\n                            <span class=\"inline-block icon my-wallet\"></span>\n                            <span class=\"inline-block\">{{'admin-menu-element-my-wallet' | translate}}</span>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"javascript:void(0)\" itemprop=\"url\" (click)=\"this.authenticationServiceService.logout('dentist')\">\n                            <span class=\"inline-block\">{{'admin-menu-element-logout' | translate}}</span>\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n        <div class=\"mobile-visible\">\n            <div class=\"go-back-and-logout fs-0 padding-bottom-15 padding-left-15 padding-right-15\">\n                <div class=\"go-back inline-block\">\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40\">\n                        <a (click)=\"this.redirectsService.redirectToAdmin()\">\n                            <img alt=\"Dentacoin logo\" class=\"width-100\" src=\"assets/images/exit.svg\"/>\n                        </a>\n                    </figure>\n                </div>\n                <div class=\"logout text-right fs-18 inline-block\">\n                    <a href=\"javascript:void(0)\" itemprop=\"url\" (click)=\"this.authenticationServiceService.logout('dentist')\" class=\" color-white lato-bold\">\n                        <span class=\"inline-block\">{{'admin-menu-element-logout' | translate}}</span>\n                    </a>\n                </div>\n            </div>\n            <div class=\"nav-and-avatar text-center color-white padding-left-15 padding-right-15\">\n                <nav class=\"max-width-500 margin-0-auto fs-0\">\n                    <ul>\n                        <li class=\"inline-block-bottom padding-right-20\">\n                            <a (click)=\"this.redirectsService.redirectToAdmin()\" itemprop=\"url\">\n                                <div class=\"icon app-page\"></div>\n                                <div class=\"fs-18 fs-xs-16 color-white\">{{'admin-menu-element-app-page' | translate}}</div>\n                            </a>\n                        </li>\n                        <li class=\"inline-block-bottom\">\n                            <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-80 padding-bottom-10 dentist-avatar\">\n                                <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\n                            </figure>\n                        </li>\n                        <li class=\"inline-block-bottom padding-left-20\">\n                            <a href=\"{{myAccountLink}}\" target=\"_blank\" itemprop=\"url\">\n                                <div class=\"icon my-wallet\"></div>\n                                <div class=\"fs-18 fs-xs-16 color-white\">{{'admin-menu-element-my-wallet' | translate}}</div>\n                            </a>\n                        </li>\n                    </ul>\n                </nav>\n                <div class=\"dentist-info\">\n                    <div class=\"fs-20 lato-bold\">{{dentistData.name}}</div>\n                    <div class=\"fs-16 padding-top-5 padding-bottom-5\"><a href=\"mailto:sam.johnes@gmail.com\" class=\"color-white email-link\">{{dentistData.email}}</a></div>\n                    <a href=\"{{myAccountLink}}\" target=\"_blank\" class=\"fs-16 color-white\">\n                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\n                    </a>\n                </div>\n            </div>\n            <nav class=\"white-styled-nav fs-0 text-center\">\n                <ul itemtype=\"http://schema.org/SiteNavigationElement\">\n                    <li class=\"inline-block\">\n                        <a class=\"my-patients\" routerLink=\"my-patients\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <div class=\"icon my-patients\"></div>\n                            <div class=\"fs-16 padding-bottom-10\">{{'admin-menu-element-my-patients' | translate}}</div>\n                        </a>\n                    </li>\n                    <li class=\"inline-block\">\n                        <a class=\"push-notifications\" routerLink=\"push-notifications\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" itemprop=\"url\">\n                            <div class=\"icon push-notifications\"></div>\n                            <div class=\"fs-16 padding-bottom-10\">{{'admin-menu-element-push-notifications' | translate}}</div>\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n    </div>\n    <div class=\"admin-page-content inline-block-top\">\n        <div class=\"user-info-tab text-right\">\n            <a href=\"{{myAccountLink}}\" target=\"_blank\" class=\"fs-14 inline-block\">\n                <div class=\"inline-block\">\n                    <div class=\"padding-bottom-5\">{{dentistData.name}}</div>\n                    <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\n                </div>\n                <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block margin-left-15 max-width-40 avatar\">\n                    <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\n                </figure>\n            </a>\n            <div class=\"lang-switcher module inline-block\">\n                <div class=\"border-top\">\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" class=\"fix-selects-for-ios\">\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\n                        <option value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\n                        <option value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\n                    </select>\n                </div>\n            </div>\n        </div>\n        <router-outlet></router-outlet>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<div class=\"advanced-admin-wrapper fs-0\">\n    <div class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"invite-patients-form color-black admin-container\">\n    <div class=\"title-and-subtitle\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40 max-width-xs-30 inline-block\">\n            <img alt=\"Patients icon\" class=\"width-100\" src=\"assets/images/black-patients-icon.svg\"/>\n        </figure>\n        <span class=\"inline-block fs-36 fs-xs-26 padding-left-10 lato-bold\">{{'my-patients-page-title' | translate}}</span>\n        <div class=\"fs-18 fs-xs-16 padding-bottom-20\">{{'my-patients-page-subtitle' | translate}}</div>\n    </div>\n    <div class=\"people-invitation fs-0\">\n        <div class=\"inputs\">\n            <div class=\"inputs-row padding-bottom-10\">\n                <div class=\"remove-row inline-block\">\n                    <a href=\"javascript:void(0);\" class=\"lato-regular fs-20\">X</a>\n                </div>\n                <div class=\"inputs-wrapper inline-block\">\n                    <div class=\"input-field inline-block-top\">\n                        <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                            <label for=\"request-account-name-0\" class=\"platform-color\">{{'invite-patients-form-name' | translate}}</label>\n                            <input maxlength=\"100\" type=\"text\" id=\"request-account-name-0\" class=\"full-rounded form-field platform-border-color person-name\"/>\n                        </div>\n                    </div>\n                    <div class=\"input-field inline-block-top\">\n                        <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                            <label for=\"request-account-email-0\" class=\"platform-color\">{{'invite-patients-form-email' | translate}}</label>\n                            <input maxlength=\"100\" type=\"text\" id=\"request-account-email-0\" class=\"full-rounded form-field platform-border-color person-email\"/>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"padding-top-15 padding-top-xs-5 fs-0 buttons\">\n            <div class=\"inline-block add-btn-container\">\n                <a href=\"javascript:void(0)\" class=\"lato-bold fs-16 add-invitation-rows module platform-color\">{{'invite-patients-form-add-another-patient' | translate}}</a>\n            </div>\n            <div class=\"inline-block send-btn-container text-right\">\n                <a href=\"javascript:void(0)\" class=\"fs-16 platform-custom-button submit-form-invite-people module platform-custom-button platform-background-color platform-border-color hover\">{{'invite-patients-form-send-invite' | translate}}</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"fs-16 custom-data-table padding-top-70 padding-top-xs-30 admin-container\" *ngIf=\"showInvitationHistory\">\n    <div class=\"table-wrapper\">\n        <table class=\"table table-without-reorder\">\n            <thead>\n            <tr>\n                <th>{{'invited-patients-history-date' | translate}}</th>\n                <th>{{'invited-patients-history-name' | translate}}</th>\n                <th style=\"width: 200px;\">{{'invited-patients-history-email' | translate}}</th>\n                <th>{{'invited-patients-history-status' | translate}}</th>\n            </tr>\n            </thead>\n            <tbody>\n                <ng-container *ngFor=\"let invite of invites; index as i;\">\n                    <tr>\n                        <td>{{invite.created_at}}</td>\n                        <td class=\"lato-bold\">{{invite.invited_name}}</td>\n                        <td><a href=\"mailto:{{invite.invited_email}}\" class=\"email\">{{invite.invited_email}}</a></td>\n                        <td *ngIf=\"invite.invited_id != null\" class=\"lato-bold platform-color\">{{'invited-patients-history-accepted' | translate}}</td>\n                        <td *ngIf=\"invite.invited_id == null\">{{'invited-patients-history-invited' | translate}}</td>\n                    </tr>\n                </ng-container>\n            </tbody>\n        </table>\n    </div>\n</div>"
+module.exports = "<div class=\"invite-patients-form color-black admin-container\">\n    <div class=\"title-and-subtitle\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40 max-width-xs-30 inline-block\">\n            <img alt=\"Patients icon\" class=\"width-100\" src=\"assets/images/black-patients-icon.svg\"/>\n        </figure>\n        <span class=\"inline-block fs-36 fs-xs-26 padding-left-10 lato-bold\">{{'my-patients-page-title' | translate}}</span>\n        <div class=\"fs-18 fs-xs-16 padding-bottom-20\">{{'my-patients-page-subtitle' | translate}}</div>\n    </div>\n    <div class=\"people-invitation fs-0\">\n        <div class=\"inputs\">\n            <div class=\"inputs-row padding-bottom-10\">\n                <div class=\"remove-row inline-block\">\n                    <a href=\"javascript:void(0);\" class=\"lato-regular fs-20\">X</a>\n                </div>\n                <div class=\"inputs-wrapper inline-block\">\n                    <div class=\"input-field inline-block-top\">\n                        <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                            <label for=\"request-account-name-0\" class=\"color-light-blue\">{{'invite-patients-form-name' | translate}}</label>\n                            <input maxlength=\"100\" type=\"text\" id=\"request-account-name-0\" class=\"full-rounded form-field light-blue-border-color person-name\"/>\n                        </div>\n                    </div>\n                    <div class=\"input-field inline-block-top\">\n                        <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\n                            <label for=\"request-account-email-0\" class=\"color-light-blue\">{{'invite-patients-form-email' | translate}}</label>\n                            <input maxlength=\"100\" type=\"text\" id=\"request-account-email-0\" class=\"full-rounded form-field light-blue-border-color person-email\"/>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"padding-top-15 padding-top-xs-5 fs-0 buttons\">\n            <div class=\"inline-block add-btn-container\">\n                <a href=\"javascript:void(0)\" class=\"lato-bold fs-16 add-invitation-rows module color-light-blue\">{{'invite-patients-form-add-another-patient' | translate}}</a>\n            </div>\n            <div class=\"inline-block send-btn-container text-right\">\n                <a href=\"javascript:void(0)\" class=\"fs-16 light-blue-white-button submit-form-invite-people module lato-bold\">{{'invite-patients-form-send-invite' | translate}}</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"fs-16 custom-data-table padding-top-70 padding-top-xs-30 admin-container\" *ngIf=\"showInvitationHistory\">\n    <div class=\"table-wrapper\">\n        <table class=\"table table-without-reorder\">\n            <thead>\n            <tr>\n                <th>{{'invited-patients-history-date' | translate}}</th>\n                <th>{{'invited-patients-history-name' | translate}}</th>\n                <th style=\"width: 200px;\">{{'invited-patients-history-email' | translate}}</th>\n                <th>{{'invited-patients-history-status' | translate}}</th>\n            </tr>\n            </thead>\n            <tbody>\n                <ng-container *ngFor=\"let invite of invites; index as i;\">\n                    <tr>\n                        <td>{{invite.created_at}}</td>\n                        <td class=\"lato-bold\">{{invite.invited_name}}</td>\n                        <td><a href=\"mailto:{{invite.invited_email}}\" class=\"email\">{{invite.invited_email}}</a></td>\n                        <td *ngIf=\"invite.invited_id != null\" class=\"lato-bold color-light-blue\">{{'invited-patients-history-accepted' | translate}}</td>\n                        <td *ngIf=\"invite.invited_id == null\">{{'invited-patients-history-invited' | translate}}</td>\n                    </tr>\n                </ng-container>\n            </tbody>\n        </table>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<div class=\"invite-patients-form color-black admin-container\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"color-black admin-container\">\r\n    <div class=\"title-and-subtitle\">\r\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40 max-width-xs-30 inline-block\">\r\n            <img alt=\"Patients icon\" class=\"width-100\" src=\"assets/images/black-push-notifications-icon.svg\"/>\r\n        </figure>\r\n        <span class=\"inline-block fs-36 fs-xs-26 padding-left-10 lato-bold\">{{'push-notification-page-title' | translate}}</span>\r\n        <div class=\"fs-18 fs-xs-16 padding-bottom-20\">{{'push-notification-page-subtitle' | translate}}</div>\r\n    </div>\r\n    <div class=\"push-notifications-custom-form\">\r\n        <div class=\"padding-bottom-15\">\r\n            <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\r\n                <label for=\"title\" class=\"platform-color\">{{'push-notifications-title' | translate}}</label>\r\n                <input type=\"text\" maxlength=\"255\" id=\"title\" class=\"full-rounded form-field platform-border-color\"/>\r\n            </div>\r\n        </div>\r\n        <div class=\"padding-bottom-15\">\r\n            <textarea placeholder=\"{{'push-notifications-message' | translate}}...\" rows=\"3\" maxlength=\"255\" id=\"message\" class=\"full-rounded form-field platform-border-color\"></textarea>\r\n        </div>\r\n        <div class=\"datetimepicker-and-buttons fs-0\">\r\n            <div class=\"daterangepicker-parent inline-block-top padding-bottom-xs-15\">\r\n                <div class=\"max-width-180\">\r\n                    <div class=\"custom-google-label-style module hide field\" data-input-colorful-border=\"true\">\r\n                        <label for=\"title\" class=\"platform-color active-label\">{{'push-notifications-date' | translate}}</label>\r\n                        <input type=\"text\" maxlength=\"255\" id=\"datetimepicker\" class=\"full-rounded form-field platform-border-color datetimepicker colorful-border\"/>\r\n                    </div>\r\n                </div>\r\n                <div class=\"fs-14 padding-top-10 selected-time-text hide\">{{'push-notifications-date-description' | translate}}</div>\r\n            </div>\r\n            <div class=\"buttons inline-block-top text-right\">\r\n                <button type=\"button\" class=\"schedule-button module lato-bold platform-custom-button-opposite-colors platform-color platform-border-color hover margin-right-10 padding-left-10 padding-right-20 no-hover\"><span class=\"platform-border-color inline-block custom-dot margin-right-10\"><span class=\"inner-dot\"></span></span> <span class=\"inline-block\">{{'push-notifications-schedule' | translate}}</span></button>\r\n                <button type=\"button\" class=\"module lato-bold platform-custom-button platform-background-color platform-border-color hover padding-left-20 padding-right-20 send-now\" [attr.data-send-now]=\"'push-notifications-send-now' | translate\" [attr.data-save-now]=\"'push-notifications-save-now' | translate\">{{'push-notifications-send-now' | translate}}</button>\r\n            </div>\r\n        </div>\r\n        <div class=\"custom-response hide\" [attr.data-push-notifications-sent-success]=\"'push-notifications-sent-successfully' | translate\" [attr.data-push-notifications-register-success]=\"'push-notifications-register-successfully' | translate\" [attr.data-push-notifications-failed]=\"'general-error' | translate\" [attr.data-push-notifications-missing-patients]=\"'push-notifications-missing-patients' | translate\"></div>\r\n    </div>\r\n</div>\r\n<div class=\"fs-18 custom-data-table padding-top-70 padding-top-xs-30 admin-container\" *ngIf=\"showPushNotificationsHistory\">\r\n    <div class=\"table-wrapper\">\r\n        <table class=\"table table-without-reorder\">\r\n            <thead>\r\n                <tr>\r\n                    <th>{{'push-notifications-date' | translate}}</th>\r\n                    <th>{{'push-notifications-title' | translate}}</th>\r\n                    <th>{{'push-notifications-message' | translate}}</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n            <ng-container *ngFor=\"let push_notification of push_notifications; index as i;\">\r\n                <tr>\r\n                    <td>{{push_notification.date}}</td>\r\n                    <td class=\"lato-bold\">{{push_notification.title}}</td>\r\n                    <td>{{push_notification.message}}</td>\r\n            </ng-container>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"color-black admin-container\">\r\n    <div class=\"title-and-subtitle\">\r\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-40 max-width-xs-30 inline-block\">\r\n            <img alt=\"Patients icon\" class=\"width-100\" src=\"assets/images/black-push-notifications-icon.svg\"/>\r\n        </figure>\r\n        <span class=\"inline-block fs-36 fs-xs-26 padding-left-10 lato-bold\">{{'push-notification-page-title' | translate}}</span>\r\n        <div class=\"fs-18 fs-xs-16 padding-bottom-20\">{{'push-notification-page-subtitle' | translate}}</div>\r\n    </div>\r\n    <div class=\"push-notifications-custom-form\" [attr.data-patients]=\"currentDentistPatients\"\r\n         [attr.data-push-notifications-select-patients-title]=\"this.translate.instant('push-notifications-select-patients-title')\"\r\n         [attr.data-push-notifications-select-patients-field]=\"this.translate.instant('push-notifications-select-patients-field')\"\r\n         [attr.data-push-notifications-select-patients-save]=\"this.translate.instant('push-notifications-select-patients-save')\"\r\n         [attr.data-push-notifications-select-patients-cancel]=\"this.translate.instant('push-notifications-select-patients-cancel')\"\r\n         [attr.data-push-notifications-select-patients-patient]=\"this.translate.instant('push-notifications-select-patients-patient')\"\r\n         [attr.data-push-notifications-select-patients-error]=\"this.translate.instant('push-notifications-select-patients-error')\"\r\n         [attr.data-push-notifications-select-patients-email]=\"this.translate.instant('push-notifications-select-patients-email')\">\r\n        <div class=\"padding-bottom-25 patients-filtering\" *ngIf=\"showCurrentDentistPatients\">\r\n            <button type=\"button\" data-type=\"all-patients\" class=\"lato-bold fs-20 color-light-blue filter-option active inline-block\"><span class=\"custom-checkbox inline-block\"><span class=\"checkbox-circle\"></span></span> <span class=\"inline-block padding-left-15\">ALL PATIENTS</span></button>\r\n            <button type=\"button\" data-type=\"select-patients\" href=\"javascript:void(0);\" class=\"lato-bold fs-20 color-light-blue filter-option margin-left-20 inline-block\"><span class=\"custom-checkbox inline-block\"><span class=\"checkbox-circle\"></span></span> <span class=\"inline-block padding-left-15\">SELECT PATIENTS</span></button>\r\n            <div class=\"inline-block padding-left-15 list-with-custom-selected-patients fs-16\"></div>\r\n        </div>\r\n        <div class=\"padding-bottom-15\">\r\n            <div class=\"custom-google-label-style module\" data-input-colorful-border=\"true\">\r\n                <label for=\"title\" class=\"color-light-blue\">{{'push-notifications-title' | translate}}</label>\r\n                <input type=\"text\" maxlength=\"255\" id=\"title\" class=\"full-rounded form-field light-blue-border-color\"/>\r\n            </div>\r\n        </div>\r\n        <div class=\"padding-bottom-15\">\r\n            <textarea placeholder=\"{{'push-notifications-message' | translate}}...\" rows=\"3\" maxlength=\"255\" id=\"message\" class=\"full-rounded form-field\"></textarea>\r\n        </div>\r\n        <div class=\"datetimepicker-and-buttons fs-0\">\r\n            <div class=\"daterangepicker-parent inline-block-top padding-bottom-xs-15\">\r\n                <div class=\"max-width-250\">\r\n                    <div class=\"timezone-picker hide padding-bottom-15\">\r\n                        <div class=\"custom-google-select-style module\">\r\n                            <label class=\"color-light-blue\" for=\"timezone-select\">Select timezone</label>\r\n                            <select autocomplete=\"off\" id=\"timezone-select\"><optgroup label=\"US\"><option value=\"US/Pacific\">UTC -07:00 Pacific Time</option><option value=\"US/Mountain\">UTC -06:00 Mountain Time</option><option value=\"US/Central\">UTC -05:00 Central Time</option><option value=\"US/East-Indiana\">UTC -04:00 Eastern Time</option></optgroup><optgroup label=\"Europe\"><option value=\"Europe/Belfast\">UTC +01:00 Dublin, London, Lisbon</option><option value=\"Europe/Amsterdam\">UTC +02:00 (Europe) Central European Time</option><option value=\"Europe/Kaliningrad\">UTC +02:00 Kaliningrad</option><option value=\"Europe/Athens\">UTC +03:00 Eastern European Time</option><option value=\"Europe/Chisinau\">UTC +03:00 Chisinau, Tiraspol</option><option value=\"Europe/Istanbul\">UTC +03:00 Istanbul, Kirov, Minsk, Moscow</option><option value=\"Europe/Astrakhan\">UTC +04:00 Astrakhan, Samara, Saratov, Ulyanovsk</option></optgroup><optgroup label=\"Canada\"><option value=\"Canada/Pacific\">UTC -07:00 Pacific</option><option value=\"Canada/Yukon\">UTC -07:00 Yukon</option><option value=\"Canada/Mountain\">UTC -06:00 Mountain</option><option value=\"Canada/Saskatchewan\">UTC -06:00 Saskatchewan</option><option value=\"Canada/Central\">UTC -05:00 Central</option><option value=\"Canada/Eastern\">UTC -04:00 Eastern</option><option value=\"Canada/Atlantic\">UTC -03:00 Atlantic Time</option><option value=\"Canada/Newfoundland\">UTC -02:30 Newfoundland</option></optgroup><optgroup label=\"Africa\"><option value=\"Africa/Abidjan\">UTC +00:00 Greenwich Mean Time</option><option value=\"Africa/Algiers\">UTC +01:00 (Africa) Central European Time</option><option value=\"Africa/Casablanca\">UTC +01:00 Casablanca, El Aaiun</option><option value=\"Africa/Blantyre\">UTC +02:00 South Africa Time</option><option value=\"Africa/Ceuta\">UTC +02:00 Ceuta</option><option value=\"Africa/Addis_Ababa\">UTC +03:00 East Africa Time</option></optgroup><optgroup label=\"America\"><option value=\"America/Adak\">UTC -09:00 Adak, Atka</option><option value=\"America/Anchorage\">UTC -08:00 Anchorage, Juneau, Metlakatla, Nome</option><option value=\"America/Creston\">UTC -07:00 Arizona &amp; Yukon Time</option><option value=\"America/Ensenada\">UTC -07:00 Pacific Time</option><option value=\"America/Belize\">UTC -06:00 Central Standard Time</option><option value=\"America/Boise\">UTC -06:00 Mountain Time</option><option value=\"America/Chihuahua\">UTC -06:00 Chihuahua, Mazatlan</option><option value=\"America/Atikokan\">UTC -05:00 Jamaica, Panama, Colombia</option><option value=\"America/Bahia_Banderas\">UTC -05:00 Bahia Banderas, Merida, Mexico City, Monterrey</option><option value=\"America/Chicago\">UTC -05:00 Central Time</option><option value=\"America/Anguilla\">UTC -04:00 Eastern Caribbean Time</option><option value=\"America/Asuncion\">UTC -04:00 Asuncion</option><option value=\"America/Detroit\">UTC -04:00 Eastern Time</option><option value=\"America/Havana\">UTC -04:00 Havana</option><option value=\"America/Santiago\">UTC -04:00 Santiago</option><option value=\"America/Araguaina\">UTC -03:00 Argentina, Brazil</option><option value=\"America/Glace_Bay\">UTC -03:00 Glace Bay, Goose Bay, Halifax, Moncton</option><option value=\"America/Godthab\">UTC -02:00 Godthab, Nuuk</option><option value=\"America/Miquelon\">UTC -02:00 Miquelon</option><option value=\"America/Noronha\">UTC -02:00 Noronha</option><option value=\"America/St_Johns\">UTC -02:30 St Johns</option><option value=\"America/Danmarkshavn\">UTC +00:00 Danmarkshavn</option><option value=\"America/Scoresbysund\">UTC +00:00 Scoresbysund</option></optgroup><optgroup label=\"Antarctica\"><option value=\"Antarctica/Palmer\">UTC -03:00 Palmer, Rothera</option><option value=\"Antarctica/Troll\">UTC +02:00 Troll</option><option value=\"Antarctica/Syowa\">UTC +03:00 Syowa</option><option value=\"Antarctica/Mawson\">UTC +05:00 Mawson</option><option value=\"Antarctica/Vostok\">UTC +06:00 Vostok</option><option value=\"Antarctica/Davis\">UTC +07:00 Davis</option><option value=\"Antarctica/DumontDUrville\">UTC +10:00 DumontDUrville</option><option value=\"Antarctica/Macquarie\">UTC +10:00 Macquarie</option><option value=\"Antarctica/Casey\">UTC +11:00 Casey</option><option value=\"Antarctica/McMurdo\">UTC +12:00 McMurdo, South Pole</option></optgroup><optgroup label=\"Arctic\"><option value=\"Arctic/Longyearbyen\">UTC +02:00 Longyearbyen</option></optgroup><optgroup label=\"Asia\"><option value=\"Asia/Aden\">UTC +03:00 Baghdad, Bahrain, Istanbul, Qatar</option><option value=\"Asia/Amman\">UTC +03:00 Amman</option><option value=\"Asia/Beirut\">UTC +03:00 Beirut</option><option value=\"Asia/Damascus\">UTC +03:00 Damascus</option><option value=\"Asia/Famagusta\">UTC +03:00 Famagusta, Nicosia</option><option value=\"Asia/Gaza\">UTC +03:00 Gaza, Hebron</option><option value=\"Asia/Jerusalem\">UTC +03:00 Jerusalem, Tel Aviv</option><option value=\"Asia/Baku\">UTC +04:00 Baku, Dubai, Muscat, Tbilisi</option><option value=\"Asia/Kabul\">UTC +04:30 Kabul</option><option value=\"Asia/Tehran\">UTC +04:30 Tehran</option><option value=\"Asia/Aqtau\">UTC +05:00 Aqtau, Aqtobe, Ashgabat, Ashkhabad</option><option value=\"Asia/Calcutta\">UTC +05:30 New Delhi, Mumbai, Calcutta</option><option value=\"Asia/Kathmandu\">UTC +05:45 Kathmandu, Katmandu</option><option value=\"Asia/Almaty\">UTC +06:00 Almaty, Bishkek, Dacca, Dhaka</option><option value=\"Asia/Rangoon\">UTC +06:30 Rangoon, Yangon</option><option value=\"Asia/Bangkok\">UTC +07:00 Indochina Time</option><option value=\"Asia/Brunei\">UTC +08:00 China, Hong Kong, Singapore</option><option value=\"Asia/Chita\">UTC +09:00 Seoul, Tokyo</option><option value=\"Asia/Ust-Nera\">UTC +10:00 Ust-Nera, Vladivostok</option><option value=\"Asia/Magadan\">UTC +11:00 Magadan, Sakhalin, Srednekolymsk</option><option value=\"Asia/Anadyr\">UTC +12:00 Anadyr, Kamchatka</option></optgroup><optgroup label=\"Atlantic\"><option value=\"Atlantic/Bermuda\">UTC -03:00 Bermuda</option><option value=\"Atlantic/Stanley\">UTC -03:00 Stanley</option><option value=\"Atlantic/South_Georgia\">UTC -02:00 South Georgia</option><option value=\"Atlantic/Cape_Verde\">UTC -01:00 Cape Verde</option><option value=\"Atlantic/Azores\">UTC +00:00 Azores</option><option value=\"Atlantic/Reykjavik\">UTC +00:00 Reykjavik, St Helena</option><option value=\"Atlantic/Canary\">UTC +01:00 Canary, Faeroe, Faroe, Madeira</option><option value=\"Atlantic/Jan_Mayen\">UTC +02:00 Jan Mayen</option></optgroup><optgroup label=\"Australia\"><option value=\"Australia/Eucla\">UTC +08:45 Eucla</option><option value=\"Australia/Perth\">UTC +08:00 Perth, West</option><option value=\"Australia/Adelaide\">UTC +09:30 Adelaide, Broken Hill, South, Yancowinna</option><option value=\"Australia/Darwin\">UTC +09:30 Darwin, North</option><option value=\"Australia/ACT\">UTC +10:00 Australian Eastern Time</option><option value=\"Australia/Brisbane\">UTC +10:00 Brisbane, Lindeman, Queensland</option><option value=\"Australia/LHI\">UTC +10:30 LHI, Lord Howe</option></optgroup><optgroup label=\"Brazil\"><option value=\"Brazil/Acre\">UTC -05:00 Acre</option><option value=\"Brazil/West\">UTC -04:00 West</option><option value=\"Brazil/East\">UTC -03:00 East</option><option value=\"Brazil/DeNoronha\">UTC -02:00 DeNoronha</option></optgroup><optgroup label=\"Chile\"><option value=\"Chile/EasterIsland\">UTC -06:00 EasterIsland</option><option value=\"Chile/Continental\">UTC -04:00 Continental</option></optgroup><optgroup label=\"Indian\"><option value=\"Indian/Antananarivo\">UTC +03:00 Antananarivo, Comoro, Mayotte</option><option value=\"Indian/Mahe\">UTC +04:00 Mahe, Mauritius, Reunion</option><option value=\"Indian/Kerguelen\">UTC +05:00 Kerguelen, Maldives</option><option value=\"Indian/Chagos\">UTC +06:00 Chagos</option><option value=\"Indian/Cocos\">UTC +06:30 Cocos</option><option value=\"Indian/Christmas\">UTC +07:00 Christmas</option></optgroup><optgroup label=\"Mexico\"><option value=\"Mexico/BajaNorte\">UTC -07:00 BajaNorte</option><option value=\"Mexico/BajaSur\">UTC -06:00 BajaSur</option><option value=\"Mexico/General\">UTC -05:00 General</option></optgroup><optgroup label=\"Pacific\"><option value=\"Pacific/Midway\">UTC -11:00 Midway, Niue, Pago Pago, Samoa</option><option value=\"Pacific/Honolulu\">UTC -10:00 Honolulu, Johnston, Rarotonga, Tahiti</option><option value=\"Pacific/Gambier\">UTC -09:00 Gambier</option><option value=\"Pacific/Marquesas\">UTC -09:30 Marquesas</option><option value=\"Pacific/Pitcairn\">UTC -08:00 Pitcairn</option><option value=\"Pacific/Easter\">UTC -06:00 Easter</option><option value=\"Pacific/Galapagos\">UTC -06:00 Galapagos</option><option value=\"Pacific/Palau\">UTC +09:00 Palau</option><option value=\"Pacific/Chuuk\">UTC +10:00 Chuuk, Guam, Port Moresby, Saipan</option><option value=\"Pacific/Bougainville\">UTC +11:00 Bougainville, Efate, Guadalcanal, Kosrae</option><option value=\"Pacific/Norfolk\">UTC +11:00 Norfolk</option><option value=\"Pacific/Auckland\">UTC +12:00 Auckland</option><option value=\"Pacific/Chatham\">UTC +12:45 Chatham</option><option value=\"Pacific/Fiji\">UTC +12:00 Fiji</option><option value=\"Pacific/Funafuti\">UTC +12:00 Funafuti, Kwajalein, Majuro, Nauru</option><option value=\"Pacific/Apia\">UTC +13:00 Apia</option><option value=\"Pacific/Enderbury\">UTC +13:00 Enderbury, Fakaofo, Tongatapu</option><option value=\"Pacific/Kiritimati\">UTC +14:00 Kiritimati</option></optgroup><optgroup label=\"Etc\"><option value=\"Etc/GMT\">Etc/GMT</option><option value=\"Etc/GMT+1\">Etc/GMT+1</option><option value=\"Etc/GMT+2\">Etc/GMT+2</option><option value=\"Etc/GMT+3\">Etc/GMT+3</option><option value=\"Etc/GMT+4\">Etc/GMT+4</option><option value=\"Etc/GMT+5\">Etc/GMT+5</option><option value=\"Etc/GMT+6\">Etc/GMT+6</option><option value=\"Etc/GMT+7\">Etc/GMT+7</option><option value=\"Etc/GMT+8\">Etc/GMT+8</option><option value=\"Etc/GMT+9\">Etc/GMT+9</option><option value=\"Etc/GMT+10\">Etc/GMT+10</option><option value=\"Etc/GMT+11\">Etc/GMT+11</option><option value=\"Etc/GMT+12\">Etc/GMT+12</option><option value=\"Etc/GMT-1\">Etc/GMT-1</option><option value=\"Etc/GMT-2\">Etc/GMT-2</option><option value=\"Etc/GMT-3\">Etc/GMT-3</option><option value=\"Etc/GMT-4\">Etc/GMT-4</option><option value=\"Etc/GMT-5\">Etc/GMT-5</option><option value=\"Etc/GMT-6\">Etc/GMT-6</option><option value=\"Etc/GMT-7\">Etc/GMT-7</option><option value=\"Etc/GMT-8\">Etc/GMT-8</option><option value=\"Etc/GMT-9\">Etc/GMT-9</option><option value=\"Etc/GMT-10\">Etc/GMT-10</option><option value=\"Etc/GMT-11\">Etc/GMT-11</option><option value=\"Etc/GMT-12\">Etc/GMT-12</option><option value=\"Etc/GMT-13\">Etc/GMT-13</option><option value=\"Etc/GMT-14\">Etc/GMT-14</option><option value=\"Etc/UTC\">Etc/UTC</option></optgroup></select>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"custom-google-label-style module hide field\" data-input-colorful-border=\"true\">\r\n                        <label for=\"title\" class=\"color-light-blue active-label\">{{'push-notifications-date' | translate}}</label>\r\n                        <input autocomplete=\"off\" type=\"text\" maxlength=\"255\" id=\"datetimepicker\" class=\"full-rounded form-field light-blue-border-color datetimepicker colorful-border\"/>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"buttons inline-block-top text-right\">\r\n                <button type=\"button\" class=\"schedule-button module light-blue-white-button lato-bold margin-right-10 padding-left-10 padding-right-20\"><span class=\"light-blue-border-color inline-block custom-dot margin-right-10\"><span class=\"inner-dot\"></span></span> <span class=\"inline-block\">{{'push-notifications-schedule' | translate}}</span></button>\r\n                <button type=\"button\" class=\"module lato-bold white-light-blue-button padding-left-20 padding-right-20 send-now\" [attr.data-send-now]=\"'push-notifications-send-now' | translate\" [attr.data-save-now]=\"'push-notifications-save-now' | translate\">{{'push-notifications-send-now' | translate}}</button>\r\n            </div>\r\n        </div>\r\n        <div class=\"custom-response hide\" [attr.data-push-notifications-sent-success]=\"'push-notifications-sent-successfully' | translate\" [attr.data-push-notifications-register-success]=\"'push-notifications-register-successfully' | translate\" [attr.data-push-notifications-failed]=\"'general-error' | translate\" [attr.data-push-notifications-missing-patients]=\"'push-notifications-missing-patients' | translate\" [attr.data-push-notifications-limit-reached]=\"'push-notifications-limit-reached' | translate\"></div>\r\n    </div>\r\n</div>\r\n<div class=\"fs-18 custom-data-table padding-top-70 padding-top-xs-30 admin-container\" *ngIf=\"showPushNotificationsHistory\">\r\n    <div class=\"table-wrapper\">\r\n        <table class=\"table table-without-reorder\">\r\n            <thead>\r\n                <tr>\r\n                    <th>{{'push-notifications-date' | translate}}</th>\r\n                    <th>{{'push-notifications-title' | translate}}</th>\r\n                    <th>{{'push-notifications-message' | translate}}</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n            <ng-container *ngFor=\"let push_notification of push_notifications; index as i;\">\r\n                <tr>\r\n                    <td>{{push_notification.date}}</td>\r\n                    <td class=\"lato-bold\">{{push_notification.title}}</td>\r\n                    <td>{{push_notification.message}}</td>\r\n            </ng-container>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -155,6 +155,17 @@ module.exports = "<div class=\"container homepage-container\">\r\n    <div class
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/landing-page/landing-page.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/landing-page/landing-page.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"landing-page-container\">\r\n    <section class=\"container-fluid padding-top-15 padding-bottom-10 section-header\" [attr.data-loggedin]=\"isNotAPartnerDentistLoggedIn == true ? 'true' : null\">\r\n        <div class=\"row\">\r\n            <figure itemscope=\"\" itemtype=\"http://schema.org/Organization\" class=\"col-xs-4 padding-right-xs-0\">\r\n                <a itemprop=\"url\" routerLink=\"/\">\r\n                    <img src=\"assets/images/hub-app-white-logo-with-text.svg\" itemprop=\"logo\" alt=\"Dentacoin logo\" class=\"max-width-150 width-100\"/>\r\n                </a>\r\n            </figure>\r\n            <div class=\"col-xs-8 text-right\">\r\n                <a [routerLink]=\"['/'+translate.currentLang+'/admin-login']\" *ngIf=\"isNotAPartnerDentistLoggedIn == false\" itemprop=\"url\" class=\"module black-white-button\">SIGN IN</a>\r\n                <div *ngIf=\"isNotAPartnerDentistLoggedIn == true\" class=\"fs-14 inline-block-top padding-bottom-15 logged-in-content\">\r\n                    <div class=\"inline-block\">\r\n                        <div class=\"padding-bottom-5\">{{dentistData.name}}</div>\r\n                        <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>\r\n                    </div>\r\n                    <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"inline-block margin-left-15 max-width-40 dentist-avatar\">\r\n                        <img alt=\"Dentist avatar\" class=\"width-100\" src=\"{{dentistData.avatar_url}}\"/>\r\n                    </figure>\r\n                    <div class=\"logout-button\">\r\n                        <span class=\"up-arrow\">▲</span>\r\n                        <a href=\"javascript:void(0)\" itemprop=\"url\" class=\"inline-block logout margin-right-15\" (click)=\"this.authenticationServiceService.logout('dentist')\">\r\n                            <span class=\"inline-block fs-16\"><i class=\"fa fa-power-off\" aria-hidden=\"true\"></i> {{'admin-menu-element-logout' | translate}}</span>\r\n                        </a>\r\n                        <a href=\"{{myAccountLink}}\" target=\"_blank\" itemprop=\"url\" class=\"inline-block module white-light-blue-button lato-bold my-account\">My Account</a>\r\n                    </div>\r\n                </div>\r\n                <!--<div class=\"lang-switcher inline-block-top margin-left-10\">\r\n                    <select (change)=\"this.languageService.onLangSwitcherChange($event.target.value)\" class=\"platform-text-color fix-selects-for-ios\">\r\n                        <option class=\"color-main\" value=\"en\" *ngIf=\"(translate.currentLang == 'en')\" selected>EN</option>\r\n                        <option class=\"color-main\" value=\"de\" *ngIf=\"(translate.currentLang == 'en')\">DE</option>\r\n                        <option class=\"color-main\" value=\"en\" *ngIf=\"(translate.currentLang == 'de')\">EN</option>\r\n                        <option class=\"color-main\" value=\"de\" *ngIf=\"(translate.currentLang == 'de')\" selected>DE</option>\r\n                    </select>\r\n                </div>-->\r\n            </div>\r\n        </div>\r\n    </section>\r\n    <section class=\"section-top-image\">\r\n        <div class=\"top-image-wrapper\">\r\n            <picture itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"top-image\">\r\n                <source media=\"(max-width: 768px)\" srcset=\"assets/images/mobile-image.png\">\r\n                <img alt=\"Header image\" src=\"assets/images/header-image.png\" itemprop=\"contentUrl\"/>\r\n            </picture>\r\n            <div class=\"top-image-description text-center-xs padding-bottom-xs-60\">\r\n                <h1 class=\"fs-46 fs-md-34 fs-xs-28 line-height-xs-32 line-height-54 fs-sm-26 line-height-sm-30 lato-bold color-black\">LAUNCH YOUR <br class=\"hide-xs\"> OWN LOYALTY APP</h1>\r\n                <div class=\"fs-28 fs-sm-20 fs-xs-20 lato-light padding-top-15 padding-bottom-25 padding-bottom-sm-15 padding-bottom-xs-15\">Retain and reward loyal patients at no cost</div>\r\n                <a [routerLink]=\"['/'+translate.currentLang+'/dentist-request-account']\" itemprop=\"url\" class=\"module white-light-blue-button fs-24 lato-bold padding-left-40 padding-right-40\">START NOW</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"delimeter\">\r\n            <div class=\"line\"></div>\r\n            <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"tile-image\">\r\n                <img alt=\"Tile image\" src=\"assets/images/absolute-element.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                <figcaption class=\"color-white lato-bold text-center fs-18 fs-xs-14 padding-bottom-20 padding-bottom-xs-10 padding-right-10\">NO DEVELOPMENT NEEDED</figcaption>\r\n            </figure>\r\n        </div>\r\n    </section>\r\n    <section class=\"section-everything-you-need\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 padding-top-100 padding-bottom-50 text-center padding-top-xs-60\">\r\n                    <h2 class=\"lato-bold fs-38 fs-xs-24 color-mid-gray\">EVERYTHING YOU NEED TO <br class=\"hide-xs\"> GET MORE LOYAL PATIENTS</h2>\r\n                </div>\r\n            </div>\r\n            <div class=\"row fs-0 text-center-xs padding-bottom-xs-50\">\r\n                <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"col-xs-12 col-sm-6 padding-right-60 inline-block padding-bottom-xs-20 padding-right-xs-15\">\r\n                    <img alt=\"Phone image\" src=\"assets/images/phone-img1.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                </figure>\r\n                <div class=\"col-xs-12 col-sm-6 color-black inline-block\">\r\n                    <h3 class=\"fs-36 line-height-40 fs-xs-26 line-height-xs-28 fs-sm-24 line-height-sm-28 lato-bold padding-bottom-15\">Use a ready mobile app with your patients</h3>\r\n                    <div class=\"fs-18 fs-xs-16\">Customize it with your own logo, colors, and shortcuts for appointments booking, your website,featured treatments and any other information you want to emphasize.</div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row fs-0 flex text-center-xs padding-bottom-xs-50\">\r\n                <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"col-xs-12 col-sm-7 inline-block padding-bottom-xs-20\">\r\n                    <img alt=\"Phone image\" src=\"assets/images/phone-img2.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                </figure>\r\n                <div class=\"col-xs-12 col-sm-5 color-black inline-block content\">\r\n                    <h3 class=\"fs-36 line-height-40 fs-xs-26 line-height-xs-28 fs-sm-24 line-height-sm-28 lato-bold padding-bottom-15\">Drive loyalty with free rewards for your patients</h3>\r\n                    <div class=\"fs-18 fs-xs-16\">Patients earn rewards in Dentacoin digital currency through the app for various  activities such as submitting an online review for your practice, participating in surveys on dental topics, and improving their oral care routine.</div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row fs-0 text-center-xs\">\r\n                <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"col-xs-12 col-sm-6 padding-right-60 inline-block padding-bottom-xs-20 padding-right-xs-15\">\r\n                    <img alt=\"Phone image\" src=\"assets/images/phone-img3.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                </figure>\r\n                <div class=\"col-xs-12 col-sm-6 color-black inline-block\">\r\n                    <h3 class=\"fs-36 line-height-40 fs-xs-26 line-height-xs-28 fs-sm-24 line-height-sm-28 lato-bold padding-bottom-15\">Deliver notifications to patient’s smart phone</h3>\r\n                    <div class=\"fs-18 fs-xs-16\">Send push notifications for promotions, special offers, change of hours and other updates to engage and keep in touch with patients. No coding experience needed!</div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 col-sm-10 col-sm-offset-1 text-center padding-top-50\">\r\n                    <div class=\"padding-bottom-80\">\r\n                        <a [routerLink]=\"['/'+translate.currentLang+'/dentist-request-account']\" itemprop=\"url\" class=\"module white-light-blue-button fs-24 lato-bold padding-left-40 padding-right-40\">START NOW</a>\r\n                    </div>\r\n                    <div class=\"small-delimeter-line\"></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </section>\r\n    <section class=\"section-how-it-works padding-bottom-120\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 text-center\">\r\n                    <h2 class=\"lato-bold fs-38 fs-xs-24 color-mid-gray padding-top-30 padding-bottom-50\">HOW IT WORKS</h2>\r\n                </div>\r\n            </div>\r\n            <div class=\"row list-with-icons\">\r\n                <div class=\"col-xs-12 col-sm-10 col-sm-offset-1 fs-0\">\r\n                    <div class=\"padding-bottom-20 padding-bottom-xs-40\">\r\n                        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"icon inline-block\">\r\n                            <img alt=\"How it works image\" src=\"assets/images/steps-icon1.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                        </figure>\r\n                        <div class=\"content inline-block\"><span class=\"lato-bold fs-22 fs-xs-18\">Create a dentist profile on dentacoin.com</span>\r\n                            <a *ngIf=\"isNotAPartnerDentistLoggedIn == false\" href=\"https://dentacoin.com/?dcn-gateway-type=dentist-register\" target=\"_blank\" class=\"white-purple-gradient-button module lato-bold margin-left-25 padding-left-50 padding-right-50 fs-20\">SIGN UP</a>\r\n                            <span *ngIf=\"isNotAPartnerDentistLoggedIn == true\" class=\"white-gray-button-with-check module lato-bold margin-left-25 padding-left-30 padding-right-60 fs-20\">SIGNED</span>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"padding-bottom-20 padding-bottom-xs-40\">\r\n                        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"icon inline-block\">\r\n                            <img alt=\"How it works image\" src=\"assets/images/steps-icon2.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                        </figure>\r\n                        <div class=\"content inline-block\"><span class=\"lato-bold fs-22 fs-xs-18\">Wait for a verification email from the Onboarding Team</span></div>\r\n                    </div>\r\n                    <div class=\"padding-bottom-20 padding-bottom-xs-40\">\r\n                        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"icon inline-block\">\r\n                            <img alt=\"How it works image\" src=\"assets/images/steps-icon3.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                        </figure>\r\n                        <div class=\"content inline-block\"><span class=\"lato-bold fs-22 fs-xs-18\">Join Dentacoin partner network</span> <a [routerLink]=\"['/'+translate.currentLang+'/dentist-request-account']\" class=\"white-purple-gradient-button module lato-bold margin-left-25 padding-left-50 padding-right-50 fs-20\">JOIN NOW</a></div>\r\n                    </div>\r\n                    <div class=\"padding-bottom-20 padding-bottom-xs-40\">\r\n                        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"icon inline-block\">\r\n                            <img alt=\"How it works image\" src=\"assets/images/steps-icon4.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                        </figure>\r\n                        <div class=\"content inline-block\"><span class=\"lato-bold fs-22 fs-xs-18\">Access and customize your app screen</span></div>\r\n                    </div>\r\n                    <div class=\"padding-bottom-20 padding-bottom-xs-40\">\r\n                        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"icon inline-block\">\r\n                            <img alt=\"How it works image\" src=\"assets/images/steps-icon5.png\" itemprop=\"contentUrl\" class=\"width-100\"/>\r\n                        </figure>\r\n                        <div class=\"content inline-block\"><span class=\"lato-bold fs-22 fs-xs-18\">Invite patients to download your app</span></div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </section>\r\n</div>\r\n<section class=\"section-footer padding-bottom-30 padding-top-40 color-white\">\r\n    <div class=\"container\">\r\n        <div class=\"row fs-0\">\r\n            <div class=\"col-xs-12 col-md-3 inline-block text-center-xs text-center-sm padding-bottom-xs-20 padding-bottom-sm-20\">\r\n                <figure itemscope=\"\" itemtype=\"http://schema.org/Organization\">\r\n                    <a itemprop=\"url\" href=\"//dentacoin.com\" class=\"fs-14\">\r\n                        <img src=\"assets/images/round-logo-white.svg\" itemprop=\"logo\" class=\"max-width-30\" alt=\"Dentacoin logo\"/>\r\n                        <span class=\"color-white padding-left-10 inline-block\">Powered by Dentacoin</span>\r\n                    </a>\r\n                </figure>\r\n            </div>\r\n            <div class=\"col-xs-12 col-md-6 text-center inline-block padding-bottom-xs-20 padding-bottom-sm-20\">\r\n                <ul itemscope=\"\" itemtype=\"http://schema.org/SiteNavigationElement\" class=\"fs-14\">\r\n                    <li class=\"inline-block-top\"><a target=\"_blank\" itemprop=\"url\" href=\"https://hubapp.dentacoin.com/patients\"><span class=\"color-white\" itemprop=\"name\">for Patients</span></a></li>\r\n                    <li class=\"inline-block-top separator\">|</li>\r\n                    <li class=\"inline-block-top\"><a target=\"_blank\" itemprop=\"url\" href=\"https://dentavox.dentacoin.com/\" class=\"vox-link-tracker\"><span class=\"color-white\" itemprop=\"name\">DentaVox</span></a></li>\r\n                    <li class=\"inline-block-top separator\">|</li>\r\n                    <li class=\"inline-block-top\"><a target=\"_blank\" itemprop=\"url\" href=\"https://reviews.dentacoin.com/\" class=\"trp-link-tracker\"><span class=\"color-white\" itemprop=\"name\">Trusted Reviews</span></a></li>\r\n                    <li class=\"inline-block-top separator\">|</li>\r\n                    <li class=\"inline-block-top\"><a target=\"_blank\" itemprop=\"url\" href=\"https://assurance.dentacoin.com/\"><span class=\"color-white\" itemprop=\"name\">Assurance</span></a></li>\r\n                    <li class=\"inline-block-top separator\">|</li>\r\n                    <li class=\"inline-block-top\"><a target=\"_blank\" itemprop=\"url\" href=\"https://wallet.dentacoin.com/\"><span class=\"color-white\" itemprop=\"name\">Wallet</span></a></li>\r\n                    <li class=\"inline-block-top separator\">|</li>\r\n                    <li class=\"inline-block-top\"><a target=\"_blank\" itemprop=\"url\" href=\"https://jawsofbattle.dentacoin.com/\"><span class=\"color-white\" itemprop=\"name\">Jaws of Battle</span></a></li> </ul>\r\n            </div>\r\n            <div class=\"col-xs-12 col-md-3 inline-block text-right socials text-center-xs text-center-sm\" itemscope=\"\" itemtype=\"http://schema.org/Organization\">\r\n                <link itemprop=\"url\" [routerLink]=\"['/'+translate.currentLang]\">\r\n                <ul class=\"inline-block\">\r\n                    <li class=\"inline-block fs-14\">Stay in the loop: </li>\r\n                    <li class=\"inline-block\">\r\n                        <a itemprop=\"sameAs\" target=\"_blank\" href=\"https://www.facebook.com/dentacare.dentacoin/\"><i class=\"fa fa-facebook\" aria-hidden=\"true\"></i></a>\r\n                    </li>\r\n                    <li class=\"inline-block telegram\">\r\n                        <a itemprop=\"sameAs\" target=\"_blank\" href=\"https://t.me/dentacoin\"><i class=\"fa fa-telegram\"></i></a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 text-center fs-14 padding-top-20 fs-12\">© {{year}} Dentacoin Foundation. All rights reserved.</div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/logged-in-wrapper/logged-in-wrapper.component.html":
 /*!**********************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/logged-in-wrapper/logged-in-wrapper.component.html ***!
@@ -228,7 +239,7 @@ module.exports = "<div class=\"row padding-top-50 padding-top-xs-10 patient-logi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row padding-top-50 padding-top-xs-10 patient-register-by-invite\" [attr.data-cookies-error]=\"'cookies-error' | translate\" [attr.data-years-and-privacy-error]=\"'years-and-privacy-error' | translate\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 max-width-xs-100 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-20 lato-light padding-top-15 padding-bottom-30 padding-bottom-xs-0\">{{'patients-register-title' | translate}}</h1>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 register-parent\">\n        <div class=\"max-width-400 margin-0-auto form-register-fields\">\n            <div class=\"error-handle margin-bottom-20 custom-error hide\" id=\"custom-error\"></div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-register-failed\">{{'general-error' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-register-failed-missing-email\">{{'patient-login-failed-missing-email' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-register-failed-not-a-patient-of-any-dentist\">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>\n            <div class=\"padding-top-20 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviter\" [attr.data-inviteid]=\"inviteId\" class=\"facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 max-width-400\">Continue with Facebook</a>\n            </div>\n            <div class=\"padding-top-10 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviter\" [attr.data-inviteid]=\"inviteId\" class=\"civic-custom-btn social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide\">Continue with Civic</a>\n            </div>\n            <div class=\"padding-top-10 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviter\" [attr.data-inviteid]=\"inviteId\" class=\"apple-custom-btn is-dcn-hub-app social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide\">Continue with Apple</a>\n            </div>\n            <div class=\"padding-top-20 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"agree-over-eighteen\"/>\n                    <label class=\"fs-15 fs-xs-16 custom-checkbox-label\" for=\"agree-over-eighteen\">{{'i-confirm' | translate}}</label>\n                </div>\n            </div>\n            <div class=\"patient-register-checkboxes padding-top-5 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"privacy-policy-registration-patient\"/>\n                    <label class=\"fs-15 fs-xs-16 custom-checkbox-label\" for=\"privacy-policy-registration-patient\">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a> {{'i-agree-end' | translate}}.</label>\n                </div>\n            </div>\n            <div class=\"links-below-registration margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color\">\n                <a *ngIf=\"(inviter == '' && inviteId == '')\" [routerLink]=\"['/'+translate.currentLang+'/login']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color\">{{'login-here' | translate}}</a>\n                <a *ngIf=\"(inviter != '' && inviteId != '')\" [routerLink]=\"['/'+translate.currentLang+'/login']\" [queryParams]=\"{invite: inviter, inviteid: inviteId}\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color\">{{'login-here' | translate}}</a>\n                |\n                <a [routerLink]=\"['/'+translate.currentLang+'/request-account']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color\">{{'request-account-btn' | translate}}</a>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row padding-top-50 padding-top-xs-10 patient-register-by-invite\" [attr.data-cookies-error]=\"'cookies-error' | translate\" [attr.data-years-and-privacy-error]=\"'years-and-privacy-error' | translate\">\n    <div class=\"col-xs-12 text-center\">\n        <figure itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" class=\"max-width-150 max-width-xs-100 margin-0-auto\">\n            <img alt=\"Hub icon\" class=\"width-100\" src=\"assets/images/hub-icon-white.png\"/>\n        </figure>\n        <h1 class=\"fs-20 lato-light padding-top-15 padding-bottom-30 padding-bottom-xs-0\">{{'patients-register-title' | translate}}</h1>\n    </div>\n    <div class=\"col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 register-parent\">\n        <div class=\"max-width-400 margin-0-auto form-register-fields\">\n            <div class=\"error-handle margin-bottom-20 custom-error hide\" id=\"custom-error\"></div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed\">{{'general-error' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-missing-email\">{{'patient-login-failed-missing-email' | translate}}</div>\n            <div class=\"error-handle margin-bottom-20 hide\" id=\"patient-login-failed-not-a-patient-of-any-dentist\">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>\n            <div class=\"padding-top-20 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviter\" [attr.data-inviteid]=\"inviteId\" class=\"facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 max-width-400\">Continue with Facebook</a>\n            </div>\n            <div class=\"padding-top-10 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviter\" [attr.data-inviteid]=\"inviteId\" class=\"civic-custom-btn social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide\">Continue with Civic</a>\n            </div>\n            <div class=\"padding-top-10 text-center\">\n                <a href=\"javascript:void(0)\" [attr.data-platform]=\"'dentacoin'\" [attr.data-url]=\"coreDbApiDomain + '/api/register'\" [attr.custom-stopper]=\"'true'\" [attr.data-inviter]=\"inviter\" [attr.data-inviteid]=\"inviteId\" class=\"apple-custom-btn is-dcn-hub-app social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide\">Continue with Apple</a>\n            </div>\n            <div class=\"padding-top-20 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"agree-over-eighteen\"/>\n                    <label class=\"fs-15 fs-xs-16 custom-checkbox-label\" for=\"agree-over-eighteen\">{{'i-confirm' | translate}}</label>\n                </div>\n            </div>\n            <div class=\"patient-register-checkboxes padding-top-5 margin-0-auto\">\n                <div class=\"custom-checkbox-style module\">\n                    <input type=\"checkbox\" class=\"custom-checkbox-input\" id=\"privacy-policy-registration-patient\"/>\n                    <label class=\"fs-15 fs-xs-16 custom-checkbox-label\" for=\"privacy-policy-registration-patient\">{{'i-agree' | translate}} <a href='https://dentacoin.com/privacy-policy' class='in-app-browser-link platform-color lato-bold' target='_blank'>{{'privacy-policy' | translate}}</a> {{'i-agree-end' | translate}}.</label>\n                </div>\n            </div>\n            <div class=\"links-below-registration margin-0-auto padding-top-20 margin-top-50 padding-bottom-10 text-center fs-16 platform-color\">\n                <a *ngIf=\"(inviter == '' && inviteId == '')\" [routerLink]=\"['/'+translate.currentLang+'/login']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color\">{{'login-here' | translate}}</a>\n                <a *ngIf=\"(inviter != '' && inviteId != '')\" [routerLink]=\"['/'+translate.currentLang+'/login']\" [queryParams]=\"{invite: inviter, inviteid: inviteId}\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color\">{{'login-here' | translate}}</a>\n                |\n                <a [routerLink]=\"['/'+translate.currentLang+'/request-account']\" itemprop=\"url\" class=\"text-decoration-underline padding-left-5 padding-right-5 fs-18 fs-xs-16 lato-bold platform-color\">{{'request-account-btn' | translate}}</a>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -315,6 +326,14 @@ var AdditionalService = /** @class */ (function () {
             return _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentDentist')).encrypted_token);
         }
     };
+    AdditionalService.prototype.generateNotAPartnerDentistAccountLink = function () {
+        if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].hybrid === true) {
+            return _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].accountDomain + '/custom-cookie?mobile-app=hubapp&slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).encrypted_token);
+        }
+        else {
+            return _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].accountDomain + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).encrypted_token);
+        }
+    };
     AdditionalService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -358,6 +377,7 @@ var AuthenticationServiceService = /** @class */ (function () {
         this.redirectsService = redirectsService;
         this.requestsService = requestsService;
         this.isDentistLoggedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](this.hasDentistStorageSession());
+        this.isNotAPartnerDentistLoggedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](this.hasNotAPartnerDentistStorageSession());
         this.isPatientLoggedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](this.hasPatientStorageSession());
         this.generalError = false;
         this.dentistAuthFailed = false;
@@ -376,7 +396,7 @@ var AuthenticationServiceService = /** @class */ (function () {
         var body = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set('email', email).set('password', password).set('platform', 'dentacoin').set('type', 'dentist');
         this.requestsService.dentistLogin(body.toString()).subscribe(function (response) {
             if (response.success) {
-                if (response.data.is_partner == true) {
+                if (response.data.is_partner == true || response.data.is_hub_app_dentist == true) {
                     console.log('partner');
                     window.scrollTo(0, 0);
                     window.localStorage.setItem('currentDentist', JSON.stringify({
@@ -386,12 +406,29 @@ var AuthenticationServiceService = /** @class */ (function () {
                         encrypted_token: response.encrypted_data.encrypted_token,
                         encrypted_type: response.encrypted_data.encrypted_type
                     }));
-                    _this.isDentistLoggedSubject.next(true);
-                    _this.redirectsService.redirectToAdmin();
+                    _this.requestsService.getDentistData(response.data.id).subscribe(function (innerResponse) {
+                        if (innerResponse.data.logo != null) {
+                            _this.isDentistLoggedSubject.next(true);
+                            _this.redirectsService.redirectToMyPatients();
+                        }
+                        else {
+                            _this.isDentistLoggedSubject.next(true);
+                            _this.redirectsService.redirectToAdmin();
+                        }
+                    });
                 }
                 else {
-                    console.log('not partner');
-                    _this.notAPartner = true;
+                    console.log('not a partner');
+                    window.scrollTo(0, 0);
+                    window.localStorage.setItem('currentNotAPartnerDentist', JSON.stringify({
+                        id: response.data.id,
+                        token: response.token,
+                        encrypted_id: response.encrypted_data.encrypted_id,
+                        encrypted_token: response.encrypted_data.encrypted_token,
+                        encrypted_type: response.encrypted_data.encrypted_type
+                    }));
+                    _this.isNotAPartnerDentistLoggedSubject.next(true);
+                    _this.redirectsService.redirectToLandingPage();
                 }
             }
             else {
@@ -431,8 +468,10 @@ var AuthenticationServiceService = /** @class */ (function () {
     };
     AuthenticationServiceService.prototype.logout = function (redirect) {
         window.localStorage.clear();
+        window.localStorage.setItem('greetNewUser', 'true');
         this.isPatientLoggedSubject.next(false);
         this.isDentistLoggedSubject.next(false);
+        this.isNotAPartnerDentistLoggedSubject.next(false);
         if (redirect === 'dentist') {
             this.redirectsService.redirectToAdminLogin();
         }
@@ -443,11 +482,17 @@ var AuthenticationServiceService = /** @class */ (function () {
     AuthenticationServiceService.prototype.hasDentistStorageSession = function () {
         return !!window.localStorage.getItem('currentDentist');
     };
+    AuthenticationServiceService.prototype.hasNotAPartnerDentistStorageSession = function () {
+        return !!window.localStorage.getItem('currentNotAPartnerDentist');
+    };
     AuthenticationServiceService.prototype.hasPatientStorageSession = function () {
         return !!window.localStorage.getItem('currentPatient');
     };
     AuthenticationServiceService.prototype.isDentistLoggedIn = function () {
         return this.isDentistLoggedSubject.asObservable();
+    };
+    AuthenticationServiceService.prototype.isNotAPartnerDentistLoggedIn = function () {
+        return this.isNotAPartnerDentistLoggedSubject.asObservable();
     };
     AuthenticationServiceService.prototype.isPatientLoggedIn = function () {
         return this.isPatientLoggedSubject.asObservable();
@@ -561,6 +606,10 @@ var RedirectsService = /** @class */ (function () {
     };
     RedirectsService.prototype.redirectToLoggedHome = function () {
         var _this = this;
+        this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/patients'); }).then();
+    };
+    RedirectsService.prototype.redirectToLandingPage = function () {
+        var _this = this;
         this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang); }).then();
     };
     RedirectsService.prototype.redirectToDentistRequestAccount = function () {
@@ -594,6 +643,10 @@ var RedirectsService = /** @class */ (function () {
     };
     RedirectsService.prototype.redirectToManagePrivacy = function () {
         this.router.navigateByUrl(this.translate.currentLang + '/manage-privacy');
+    };
+    RedirectsService.prototype.redirectToPatientInvite = function (invite, inviteId) {
+        var _this = this;
+        this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/patient-register-by-invite?invite=' + invite + '&inviteid=' + inviteId); }).then();
     };
     RedirectsService.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
@@ -689,6 +742,14 @@ var RequestsService = /** @class */ (function () {
     };
     RequestsService.prototype.getPushNotificationsHistory = function (body) {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/get-push-notifications', body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    };
+    RequestsService.prototype.getPatientsWhichCanReceivePushNotifications = function (body) {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/get-patients-which-can-receive-push-notifications', body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json'
@@ -976,7 +1037,7 @@ var AdvancedAdminPanelComponent = /** @class */ (function () {
                 _this.dentistData.avatar_url = response.data.avatar_url;
                 console.log(_this.dentistData, 'this.dentistData');
             },
-            error: function (error) { return _this.authenticationServiceService.logout('patient'); }
+            error: function (error) { return _this.authenticationServiceService.logout('dentist'); }
         });
         this.updateDentistDcnAndUsdBalance();
         if (typeof (this.updateDentistDcnAndUsdBalanceTimer) !== 'undefined') {
@@ -1004,7 +1065,7 @@ var AdvancedAdminPanelComponent = /** @class */ (function () {
                     });
                 }
             },
-            error: function (error) { return _this.authenticationServiceService.logout('patient'); }
+            error: function (error) { return _this.authenticationServiceService.logout('dentist'); }
         });
     };
     AdvancedAdminPanelComponent.ctorParameters = function () { return [
@@ -1116,6 +1177,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../node_modules/@angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _services_requests_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../_services/requests.service */ "./src/app/_services/requests.service.ts");
 /* harmony import */ var _services_additional_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../_services/additional.service */ "./src/app/_services/additional.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+
 
 
 
@@ -1124,13 +1187,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PushNotificationsComponent = /** @class */ (function () {
-    function PushNotificationsComponent(redirectsService, requestsService, authenticationServiceService, additionalService) {
+    function PushNotificationsComponent(redirectsService, requestsService, authenticationServiceService, additionalService, translate) {
         this.redirectsService = redirectsService;
         this.requestsService = requestsService;
         this.authenticationServiceService = authenticationServiceService;
         this.additionalService = additionalService;
+        this.translate = translate;
         this.showPushNotificationsHistory = false;
         this.push_notifications = [];
+        this.showCurrentDentistPatients = false;
+        this.currentDentistPatients = '';
     }
     PushNotificationsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1155,13 +1221,20 @@ var PushNotificationsComponent = /** @class */ (function () {
                     }
                 }
             });
+            this.requestsService.getPatientsWhichCanReceivePushNotifications(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpParams"]().set('id', JSON.parse(window.localStorage.getItem('currentDentist')).id).set('token', JSON.parse(window.localStorage.getItem('currentDentist')).token).toString()).subscribe(function (response) {
+                if (response.success && response.data.length) {
+                    _this.currentDentistPatients = JSON.stringify(response.data);
+                    _this.showCurrentDentistPatients = true;
+                }
+            });
         }
     };
     PushNotificationsComponent.ctorParameters = function () { return [
         { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_2__["RedirectsService"] },
         { type: _services_requests_service__WEBPACK_IMPORTED_MODULE_5__["RequestsService"] },
         { type: _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationServiceService"] },
-        { type: _services_additional_service__WEBPACK_IMPORTED_MODULE_6__["AdditionalService"] }
+        { type: _services_additional_service__WEBPACK_IMPORTED_MODULE_6__["AdditionalService"] },
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"] }
     ]; };
     PushNotificationsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1252,17 +1325,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./front-end-language/front-end-language.component */ "./src/app/front-end-language/front-end-language.component.ts");
 /* harmony import */ var _verify_account_verify_account_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./verify-account/verify-account.component */ "./src/app/verify-account/verify-account.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./my-wallet/my-wallet.component */ "./src/app/my-wallet/my-wallet.component.ts");
-/* harmony import */ var _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./edit-account/edit-account.component */ "./src/app/edit-account/edit-account.component.ts");
-/* harmony import */ var _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./manage-privacy/manage-privacy.component */ "./src/app/manage-privacy/manage-privacy.component.ts");
-/* harmony import */ var _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./logged-in-wrapper/logged-in-wrapper.component */ "./src/app/logged-in-wrapper/logged-in-wrapper.component.ts");
-/* harmony import */ var _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./request-account/request-account.component */ "./src/app/request-account/request-account.component.ts");
-/* harmony import */ var _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./forgotten-password/forgotten-password.component */ "./src/app/forgotten-password/forgotten-password.component.ts");
-/* harmony import */ var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./change-password/change-password.component */ "./src/app/change-password/change-password.component.ts");
-/* harmony import */ var _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./not-logged-in-wrapper/not-logged-in-wrapper.component */ "./src/app/not-logged-in-wrapper/not-logged-in-wrapper.component.ts");
-/* harmony import */ var _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./patient-register-by-invite/patient-register-by-invite.component */ "./src/app/patient-register-by-invite/patient-register-by-invite.component.ts");
-/* harmony import */ var _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dentist-request-account/dentist-request-account.component */ "./src/app/dentist-request-account/dentist-request-account.component.ts");
-/* harmony import */ var _admin_advanced_admin_panel_my_patients_my_patients_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/advanced-admin-panel/my-patients/my-patients.component */ "./src/app/admin/advanced-admin-panel/my-patients/my-patients.component.ts");
+/* harmony import */ var _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./landing-page/landing-page.component */ "./src/app/landing-page/landing-page.component.ts");
+/* harmony import */ var _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./my-wallet/my-wallet.component */ "./src/app/my-wallet/my-wallet.component.ts");
+/* harmony import */ var _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./edit-account/edit-account.component */ "./src/app/edit-account/edit-account.component.ts");
+/* harmony import */ var _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./manage-privacy/manage-privacy.component */ "./src/app/manage-privacy/manage-privacy.component.ts");
+/* harmony import */ var _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./logged-in-wrapper/logged-in-wrapper.component */ "./src/app/logged-in-wrapper/logged-in-wrapper.component.ts");
+/* harmony import */ var _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./request-account/request-account.component */ "./src/app/request-account/request-account.component.ts");
+/* harmony import */ var _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./forgotten-password/forgotten-password.component */ "./src/app/forgotten-password/forgotten-password.component.ts");
+/* harmony import */ var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./change-password/change-password.component */ "./src/app/change-password/change-password.component.ts");
+/* harmony import */ var _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./not-logged-in-wrapper/not-logged-in-wrapper.component */ "./src/app/not-logged-in-wrapper/not-logged-in-wrapper.component.ts");
+/* harmony import */ var _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./patient-register-by-invite/patient-register-by-invite.component */ "./src/app/patient-register-by-invite/patient-register-by-invite.component.ts");
+/* harmony import */ var _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dentist-request-account/dentist-request-account.component */ "./src/app/dentist-request-account/dentist-request-account.component.ts");
+/* harmony import */ var _admin_advanced_admin_panel_my_patients_my_patients_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/advanced-admin-panel/my-patients/my-patients.component */ "./src/app/admin/advanced-admin-panel/my-patients/my-patients.component.ts");
 
 
 
@@ -1287,17 +1361,79 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var routes = [
+
+/*const routes: Routes = [
+    {path: '', pathMatch: 'full', redirectTo: '/' + environment.default_language},
+    {path: ':lang', component: FrontEndLanguageComponent, children: [
+            {path: '', component: LoggedInWrapperComponent, children: [
+                    {path: '', component: HomeComponent},
+                    /!*{path: 'my-wallet', component: MyWalletComponent},
+                    {path: 'edit-account', component: EditAccountComponent},
+                    {path: 'manage-privacy', component: ManagePrivacyComponent},*!/
+                ]},
+            {path: '', component: NotLoggedInWrapperComponent, children: [
+                    {path: 'dentist-request-account', component: DentistRequestAccountComponent},
+                    {path: 'request-account', component: RequestAccountComponent},
+                    {path: 'login', component: PatientLoginPageComponent},
+                    {path: 'patient-register-by-invite', component: PatientRegisterByInviteComponent},
+                    /!*{path: 'forgotten-password', component: ForgottenPasswordComponent},
+                    {path: 'change-password/:token', component: ChangePasswordComponent},
+                    {path: 'verify-account', children: [
+                        {path: ':token', component: VerifyAccountComponent}
+                    ]},*!/
+                ]},
+            {path: 'admin-login', component: AdminLoginComponent},
+            {path: 'admin', component: AdminComponent,
+                children: [
+                    {
+                        path: '',
+                        component: BasicAdminPanelComponent
+                    },
+                    {
+                        path: 'advanced',
+                        component: AdvancedAdminPanelComponent,
+                        children: [
+                            {
+                                path: 'my-patients',
+                                component: MyPatientsComponent
+                            },
+                            {
+                                path: 'push-notifications',
+                                component: PushNotificationsComponent
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]},
+    {path: '**', redirectTo: '/' + environment.default_language}
+];*/
+var routes = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].hybrid ? [
     { path: '', pathMatch: 'full', redirectTo: '/' + _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].default_language },
     { path: ':lang', component: _front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_10__["FrontEndLanguageComponent"], children: [
-            { path: '', component: _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_16__["LoggedInWrapperComponent"], children: [
-                    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"] },
+            { path: '', component: _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__["LoggedInWrapperComponent"], children: [
+                    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"] }
                 ] },
-            { path: '', component: _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_20__["NotLoggedInWrapperComponent"], children: [
-                    { path: 'dentist-request-account', component: _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_22__["DentistRequestAccountComponent"] },
-                    { path: 'request-account', component: _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_17__["RequestAccountComponent"] },
+            { path: '', component: _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__["NotLoggedInWrapperComponent"], children: [
+                    { path: 'dentist-request-account', component: _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__["DentistRequestAccountComponent"] },
+                    { path: 'request-account', component: _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__["RequestAccountComponent"] },
                     { path: 'login', component: _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"] },
-                    { path: 'patient-register-by-invite', component: _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_21__["PatientRegisterByInviteComponent"] },
+                    { path: 'patient-register-by-invite', component: _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__["PatientRegisterByInviteComponent"] }
+                ] }
+        ] },
+    { path: '**', redirectTo: '/' + _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].default_language }
+] : [
+    { path: '', pathMatch: 'full', redirectTo: '/' + _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].default_language },
+    { path: ':lang', component: _front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_10__["FrontEndLanguageComponent"], children: [
+            { path: '', component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_13__["LandingPageComponent"] },
+            { path: '', component: _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__["LoggedInWrapperComponent"], children: [
+                    { path: 'patients', component: _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"] }
+                ] },
+            { path: '', component: _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__["NotLoggedInWrapperComponent"], children: [
+                    { path: 'dentist-request-account', component: _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__["DentistRequestAccountComponent"] },
+                    { path: 'request-account', component: _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__["RequestAccountComponent"] },
+                    { path: 'login', component: _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"] },
+                    { path: 'patient-register-by-invite', component: _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__["PatientRegisterByInviteComponent"] }
                 ] },
             { path: 'admin-login', component: _admin_login_admin_login_component__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"] },
             { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"],
@@ -1312,7 +1448,7 @@ var routes = [
                         children: [
                             {
                                 path: 'my-patients',
-                                component: _admin_advanced_admin_panel_my_patients_my_patients_component__WEBPACK_IMPORTED_MODULE_23__["MyPatientsComponent"]
+                                component: _admin_advanced_admin_panel_my_patients_my_patients_component__WEBPACK_IMPORTED_MODULE_24__["MyPatientsComponent"]
                             },
                             {
                                 path: 'push-notifications',
@@ -1337,7 +1473,7 @@ var AppRoutingModule = /** @class */ (function () {
     return AppRoutingModule;
 }());
 
-var routingComponents = [_front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_10__["FrontEndLanguageComponent"], _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"], _admin_basic_admin_panel_basic_admin_panel_component__WEBPACK_IMPORTED_MODULE_6__["BasicAdminPanelComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"], _admin_advanced_admin_panel_advanced_admin_panel_component__WEBPACK_IMPORTED_MODULE_7__["AdvancedAdminPanelComponent"], _admin_advanced_admin_panel_push_notifications_push_notifications_component__WEBPACK_IMPORTED_MODULE_8__["PushNotificationsComponent"], _admin_login_admin_login_component__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"], _verify_account_verify_account_component__WEBPACK_IMPORTED_MODULE_11__["VerifyAccountComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"], _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_13__["MyWalletComponent"], _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_14__["EditAccountComponent"], _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_15__["ManagePrivacyComponent"], _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_16__["LoggedInWrapperComponent"], _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_17__["RequestAccountComponent"], _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_18__["ForgottenPasswordComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_19__["ChangePasswordComponent"], _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_20__["NotLoggedInWrapperComponent"], _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_21__["PatientRegisterByInviteComponent"], _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_22__["DentistRequestAccountComponent"], _admin_advanced_admin_panel_my_patients_my_patients_component__WEBPACK_IMPORTED_MODULE_23__["MyPatientsComponent"]];
+var routingComponents = [_front_end_language_front_end_language_component__WEBPACK_IMPORTED_MODULE_10__["FrontEndLanguageComponent"], _patient_login_page_patient_login_page_component__WEBPACK_IMPORTED_MODULE_4__["PatientLoginPageComponent"], _admin_basic_admin_panel_basic_admin_panel_component__WEBPACK_IMPORTED_MODULE_6__["BasicAdminPanelComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"], _admin_advanced_admin_panel_advanced_admin_panel_component__WEBPACK_IMPORTED_MODULE_7__["AdvancedAdminPanelComponent"], _admin_advanced_admin_panel_push_notifications_push_notifications_component__WEBPACK_IMPORTED_MODULE_8__["PushNotificationsComponent"], _admin_login_admin_login_component__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"], _verify_account_verify_account_component__WEBPACK_IMPORTED_MODULE_11__["VerifyAccountComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_13__["LandingPageComponent"], _my_wallet_my_wallet_component__WEBPACK_IMPORTED_MODULE_14__["MyWalletComponent"], _edit_account_edit_account_component__WEBPACK_IMPORTED_MODULE_15__["EditAccountComponent"], _manage_privacy_manage_privacy_component__WEBPACK_IMPORTED_MODULE_16__["ManagePrivacyComponent"], _logged_in_wrapper_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_17__["LoggedInWrapperComponent"], _request_account_request_account_component__WEBPACK_IMPORTED_MODULE_18__["RequestAccountComponent"], _forgotten_password_forgotten_password_component__WEBPACK_IMPORTED_MODULE_19__["ForgottenPasswordComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_20__["ChangePasswordComponent"], _not_logged_in_wrapper_not_logged_in_wrapper_component__WEBPACK_IMPORTED_MODULE_21__["NotLoggedInWrapperComponent"], _patient_register_by_invite_patient_register_by_invite_component__WEBPACK_IMPORTED_MODULE_22__["PatientRegisterByInviteComponent"], _dentist_request_account_dentist_request_account_component__WEBPACK_IMPORTED_MODULE_23__["DentistRequestAccountComponent"], _admin_advanced_admin_panel_my_patients_my_patients_component__WEBPACK_IMPORTED_MODULE_24__["MyPatientsComponent"]];
 
 
 /***/ }),
@@ -1356,21 +1492,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _services_additional_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_services/additional.service */ "./src/app/_services/additional.service.ts");
+/* harmony import */ var _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_services/redirects.service */ "./src/app/_services/redirects.service.ts");
+
+
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(translate) {
+    function AppComponent(translate, additionalService, redirectsService) {
         this.translate = translate;
+        this.additionalService = additionalService;
+        this.redirectsService = redirectsService;
         this.hybrid = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].hybrid;
         this.dentacoinDomain = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].dentacoinDomain;
         this.production = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production;
     }
     AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        document.addEventListener('hideLoader', function (e) {
+            _this.additionalService.hideLoader();
+        });
+        document.addEventListener('showLoader', function (e) {
+            _this.additionalService.showLoader();
+        });
+        document.addEventListener('redirectToPatientsRegisterByInvite', function (e) {
+            _this.redirectsService.redirectToPatientInvite(e.detail.response_data.invite, e.detail.response_data.inviteId);
+        });
     };
     AppComponent.ctorParameters = function () { return [
-        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] }
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] },
+        { type: _services_additional_service__WEBPACK_IMPORTED_MODULE_4__["AdditionalService"] },
+        { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_5__["RedirectsService"] }
     ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1406,6 +1560,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/fesm5/ngx-translate-http-loader.js");
 /* harmony import */ var _partials_account_sidebar_account_sidebar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./partials/account-sidebar/account-sidebar.component */ "./src/app/partials/account-sidebar/account-sidebar.component.ts");
+/* harmony import */ var _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./landing-page/landing-page.component */ "./src/app/landing-page/landing-page.component.ts");
+
 
 
 
@@ -1424,7 +1580,8 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["routingComponents"],
-                _partials_account_sidebar_account_sidebar_component__WEBPACK_IMPORTED_MODULE_9__["AccountSidebarComponent"]
+                _partials_account_sidebar_account_sidebar_component__WEBPACK_IMPORTED_MODULE_9__["AccountSidebarComponent"],
+                _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_10__["LandingPageComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"].withServerTransition({ appId: 'serverApp' }),
@@ -2191,11 +2348,9 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            console.log('===== 1 =====');
             this.redirectsService.redirectToPatientLogin('login');
         }
         else {
-            console.log('===== 2 =====');
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe(function (response) {
                 _this.requestsService.getDentistSlug(new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpParams"]().set('id', JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).toString()).subscribe(function (dentistSlugResponse) {
                     console.log(dentistSlugResponse, 'dentistSlugResponse');
@@ -2213,7 +2368,7 @@ var HomeComponent = /** @class */ (function () {
                                 // setting up dentavox and assurance cross login
                                 _this.applications[i].url = _this.applications[i].url + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
                             }
-                            if (_this.applications[i].resource_type == 'svg') {
+                            if (_this.applications[i].resource_type === 'svg') {
                                 _this.applications[i].media = encodeURIComponent(_this.applications[i].media);
                             }
                         }
@@ -2239,6 +2394,119 @@ var HomeComponent = /** @class */ (function () {
         })
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/landing-page/landing-page.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/landing-page/landing-page.component.ts ***!
+  \********************************************************/
+/*! exports provided: LandingPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingPageComponent", function() { return LandingPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _services_language_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/language.service */ "./src/app/_services/language.service.ts");
+/* harmony import */ var _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/authentication-service.service */ "./src/app/_services/authentication-service.service.ts");
+/* harmony import */ var _services_additional_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/additional.service */ "./src/app/_services/additional.service.ts");
+/* harmony import */ var _services_requests_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../_services/requests.service */ "./src/app/_services/requests.service.ts");
+/* harmony import */ var _services_redirects_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../_services/redirects.service */ "./src/app/_services/redirects.service.ts");
+
+
+
+
+
+
+
+
+var LandingPageComponent = /** @class */ (function () {
+    function LandingPageComponent(authenticationServiceService, translate, languageService, additionalService, requestsService, redirectsService) {
+        this.authenticationServiceService = authenticationServiceService;
+        this.translate = translate;
+        this.languageService = languageService;
+        this.additionalService = additionalService;
+        this.requestsService = requestsService;
+        this.redirectsService = redirectsService;
+        this.year = new Date().getFullYear();
+        this.dcnAmount = 0;
+        this.usdAmount = 0;
+        this.dentistData = {
+            name: '',
+            email: '',
+            avatar_url: ''
+        };
+        this.isNotAPartnerDentistLoggedIn = authenticationServiceService.hasNotAPartnerDentistStorageSession();
+    }
+    LandingPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (window.localStorage.getItem('currentDentist') != null) {
+            this.redirectsService.redirectToAdmin();
+        }
+        else if (window.localStorage.getItem('currentNotAPartnerDentist') != null) {
+            this.myAccountLink = this.additionalService.generateNotAPartnerDentistAccountLink();
+            this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).token).subscribe({
+                next: function (response) {
+                    _this.dentistData.name = response.data.name;
+                    _this.dentistData.email = response.data.email;
+                    _this.dentistData.avatar_url = response.data.avatar_url;
+                    if (response.data.is_partner === true || response.data.is_hub_app_dentist === true) {
+                        _this.redirectsService.redirectToAdmin();
+                    }
+                },
+                error: function (error) { return _this.authenticationServiceService.logout('dentist'); }
+            });
+            this.updateDentistDcnAndUsdBalance();
+            if (typeof (this.updateDentistDcnAndUsdBalanceTimer) !== 'undefined') {
+                clearInterval(this.updateDentistDcnAndUsdBalanceTimer);
+                this.updateDentistDcnAndUsdBalanceTimer = undefined;
+            }
+            this.updateDentistDcnAndUsdBalanceTimer = setInterval(function () {
+                if (!_this.authenticationServiceService.hasPatientStorageSession()) {
+                    clearInterval(_this.updateDentistDcnAndUsdBalanceTimer);
+                    _this.updateDentistDcnAndUsdBalanceTimer = undefined;
+                }
+                else {
+                    _this.updateDentistDcnAndUsdBalance();
+                }
+            }, 5000);
+        }
+    };
+    LandingPageComponent.prototype.updateDentistDcnAndUsdBalance = function () {
+        var _this = this;
+        this.requestsService.getDCNBalance(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).token).subscribe({
+            next: function (response) {
+                if (response.success) {
+                    _this.dcnAmount = response.data;
+                    _this.requestsService.getDentacoinDataByExternalProvider('USD').subscribe(function (coingeckoResponse) {
+                        _this.usdAmount = Number(((1 / Number(Number(coingeckoResponse) / 100)) * _this.dcnAmount).toFixed(2));
+                    });
+                }
+            },
+            error: function (error) { return _this.authenticationServiceService.logout('dentist'); }
+        });
+    };
+    LandingPageComponent.ctorParameters = function () { return [
+        { type: _services_authentication_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationServiceService"] },
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] },
+        { type: _services_language_service__WEBPACK_IMPORTED_MODULE_3__["LanguageService"] },
+        { type: _services_additional_service__WEBPACK_IMPORTED_MODULE_5__["AdditionalService"] },
+        { type: _services_requests_service__WEBPACK_IMPORTED_MODULE_6__["RequestsService"] },
+        { type: _services_redirects_service__WEBPACK_IMPORTED_MODULE_7__["RedirectsService"] }
+    ]; };
+    LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-landing-page',
+            template: __webpack_require__(/*! raw-loader!./landing-page.component.html */ "./node_modules/raw-loader/index.js!./src/app/landing-page/landing-page.component.html")
+        })
+    ], LandingPageComponent);
+    return LandingPageComponent;
 }());
 
 
@@ -2890,7 +3158,6 @@ var PatientLoginPageComponent = /** @class */ (function () {
                     _this.additionalService.hideLoader();
                 });
                 document.addEventListener('registeredAccountMissingEmail', function (e) {
-                    // COVER THIS THE PROPER WAY !!!!!!!!!!!!!
                     document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
                 });
                 document.addEventListener('patientAuthErrorResponse', function (e) {
@@ -2911,7 +3178,6 @@ var PatientLoginPageComponent = /** @class */ (function () {
                     }
                     if (jquery__WEBPACK_IMPORTED_MODULE_11__('.log-link.open-dentacoin-gateway').length) {
                         jquery__WEBPACK_IMPORTED_MODULE_11__('.log-link.open-dentacoin-gateway').on('click', function () {
-                            console.log('log link');
                             _this.redirectsService.redirectToPatientLogin('login');
                         });
                     }
@@ -2931,7 +3197,6 @@ var PatientLoginPageComponent = /** @class */ (function () {
                         document.getElementById('iframe-civic-popup').remove();
                     }
                     else if (event.data.event_id === 'registeredAccountMissingEmail') {
-                        // COVER THIS THE PROPER WAY !!!!!!!!!!!!!
                         document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
                         document.getElementById('iframe-civic-popup').remove();
                     }
@@ -3088,17 +3353,23 @@ var PatientRegisterByInviteComponent = /** @class */ (function () {
     }
     PatientRegisterByInviteComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log('PatientRegisterByInvite');
         if (this.authenticationServiceService.hasPatientStorageSession()) {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         }
         else {
+            console.log('PatientRegisterByInvite', 1);
             if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
+                console.log('PatientRegisterByInvite', 2);
                 this.redirectsService.redirectToPatientLogin('login');
             }
             else {
+                console.log('PatientRegisterByInvite', 3);
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                console.log(this.inviter, 'this.inviter');
+                console.log(this.inviteId, 'this.inviteId');
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', function (e) {
                         console.log(e, 'patientAuthSuccessResponse');
@@ -3128,7 +3399,7 @@ var PatientRegisterByInviteComponent = /** @class */ (function () {
                     });
                     document.addEventListener('registeredAccountMissingEmail', function (e) {
                         // COVER THIS !!!!!!!!!!!!!
-                        document.getElementById('patient-register-failed-missing-email').classList.remove('hide');
+                        document.getElementById('patient-login-failed-missing-email').classList.remove('hide');
                     });
                     document.addEventListener('patientAuthErrorResponse', function (e) {
                         console.log(e, 'e');
@@ -3153,11 +3424,11 @@ var PatientRegisterByInviteComponent = /** @class */ (function () {
                         _this.additionalService.hideLoader();
                     });
                     document.addEventListener('noCoreDBApiConnection', function (e) {
-                        document.getElementById('patient-register-failed').classList.remove('hide');
+                        document.getElementById('patient-login-failed').classList.remove('hide');
                         _this.additionalService.hideLoader();
                     });
                     document.addEventListener('noExternalLoginProviderConnection', function (e) {
-                        document.getElementById('patient-register-failed').classList.remove('hide');
+                        document.getElementById('patient-login-failed').classList.remove('hide');
                         _this.additionalService.hideLoader();
                     });
                     window.addEventListener('message', function (event) {
@@ -3240,13 +3511,13 @@ var PatientRegisterByInviteComponent = /** @class */ (function () {
                     }
                 },
                 error: function (error) {
-                    document.getElementById('patient-register-failed').classList.remove('hide');
+                    document.getElementById('patient-login-failed').classList.remove('hide');
                     _this.additionalService.hideLoader();
                 }
             });
         }
         else {
-            document.getElementById('patient-register-failed-not-a-patient-of-any-dentist').classList.remove('hide');
+            document.getElementById('patient-login-failed-not-a-patient-of-any-dentist').classList.remove('hide');
             this.additionalService.hideLoader();
         }
     };

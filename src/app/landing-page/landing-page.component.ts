@@ -34,36 +34,36 @@ export class LandingPageComponent implements OnInit {
             this.redirectsService.redirectToAdmin();
         } else if (window.localStorage.getItem('currentNotAPartnerDentist') != null) {
             this.myAccountLink = this.additionalService.generateNotAPartnerDentistAccountLink();
-        }
 
-        this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).token).subscribe({
-            next: (response: any) => {
-                this.dentistData.name = response.data.name;
-                this.dentistData.email = response.data.email;
-                this.dentistData.avatar_url = response.data.avatar_url;
+            this.requestsService.getUserData(JSON.parse(window.localStorage.getItem('currentNotAPartnerDentist')).token).subscribe({
+                next: (response: any) => {
+                    this.dentistData.name = response.data.name;
+                    this.dentistData.email = response.data.email;
+                    this.dentistData.avatar_url = response.data.avatar_url;
 
-                if (response.data.is_partner == true || response.data.is_hub_app_dentist == true) {
-                    this.redirectsService.redirectToAdmin();
-                }
-            },
-            error: error => this.authenticationServiceService.logout('dentist')
-        });
+                    if (response.data.is_partner === true || response.data.is_hub_app_dentist === true) {
+                        this.redirectsService.redirectToAdmin();
+                    }
+                },
+                error: error => this.authenticationServiceService.logout('dentist')
+            });
 
-        this.updateDentistDcnAndUsdBalance();
+            this.updateDentistDcnAndUsdBalance();
 
-        if (typeof(this.updateDentistDcnAndUsdBalanceTimer) !== 'undefined') {
-            clearInterval(this.updateDentistDcnAndUsdBalanceTimer);
-            this.updateDentistDcnAndUsdBalanceTimer = undefined;
-        }
-
-        this.updateDentistDcnAndUsdBalanceTimer = setInterval(() => {
-            if (!this.authenticationServiceService.hasPatientStorageSession()) {
+            if (typeof(this.updateDentistDcnAndUsdBalanceTimer) !== 'undefined') {
                 clearInterval(this.updateDentistDcnAndUsdBalanceTimer);
                 this.updateDentistDcnAndUsdBalanceTimer = undefined;
-            } else {
-                this.updateDentistDcnAndUsdBalance();
             }
-        }, 5000);
+
+            this.updateDentistDcnAndUsdBalanceTimer = setInterval(() => {
+                if (!this.authenticationServiceService.hasPatientStorageSession()) {
+                    clearInterval(this.updateDentistDcnAndUsdBalanceTimer);
+                    this.updateDentistDcnAndUsdBalanceTimer = undefined;
+                } else {
+                    this.updateDentistDcnAndUsdBalance();
+                }
+            }, 5000);
+        }
     }
 
     updateDentistDcnAndUsdBalance() {

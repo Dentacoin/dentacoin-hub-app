@@ -113,12 +113,14 @@
     <div class="admin-page-content inline-block-top">
         <div class="user-info-tab text-right">
             <a href="{{myAccountLink}}" target="_blank" class="fs-14 inline-block">
-                <div class="padding-bottom-5">{{dentistData.name}}</div>
-                <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>
+                <div class="inline-block">
+                    <div class="padding-bottom-5">{{dentistData.name}}</div>
+                    <div>{{dcnAmount}} DCN | $ {{usdAmount}}</div>
+                </div>
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block margin-left-15 max-width-40 avatar">
+                    <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
+                </figure>
             </a>
-            <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block margin-left-15 max-width-40 avatar">
-                <img alt="Dentist avatar" class="width-100" src="{{dentistData.avatar_url}}"/>
-            </figure>
             <div class="lang-switcher module inline-block">
                 <div class="border-top">
                     <select (change)="this.languageService.onLangSwitcherChange($event.target.value)" class="fix-selects-for-ios">

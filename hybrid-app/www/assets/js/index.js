@@ -1,4 +1,4 @@
-console.log("( ͡° ͜ʖ ͡°) I see you. 1");
+console.log("( ͡° ͜ʖ ͡°) I see you.");
 
 var default_error_message = 'Something went wrong. Please try again later or write a message to admin@dentacoin.com with description of the problem.';
 var allowed_imgs_extensions = ['png', 'jpg', 'jpeg'/*, 'gif', 'svg'*/];
@@ -8,9 +8,9 @@ var civic_iframe_removedEventLoaded = false;
 var inAppBrowserSettings = 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
 if (basic.getMobileOperatingSystem() == 'iOS') {
     inAppBrowserSettings = 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
+}
 var isDeviceReady = false;
 var lastHybridScreen;
-}
 
 $(document).ready(function() {
 
@@ -122,7 +122,6 @@ document.addEventListener('deviceready', async function() {
             console.error(error);
         });
     } else if (basic.getMobileOperatingSystem() == 'iOS') {
-        console.log(typeof(FCM), 'FCM');
         const wasPermissionGiven = await FCM.requestPushPermission({
             ios9Support: {
                 timeout: 10,  // How long it will wait for a decision from the user before returning `false`
@@ -132,7 +131,6 @@ document.addEventListener('deviceready', async function() {
 
         console.log(wasPermissionGiven, 'wasPermissionGiven');
         var FCMToken = await FCM.getToken();
-        console.log(FCMToken, 'FCMToken');
         localStorage.setItem('mobile_device_id', FCMToken);
     }
 }, false);
@@ -993,99 +991,81 @@ var projectData = {
 
                         // saving changes and submitting them to backend
                         $('.save-changes').unbind().on('click', function() {
-                            var confirm_obj = {};
-                            confirm_obj.callback = function (result) {
-                                if (result) {
-                                    projectData.general_logic.showLoader();
+                            projectData.general_logic.showLoader();
 
-                                    //REQUEST TO UPDATE DENTIST APPS in hub app db
-                                    var post_data = {
-                                        token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
-                                        id: JSON.parse(window.localStorage.getItem('currentDentist')).id
-                                    };
+                            //REQUEST TO UPDATE DENTIST APPS in hub app db
+                            var post_data = {
+                                token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
+                                id: JSON.parse(window.localStorage.getItem('currentDentist')).id
+                            };
 
-                                    if ($('.main-content').attr('data-lang') == 'en') {
-                                        post_data.hub_title_en = $('.hub-title #hub-title').val().trim();
-                                        post_data.hub_title_de = $('.hub-title').attr('data-de');
-                                    } else if ($('.main-content').attr('data-lang') == 'de') {
-                                        post_data.hub_title_en = $('.hub-title').attr('data-en');
-                                        post_data.hub_title_de = $('.hub-title #hub-title').val().trim();
-                                    }
+                            if ($('.main-content').attr('data-lang') == 'en') {
+                                post_data.hub_title_en = $('.hub-title #hub-title').val().trim();
+                                post_data.hub_title_de = $('.hub-title').attr('data-de');
+                            } else if ($('.main-content').attr('data-lang') == 'de') {
+                                post_data.hub_title_en = $('.hub-title').attr('data-en');
+                                post_data.hub_title_de = $('.hub-title #hub-title').val().trim();
+                            }
 
-                                    if ($('.dentist-logo-wrapper  #dentist-logo-media').val() != '' && $('.dentist-logo-wrapper  #dentist-logo-media-name').val() != '') {
-                                        post_data.media = $('.dentist-logo-wrapper  #dentist-logo-media').val();
-                                        post_data.media_name = $('.dentist-logo-wrapper  #dentist-logo-media-name').val();
-                                    }
+                            if ($('.dentist-logo-wrapper  #dentist-logo-media').val() != '' && $('.dentist-logo-wrapper  #dentist-logo-media-name').val() != '') {
+                                post_data.media = $('.dentist-logo-wrapper  #dentist-logo-media').val();
+                                post_data.media_name = $('.dentist-logo-wrapper  #dentist-logo-media-name').val();
+                            }
 
-                                    var apps_list = {};
-                                    for (var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
-                                        var this_app = $('.apps-list .single-app.sortable-app').eq(i);
-                                        apps_list[i] = {
-                                            name_en : this_app.attr('data-name-en'),
-                                            name_de : this_app.attr('data-name-de'),
-                                            description_en : this_app.attr('data-description-en'),
-                                            description_de : this_app.attr('data-description-de'),
-                                            media : this_app.find('.app-media').attr('src'),
-                                            removable : this_app.attr('data-removable'),
-                                            url : this_app.attr('data-url')
-                                        };
+                            var apps_list = {};
+                            for (var i = 0, len = $('.apps-list .single-app.sortable-app').length; i < len; i+=1) {
+                                var this_app = $('.apps-list .single-app.sortable-app').eq(i);
+                                apps_list[i] = {
+                                    name_en : this_app.attr('data-name-en'),
+                                    name_de : this_app.attr('data-name-de'),
+                                    description_en : this_app.attr('data-description-en'),
+                                    description_de : this_app.attr('data-description-de'),
+                                    media : this_app.find('.app-media').attr('src'),
+                                    removable : this_app.attr('data-removable'),
+                                    url : this_app.attr('data-url')
+                                };
 
-                                        if (this_app.attr('data-default-application-id') != undefined) {
-                                            apps_list[i].default_application_id = this_app.attr('data-default-application-id');
-                                        }
-                                    }
+                                if (this_app.attr('data-default-application-id') != undefined) {
+                                    apps_list[i].default_application_id = this_app.attr('data-default-application-id');
+                                }
+                            }
 
-                                    var deleted_apps_list = [];
-                                    for (var i = 0, len = $('.apps-list .single-app.hide').length; i < len; i+=1) {
-                                        deleted_apps_list.push($('.apps-list .single-app.hide').eq(i).attr('data-id'));
-                                    }
+                            var deleted_apps_list = [];
+                            for (var i = 0, len = $('.apps-list .single-app.hide').length; i < len; i+=1) {
+                                deleted_apps_list.push($('.apps-list .single-app.hide').eq(i).attr('data-id'));
+                            }
 
-                                    post_data.applications = apps_list;
-                                    post_data.deleted_applications = deleted_apps_list;
+                            post_data.applications = apps_list;
+                            post_data.deleted_applications = deleted_apps_list;
 
-                                    setTimeout(function() {
-                                        projectData.requests.editDentistData(post_data, function(response) {
-                                            if (response.success) {
-                                                projectData.requests.getDentistData(function(getDentistData_response) {
-                                                    if (getDentistData_response.success) {
-                                                        $('.basic-admin-panel').removeClass('edit-mode');
-                                                        $('.apps-list').sortable('destroy');
-                                                        $('.single-app .app-wrapper .actions-on-edit').remove();
-                                                        $('.apps-list .single-app.hide').remove();
-                                                        $('.apps-list .single-app.sortable-app').remove();
-                                                        buildDentistData(getDentistData_response, true);
+                            setTimeout(function() {
+                                projectData.requests.editDentistData(post_data, function(response) {
+                                    if (response.success) {
+                                        projectData.requests.getDentistData(function(getDentistData_response) {
+                                            if (getDentistData_response.success) {
+                                                $('.basic-admin-panel').removeClass('edit-mode');
+                                                $('.apps-list').sortable('destroy');
+                                                $('.single-app .app-wrapper .actions-on-edit').remove();
+                                                $('.apps-list .single-app.hide').remove();
+                                                $('.apps-list .single-app.sortable-app').remove();
+                                                buildDentistData(getDentistData_response, true);
 
-                                                        basic.showAlert('Changes have been saved successfully!', '', true);
-                                                    } else {
-                                                        basic.showAlert(default_error_message, '', true);
-                                                    }
-                                                    projectData.general_logic.hideLoader();
-                                                }, JSON.parse(localStorage.getItem('currentDentist')).id);
-                                            } else if (response.errors) {
-                                                if (response.errors.applications) {
-                                                    basic.showAlert('You should have at least one application saved in your Hub.', '', true);
-                                                } else {
-                                                    basic.showAlert(default_error_message, '', true);
-                                                }
-                                                projectData.general_logic.hideLoader();
+                                                basic.showAlert('Changes have been saved successfully!', '', true);
+                                            } else {
+                                                basic.showAlert(default_error_message, '', true);
                                             }
-                                        });
-                                    }, 1000);
-                                }
-                            };
-
-                            confirm_obj.buttons = {
-                                confirm: {
-                                    label: 'Yes',
-                                    className: 'btn-success'
-                                },
-                                cancel: {
-                                    label: 'No, keep editing',
-                                    className: 'btn-danger'
-                                }
-                            };
-
-                            basic.showConfirm('Are you sure you want to save the changes?', '', confirm_obj, true);
+                                            projectData.general_logic.hideLoader();
+                                        }, JSON.parse(localStorage.getItem('currentDentist')).id);
+                                    } else if (response.errors) {
+                                        if (response.errors.applications) {
+                                            basic.showAlert('You should have at least one application saved in your Hub.', '', true);
+                                        } else {
+                                            basic.showAlert(default_error_message, '', true);
+                                        }
+                                        projectData.general_logic.hideLoader();
+                                    }
+                                });
+                            }, 1000);
                         });
                     } else {
                         basic.showAlert('Please make sure you have saved at least 1 application.', '', true);
@@ -1139,11 +1119,25 @@ var projectData = {
             advancedAdminPanel: function() {
                 console.log('advancedAdminPanel');
             },
+            landingPage: function() {
+                $('body').addClass('overflow-hidden');
+                if ($(window).width() < 992) {
+                    $(document).off('click', '.logged-in-content');
+                    $(document).on('click', '.logged-in-content', function() {
+                        $('.logout-button').toggleClass('active');
+                    });
+                }
+                $('body').removeClass('overflow-hidden');
+            },
             myPatients: function() {
+                if (window.localStorage.getItem('currentDentist') != null) {
+                    projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentDentist')).id);
+                }
+
                 var now_timestamp = Math.round((new Date()).getTime() / 1000);
                 $('.people-invitation .add-invitation-rows').unbind().click(function() {
                     now_timestamp+=1;
-                    $('.people-invitation .inputs').append('<div class="inputs-row added-row padding-bottom-10"><div class="remove-row inline-block"><a href="javascript:void(0);" class="lato-regular fs-20">X</a></div><div class="inputs-wrapper inline-block"><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-name-'+now_timestamp+'" class="platform-color">Name</label><input maxlength="100" type="text" id="request-account-name-'+now_timestamp+'" class="full-rounded form-field platform-border-color person-name"/> </div></div><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-email-'+now_timestamp+'" class="platform-color">Email Address</label><input maxlength="100" type="text" id="request-account-email-'+now_timestamp+'" class="full-rounded form-field platform-border-color person-email"/> </div></div> </div></div>');
+                    $('.people-invitation .inputs').append('<div class="inputs-row added-row padding-bottom-10"><div class="remove-row inline-block"><a href="javascript:void(0);" class="lato-regular fs-20">X</a></div><div class="inputs-wrapper inline-block"><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-name-'+now_timestamp+'" class="color-light-blue">Name</label><input maxlength="100" type="text" id="request-account-name-'+now_timestamp+'" class="full-rounded form-field light-blue-border-color person-name"/> </div></div><div class="input-field inline-block-top"><div class="custom-google-label-style module" data-input-colorful-border="true"><label for="request-account-email-'+now_timestamp+'" class="color-light-blue">Email Address</label><input maxlength="100" type="text" id="request-account-email-'+now_timestamp+'" class="full-rounded form-field light-blue-border-color person-email"/> </div></div> </div></div>');
                     $('.people-invitation .inputs .inputs-row').addClass('more-than-one-row');
 
                     $('.people-invitation .inputs .inputs-row .remove-row a').unbind().click(function() {
@@ -1224,7 +1218,122 @@ var projectData = {
                 }, 500);
             },
             pushNotifications: function() {
-                projectData.utils.initDatetimePicker();
+                if (window.localStorage.getItem('currentDentist') != null) {
+                    projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentDentist')).id);
+                }
+
+                projectData.utils.initDatetimePicker(new Date());
+
+                $(document).off('click', '.patients-filtering .filter-option');
+                $(document).on('click', '.patients-filtering .filter-option', function() {
+                    $('.patients-filtering .filter-option').removeClass('active');
+                    $(this).addClass('active');
+
+                    if ($(this).attr('data-type') == 'select-patients') {
+                        displaySelectPatientsPopup();
+                    } else {
+                        $('.list-with-custom-selected-patients').html('');
+                        $('.patients-filtering .filter-option[data-type="select-patients"]').removeAttr('data-selected-patients');
+                    }
+                });
+
+                function displaySelectPatientsPopup(paramArrayOfSelectedPatientsIds) {
+                    var patients = JSON.parse($('.push-notifications-custom-form').attr('data-patients'));
+                    if (patients.length) {
+                        // building the popup
+                        var popupHtml = '<h2 class="fs-36 line-height-40 lato-bold text-center">' + $('.push-notifications-custom-form').attr('data-push-notifications-select-patients-title') + '</h2><div class="padding-top-30 padding-bottom-15"><div class="custom-google-label-style module magnify-background" data-input-colorful-border="true"><label for="select-patients-search-field" class="color-light-blue">' + $('.push-notifications-custom-form').attr('data-push-notifications-select-patients-field') + '</label><input type="text" maxlength="100" id="select-patients-search-field" class="full-rounded form-field light-blue-border-color"/></div></div><div class="table-wrapper"><table class="text-left"><thead><tr><th>' + $('.push-notifications-custom-form').attr('data-push-notifications-select-patients-patient') + '</th><th>' + $('.push-notifications-custom-form').attr('data-push-notifications-select-patients-email') + '</th><th></th></tr></thead><tbody>';
+
+                        var checkedHtmlPart = ' ';
+                        for (var i = 0, len = patients.length; i < len; i+=1) {
+                            checkedHtmlPart = ' ';
+                            if (paramArrayOfSelectedPatientsIds != undefined && paramArrayOfSelectedPatientsIds.length && paramArrayOfSelectedPatientsIds.includes(patients[i].id.toString())) {
+                                checkedHtmlPart = ' checked ';
+                            }
+
+                            popupHtml += '<tr data-id="'+patients[i].id+'" data-name="'+patients[i].name+'"><td>'+patients[i].name+'</td><td>'+patients[i].email+'</td><td class="text-right"><input type="checkbox" class="selected-patient-to-receive-push-notification" '+checkedHtmlPart+'/></td></tr>';
+                        }
+
+                        popupHtml += '</tbody></table></div><div class="padding-top-40 text-center"><a href="javascript:void(0);" class="margin-left-10 margin-right-10 margin-bottom-10 cancel-custom-patients module white-light-blue-button lato-bold fs-20">' + $('.push-notifications-custom-form').attr('data-push-notifications-select-patients-cancel') + '</a><a href="javascript:void(0);" class="margin-left-10 margin-right-10 margin-bottom-10 module lato-bold module light-blue-white-button save-custom-patients lato-bold fs-20">' + $('.push-notifications-custom-form').attr('data-push-notifications-select-patients-save') + '</a></div>';
+                        basic.showDialog(popupHtml, 'popup-select-patients', null, true);
+
+                        $('.popup-select-patients #select-patients-search-field').focus();
+                        $('.popup-select-patients label[for="select-patients-search-field"]').addClass('active-label');
+
+                        // custom search input
+                        $('.popup-select-patients #select-patients-search-field').on('input paste change', function() {
+                            var searchingBy = $(this).val().trim().toLowerCase();
+                            if (searchingBy != '') {
+                                for (var i = 0, len = $('.popup-select-patients table tbody tr').length; i < len; i+=1) {
+                                    if ($('.popup-select-patients table tbody tr').eq(i).html().toLowerCase().indexOf(searchingBy) > -1) {
+                                        $('.popup-select-patients table tbody tr').eq(i).show();
+                                    } else {
+                                        $('.popup-select-patients table tbody tr').eq(i).hide();
+                                    }
+                                }
+                            } else {
+                                $('.popup-select-patients table tbody tr').show();
+                            }
+                        });
+
+                        // selecting patients
+                        $('.popup-select-patients table tbody tr').click(function() {
+                            if ($(this).find('input[type="checkbox"]').is(':checked')) {
+                                $(this).find('input[type="checkbox"]').prop('checked', false);
+                            } else {
+                                $(this).find('input[type="checkbox"]').prop('checked', true);
+                            }
+                        });
+
+                        $('.popup-select-patients table tbody .selected-patient-to-receive-push-notification').click(function(e) {
+                            e.stopPropagation();
+                        });
+
+                        // closing the popup
+                        $('.popup-select-patients .cancel-custom-patients').click(function() {
+                            basic.closeDialog();
+
+                            $('.patients-filtering .filter-option').removeClass('active');
+                            $('.patients-filtering .filter-option[data-type="all-patients"]').addClass('active');
+                            $('.list-with-custom-selected-patients').html('');
+                            $('.patients-filtering .filter-option[data-type="select-patients"]').removeAttr('data-selected-patients');
+                        });
+
+                        $('.popup-select-patients .save-custom-patients').click(function() {
+                            var selectedPatients = $('.popup-select-patients .selected-patient-to-receive-push-notification:checked');
+                            if (selectedPatients.length) {
+                                var arrayOfSelectedPatientsIds = [];
+                                var listOfSelectedPatientsNames = '<a href="javascript:void(0);" class="edit-custom-selected-patients color-light-blue text-decoration-underline">( ';
+                                var firstLoop = true;
+                                for (var i = 0, len = selectedPatients.length; i < len; i+=1) {
+                                    arrayOfSelectedPatientsIds.push(selectedPatients.eq(i).closest('tr').attr('data-id'));
+                                    if (firstLoop) {
+                                        firstLoop = false;
+                                        listOfSelectedPatientsNames += selectedPatients.eq(i).closest('tr').attr('data-name');
+                                    } else {
+                                        listOfSelectedPatientsNames += ', ' + selectedPatients.eq(i).closest('tr').attr('data-name');
+                                    }
+                                }
+
+                                listOfSelectedPatientsNames += ' ) <i class="fa fa-pencil fs-20 color-light-blue" aria-hidden="true"></i></a>';
+                                $('.list-with-custom-selected-patients').html(listOfSelectedPatientsNames);
+                                $('.patients-filtering .filter-option[data-type="select-patients"]').attr('data-selected-patients', JSON.stringify(arrayOfSelectedPatientsIds));
+                                $('.popup-select-patients').modal('hide');
+
+                                $('.edit-custom-selected-patients').unbind().click(function() {
+                                    displaySelectPatientsPopup(arrayOfSelectedPatientsIds);
+                                });
+                            } else {
+                                basic.showAlert($('.push-notifications-custom-form').attr('data-push-notifications-select-patients-error'), '', true);
+                            }
+                        });
+                    }
+                }
+
+                $('select#timezone-select').on('change', function() {
+                    $('.datetimepicker').datetimepicker('destroy');
+                    console.log(projectData.utils.convertTimezone(new Date(), $(this).val()));
+                    projectData.utils.initDatetimePicker(projectData.utils.convertTimezone(new Date(), $(this).val()));
+                });
 
                 $('.push-notifications-form textarea').on('input', function() {
                     if ($(this).val().trim() != '') {
@@ -1239,8 +1348,8 @@ var projectData = {
                     $(this).find('.inner-dot').toggleClass('platform-background-color');
 
                     if ($(this).hasClass('active')) {
-                        $('.daterangepicker-parent .selected-time-text').removeClass('hide');
                         $('.daterangepicker-parent .field').removeClass('hide');
+                        $('.timezone-picker').removeClass('hide');
                         $('.daterangepicker-parent label').addClass('active-label');
                         $('.daterangepicker-parent input[type="text"]').addClass('colorful-border');
 
@@ -1249,7 +1358,7 @@ var projectData = {
                         $('.send-now').html($('.send-now').attr('data-save-now'));
                     } else {
                         $('.daterangepicker-parent .field').addClass('hide');
-                        $('.daterangepicker-parent .selected-time-text').addClass('hide');
+                        $('.timezone-picker').addClass('hide');
 
                         $('.send-now').html($('.send-now').attr('data-send-now'));
                     }
@@ -1266,13 +1375,17 @@ var projectData = {
                             if ($('.push-notifications-custom-form #datetimepicker').val().trim() == '') {
                                 projectData.utils.customErrorHandle($('.push-notifications-custom-form #datetimepicker').parent().parent(), 'Date is required');
                             } else {
-                                // passing time as converted date to UTC timezone
                                 var requestData = {
                                     token: JSON.parse(window.localStorage.getItem('currentDentist')).token,
                                     id: JSON.parse(window.localStorage.getItem('currentDentist')).id,
                                     title: $('.push-notifications-custom-form #title').val().trim(),
-                                    time: projectData.utils.dateObjToFormattedDate(new Date($('.push-notifications-custom-form #datetimepicker').val().trim() +' UTC+0'), true)
+                                    time: projectData.utils.dateObjToFormattedDate(new Date($('.push-notifications-custom-form #datetimepicker').val().trim()), true),
+                                    timezone: $('select#timezone-select').val()
                                 };
+
+                                if ($('.patients-filtering .filter-option[data-type="select-patients"]').attr('data-selected-patients') != undefined) {
+                                    requestData.customSelectedPatients = JSON.parse($('.patients-filtering .filter-option[data-type="select-patients"]').attr('data-selected-patients'));
+                                }
 
                                 if ($('.push-notifications-custom-form #message').val().trim() != '') {
                                     requestData.message = $('.push-notifications-custom-form #message').val().trim();
@@ -1286,6 +1399,8 @@ var projectData = {
                                         $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-success fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-register-success')+'</div>').removeClass('hide');
                                     } else if (response.type && response.type == 'missing_patients') {
                                         $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-missing-patients')+'</div>').removeClass('hide');
+                                    } else if (response.type && response.type == 'limit_reached') {
+                                        $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-limit-reached')+'</div>').removeClass('hide');
                                     } else {
                                         $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-failed')+'</div>').removeClass('hide');
                                     }
@@ -1298,6 +1413,10 @@ var projectData = {
                                 id: JSON.parse(window.localStorage.getItem('currentDentist')).id,
                                 title: $('.push-notifications-custom-form #title').val().trim()
                             };
+
+                            if ($('.patients-filtering .filter-option[data-type="select-patients"]').attr('data-selected-patients') != undefined) {
+                                requestData.customSelectedPatients = JSON.parse($('.patients-filtering .filter-option[data-type="select-patients"]').attr('data-selected-patients'));
+                            }
 
                             if ($('.push-notifications-custom-form #message').val().trim() != '') {
                                 requestData.message = $('.push-notifications-custom-form #message').val().trim();
@@ -1312,6 +1431,8 @@ var projectData = {
                                     $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-success fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-sent-success')+'</div>').removeClass('hide');
                                 } else if (response.type && response.type == 'missing_patients') {
                                     $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-missing-patients')+'</div>').removeClass('hide');
+                                } else if (response.type && response.type == 'limit_reached') {
+                                    $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-limit-reached')+'</div>').removeClass('hide');
                                 } else {
                                     $('.push-notifications-custom-form .custom-response').html('<div class="alert alert-danger fs-16 margin-top-10">'+$('.push-notifications-custom-form .custom-response').attr('data-push-notifications-failed')+'</div>').removeClass('hide');
                                 }
@@ -1636,7 +1757,10 @@ var projectData = {
                         }
 
                         if (!$('#iframe-civic-popup').length) {
-                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register" id="iframe-civic-popup"></iframe>');
+                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=register&invite='+$('.civic-custom-btn').attr('data-inviter')+'&inviteid='+$('.civic-custom-btn').attr('data-inviteid')+'" id="iframe-civic-popup"></iframe>');
+
+                            window.localStorage.setItem('tempCivicInvite', $('.civic-custom-btn').attr('data-inviter'));
+                            window.localStorage.setItem('tempCivicInviteId', $('.civic-custom-btn').attr('data-inviteid'));
                         }
                     });
                 } else {
@@ -1735,7 +1859,7 @@ var projectData = {
                     $('.platform-colors').remove();
                     var platform_text_color = getDentistData_response.data.text_color;
                     var platform_base_color = getDentistData_response.data.hub_color;
-                    var platform_color_and_background = '<style class="platform-colors">/*Text color*/.platform-text-color{color:'+platform_text_color+';}.platform-fill-color{fill:'+platform_base_color+';}/*Base color*/ .module.platform-color,.module.custom-google-label-style label.active-label.platform-color,.platform-color{color:'+platform_base_color+';}.platform-color-important{color:'+platform_base_color+' !important;}.bootbox .bootbox-close-button{color:'+platform_base_color+' !important;}.btn-primary{background-color:'+platform_base_color+' !important;border-color: '+platform_base_color+' !important;}.module.hover.platform-color:hover{background-color:'+platform_base_color+';}.module.platform-background-color,.platform-background-color{background-color:'+platform_base_color+';}.module.hover.platform-background-color:hover{color:'+platform_base_color+';}.module.platform-border-color,.platform-border-color,.module.custom-google-label-style input.colorful-border.platform-border-color{border-color: '+platform_base_color+';}.edit-mode .platform-border-color-important, .important.platform-border-color{border-color: '+platform_base_color+' !important;}.svg-platform-fill{fill: '+platform_base_color+';}.svg-platform-fill-important{fill: '+platform_base_color+' !important;}.platform-background-on-hover:hover {background-color:'+platform_base_color+';}/*Background color/ image*/';
+                    var platform_color_and_background = '<style class="platform-colors">/*Text color*/.platform-text-color{color:'+platform_text_color+';}.platform-fill-color{fill:'+platform_base_color+';}/*Base color*/ .module.platform-color,.module.custom-google-label-style label.active-label.platform-color,.platform-color{color:'+platform_base_color+';}.platform-color-important{color:'+platform_base_color+' !important;}.bootbox .bootbox-close-button{color:'+platform_base_color+' !important;}.btn-primary{background-color:'+platform_base_color+' !important;border-color: '+platform_base_color+' !important;}.module.hover.platform-color:hover{background-color:'+platform_base_color+';}.module.platform-background-color,.platform-background-color{background-color:'+platform_base_color+';}.module.platform-background-color-important,.platform-background-color-important{background-color:'+platform_base_color+' !important;}.module.hover.platform-background-color:hover{color:'+platform_base_color+';}.module.platform-border-color,.platform-border-color,.module.custom-google-label-style input.colorful-border.platform-border-color{border-color: '+platform_base_color+';}.edit-mode .platform-border-color-important, .important.platform-border-color{border-color: '+platform_base_color+' !important;}.svg-platform-fill{fill: '+platform_base_color+';}.svg-platform-fill-important{fill: '+platform_base_color+' !important;}.platform-background-on-hover:hover {background-color:'+platform_base_color+';}/*Background color/ image*/';
                     if (getDentistData_response.data.hub_background_type == 'hex-code') {
                         platform_color_and_background += '.platform-background{background-color:'+getDentistData_response.data.hub_background+';}</style>';
                     } else if (getDentistData_response.data.hub_background_type == 'preset-background' || getDentistData_response.data.hub_background_type == 'upload-image') {
@@ -1829,51 +1953,48 @@ var projectData = {
 
                         var currentHref = $(this).attr('href');
                         if (currentHref.includes('wallet')) {
-                            /*window.plugins.launcher.canLaunch({uri:'wallet://'}, function() {
-                                console.log('IOS wallet EXISTS');
-                            }, function() {
-                                console.log('IOS wallet DOES NOT EXISTS');
-                            });*/
-
+                            var packageName;
                             if (basic.getMobileOperatingSystem() == 'Android') {
-                                window.plugins.launcher.canLaunch({packageName:'wallet.dentacoin.com'}, function() {
-                                    console.log('wallet app is installed');
-                                    // wallet app is installed
-                                    window.plugins.launcher.launch({packageName:'wallet.dentacoin.com'}, function() {
+                                packageName = 'wallet.dentacoin.com';
+                            } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                packageName = 'com.dentacoin.wallet';
+                            }
 
-                                    }, function() {
-                                        basic.showAlert(default_error_message, '', true);
-                                    });
+                            window.plugins.launcher.canLaunch({packageName: packageName}, function() {
+                                console.log('wallet app is installed');
+                                // wallet app is installed
+                                window.plugins.launcher.launch({packageName: packageName}, function() {
+
                                 }, function() {
-                                    // dentacoin wallet app is not installed
+                                    basic.showAlert(default_error_message, '', true);
+                                });
+                            }, function() {
+                                // dentacoin wallet app is not installed
+                                if (basic.getMobileOperatingSystem() == 'Android') {
                                     cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', inAppBrowserSettings);
-                                });
-                            } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_system');
-                            }
+                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                    cordova.InAppBrowser.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_blank', inAppBrowserSettings);
+                                }
+                            });
                         } else if (currentHref.includes('dentacare')) {
-                            /*window.plugins.launcher.canLaunch({uri:'dentacare://'}, function() {
-                                console.log('IOS DENTARE EXISTS');
-                            }, function() {
-                                console.log('IOS DENTARE DOES NOT EXISTS');
-                            });*/
+                            var packageName = 'com.dentacoin.dentacare';
 
-                            if (basic.getMobileOperatingSystem() == 'Android') {
-                                window.plugins.launcher.canLaunch({packageName:'com.dentacoin.dentacare'}, function() {
-                                    console.log('dentacare app is installed');
-                                    // dentacare app is installed
-                                    window.plugins.launcher.launch({packageName:'com.dentacoin.dentacare'}, function() {
+                            window.plugins.launcher.canLaunch({packageName: packageName}, function() {
+                                console.log('dentacare app is installed');
+                                // wallet app is installed
+                                window.plugins.launcher.launch({packageName: packageName}, function() {
 
-                                    }, function() {
-                                        basic.showAlert(default_error_message, '', true);
-                                    });
                                 }, function() {
-                                    // dentacoin dentacare app is not installed
-                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', inAppBrowserSettings);
+                                    basic.showAlert(default_error_message, '', true);
                                 });
-                            } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_system');
-                            }
+                            }, function() {
+                                // dentacoin wallet app is not installed
+                                if (basic.getMobileOperatingSystem() == 'Android') {
+                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', inAppBrowserSettings);
+                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                    cordova.InAppBrowser.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_blank', inAppBrowserSettings);
+                                }
+                            });
                         } else {
                             var inAppBrowserRef = cordova.InAppBrowser.open(currentHref, '_blank', inAppBrowserSettings);
 
@@ -1884,7 +2005,6 @@ var projectData = {
                                             code: "window.shouldCloseAndRedirect"
                                         },
                                         function(values) {
-                                            console.log(values, 'values');
                                             if (values[0]){
                                                 window.open(values[0], '_system', 'location=yes');
                                                 inAppBrowserRef.close();
@@ -1892,7 +2012,7 @@ var projectData = {
                                             }
                                         }
                                     );
-                                }, 500);
+                                }, 1000);
 
                                 // listener for account deletion
                                 var accountDeletionLoop = window.setInterval(function(){
@@ -1909,7 +2029,43 @@ var projectData = {
                                             }
                                         }
                                     );
-                                }, 500);
+                                }, 1000);
+
+                                var withdrawSuccessfulLoop = window.setInterval(function(){
+                                    inAppBrowserRef.executeScript({
+                                            code: "window.withdrawSuccessful"
+                                        },
+                                        function(values) {
+                                            if (values[0]){
+                                                cordova.plugins.notification.local.schedule({
+                                                    title: 'Withdrawal completed',
+                                                    text: 'Your withdrawal was successfully completed.',
+                                                    foreground: true
+                                                });
+
+                                                window.clearInterval(withdrawSuccessfulLoop);
+                                            }
+                                        }
+                                    );
+                                }, 1000);
+
+                                var withdrawSecurityCheckLoop = window.setInterval(function(){
+                                    inAppBrowserRef.executeScript({
+                                            code: "window.withdrawSecurityCheck"
+                                        },
+                                        function(values) {
+                                            if (values[0]){
+                                                cordova.plugins.notification.local.schedule({
+                                                    title: 'First withdrawal requested',
+                                                    text: 'Your first withdrawal will be competed after manual approval (usually up to 5 work days).',
+                                                    foreground: true
+                                                });
+
+                                                window.clearInterval(withdrawSecurityCheckLoop);
+                                            }
+                                        }
+                                    );
+                                }, 1000);
                             });
                         }
                     }
@@ -2149,10 +2305,13 @@ var projectData = {
         initDatetimePicker: function(startDate) {
             if ($('.datetimepicker').length > 0) {
                 jQuery('.datetimepicker').datetimepicker({
-                    minDate: new Date(),
-                    startDate: new Date()
+                    minDate: startDate,
+                    startDate: startDate
                 });
             }
+        },
+        convertTimezone: function(date, tzString) {
+            return new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {timeZone: tzString}));
         },
         dateObjToFormattedDate: function(object, withHours) {
             if (object.getDate() < 10) {
@@ -2195,7 +2354,6 @@ var projectData = {
             if (is_hybrid && isDeviceReady && lastHybridScreen != $('title').html()) {
                 lastHybridScreen = $('title').html();
                 cordova.plugins.firebase.analytics.setCurrentScreen($('title').html());
-                console.log('cordova.plugins.firebase.analytics.setCurrentScreen', $('title').html());
             }
         }
     }
@@ -2252,11 +2410,23 @@ function router() {
 
     $('body').on('DOMSubtreeModified', '.main-content', async function() {
         if (window.localStorage.getItem('currentPatient') != null) {
+            if (is_hybrid && window.localStorage.getItem('greetNewUser') == null) {
+                window.localStorage.setItem('greetNewUser', 'true');
+                cordova.plugins.notification.local.schedule({
+                    title: 'Welcome',
+                    text: 'Welcome to Dentacoin HubApp!',
+                    foreground: true
+                });
+            }
+
             // LOGGED IN ROUTES
             if ($('app-home').length && current_route != 'home') {
                 projectData.general_logic.setIsHybrid();
                 current_route = 'home';
                 projectData.pages.patient.homepage();
+            } else if ($('app-landing-page').length && current_route != 'landing-page') {
+                current_route = 'landing-page';
+                projectData.pages.dentist.landingPage();
             }/* else if ($('app-my-wallet').length && $('app-my-wallet .my-wallet-container .dropdown-hidden-menu button').length && current_route != 'my-wallet') {
                 $('body').removeClass('platform-background');
                 projectData.general_logic.setIsHybrid();
@@ -2327,6 +2497,9 @@ function router() {
                 current_route = 'dentist-request-account';
                 projectData.general_logic.setIsHybrid();
                 projectData.pages.patient.dentistRequestAccount();
+            } else if ($('app-landing-page').length && current_route != 'landing-page') {
+                current_route = 'landing-page';
+                projectData.pages.dentist.landingPage();
             }
         }
     });
@@ -2424,32 +2597,37 @@ function addEditAppPopupLanguageSwitch() {
 }
 
 function handleOpenURL(url) {
-    var get_params = basic.getGETParameters();
     var urlInstance = new URL(url);
-    var iframeUrl = '';
-    var authType = '';
-    var dev = '';
+    if (url.includes('hubapp.dentacoin.com')) {
+        // universal linking
+        const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
+            detail: {
+                time: new Date(),
+                response_data: {
+                    invite: urlInstance.searchParams.get('invite'),
+                    inviteId: urlInstance.searchParams.get('inviteid')
+                }
+            }
+        });
+        document.dispatchEvent(event);
+    } else if (url.includes('hubapp://')) {
+        // deep linking
+        var dev = '';
 
-    if ($('.main-content').attr('data-production') == 'false') {
-        dev = '&dev=true';
+        if ($('.main-content').attr('data-production') == 'false') {
+            dev = '&dev=true';
+        }
+
+        var iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type=login&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
+
+        if (window.localStorage.getItem('tempCivicInvite') != null && window.localStorage.getItem('tempCivicInviteId') != null) {
+            iframeUrl += '&invite=' + window.localStorage.getItem('tempCivicInvite') + '&inviteid=' + window.localStorage.getItem('tempCivicInviteId');
+        }
+
+        $('#iframe-civic-popup').remove();
+        $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
+
+        window.localStorage.removeItem('tempCivicInvite');
+        window.localStorage.removeItem('tempCivicInviteId');
     }
-
-    //if (current_route == 'patient-login-page') {
-        authType = 'login';
-    /*} else if (current_route == 'patient-register-by-invite') {
-        authType = 'register';
-    }*/
-
-    /*if (basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid')) {
-        iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp&invite=' + get_params.invite + '&inviteid=' + get_params.inviteid + dev;
-    } else {*/
-        iframeUrl = 'https://dentacoin.com/iframe-civic-popup?uuid='+urlInstance.searchParams.get('uuid')+'&auth_type='+authType+'&environment_type=civic-from-mobile-app&platform_type=hubapp' + dev;
-    //}
-
-    console.log(url, 'url');
-    console.log(get_params, 'get_params');
-    console.log(iframeUrl, 'iframeUrl');
-
-    $('#iframe-civic-popup').remove();
-    $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+iframeUrl+'" id="iframe-civic-popup"></iframe>');
 }

@@ -15,14 +15,14 @@
                 <div class="inputs-wrapper inline-block">
                     <div class="input-field inline-block-top">
                         <div class="custom-google-label-style module" data-input-colorful-border="true">
-                            <label for="request-account-name-0" class="platform-color">{{'invite-patients-form-name' | translate}}</label>
-                            <input maxlength="100" type="text" id="request-account-name-0" class="full-rounded form-field platform-border-color person-name"/>
+                            <label for="request-account-name-0" class="color-light-blue">{{'invite-patients-form-name' | translate}}</label>
+                            <input maxlength="100" type="text" id="request-account-name-0" class="full-rounded form-field light-blue-border-color person-name"/>
                         </div>
                     </div>
                     <div class="input-field inline-block-top">
                         <div class="custom-google-label-style module" data-input-colorful-border="true">
-                            <label for="request-account-email-0" class="platform-color">{{'invite-patients-form-email' | translate}}</label>
-                            <input maxlength="100" type="text" id="request-account-email-0" class="full-rounded form-field platform-border-color person-email"/>
+                            <label for="request-account-email-0" class="color-light-blue">{{'invite-patients-form-email' | translate}}</label>
+                            <input maxlength="100" type="text" id="request-account-email-0" class="full-rounded form-field light-blue-border-color person-email"/>
                         </div>
                     </div>
                 </div>
@@ -30,10 +30,10 @@
         </div>
         <div class="padding-top-15 padding-top-xs-5 fs-0 buttons">
             <div class="inline-block add-btn-container">
-                <a href="javascript:void(0)" class="lato-bold fs-16 add-invitation-rows module platform-color">{{'invite-patients-form-add-another-patient' | translate}}</a>
+                <a href="javascript:void(0)" class="lato-bold fs-16 add-invitation-rows module color-light-blue">{{'invite-patients-form-add-another-patient' | translate}}</a>
             </div>
             <div class="inline-block send-btn-container text-right">
-                <a href="javascript:void(0)" class="fs-16 platform-custom-button submit-form-invite-people module platform-custom-button platform-background-color platform-border-color hover">{{'invite-patients-form-send-invite' | translate}}</a>
+                <a href="javascript:void(0)" class="fs-16 light-blue-white-button submit-form-invite-people module lato-bold">{{'invite-patients-form-send-invite' | translate}}</a>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
                         <td>{{invite.created_at}}</td>
                         <td class="lato-bold">{{invite.invited_name}}</td>
                         <td><a href="mailto:{{invite.invited_email}}" class="email">{{invite.invited_email}}</a></td>
-                        <td *ngIf="invite.invited_id != null" class="lato-bold platform-color">{{'invited-patients-history-accepted' | translate}}</td>
+                        <td *ngIf="invite.invited_id != null" class="lato-bold color-light-blue">{{'invited-patients-history-accepted' | translate}}</td>
                         <td *ngIf="invite.invited_id == null">{{'invited-patients-history-invited' | translate}}</td>
                     </tr>
                 </ng-container>

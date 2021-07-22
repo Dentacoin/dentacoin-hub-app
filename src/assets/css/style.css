@@ -254,6 +254,9 @@
 .color-light-blue {
   color: #00b7e2; }
 
+.light-blue-border-color {
+  border-color: #00b7e2; }
+
 .color-warning-red {
   color: #ff0046; }
 
@@ -378,6 +381,28 @@ select.platform-border-color {
       color: #00b7e2;
       background-color: white;
       text-decoration: none !important; } }
+.module.light-blue-white-button {
+  background-color: white;
+  color: #00b7e2;
+  font-size: 16px;
+  padding: 6px 30px;
+  border: 1.5px solid #00b7e2;
+  text-decoration: none !important;
+  display: inline-block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s; }
+  @media screen and (min-width: 992px) {
+    .module.light-blue-white-button:hover {
+      color: #00b7e2;
+      background-color: white;
+      text-decoration: none !important; } }
 .module.white-purple-gradient-button {
   background: #e81e79;
   background: linear-gradient(43deg, #e81e79 0%, #6c2d90 100%);
@@ -476,6 +501,11 @@ select.platform-border-color {
     -moz-border-radius: 0 4px 4px 0;
     -ms-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0; }
+  .module.custom-google-label-style.magnify-background input {
+    background-image: url(../images/magnify.png);
+    background-position: center right 10px;
+    background-size: 20px;
+    background-repeat: no-repeat; }
 .module.custom-google-select-style {
   position: relative; }
   .module.custom-google-select-style label {
@@ -505,13 +535,12 @@ select.platform-border-color {
     background-position: top 50% right 10px;
     background-size: 15px;
     background-repeat: no-repeat;
+    border: 1.5px solid #dddddd;
     cursor: pointer;
     font-size: 16px;
     width: 100%;
     padding: 10px 30px 10px 15px;
     -webkit-appearance: initial;
-    border-style: solid;
-    border-width: 1.5px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -6977,6 +7006,38 @@ footer {
 
 .bootbox .modal-body {
   padding: 35px 15px 20px; }
+.bootbox.popup-select-patients .bootbox-close-button {
+  display: none; }
+.bootbox.popup-select-patients .modal-dialog {
+  width: 95%;
+  max-width: 900px; }
+  .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body {
+    padding: 30px 100px; }
+    .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper {
+      max-height: 320px;
+      overflow: auto; }
+      .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table {
+        width: 100%; }
+        .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table tr {
+          cursor: pointer; }
+          .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table tr td, .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table tr th {
+            padding: 20px 10px;
+            font-size: 16px; }
+        .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table thead {
+          border-bottom: 2px solid black; }
+        .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table tbody tr {
+          border-bottom: 1.5px solid #bfbfbf;
+          -webkit-transition: 0.5s;
+          -moz-transition: 0.5s;
+          -o-transition: 0.5s;
+          -ms-transition: 0.5s;
+          transition: 0.5s; }
+          .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table tbody tr:hover {
+            background-color: #cdeaf8; }
+        .bootbox.popup-select-patients .modal-dialog .modal-content .modal-body .table-wrapper table tbody input[type="checkbox"] {
+          font-size: 26px;
+          transform: scale(1.6);
+          cursor: pointer; }
 .bootbox.add-edit-app-popup .bootbox-close-button {
   position: absolute;
   top: 0;
@@ -7648,6 +7709,37 @@ footer {
   .invite-patients-form .people-invitation .mobile-send-emails {
     display: block; } }
 
+.push-notifications-custom-form .patients-filtering .filter-option {
+  border: 0;
+  background-color: transparent; }
+  .push-notifications-custom-form .patients-filtering .filter-option .custom-checkbox {
+    width: 18px;
+    height: 18px;
+    border-width: 1px;
+    border-style: solid;
+    position: relative;
+    border-color: #00b7e2;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%; }
+    .push-notifications-custom-form .patients-filtering .filter-option .custom-checkbox .checkbox-circle {
+      display: none;
+      width: 10px;
+      height: 10px;
+      background-color: #00b7e2;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  .push-notifications-custom-form .patients-filtering .filter-option.active .custom-checkbox .checkbox-circle {
+    display: block; }
 .push-notifications-custom-form textarea {
   border: 1.5px solid #dddddd;
   cursor: pointer;

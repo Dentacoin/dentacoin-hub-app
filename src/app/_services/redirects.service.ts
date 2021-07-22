@@ -64,4 +64,8 @@ export class RedirectsService {
     redirectToManagePrivacy() {
         this.router.navigateByUrl(this.translate.currentLang + '/manage-privacy');
     }
+
+    redirectToPatientInvite(invite: string, inviteId: string) {
+        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/patient-register-by-invite?invite=' + invite + '&inviteid=' + inviteId)).then();
+    }
 }

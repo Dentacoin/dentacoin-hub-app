@@ -21,10 +21,8 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         if (!this.authenticationServiceService.hasPatientStorageSession()) {
-            console.log('===== 1 =====');
             this.redirectsService.redirectToPatientLogin('login');
         } else {
-            console.log('===== 2 =====');
             this.requestsService.getDentistData(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).subscribe((response: any) => {
                 this.requestsService.getDentistSlug(new HttpParams().set('id', JSON.parse(window.localStorage.getItem('currentPatient')).patient_of).toString()).subscribe((dentistSlugResponse: any) => {
                     console.log(dentistSlugResponse, 'dentistSlugResponse');
@@ -44,7 +42,7 @@ export class HomeComponent implements OnInit {
                                 this.applications[i].url = this.applications[i].url + '/custom-cookie?slug=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_id) + '&type=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_type) + '&token=' + encodeURIComponent(JSON.parse(window.localStorage.getItem('currentPatient')).encrypted_token);
                             }
 
-                            if (this.applications[i].resource_type == 'svg') {
+                            if (this.applications[i].resource_type === 'svg') {
                                 this.applications[i].media = encodeURIComponent(this.applications[i].media);
                             }
                         }

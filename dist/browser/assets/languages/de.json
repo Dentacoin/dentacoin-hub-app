@@ -137,12 +137,20 @@
   "push-notifications-schedule": "ZEITPLAN",
   "push-notifications-send-now": "JETZT SENDEN",
   "push-notifications-save-now": "JETZT SPAREN",
-  "push-notifications-date-description": "Die ausgewählte Zeit ist in der Zeitzone UTC+0.",
-  "push-notifications-missing-patients": "Push-Benachrichtigung kann nicht gesendet werden. Sie haben noch keine Patienten eingeladen.",
   "missing-patient-account-error": "Es sieht so aus, als hätten Sie noch kein Profil. ",
   "request-one-here": "Beantragen Sie eins hier.",
   "dentist-helper": "Dies ist der Hauptbildschirm Ihrer Patientenbindungs-App. Klicken Sie auf Seite bearbeiten, um sie einzurichten.",
   "account-not-found": "Profil nicht gefunden. Sie müssen von Ihrem Zahnarzt eingeladen werden, um die Dentacoin HubApp verwenden zu können.",
   "banner-title-desktop": "Holen Sie sich Ihre Patientenloyalität-Prämien unterwegs! ",
-  "banner-title-mobile": "Genießen Sie die vollen Vorteile und Patientenloyalität-Prämien!"
+  "banner-title-mobile": "Genießen Sie die vollen Vorteile und Patientenloyalität-Prämien!",
+
+  "push-notifications-missing-patients": "You cannot submit a push notification, because you don't have patients who downloaded HubApp mobile application yet.",
+  "push-notifications-limit-reached": "You have reached the push notifications limit for this week.",
+  "push-notifications-select-patients-title" : "Select Patients to Receive Push Notification",
+  "push-notifications-select-patients-field" : "Search by name or email:",
+  "push-notifications-select-patients-save" : "SAVE",
+  "push-notifications-select-patients-cancel" : "CANCEL",
+  "push-notifications-select-patients-patient" : "Patient",,
+  "push-notifications-select-patients-error" : "Please select patients.",
+  "push-notifications-select-patients-email" : "E-Mail-Adresse"
 }

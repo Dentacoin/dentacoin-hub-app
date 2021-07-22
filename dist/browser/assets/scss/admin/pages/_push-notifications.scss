@@ -1,4 +1,34 @@
 .push-notifications-custom-form {
+    .patients-filtering {
+        .filter-option {
+            border: 0;
+            background-color: transparent;
+            .custom-checkbox {
+                width: 18px;
+                height: 18px;
+                border-width: 1px;
+                border-style: solid;
+                position: relative;
+                border-color: $light_blue;
+                @include rounded(50%);
+                .checkbox-circle {
+                    display: none;
+                    width: 10px;
+                    height: 10px;
+                    background-color: $light_blue;
+                    @include rounded(50%);
+                    @include vertical-horizontal-align(absolute);
+                }
+            }
+            &.active {
+                .custom-checkbox {
+                    .checkbox-circle {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
     textarea {
         border: 1.5px solid #dddddd;
         cursor: pointer;

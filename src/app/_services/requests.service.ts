@@ -22,7 +22,7 @@ export class RequestsService {
         return this.http.get('https://dcn-hub-app-api.dentacoin.com/dentist/get-dentist-data/' + id);
     }
 
-    public sendRequestAccountMail(body): Observable<{}> {
+    public sendRequestAccountMail(body: string): Observable<{}> {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/patient/send-request-account-mail', body, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -30,7 +30,7 @@ export class RequestsService {
         });
     }
 
-    public dentistSendRequestAccountMail(body): Observable<{}> {
+    public dentistSendRequestAccountMail(body: string): Observable<{}> {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/dentist-send-request-account-mail', body, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -76,6 +76,15 @@ export class RequestsService {
 
     public getPushNotificationsHistory(body: string): Observable<{}> {
         return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/get-push-notifications', body, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            })
+        });
+    }
+
+    public getPatientsWhichCanReceivePushNotifications(body: string): Observable<{}> {
+        return this.http.post('https://dcn-hub-app-api.dentacoin.com/dentist/get-patients-which-can-receive-push-notifications', body, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json'
