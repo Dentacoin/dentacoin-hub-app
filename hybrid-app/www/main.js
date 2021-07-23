@@ -3134,7 +3134,6 @@ var PatientLoginPageComponent = /** @class */ (function () {
                     _this.onPatientsLogin(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
                 });
                 document.addEventListener('receiveCoredbTokenFromCivicAuth', function (e) {
-                    console.log(e.detail.response_data, 'receiveCoredbTokenFromCivicAuth');
                     console.log(e, 'receiveCoredbTokenFromCivicAuth');
                     _this.requestsService.getUserData(e.detail.response_data).subscribe({
                         next: function (response) {
@@ -3221,7 +3220,6 @@ var PatientLoginPageComponent = /** @class */ (function () {
                         }
                         if (jquery__WEBPACK_IMPORTED_MODULE_11__('.log-link.open-dentacoin-gateway').length) {
                             jquery__WEBPACK_IMPORTED_MODULE_11__('.log-link.open-dentacoin-gateway').on('click', function () {
-                                console.log('log link');
                                 _this.redirectsService.redirectToPatientLogin('login');
                             });
                         }
@@ -3359,17 +3357,12 @@ var PatientRegisterByInviteComponent = /** @class */ (function () {
             this.redirectsService.redirectToLoggedHome();
         }
         else {
-            console.log('PatientRegisterByInvite', 1);
             if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
-                console.log('PatientRegisterByInvite', 2);
                 this.redirectsService.redirectToPatientLogin('login');
             }
             else {
-                console.log('PatientRegisterByInvite', 3);
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
-                console.log(this.inviter, 'this.inviter');
-                console.log(this.inviteId, 'this.inviteId');
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', function (e) {
                         console.log(e, 'patientAuthSuccessResponse');

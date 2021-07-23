@@ -29,16 +29,11 @@ export class PatientRegisterByInviteComponent implements OnInit {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
-            console.log('PatientRegisterByInvite', 1);
             if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
-                console.log('PatientRegisterByInvite', 2);
                 this.redirectsService.redirectToPatientLogin('login');
             } else {
-                console.log('PatientRegisterByInvite', 3);
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
-                console.log(this.inviter, 'this.inviter');
-                console.log(this.inviteId, 'this.inviteId');
 
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', (e: any) => {

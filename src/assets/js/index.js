@@ -1694,7 +1694,7 @@ var projectData = {
                     $('.civic-custom-btn').removeClass('hide');
                     $('.civic-custom-btn').click(function() {
                         if (!$('#iframe-civic-popup').length) {
-                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login" id="iframe-civic-popup"></iframe>');
+                            $('body').append('<iframe sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="'+$('.main-content').attr('data-dentacoinDomain')+'/iframe-civic-popup?type=login&invite='+$('.civic-custom-btn').attr('data-inviter')+'&inviteid='+$('.civic-custom-btn').attr('data-inviteid')+'" id="iframe-civic-popup"></iframe>');
                         }
                     });
                 } else {

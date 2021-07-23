@@ -8,7 +8,6 @@ import {LanguageService} from '../_services/language.service';
 import { environment } from '../../environments/environment';
 import {RequestsService} from '../_services/requests.service';
 import {AdditionalService} from '../_services/additional.service';
-import { Meta, Title } from '@angular/platform-browser';
 import * as $ from 'jquery';
 
 @Component({
@@ -42,7 +41,6 @@ export class PatientLoginPageComponent implements OnInit {
                 });
 
                 document.addEventListener('receiveCoredbTokenFromCivicAuth', (e: any) => {
-                    console.log(e.detail.response_data, 'receiveCoredbTokenFromCivicAuth');
                     console.log(e, 'receiveCoredbTokenFromCivicAuth');
 
                     this.requestsService.getUserData(e.detail.response_data).subscribe({
@@ -137,7 +135,6 @@ export class PatientLoginPageComponent implements OnInit {
 
                         if ($('.log-link.open-dentacoin-gateway').length) {
                             $('.log-link.open-dentacoin-gateway').on('click', () => {
-                                console.log('log link');
                                 this.redirectsService.redirectToPatientLogin('login');
                             });
                         }
