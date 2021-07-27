@@ -4963,24 +4963,26 @@ class FrontEndLanguageComponent {
         this.redirectsService = redirectsService;
         this.ngZone = ngZone;
         this.channelArray = ['de', 'en'];
+        this.exceptions = ['hubapp.dentacoin.com#apple-app-site-association', 'test.txt'];
     }
     ngOnInit() {
         this.activatedRoute.params.subscribe((params) => {
-            console.log(params, 'params');
-            if (this.channelArray.indexOf(params['lang']) > -1) {
-                this.translate.use(params['lang']);
-            }
-            else if (params['lang'] === 'admin') {
-                this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
-                this.redirectsService.redirectToAdmin();
-            }
-            else {
-                this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
-                if (params.hasOwnProperty('lang')) {
-                    this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/' + params['lang'])).then();
+            if (this.exceptions.indexOf(params['lang']) === -1) {
+                if (this.channelArray.indexOf(params['lang']) > -1) {
+                    this.translate.use(params['lang']);
+                }
+                else if (params['lang'] === 'admin') {
+                    this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
+                    this.redirectsService.redirectToAdmin();
                 }
                 else {
-                    this.router.navigateByUrl(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
+                    this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
+                    if (params.hasOwnProperty('lang')) {
+                        this.ngZone.run(() => this.router.navigateByUrl(this.translate.currentLang + '/' + params['lang'])).then();
+                    }
+                    else {
+                        this.router.navigateByUrl(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].default_language);
+                    }
                 }
             }
         });
@@ -5894,7 +5896,6 @@ class PatientLoginPageComponent {
                     this.onPatientsLogin(e.detail.response_data.token, e.detail.response_data.data.id, e.detail.response_data.data.patient_of);
                 });
                 document.addEventListener('receiveCoredbTokenFromCivicAuth', (e) => {
-                    console.log(e.detail.response_data, 'receiveCoredbTokenFromCivicAuth');
                     console.log(e, 'receiveCoredbTokenFromCivicAuth');
                     this.requestsService.getUserData(e.detail.response_data).subscribe({
                         next: (response) => {
@@ -5981,7 +5982,6 @@ class PatientLoginPageComponent {
                         }
                         if (jquery__WEBPACK_IMPORTED_MODULE_3__('.log-link.open-dentacoin-gateway').length) {
                             jquery__WEBPACK_IMPORTED_MODULE_3__('.log-link.open-dentacoin-gateway').on('click', () => {
-                                console.log('log link');
                                 this.redirectsService.redirectToPatientLogin('login');
                             });
                         }
@@ -6151,17 +6151,12 @@ class PatientRegisterByInviteComponent {
             this.redirectsService.redirectToLoggedHome();
         }
         else {
-            console.log('PatientRegisterByInvite', 1);
             if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
-                console.log('PatientRegisterByInvite', 2);
                 this.redirectsService.redirectToPatientLogin('login');
             }
             else {
-                console.log('PatientRegisterByInvite', 3);
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
-                console.log(this.inviter, 'this.inviter');
-                console.log(this.inviteId, 'this.inviteId');
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', (e) => {
                         console.log(e, 'patientAuthSuccessResponse');
