@@ -4963,7 +4963,7 @@ class FrontEndLanguageComponent {
         this.redirectsService = redirectsService;
         this.ngZone = ngZone;
         this.channelArray = ['de', 'en'];
-        this.exceptions = ['hubapp.dentacoin.com#apple-app-site-association', 'test.txt'];
+        this.exceptions = ['apple-app-site-association'];
     }
     ngOnInit() {
         this.activatedRoute.params.subscribe((params) => {
