@@ -34,7 +34,6 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./src/assets/libs/datetimepicker/jquery.datetimepicker.full.min.js",
-              "./src/assets/libs/mobile-facebook-app/openfb.js",
               "./src/assets/libs/jquery-ui/jquery-ui.js",
               "./src/assets/libs/jquery.ui.touch-punch/jquery.ui.touch-punch.min.js",
               "./src/assets/libs/bootstrap/js/bootstrap.min.js",

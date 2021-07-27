@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-plugin-facebook-connect",
+  "_id": "cordova-plugin-facebook-connect@2.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-z27BF1wcqPCJBdpz13poov7kf9ERSzTNxs0j7hbnui/xfwTjptKVvmABuifuhvVDaBfEbv2K/BAwlxhhE3XyaQ==",
+  "_location": "/cordova-plugin-facebook-connect",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-facebook-connect",
+    "name": "cordova-plugin-facebook-connect",
+    "escapedName": "cordova-plugin-facebook-connect",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-facebook-connect/-/cordova-plugin-facebook-connect-2.3.0.tgz",
+  "_shasum": "dce73f11e903ed22a9da0e3eacfd0004d8ff2491",
+  "_spec": "cordova-plugin-facebook-connect",
+  "_where": "D:\\wamp\\www\\dcn-hub-app\\hybrid-app",
+  "bugs": {
+    "url": "https://github.com/cordova-plugin-facebook-connect/cordova-plugin-facebook-connect/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-facebook-connect",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Facebook SDK Plugin",
+  "homepage": "https://github.com/cordova-plugin-facebook-connect/cordova-plugin-facebook-connect#readme",
+  "keywords": [
+    "cordova",
+    "facebook",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser",
+    "facebook-sdk",
+    "social",
+    "sharing"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-facebook-connect",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordova-plugin-facebook-connect/cordova-plugin-facebook-connect.git"
+  },
+  "version": "2.3.0"
+}

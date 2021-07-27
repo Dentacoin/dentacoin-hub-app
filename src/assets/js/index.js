@@ -1971,9 +1971,9 @@ var projectData = {
                             }, function() {
                                 // dentacoin wallet app is not installed
                                 if (basic.getMobileOperatingSystem() == 'Android') {
-                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank', inAppBrowserSettings);
+                                    window.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank');
                                 } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                    cordova.InAppBrowser.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_blank', inAppBrowserSettings);
+                                    window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_blank');
                                 }
                             });
                         } else if (currentHref.includes('dentacare')) {
@@ -1990,9 +1990,9 @@ var projectData = {
                             }, function() {
                                 // dentacoin wallet app is not installed
                                 if (basic.getMobileOperatingSystem() == 'Android') {
-                                    cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank', inAppBrowserSettings);
+                                    window.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank');
                                 } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                                    cordova.InAppBrowser.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_blank', inAppBrowserSettings);
+                                    window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_blank');
                                 }
                             });
                         } else {

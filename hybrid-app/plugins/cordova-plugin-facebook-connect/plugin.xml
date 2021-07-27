@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-facebook-connect"
+        version="2.3.0">
+
+    <name>Facebook Connect</name>
+
+    <description>
+      This is the official plugin for Facebook in Apache Cordova!
+
+      The Facebook plugin for Apache Cordova allows you to use the same JavaScript code in your
+      Cordova application as you use in your web application.
+    </description>
+
+    <repo>https://github.com/cordova-plugin-facebook-connect/cordova-plugin-facebook-connect</repo>
+
+    <license>Apache 2.0</license>
+
+    <preference name="APP_ID" />
+    <preference name="APP_NAME" />
+    <preference name="FACEBOOK_URL_SCHEME_SUFFIX" default=" " />
+    <preference name="FACEBOOK_AUTO_LOG_APP_EVENTS" default="true" />
+    <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
+    <preference name="FACEBOOK_ADVERTISER_ID_COLLECTION" default="true" />
+    <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="9.1.1"/>
+    <preference name="FACEBOOK_IOS_SDK_VERSION" default="9.2.0"/>
+    <preference name="FACEBOOK_BROWSER_SDK_VERSION" default="v9.0" />
+
+    <engines>
+        <engine name="cordova-android" version=">=7.0.0" />
+        <engine name="cordova-ios" version=">=5.0.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
+            <clobbers target="facebookConnectPlugin" />
+        </js-module>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FacebookConnectPlugin">
+                <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+            <access origin="https://m.facebook.com" />
+            <access origin="https://graph.facebook.com" />
+            <access origin="https://api.facebook.com" />
+            <access origin="https://*.fbcdn.net" />
+            <access origin="https://*.akamaihd.net" />
+            <preference name="android-minSdkVersion" value="15" />
+        </config-file>
+
+        <source-file src="src/android/facebookconnect.xml" target-dir="res/values" />
+        <config-file target="app/src/main/res/values/facebookconnect.xml" parent="/*">
+            <string name="fb_app_id">$APP_ID</string>
+            <string name="fb_app_name">$APP_NAME</string>
+            <bool name="fb_auto_log_app_events_enabled">$FACEBOOK_AUTO_LOG_APP_EVENTS</bool>
+            <bool name="fb_hybrid_app_events">$FACEBOOK_HYBRID_APP_EVENTS</bool>
+            <bool name="fb_advertiser_id_collection_enabled">$FACEBOOK_ADVERTISER_ID_COLLECTION</bool>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="application">
+            <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+            <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/fb_app_name" />
+            <meta-data android:name='com.facebook.sdk.AutoLogAppEventsEnabled' android:value='@bool/fb_auto_log_app_events_enabled'/>
+            <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value='@bool/fb_advertiser_id_collection_enabled' />
+            <activity android:name="com.facebook.FacebookActivity"
+              android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+              android:label="@string/fb_app_name" />
+        </config-file>
+
+        <framework src="com.facebook.android:facebook-android-sdk:$FACEBOOK_ANDROID_SDK_VERSION"/>
+
+        <!-- cordova plugin src files -->
+        <source-file src="src/android/ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
+
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
+            <clobbers target="facebookConnectPlugin" />
+        </js-module>
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="FacebookConnectPlugin">
+                <param name="ios-package" value="FacebookConnectPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+            <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin"/>
+            <access origin="https://m.facebook.com" />
+            <access origin="https://graph.facebook.com" />
+            <access origin="https://api.facebook.com" />
+            <access origin="https://*.fbcdn.net" />
+            <access origin="https://*.akamaihd.net" />
+        </config-file>
+
+        <header-file src="src/ios/FacebookConnectPlugin.h" />
+        <source-file src="src/ios/FacebookConnectPlugin.m" />
+
+        <config-file target="*-Info.plist" parent="FacebookAppID">
+            <string>$APP_ID</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="FacebookDisplayName">
+            <string>$APP_NAME</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="FacebookUrlSchemeSuffix">
+            <string>FACEBOOK_URL_SCHEME_SUFFIX_PLACEHOLDER</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="FacebookAutoLogAppEventsEnabled_PLACEHOLDER">
+            <string>FACEBOOK_AUTO_LOG_APP_EVENTS_PLACEHOLDER</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="FacebookHybridAppEvents">
+            <string>$FACEBOOK_HYBRID_APP_EVENTS</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="FacebookAdvertiserIDCollectionEnabled_PLACEHOLDER">
+            <string>FACEBOOK_ADVERTISER_ID_COLLECTION_PLACEHOLDER</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+          <array>
+            <dict>
+              <key>CFBundleURLSchemes</key>
+              <array>
+                <string>fb$APP_IDFACEBOOK_URL_SCHEME_SUFFIX_PLACEHOLDER</string>
+              </array>
+            </dict>
+          </array>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+          <dict>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>facebook.com</key>
+                <dict>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                    <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                    <false/>
+                </dict>
+                <key>fbcdn.net</key>
+                <dict>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                    <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                    <false/>
+                </dict>
+                <key>akamaihd.net</key>
+                <dict>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                    <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                    <false/>
+                </dict>
+            </dict>
+          </dict>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+          <array>
+            <string>fbapi</string>
+            <string>fb-messenger-api</string>
+            <string>fbauth2</string>
+            <string>fbshareextension</string>
+          </array>
+        </config-file>
+
+        <!-- Facebook SDK -->
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="FBSDKCoreKit" spec="$FACEBOOK_IOS_SDK_VERSION"/>
+                <pod name="FBSDKLoginKit" spec="$FACEBOOK_IOS_SDK_VERSION"/>
+                <pod name="FBSDKShareKit" spec="$FACEBOOK_IOS_SDK_VERSION"/>
+            </pods>
+        </podspec>
+
+        <hook type="before_plugin_install" src="scripts/ios/before_plugin_install.js" />
+        <hook type="after_prepare" src="scripts/ios/after_prepare.js" />
+    </platform>
+
+    <!-- browser -->
+    <platform name="browser">
+        <js-module src="www/facebook-browser.js" name="FacebookConnectPluginBrowser">
+            <clobbers target="facebookConnectPlugin" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="FacebookConnectPlugin">
+                <param name="browser-package" value="FacebookConnectPluginBrowser"/>
+                <param name="onload" value="true" />
+            </feature>
+            <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin"/>
+            <access origin="https://m.facebook.com" />
+            <access origin="https://connect.facebook.net" />
+            <access origin="https://graph.facebook.com" />
+            <access origin="https://api.facebook.com" />
+            <access origin="https://*.fbcdn.net" />
+            <access origin="https://*.akamaihd.net" />
+        </config-file>
+        
+        <hook type="after_prepare" src="scripts/browser/after_prepare.js" />
+    </platform>
+</plugin>
