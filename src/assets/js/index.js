@@ -71,14 +71,20 @@ document.addEventListener('deviceready', async function() {
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
     universalLinks.subscribe('customIOSUniversalLinkEvent', function(eventData) {
-        setTimeout(function() {
-            console.log(eventData, 'eventData');
-        }, 5000);
+        var urlInstance = new URL(eventData.url);
+        console.log('redirectToPatientsRegisterByInvite', urlInstance.searchParams.get('invite'));
+        console.log('redirectToPatientsRegisterByInvite', urlInstance.searchParams.get('inviteid'));
+        const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
+            detail: {
+                time: new Date(),
+                response_data: {
+                    invite: urlInstance.searchParams.get('invite'),
+                    inviteId: urlInstance.searchParams.get('inviteid')
+                }
+            }
+        });
+        document.dispatchEvent(event);
     });
-
-    setTimeout(function() {
-        console.log('eventDataeventDataeventDataeventDataeventDataeventData');
-    }, 5000);
 
     /* ====== GET APPS LIST ======
     cordova plugin add cordova-plugin-intent-list
