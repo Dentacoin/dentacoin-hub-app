@@ -71,7 +71,9 @@ document.addEventListener('deviceready', async function() {
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
     universalLinks.subscribe('eventName', function(eventData) {
-        console.log(eventData, 'eventData');
+        setTimeout(function() {
+            console.log(eventData, 'eventData');
+        }, 5000);
     });
 
     /* ====== GET APPS LIST ======
@@ -2603,6 +2605,9 @@ function addEditAppPopupLanguageSwitch() {
 function handleOpenURL(url) {
     var urlInstance = new URL(url);
     console.log(url, 'url');
+    setTimeout(function() {
+        console.log(url, 'url');
+    }, 5000);
     if (url.includes('hubapp.dentacoin.com')) {
         console.log(1);
         // universal linking
