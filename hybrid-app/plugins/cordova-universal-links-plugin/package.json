@@ -1,25 +1,28 @@
 {
-  "_from": "git+https://github.com/cgaeking/cordova-universal-links-plugin-fix.git",
-  "_id": "cordova-universal-links-plugin@1.2.1",
+  "_from": "cordova-universal-links-plugin-fix",
+  "_id": "cordova-universal-links-plugin-fix@1.2.1",
   "_inBundle": false,
-  "_integrity": "",
-  "_location": "/cordova-universal-links-plugin",
+  "_integrity": "sha512-w7ctP0gzEOoCrchJ6DnjckdJawk+XBUze4khXS/p1cD7i2UScqUt3+gpffVu1iZbZHf9/84U1mEn7nbKC+FmrA==",
+  "_location": "/cordova-universal-links-plugin-fix",
   "_phantomChildren": {},
   "_requested": {
-    "type": "git",
-    "raw": "https://github.com/cgaeking/cordova-universal-links-plugin-fix.git",
-    "rawSpec": "https://github.com/cgaeking/cordova-universal-links-plugin-fix.git",
-    "saveSpec": "git+https://github.com/cgaeking/cordova-universal-links-plugin-fix.git",
-    "fetchSpec": "https://github.com/cgaeking/cordova-universal-links-plugin-fix.git",
-    "gitCommittish": null
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-universal-links-plugin-fix",
+    "name": "cordova-universal-links-plugin-fix",
+    "escapedName": "cordova-universal-links-plugin-fix",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
     "#DEV:/",
     "#USER"
   ],
-  "_resolved": "git+https://github.com/cgaeking/cordova-universal-links-plugin-fix.git#44cf430c2f795b5149b1a59bb3357f9f64ec6b4b",
-  "_spec": "https://github.com/cgaeking/cordova-universal-links-plugin-fix.git",
-  "_where": "D:\\wamp\\www\\dcn-hub-app\\hybrid-app",
+  "_resolved": "https://registry.npmjs.org/cordova-universal-links-plugin-fix/-/cordova-universal-links-plugin-fix-1.2.1.tgz",
+  "_shasum": "20e91ffd0945ee9761ea5648c202ab24eebf4ff8",
+  "_spec": "cordova-universal-links-plugin-fix",
+  "_where": "/Users/dentacoin/Documents/projects/dentacoin-hub-app/hybrid-app",
   "author": {
     "name": "Nikolay Demyankov for Nordnet Bank AB"
   },
@@ -67,7 +70,7 @@
     "android"
   ],
   "license": "MIT",
-  "name": "cordova-universal-links-plugin",
+  "name": "cordova-universal-links-plugin-fix",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nordnet/cordova-universal-links-plugin.git"

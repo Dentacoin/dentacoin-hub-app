@@ -22,7 +22,7 @@
   "_resolved": "https://registry.npmjs.org/cordova-plugin-firebase-analytics/-/cordova-plugin-firebase-analytics-5.0.0.tgz",
   "_shasum": "4bde8ba55a2ea17e594499911ee02617193422e5",
   "_spec": "cordova-plugin-firebase-analytics",
-  "_where": "D:\\wamp\\www\\dcn-hub-app\\hybrid-app",
+  "_where": "/Users/dentacoin/Documents/projects/dentacoin-hub-app/hybrid-app",
   "author": {
     "name": "Maksim Chemerisuk",
     "email": "chemerisuk@gmail.com",
