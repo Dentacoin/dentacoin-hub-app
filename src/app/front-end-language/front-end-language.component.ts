@@ -11,7 +11,7 @@ import {RedirectsService} from '../_services/redirects.service';
 })
 export class FrontEndLanguageComponent implements OnInit {
     channelArray: Array<string> = ['de', 'en'];
-    exceptions: Array<string> = ['apple-app-site-association'];
+    exceptions: Array<string> = ['apple-app-site-association', 'hubapp.dentacoin.com#apple-app-site-association'];
 
     constructor(public activatedRoute: ActivatedRoute, public translate: TranslateService, public router: Router, public redirectsService: RedirectsService, private ngZone: NgZone) {
     }

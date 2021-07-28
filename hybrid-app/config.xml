@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dentacoin.hub" version="0.0.1" android-versionCode="5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
+<widget id="com.dentacoin.hub" version="0.0.1" android-versionCode="6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
     <name>Dentacoin Hub App</name>
     <description>
         Dentaprime Hub App is a mobile application, dedicated to the patients of Dentaprime dental clinics. It allows them to manage bookings, earn Dentacoin, and make payments.
@@ -83,6 +83,7 @@
     <preference name="scheme" value="app"/>
     <preference name="hostname" value="localhost"/>
     <universal-links>
+        <ios-team-id value="9VFT72C446"/>
         <host name="hubapp.dentacoin.com" scheme="https">
             <path url="/*/patient-register-by-invite"/>
         </host>

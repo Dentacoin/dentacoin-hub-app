@@ -2268,25 +2268,27 @@ var FrontEndLanguageComponent = /** @class */ (function () {
         this.redirectsService = redirectsService;
         this.ngZone = ngZone;
         this.channelArray = ['de', 'en'];
+        this.exceptions = ['apple-app-site-association', 'hubapp.dentacoin.com#apple-app-site-association'];
     }
     FrontEndLanguageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.activatedRoute.params.subscribe(function (params) {
-            console.log(params, 'params');
-            if (_this.channelArray.indexOf(params['lang']) > -1) {
-                _this.translate.use(params['lang']);
-            }
-            else if (params['lang'] === 'admin') {
-                _this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_4__["environment"].default_language);
-                _this.redirectsService.redirectToAdmin();
-            }
-            else {
-                _this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_4__["environment"].default_language);
-                if (params.hasOwnProperty('lang')) {
-                    _this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/' + params['lang']); }).then();
+            if (_this.exceptions.indexOf(params['lang']) === -1) {
+                if (_this.channelArray.indexOf(params['lang']) > -1) {
+                    _this.translate.use(params['lang']);
+                }
+                else if (params['lang'] === 'admin') {
+                    _this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_4__["environment"].default_language);
+                    _this.redirectsService.redirectToAdmin();
                 }
                 else {
-                    _this.router.navigateByUrl(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_4__["environment"].default_language);
+                    _this.translate.use(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_4__["environment"].default_language);
+                    if (params.hasOwnProperty('lang')) {
+                        _this.ngZone.run(function () { return _this.router.navigateByUrl(_this.translate.currentLang + '/' + params['lang']); }).then();
+                    }
+                    else {
+                        _this.router.navigateByUrl(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_4__["environment"].default_language);
+                    }
                 }
             }
         });
