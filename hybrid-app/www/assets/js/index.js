@@ -72,18 +72,19 @@ document.addEventListener('deviceready', async function() {
 
     universalLinks.subscribe('customIOSUniversalLinkEvent', function(eventData) {
         var urlInstance = new URL(eventData.url);
-        console.log('redirectToPatientsRegisterByInvite', urlInstance.searchParams.get('invite'));
-        console.log('redirectToPatientsRegisterByInvite', urlInstance.searchParams.get('inviteid'));
-        const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
-            detail: {
-                time: new Date(),
-                response_data: {
-                    invite: urlInstance.searchParams.get('invite'),
-                    inviteId: urlInstance.searchParams.get('inviteid')
+
+        if (urlInstance.searchParams.get('invite') != null && urlInstance.searchParams.get('inviteid') != null) {
+            const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
+                detail: {
+                    time: new Date(),
+                    response_data: {
+                        invite: urlInstance.searchParams.get('invite'),
+                        inviteId: urlInstance.searchParams.get('inviteid')
+                    }
                 }
-            }
-        });
-        document.dispatchEvent(event);
+            });
+            document.dispatchEvent(event);
+        }
     });
 
     /* ====== GET APPS LIST ======
