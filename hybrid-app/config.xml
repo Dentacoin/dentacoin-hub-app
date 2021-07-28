@@ -84,8 +84,6 @@
     <preference name="hostname" value="localhost"/>
     <universal-links>
         <ios-team-id value="9VFT72C446"/>
-        <host name="hubapp.dentacoin.com" scheme="https">
-            <path url="/*/patient-register-by-invite"/>
-        </host>
+        <host name="hubapp.dentacoin.com" scheme="https" event="ul_myExampleEvent"/>
     </universal-links>
 </widget>

@@ -19013,6 +19013,10 @@ document.addEventListener('deviceready', async function() {
 
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
+    universalLinks.subscribe('eventName', function(eventData) {
+        console.log(eventData, 'eventData');
+    });
+
     /* ====== GET APPS LIST ======
     cordova plugin add cordova-plugin-intent-list
     navigator.IntentList.getList(function(applist) {
