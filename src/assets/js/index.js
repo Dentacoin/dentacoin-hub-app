@@ -70,11 +70,15 @@ document.addEventListener('deviceready', async function() {
 
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
-    universalLinks.subscribe('eventName', function(eventData) {
+    universalLinks.subscribe('customIOSUniversalLinkEvent', function(eventData) {
         setTimeout(function() {
             console.log(eventData, 'eventData');
         }, 5000);
     });
+
+    setTimeout(function() {
+        console.log('eventDataeventDataeventDataeventDataeventDataeventData');
+    }, 5000);
 
     /* ====== GET APPS LIST ======
     cordova plugin add cordova-plugin-intent-list

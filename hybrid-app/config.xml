@@ -84,6 +84,6 @@
     <preference name="hostname" value="localhost"/>
     <universal-links>
         <ios-team-id value="9VFT72C446"/>
-        <host name="hubapp.dentacoin.com" scheme="https" event="ul_myExampleEvent"/>
+        <host name="hubapp.dentacoin.com" scheme="https" event="customIOSUniversalLinkEvent"/>
     </universal-links>
 </widget>
