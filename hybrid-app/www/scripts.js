@@ -21541,7 +21541,6 @@ function addEditAppPopupLanguageSwitch() {
 
 function handleOpenURL(url) {
     var urlInstance = new URL(url);
-    alert(url);
     console.log(url, 'url');
     if (url.includes('hubapp.dentacoin.com')) {
         console.log(1);
