@@ -2615,11 +2615,7 @@ function addEditAppPopupLanguageSwitch() {
 function handleOpenURL(url) {
     var urlInstance = new URL(url);
     console.log(url, 'url');
-    setTimeout(function() {
-        console.log(url, 'url');
-    }, 5000);
-    if (url.includes('hubapp.dentacoin.com')) {
-        console.log(1);
+    /*if (url.includes('hubapp.dentacoin.com')) {
         // universal linking
         const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
             detail: {
@@ -2631,8 +2627,7 @@ function handleOpenURL(url) {
             }
         });
         document.dispatchEvent(event);
-    } else if (url.includes('hubapp://')) {
-        console.log(2);
+    } else */if (url.includes('hubapp://')) {
         // deep linking
         var dev = '';
 
