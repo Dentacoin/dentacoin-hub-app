@@ -85,7 +85,7 @@
     <universal-links>
         <ios-team-id value="9VFT72C446"/>
         <host name="hubapp.dentacoin.com" scheme="https">
-            <path url="/localhost/*/patient-register-by-invite"/>
+            <path url="/*/patient-register-by-invite"/>
         </host>
     </universal-links>
 </widget>
