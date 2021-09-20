@@ -6,7 +6,7 @@ var is_hybrid = $('body').hasClass('hybrid-app');
 var loadedLibs = {};
 var civic_iframe_removedEventLoaded = false;
 var inAppBrowserSettings = 'location=yes,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
-if (basic.getMobileOperatingSystem() == 'iOS') {
+if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
     inAppBrowserSettings = 'location=no,hardwareback=no,zoom=no,toolbarposition=top,closebuttoncaption=Back,presentationstyle=fullscreen,fullscreen=yes';
 }
 var isDeviceReady = false;
@@ -70,6 +70,23 @@ document.addEventListener('deviceready', async function() {
 
     //=================================== /internet connection check ONLY for MOBILE DEVICES ===================================
 
+    universalLinks.subscribe('customIOSUniversalLinkEvent', function(eventData) {
+        var urlInstance = new URL(eventData.url);
+
+        if (urlInstance.searchParams.get('invite') != null && urlInstance.searchParams.get('inviteid') != null) {
+            const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
+                detail: {
+                    time: new Date(),
+                    response_data: {
+                        invite: urlInstance.searchParams.get('invite'),
+                        inviteId: urlInstance.searchParams.get('inviteid')
+                    }
+                }
+            });
+            document.dispatchEvent(event);
+        }
+    });
+
     /* ====== GET APPS LIST ======
     cordova plugin add cordova-plugin-intent-list
     navigator.IntentList.getList(function(applist) {
@@ -121,7 +138,7 @@ document.addEventListener('deviceready', async function() {
         }, function(error) {
             console.error(error);
         });
-    } else if (basic.getMobileOperatingSystem() == 'iOS') {
+    } else if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
         const wasPermissionGiven = await FCM.requestPushPermission({
             ios9Support: {
                 timeout: 10,  // How long it will wait for a decision from the user before returning `false`
@@ -1650,36 +1667,13 @@ var projectData = {
                 if (window.localStorage.getItem('currentPatient') != null) {
                     projectData.general_logic.updatePlatformColors(JSON.parse(window.localStorage.getItem('currentPatient')).patient_of);
                 }
-
-                /*$('.download-data').click(function() {
-                    alert('Test download.');
-                    var profileDataUrl = 'https://booking.dentaprime.com/api/v1/hub/download-profile?token=' + JSON.parse(window.localStorage.getItem('currentPatient')).token;
-                    if (is_hybrid) {
-                        if (basic.getMobileOperatingSystem() == 'Android') {
-                            setTimeout(function () {
-                                //downloading the file in mobile device file system
-                                hybridAppFileDownload('hup-app-profile-data.zip', profileDataUrl, function() {
-                                    $('.camp-successful-data-download').html('<div class="success-handle margin-bottom-20 margin-top-15">Your profile data has been downloaded to the top-level directory of your device file system.</div>');
-                                }, cordova.file.externalRootDirectory);
-                            }, 500);
-                        } else if (basic.getMobileOperatingSystem() == 'iOS') {
-                            //using export plugin, because in iOS there is no such thing as direct file download
-                            // window.plugins.socialsharing.share(profileDataUrl);
-                            window.open(profileDataUrl, '_system');
-                            return false;
-                        }
-                    } else {
-                        $('.camp-successful-data-download').html('<div class="success-handle margin-bottom-20 margin-top-15">Your profile data has been downloaded to the top-level directory of your device file system.</div>');
-                        window.open(profileDataUrl, '_blank');
-                    }
-                });*/
             },
             patientLoginPage: async function() {
                 projectData.utils.saveHybridAppCurrentScreen();
 
                 var get_params = basic.getGETParameters();
 
-                if ((is_hybrid && basic.getMobileOperatingSystem() == 'iOS') || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
+                if ((is_hybrid && (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel')) || (!is_hybrid && (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
                     $('.apple-custom-btn').removeClass('hide');
 
                     if (!hasOwnProperty.call(loadedLibs, 'apple')) {
@@ -1731,7 +1725,7 @@ var projectData = {
 
                 var get_params = basic.getGETParameters();
 
-                if ((is_hybrid && basic.getMobileOperatingSystem() == 'iOS') || (!is_hybrid && basic.getMobileOperatingSystem() == 'iOS' && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
+                if ((is_hybrid && (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel')) || (!is_hybrid && (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') && basic.property_exists(get_params, 'invite') && basic.property_exists(get_params, 'inviteid'))) {
                     $('.apple-custom-btn').removeClass('hide');
 
                     if (!hasOwnProperty.call(loadedLibs, 'apple')) {
@@ -1906,7 +1900,7 @@ var projectData = {
 
                         if (basic.getMobileOperatingSystem() == 'Android') {
                             $('.mobile-app-banner .google-play-btn').removeClass('hide-xs');
-                        } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                        } else if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
                             $('.mobile-app-banner .play-store-btn').removeClass('hide-xs');
                         }
 
@@ -1956,7 +1950,7 @@ var projectData = {
                             var packageName;
                             if (basic.getMobileOperatingSystem() == 'Android') {
                                 packageName = 'wallet.dentacoin.com';
-                            } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                            } else if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
                                 packageName = 'com.dentacoin.wallet';
                             }
 
@@ -1972,7 +1966,7 @@ var projectData = {
                                 // dentacoin wallet app is not installed
                                 if (basic.getMobileOperatingSystem() == 'Android') {
                                     window.open('https://play.google.com/store/apps/details?id=wallet.dentacoin.com&hl=en', '_blank');
-                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                } else if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
                                     window.open('https://apps.apple.com/us/app/dentacoin-wallet/id1478732657', '_blank');
                                 }
                             });
@@ -1991,7 +1985,7 @@ var projectData = {
                                 // dentacoin wallet app is not installed
                                 if (basic.getMobileOperatingSystem() == 'Android') {
                                     window.open('https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en', '_blank');
-                                } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                                } else if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
                                     window.open('https://apps.apple.com/bg/app/dentacare-health-training/id1274148338', '_blank');
                                 }
                             });
@@ -2461,7 +2455,7 @@ function router() {
                                 }, window.localStorage.getItem('mobile_device_id'))
                             }
                         });
-                    } else if (basic.getMobileOperatingSystem() == 'iOS') {
+                    } else if (basic.getMobileOperatingSystem() == 'iOS' || navigator.platform == 'MacIntel') {
                         console.log(await FCM.hasPermission(), 'await FCM.hasPermission()');
                         if (await FCM.hasPermission()) {
                             projectData.requests.addMobileDeviceId(function() {
@@ -2598,7 +2592,8 @@ function addEditAppPopupLanguageSwitch() {
 
 function handleOpenURL(url) {
     var urlInstance = new URL(url);
-    if (url.includes('hubapp.dentacoin.com')) {
+    console.log(url, 'url');
+    /*if (url.includes('hubapp.dentacoin.com')) {
         // universal linking
         const event = new CustomEvent('redirectToPatientsRegisterByInvite', {
             detail: {
@@ -2610,7 +2605,7 @@ function handleOpenURL(url) {
             }
         });
         document.dispatchEvent(event);
-    } else if (url.includes('hubapp://')) {
+    } else */if (url.includes('hubapp://')) {
         // deep linking
         var dev = '';
 

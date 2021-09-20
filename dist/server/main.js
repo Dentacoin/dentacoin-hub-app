@@ -4963,7 +4963,7 @@ class FrontEndLanguageComponent {
         this.redirectsService = redirectsService;
         this.ngZone = ngZone;
         this.channelArray = ['de', 'en'];
-        this.exceptions = ['apple-app-site-association'];
+        this.exceptions = ['apple-app-site-association', 'hubapp.dentacoin.com#apple-app-site-association'];
     }
     ngOnInit() {
         this.activatedRoute.params.subscribe((params) => {
@@ -6145,18 +6145,19 @@ class PatientRegisterByInviteComponent {
         this.patientRegisterEventsAdded = false;
     }
     ngOnInit() {
-        console.log('PatientRegisterByInvite');
         if (this.authenticationServiceService.hasPatientStorageSession()) {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         }
         else {
-            if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
+            if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null) {
                 this.redirectsService.redirectToPatientLogin('login');
             }
             else {
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
-                this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                    this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                }
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', (e) => {
                         console.log(e, 'patientAuthSuccessResponse');
@@ -6205,7 +6206,12 @@ class PatientRegisterByInviteComponent {
                         document.getElementById('custom-error').innerHTML = errorsHtml;
                         if (jquery__WEBPACK_IMPORTED_MODULE_4__('.log-link.open-dentacoin-gateway').length) {
                             jquery__WEBPACK_IMPORTED_MODULE_4__('.log-link.open-dentacoin-gateway').on('click', () => {
-                                this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                                    this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                }
+                                else {
+                                    this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter);
+                                }
                             });
                         }
                         this.additionalService.hideLoader();
@@ -6248,7 +6254,12 @@ class PatientRegisterByInviteComponent {
                             document.getElementById('custom-error').innerHTML = errorsHtml;
                             if (jquery__WEBPACK_IMPORTED_MODULE_4__('.log-link.open-dentacoin-gateway').length) {
                                 jquery__WEBPACK_IMPORTED_MODULE_4__('.log-link.open-dentacoin-gateway').on('click', () => {
-                                    this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                    if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                                        this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                    }
+                                    else {
+                                        this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter);
+                                    }
                                 });
                             }
                             document.getElementById('iframe-civic-popup').remove();

@@ -24,16 +24,17 @@ export class PatientRegisterByInviteComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('PatientRegisterByInvite');
         if (this.authenticationServiceService.hasPatientStorageSession()) {
             // redirect to home if logged in
             this.redirectsService.redirectToLoggedHome();
         } else {
-            if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null || this.activatedRoute.snapshot.queryParamMap.get('inviteid') == null) {
+            if (this.activatedRoute.snapshot.queryParamMap.get('invite') == null) {
                 this.redirectsService.redirectToPatientLogin('login');
             } else {
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
-                this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                    this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                }
 
                 if (!this.patientRegisterEventsAdded) {
                     document.addEventListener('patientAuthSuccessResponse', (e: any) => {
@@ -89,7 +90,11 @@ export class PatientRegisterByInviteComponent implements OnInit {
 
                         if ($('.log-link.open-dentacoin-gateway').length) {
                             $('.log-link.open-dentacoin-gateway').on('click', () => {
-                                this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                                    this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                } else {
+                                    this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter);
+                                }
                             });
                         }
 
@@ -134,7 +139,11 @@ export class PatientRegisterByInviteComponent implements OnInit {
 
                             if ($('.log-link.open-dentacoin-gateway').length) {
                                 $('.log-link.open-dentacoin-gateway').on('click', () => {
-                                    this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                    if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                                        this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter + '&inviteid=' + this.inviteId);
+                                    } else {
+                                        this.redirectsService.redirectToPatientLogin('login?invite=' + this.inviter);
+                                    }
                                 });
                             }
 
