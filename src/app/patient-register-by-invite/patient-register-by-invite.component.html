@@ -12,13 +12,13 @@
             <div class="error-handle margin-bottom-20 hide" id="patient-login-failed-missing-email">{{'patient-login-failed-missing-email' | translate}}</div>
             <div class="error-handle margin-bottom-20 hide" id="patient-login-failed-not-a-patient-of-any-dentist">{{'patient-login-failed-not-a-patient-of-any-dentist' | translate}}</div>
             <div class="padding-top-20 text-center">
-                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" [attr.data-inviter]="inviter" [attr.data-inviteid]="inviteId" class="facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 max-width-400">Continue with Facebook</a>
+                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" [attr.data-inviter]="inviter" [attr.data-inviteid]="inviteId != '' ? inviteId : null" class="facebook-custom-btn social-login-btn vanilla-js-event calibri-regular fs-20 fs-xs-18 max-width-400">Continue with Facebook</a>
             </div>
             <div class="padding-top-10 text-center">
-                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" [attr.data-inviter]="inviter" [attr.data-inviteid]="inviteId" class="civic-custom-btn social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide">Continue with Civic</a>
+                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" [attr.data-inviter]="inviter" [attr.data-inviteid]="inviteId != '' ? inviteId : null" class="civic-custom-btn social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide">Continue with Civic</a>
             </div>
             <div class="padding-top-10 text-center">
-                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" [attr.data-inviter]="inviter" [attr.data-inviteid]="inviteId" class="apple-custom-btn is-dcn-hub-app social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide">Continue with Apple</a>
+                <a href="javascript:void(0)" [attr.data-platform]="'dentacoin'" [attr.data-url]="coreDbApiDomain + '/api/register'" [attr.custom-stopper]="'true'" [attr.data-inviter]="inviter" [attr.data-inviteid]="inviteId != '' ? inviteId : null" class="apple-custom-btn is-dcn-hub-app social-login-btn type-register vanilla-js-event calibri-regular fs-20 fs-xs-18 hide">Continue with Apple</a>
             </div>
             <div class="padding-top-20 margin-0-auto">
                 <div class="custom-checkbox-style module">
