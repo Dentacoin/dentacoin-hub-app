@@ -20,6 +20,7 @@ export class PatientLoginPageComponent implements OnInit {
     patientLoginEventsAdded = false;
     public inviter = '';
     public inviteId = '';
+    public is_dentist_patient_relation_creation = '';
 
     constructor(public router: Router, public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public http: HttpClient, public translate: TranslateService, public languageService: LanguageService, public requestsService: RequestsService, public additionalService: AdditionalService, public activatedRoute: ActivatedRoute) {
     }
@@ -30,7 +31,13 @@ export class PatientLoginPageComponent implements OnInit {
             this.redirectsService.redirectToLoggedHome();
         } else {
             this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
-            this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+            if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
+                this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+            }
+
+            if (this.activatedRoute.snapshot.queryParamMap.get('is-dentist-patient-relation-creation') != null) {
+                this.is_dentist_patient_relation_creation = 'true';
+            }
 
             if (!this.patientLoginEventsAdded) {
                 this.patientLoginEventsAdded = true;

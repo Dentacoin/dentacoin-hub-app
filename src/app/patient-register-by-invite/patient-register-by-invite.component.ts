@@ -18,6 +18,7 @@ export class PatientRegisterByInviteComponent implements OnInit {
     public coreDbApiDomain = environment.coreDbApiDomain;
     public inviter = '';
     public inviteId = '';
+    public is_dentist_patient_relation_creation = '';
     patientRegisterEventsAdded = false;
 
     constructor(public authenticationServiceService: AuthenticationServiceService, public redirectsService: RedirectsService, public activatedRoute: ActivatedRoute, public translate: TranslateService, public additionalService: AdditionalService, public requestsService: RequestsService) {
@@ -34,6 +35,10 @@ export class PatientRegisterByInviteComponent implements OnInit {
                 this.inviter = this.activatedRoute.snapshot.queryParamMap.get('invite');
                 if (this.activatedRoute.snapshot.queryParamMap.get('inviteid') != null) {
                     this.inviteId = this.activatedRoute.snapshot.queryParamMap.get('inviteid');
+                }
+
+                if (this.activatedRoute.snapshot.queryParamMap.get('is-dentist-patient-relation-creation') != null) {
+                    this.is_dentist_patient_relation_creation = 'true';
                 }
 
                 if (!this.patientRegisterEventsAdded) {
